@@ -1,0 +1,942 @@
+EESchema Schematic File Version 4
+LIBS:ihouse-cache
+LIBS:test-cache
+EELAYER 26 0
+EELAYER END
+$Descr A3 16535 11693
+encoding utf-8
+Sheet 2 2
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Relay:FINDER-30.22 K?
+U 1 1 5BC63A8D
+P 14050 3350
+F 0 "K?" V 14725 3350 50  0000 C CNN
+F 1 "FINDER-30.22" V 14726 3350 50  0001 C CNN
+F 2 "Relay_THT:Relay_DPDT_Finder_40.52" H 15400 3320 50  0001 C CNN
+F 3 "http://gfinder.findernet.com/assets/Series/354/S30EN.pdf" H 13850 3350 50  0001 C CNN
+	1    14050 3350
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	14350 2950 14450 2950
+Wire Wire Line
+	14350 3350 14450 3350
+Text HLabel 14450 2950 2    50   Output ~ 0
+iSocket
+Text HLabel 14450 3350 2    50   Output ~ 0
+ISOCKN
+Text Label 13350 3750 0    50   ~ 0
+K1
+Text Label 14750 3750 2    50   ~ 0
+12VDC
+$Comp
+L disc:MOC3060S U?
+U 1 1 5BC643F3
+P 11950 4350
+F 0 "U?" H 11950 4663 50  0000 C CNN
+F 1 "MOC3060S" H 13600 4500 50  0001 L CNN
+F 2 "disc:DIP-6_W9.53mm_SMD" H 12800 4400 50  0001 L CIN
+F 3 "http://datasheet.octopart.com/MOC3063SR2M-Fairchild-Semiconductor-datasheet-10497244.pdf" H 12800 4300 50  0001 L CNN
+F 4 "-" H 11950 3950 60  0001 C CNN "ventcode"
+F 5 "Optosimistorius" H 13150 4500 60  0001 C CNN "Pavadinimas"
+F 6 "0" H 13600 4200 60  0001 C CNN "Kaina"
+F 7 "SMD" H 13250 4200 60  0001 C CNN "Korpuso tipas"
+F 8 "MOC3060S" H 11950 4574 47  0000 C CNN "Gamintojo kodas"
+	1    11950 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BC6465A
+P 12600 4250
+F 0 "R?" V 12500 4150 50  0000 C CNN
+F 1 "R" V 12500 4350 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 12530 4250 50  0001 C CNN
+F 3 "~" H 12600 4250 50  0001 C CNN
+	1    12600 4250
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	12450 4250 12250 4250
+Wire Wire Line
+	12750 4250 13000 4250
+Wire Wire Line
+	13000 4250 13000 4350
+$Comp
+L Device:R R?
+U 1 1 5BC64A93
+P 12600 4600
+F 0 "R?" V 12500 4500 50  0000 C CNN
+F 1 "R" V 12500 4700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 12530 4600 50  0001 C CNN
+F 3 "~" H 12600 4600 50  0001 C CNN
+	1    12600 4600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	12750 4600 12850 4600
+Wire Wire Line
+	12450 4600 12350 4600
+Wire Wire Line
+	12350 4600 12350 4450
+Wire Wire Line
+	12350 4450 12250 4450
+Wire Wire Line
+	12350 4600 12350 5250
+Connection ~ 12350 4600
+Text HLabel 12900 5500 2    50   Output ~ 0
+ExtractAir_WC
+Connection ~ 13000 4250
+Text Label 14600 4250 2    50   ~ 0
+ACL
+Text HLabel 12900 5650 2    50   Output ~ 0
+EAWCN
+Wire Wire Line
+	12900 5650 12800 5650
+Text Label 12450 5650 0    50   ~ 0
+ACN
+Wire Wire Line
+	11650 4250 11550 4250
+Wire Wire Line
+	11650 4450 10950 4450
+$Comp
+L Relay:G5Q-1A K?
+U 1 1 5BC6750B
+P 14050 5750
+F 0 "K?" H 13620 5750 50  0000 R CNN
+F 1 "G5Q-1A" H 13620 5795 50  0001 R CNN
+F 2 "Relay_THT:Relay_SPDT_Schrack-RP-II-1-FormC_RM3.5mm" H 14400 5700 50  0001 L CNN
+F 3 "https://www.omron.com/ecb/products/pdf/en-g5q.pdf" H 15150 5450 50  0001 C CNN
+	1    14050 5750
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	14250 6050 14250 6150
+Wire Wire Line
+	14250 6150 14500 6150
+Text HLabel 14550 5350 2    50   Output ~ 0
+LIGHTWC1
+Text HLabel 14500 6150 2    50   Output ~ 0
+LIGHTWC2
+$Comp
+L Relay:FINDER-30.22 K?
+U 1 1 5BC6EFBC
+P 14050 1900
+F 0 "K?" V 14725 1900 50  0000 C CNN
+F 1 "FINDER-30.22" V 14726 1900 50  0001 C CNN
+F 2 "Relay_THT:Relay_DPDT_Finder_40.52" H 15400 1870 50  0001 C CNN
+F 3 "http://gfinder.findernet.com/assets/Series/354/S30EN.pdf" H 13850 1900 50  0001 C CNN
+	1    14050 1900
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	14350 1900 14750 1900
+Wire Wire Line
+	14350 1500 14750 1500
+Text Label 14750 1500 2    50   ~ 0
+ACL
+Text Label 14750 1900 2    50   ~ 0
+ACN
+Text Label 14750 2300 2    50   ~ 0
+12VDC
+$Comp
+L Transistor_Array:ULN2003A U?
+U 1 1 5BC78A12
+P 9950 2200
+F 0 "U?" H 9950 2867 50  0000 C CNN
+F 1 "ULN2003A" H 9950 2776 50  0000 C CNN
+F 2 "" H 10000 1650 50  0001 L CNN
+F 3 "http://www.ti.com/lit/ds/symlink/uln2003a.pdf" H 10050 2000 50  0001 C CNN
+	1    9950 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13350 2300 13750 2300
+Wire Wire Line
+	14350 2300 14750 2300
+Wire Wire Line
+	13350 3750 13750 3750
+Wire Wire Line
+	14350 3750 14750 3750
+Text Label 13350 2300 0    50   ~ 0
+K0
+Wire Wire Line
+	10350 2000 10700 2000
+Wire Wire Line
+	10350 2100 10700 2100
+Text Label 10700 2000 2    50   ~ 0
+K0
+Text Label 10700 2100 2    50   ~ 0
+K1
+Wire Wire Line
+	9950 2800 9950 2900
+Wire Wire Line
+	9950 2900 9850 2900
+Text HLabel 9850 2900 0    50   UnSpc ~ 0
+COM
+Wire Wire Line
+	9550 2000 9150 2000
+Wire Wire Line
+	9550 2100 9150 2100
+Text HLabel 9150 2000 0    50   Input ~ 0
+INK0
+Text HLabel 9150 2100 0    50   Input ~ 0
+INK1
+Wire Wire Line
+	10350 1800 10700 1800
+Text Label 10700 1800 2    50   ~ 0
+12VDC
+$Comp
+L Device:R R?
+U 1 1 5BC7CD6F
+P 11400 4250
+F 0 "R?" V 11300 4150 50  0000 C CNN
+F 1 "R" V 11300 4350 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 11330 4250 50  0001 C CNN
+F 3 "~" H 11400 4250 50  0001 C CNN
+	1    11400 4250
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	11250 4250 10950 4250
+Text Label 10950 4450 0    50   ~ 0
+OC1
+Wire Wire Line
+	10350 2600 10700 2600
+Text Label 10700 2500 2    50   ~ 0
+OC1
+Text Label 10950 4250 0    50   ~ 0
+12VDC
+$Comp
+L Isolator:LTV-817 U?
+U 1 1 5BC87B94
+P 8750 9450
+F 0 "U?" H 8750 9775 50  0000 C CNN
+F 1 "LTV-817" H 8750 9684 50  0000 C CNN
+F 2 "Package_DIP:DIP-4_W7.62mm" H 8550 9250 50  0001 L CIN
+F 3 "http://www.us.liteon.com/downloads/LTV-817-827-847.PDF" H 8750 9350 50  0001 L CNN
+	1    8750 9450
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	8450 9550 7900 9550
+Text Label 7900 9550 0    50   ~ 0
+COM
+$Comp
+L Diode:LL4148 D?
+U 1 1 5BC8BE72
+P 9350 9450
+F 0 "D?" V 9304 9529 50  0000 L CNN
+F 1 "LL4148" V 9395 9529 50  0000 L CNN
+F 2 "Diode_SMD:D_MiniMELF" H 9350 9275 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/85557/ll4148.pdf" H 9350 9450 50  0001 C CNN
+	1    9350 9450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9050 9350 9150 9350
+Wire Wire Line
+	9150 9350 9150 9200
+Wire Wire Line
+	9150 9200 9350 9200
+Wire Wire Line
+	9350 9200 9350 9300
+Wire Wire Line
+	9050 9550 9150 9550
+Wire Wire Line
+	9150 9550 9150 9700
+Wire Wire Line
+	9150 9700 9350 9700
+Wire Wire Line
+	9350 9700 9350 9600
+Wire Wire Line
+	9350 9200 9600 9200
+Connection ~ 9350 9200
+Wire Wire Line
+	9350 9700 9600 9700
+Connection ~ 9350 9700
+$Comp
+L Device:R R?
+U 1 1 5BC8FEE7
+P 9750 9200
+F 0 "R?" V 9650 9100 50  0000 C CNN
+F 1 "33k" V 9650 9300 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 9680 9200 50  0001 C CNN
+F 3 "~" H 9750 9200 50  0001 C CNN
+	1    9750 9200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BC8FFB1
+P 9750 9700
+F 0 "R?" V 9650 9600 50  0000 C CNN
+F 1 "33k" V 9650 9800 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 9680 9700 50  0001 C CNN
+F 3 "~" H 9750 9700 50  0001 C CNN
+	1    9750 9700
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BC90026
+P 10150 9200
+F 0 "R?" V 10050 9100 50  0000 C CNN
+F 1 "33k" V 10050 9300 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 10080 9200 50  0001 C CNN
+F 3 "~" H 10150 9200 50  0001 C CNN
+	1    10150 9200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BC90060
+P 10150 9700
+F 0 "R?" V 10050 9600 50  0000 C CNN
+F 1 "33k" V 10050 9800 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 10080 9700 50  0001 C CNN
+F 3 "~" H 10150 9700 50  0001 C CNN
+	1    10150 9700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9900 9200 10000 9200
+Wire Wire Line
+	9900 9700 10000 9700
+Wire Wire Line
+	7900 9350 8450 9350
+Text Label 7900 9350 0    50   ~ 0
+LPULSE
+Wire Wire Line
+	9600 10050 9500 10050
+Wire Wire Line
+	9200 10050 9100 10050
+Wire Wire Line
+	9100 10050 9100 10100
+Wire Wire Line
+	9600 10450 9100 10450
+Wire Wire Line
+	9100 10450 9100 10400
+Wire Wire Line
+	9100 10450 8600 10450
+Wire Wire Line
+	8600 10450 8600 10500
+Connection ~ 9100 10450
+Wire Wire Line
+	8500 10450 8600 10450
+Connection ~ 8600 10450
+Wire Wire Line
+	9100 10050 7900 10050
+Connection ~ 9100 10050
+Wire Wire Line
+	8200 10450 7900 10450
+Text Label 7900 10050 0    50   ~ 0
+AIN
+Text Label 7900 10450 0    50   ~ 0
+VREF
+$Comp
+L capacitors:CP_100uFx16V C?
+U 1 1 5BC1DECF
+P 9100 10650
+F 0 "C?" H 8800 10700 50  0000 L CNN
+F 1 "100uFx16V" H 8550 10600 50  0000 L CNN
+F 2 "Capacitors_SMD:CP_Elec_6.3x5.7" H 9950 10900 50  0001 C CNN
+F 3 "" H 9125 10750 50  0001 C CNN
+F 4 "-" H 9150 10400 60  0001 C CNN "ventcode"
+F 5 "0.06" H 9850 10700 60  0001 C CNN "Kaina"
+F 6 "Kondensatorius elektrolitinis" H 9950 11000 60  0001 C CNN "Pavadinimas"
+F 7 "100uFx16V" H 9218 10604 60  0001 L CNN "Nominalas"
+F 8 "DIP" H 10050 10800 60  0001 C CNN "Korpuso tipas"
+	1    9100 10650
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	9100 10500 9100 10450
+Wire Wire Line
+	10400 10050 10600 10050
+Wire Wire Line
+	10400 10450 10450 10450
+Text Label 11250 10050 2    50   ~ 0
+230L
+Text Label 11250 10450 2    50   ~ 0
+230N
+$Comp
+L disc:Transformer_TEZ_22x24_6V T?
+U 1 1 5BCA7928
+P 10000 10250
+F 0 "T?" H 10000 10537 50  0000 C CNN
+F 1 "Transformer_TEZ_22x24_6V" H 10000 10537 50  0001 C CNN
+F 2 "disc:Transformer_Breve_TEZ-22x24_6V" H 11400 10350 50  0001 C CNN
+F 3 "" H 10000 10500 50  0001 C CNN
+F 4 "Transformatorius" H 11100 10250 60  0001 C CNN "Pavadinimas"
+F 5 "ventcode" H 11800 10250 60  0001 C CNN "ventcode"
+F 6 "0" H 10800 10150 60  0001 C CNN "Kaina"
+F 7 "DIP" H 11200 10150 60  0001 C CNN "Korpuso tipas"
+F 8 "6V/0.35A" H 10000 10544 60  0001 C CNN "Nominalas"
+F 9 "15 mm" H 11550 10150 60  0001 C CNN "Aukstis"
+	1    10000 10250
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	10450 9700 10450 10450
+Wire Wire Line
+	10300 9700 10450 9700
+Connection ~ 10450 10450
+Wire Wire Line
+	10450 10450 11250 10450
+Wire Wire Line
+	10600 9200 10600 10050
+Wire Wire Line
+	10300 9200 10600 9200
+Connection ~ 10600 10050
+Wire Wire Line
+	10600 10050 10700 10050
+$Comp
+L Device:Thermistor_PTC TH?
+U 1 1 5BCECEDB
+P 10850 10050
+F 0 "TH?" V 10700 10000 50  0000 C CNN
+F 1 "230V/150mA" V 11000 10050 50  0000 C CNN
+F 2 "" H 10900 9850 50  0001 L CNN
+F 3 "~" H 10850 10050 50  0001 C CNN
+	1    10850 10050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	11000 10050 11250 10050
+$Comp
+L disc:MOC3060S U?
+U 1 1 5BCF4FFD
+P 12600 6700
+F 0 "U?" H 12600 7013 50  0000 C CNN
+F 1 "MOC3060S" H 14250 6850 50  0001 L CNN
+F 2 "disc:DIP-6_W9.53mm_SMD" H 13450 6750 50  0001 L CIN
+F 3 "http://datasheet.octopart.com/MOC3063SR2M-Fairchild-Semiconductor-datasheet-10497244.pdf" H 13450 6650 50  0001 L CNN
+F 4 "-" H 12600 6300 60  0001 C CNN "ventcode"
+F 5 "Optosimistorius" H 13800 6850 60  0001 C CNN "Pavadinimas"
+F 6 "0" H 14250 6550 60  0001 C CNN "Kaina"
+F 7 "SMD" H 13900 6550 60  0001 C CNN "Korpuso tipas"
+F 8 "MOC3060S" H 12600 6924 47  0000 C CNN "Gamintojo kodas"
+	1    12600 6700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BCF5009
+P 13250 6600
+F 0 "R?" V 13150 6500 50  0000 C CNN
+F 1 "R" V 13150 6700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13180 6600 50  0001 C CNN
+F 3 "~" H 13250 6600 50  0001 C CNN
+	1    13250 6600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	13100 6600 12900 6600
+Wire Wire Line
+	13400 6600 13650 6600
+Wire Wire Line
+	13650 6600 13650 6700
+$Comp
+L Device:R R?
+U 1 1 5BCF5012
+P 13250 6950
+F 0 "R?" V 13150 6850 50  0000 C CNN
+F 1 "R" V 13150 7050 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13180 6950 50  0001 C CNN
+F 3 "~" H 13250 6950 50  0001 C CNN
+	1    13250 6950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	13400 6950 13500 6950
+Wire Wire Line
+	13100 6950 13000 6950
+Wire Wire Line
+	13000 6950 13000 6800
+Wire Wire Line
+	13000 6800 12900 6800
+Wire Wire Line
+	13000 6950 13000 7150
+Wire Wire Line
+	13000 7150 13650 7150
+Wire Wire Line
+	13650 7150 13650 7000
+Connection ~ 13000 6950
+Connection ~ 13650 7150
+Wire Wire Line
+	13650 6600 14050 6600
+Connection ~ 13650 6600
+Wire Wire Line
+	12300 6600 12200 6600
+Wire Wire Line
+	12300 6800 11600 6800
+Wire Wire Line
+	14500 7150 13650 7150
+$Comp
+L Device:R R?
+U 1 1 5BCF5026
+P 12050 6600
+F 0 "R?" V 11950 6500 50  0000 C CNN
+F 1 "R" V 11950 6700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 11980 6600 50  0001 C CNN
+F 3 "~" H 12050 6600 50  0001 C CNN
+	1    12050 6600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	11900 6600 11600 6600
+Text Label 11600 6800 0    50   ~ 0
+OC2
+Text Label 11600 6600 0    50   ~ 0
+12VDC
+Text Label 14050 6600 2    50   ~ 0
+ACL
+Wire Wire Line
+	10350 2500 10700 2500
+Text Label 10700 2600 2    50   ~ 0
+OC2
+Text HLabel 14500 7150 2    50   Output ~ 0
+ExtractAir_KITCH
+Text HLabel 14500 7000 2    50   Output ~ 0
+EAKITCHN
+Wire Wire Line
+	14500 7000 14250 7000
+Text Label 14250 7000 0    50   ~ 0
+ACN
+Wire Wire Line
+	9550 2500 9150 2500
+Wire Wire Line
+	9550 2600 9150 2600
+Text HLabel 9150 2500 0    50   Input ~ 0
+INOC1
+Text HLabel 9150 2600 0    50   Input ~ 0
+INOC2
+$Comp
+L Device:R R?
+U 1 1 5BD17636
+P 9350 10050
+F 0 "R?" V 9250 9950 50  0000 C CNN
+F 1 "1k" V 9250 10150 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 9280 10050 50  0001 C CNN
+F 3 "~" H 9350 10050 50  0001 C CNN
+	1    9350 10050
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BD178E3
+P 9100 10250
+F 0 "R?" H 9250 10300 50  0000 C CNN
+F 1 "120" H 9250 10200 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 9030 10250 50  0001 C CNN
+F 3 "~" H 9100 10250 50  0001 C CNN
+	1    9100 10250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BD22557
+P 8600 10650
+F 0 "R?" H 8750 10700 50  0000 C CNN
+F 1 "Rx" H 8750 10600 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 8530 10650 50  0001 C CNN
+F 3 "~" H 8600 10650 50  0001 C CNN
+	1    8600 10650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BD226B9
+P 8350 10450
+F 0 "R?" V 8450 10550 50  0000 C CNN
+F 1 "Rx" V 8450 10400 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 8280 10450 50  0001 C CNN
+F 3 "~" H 8350 10450 50  0001 C CNN
+	1    8350 10450
+	0    -1   -1   0   
+$EndComp
+Text HLabel 13350 850  2    50   Output ~ 0
+AirExtractor_L
+Text HLabel 13350 1000 2    50   Output ~ 0
+AirExtractor_N
+Wire Wire Line
+	12550 1000 13100 1000
+Wire Wire Line
+	12550 850  13200 850 
+$Comp
+L Device:Fuse F?
+U 1 1 5BD5CB3F
+P 13450 1400
+F 0 "F?" V 13350 1300 50  0000 C CNN
+F 1 "3A" V 13350 1500 50  0000 C CNN
+F 2 "Fuse:Fuseholder_Cylinder-5x20mm_Schurter_0031_8201_Horizontal_Open" V 13380 1400 50  0001 C CNN
+F 3 "~" H 13450 1400 50  0001 C CNN
+	1    13450 1400
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	13600 1400 13750 1400
+Wire Wire Line
+	8600 10900 9100 10900
+Wire Wire Line
+	8600 10800 8600 10900
+Wire Wire Line
+	9100 10800 9100 10900
+Wire Wire Line
+	8600 10900 8250 10900
+Connection ~ 8600 10900
+Text Label 8250 10900 0    50   ~ 0
+COM
+$Comp
+L Relay:G5Q-1A K?
+U 1 1 5BDAC595
+P 14050 4800
+F 0 "K?" H 13620 4800 50  0000 R CNN
+F 1 "G5Q-1A" H 13620 4845 50  0001 R CNN
+F 2 "Relay_THT:Relay_SPDT_Schrack-RP-II-1-FormC_RM3.5mm" H 14400 4750 50  0001 L CNN
+F 3 "https://www.omron.com/ecb/products/pdf/en-g5q.pdf" H 15150 4500 50  0001 C CNN
+	1    14050 4800
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	13850 5100 13850 5250
+Wire Wire Line
+	13000 5250 13000 4650
+Wire Wire Line
+	14250 5100 14250 5200
+Wire Wire Line
+	14250 5200 14550 5200
+Wire Wire Line
+	14250 4500 14250 4400
+Wire Wire Line
+	14250 4400 14550 4400
+Text HLabel 14550 4400 2    50   Output ~ 0
+LIGHTBASH1
+Text HLabel 14550 5200 2    50   Output ~ 0
+LIGHTBASH2
+Wire Wire Line
+	13000 5250 12350 5250
+Connection ~ 12350 5250
+Wire Wire Line
+	12350 5250 12350 5500
+Wire Wire Line
+	13000 5250 13850 5250
+Connection ~ 13000 5250
+Wire Wire Line
+	13850 4500 13850 4250
+Connection ~ 13850 4250
+Wire Wire Line
+	13850 4250 14600 4250
+Wire Wire Line
+	14250 5350 14550 5350
+Wire Wire Line
+	14250 5350 14250 5450
+Text Notes 14700 4800 0    50   Italic 0
+Vonios apsvietimas\n230VAC
+Text Notes 14700 5800 0    50   Italic 0
+WC apsvietimas\n230VAC
+Wire Wire Line
+	13000 4250 13600 4250
+Wire Wire Line
+	12350 5500 12900 5500
+Wire Wire Line
+	13850 5250 13850 5450
+Connection ~ 13850 5250
+Wire Wire Line
+	13850 6050 13850 6150
+Wire Wire Line
+	13850 6150 13600 6150
+Wire Wire Line
+	13600 6150 13600 4250
+Connection ~ 13600 4250
+Wire Wire Line
+	13600 4250 13850 4250
+$Comp
+L Relay:G5Q-1A K?
+U 1 1 5BEDF07A
+P 13750 8050
+F 0 "K?" H 13320 8050 50  0000 R CNN
+F 1 "G5Q-1A" H 13320 8095 50  0001 R CNN
+F 2 "Relay_THT:Relay_SPDT_Schrack-RP-II-1-FormC_RM5mm" H 14100 8000 50  0001 L CNN
+F 3 "https://www.omron.com/ecb/products/pdf/en-g5q.pdf" H 14850 7750 50  0001 C CNN
+	1    13750 8050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13550 7750 13550 7650
+Wire Wire Line
+	13550 7650 13100 7650
+Wire Wire Line
+	13550 8350 13550 8450
+Wire Wire Line
+	13550 8450 13100 8450
+Wire Wire Line
+	13950 7750 13950 7650
+Wire Wire Line
+	13950 7650 14250 7650
+Wire Wire Line
+	13950 8350 13950 8450
+Wire Wire Line
+	13950 8450 14550 8450
+Text Label 13100 7650 0    50   ~ 0
+12VDC
+Text Label 13100 8450 0    50   ~ 0
+K2
+Wire Wire Line
+	10350 2200 10700 2200
+Text Label 10700 2200 2    50   ~ 0
+K2
+Wire Wire Line
+	9550 2200 9150 2200
+Text HLabel 9150 2200 0    50   Input ~ 0
+INK2
+Text Label 14250 7650 2    50   ~ 0
+ACL
+Text HLabel 14550 8450 2    50   Output ~ 0
+WORKLIGHT
+Text HLabel 14550 8300 2    50   Output ~ 0
+WORKLIGHT_N
+Wire Wire Line
+	14550 8300 14250 8300
+Text Label 14250 8300 0    50   ~ 0
+ACN
+Text Notes 15200 8450 0    50   Italic 0
+Virtuves darbo\nzonos apsvietimas
+Text Notes 12950 5900 0    50   Italic 0
+Vonios ir WC\nventiliatorius
+Text Notes 15250 7100 0    50   Italic 0
+Virtuves\nventiliatorius
+Text Notes 14050 950  0    50   Italic 0
+Garu surinktuvas
+Text Notes 14750 3200 0    50   Italic 0
+Arkos rozete
+Text Label 12550 850  0    50   ~ 0
+230L
+Text Label 12550 1000 0    50   ~ 0
+230N
+Wire Wire Line
+	13200 850  13200 1400
+Wire Wire Line
+	13200 1400 13300 1400
+Connection ~ 13200 850 
+Wire Wire Line
+	13200 850  13350 850 
+Wire Wire Line
+	13200 1400 13200 2850
+Wire Wire Line
+	13200 2850 13750 2850
+Connection ~ 13200 1400
+Wire Wire Line
+	13100 1800 13100 1000
+Wire Wire Line
+	13100 1800 13750 1800
+Connection ~ 13100 1000
+Wire Wire Line
+	13100 1000 13350 1000
+Wire Wire Line
+	13100 3250 13100 1800
+Wire Wire Line
+	13100 3250 13750 3250
+Connection ~ 13100 1800
+$Comp
+L Relay:G5Q-1A K?
+U 1 1 5BFB5E20
+P 13750 9100
+F 0 "K?" H 13320 9100 50  0000 R CNN
+F 1 "G5Q-1A" H 13320 9145 50  0001 R CNN
+F 2 "Relay_THT:Relay_SPDT_Schrack-RP-II-1-FormC_RM5mm" H 14100 9050 50  0001 L CNN
+F 3 "https://www.omron.com/ecb/products/pdf/en-g5q.pdf" H 14850 8800 50  0001 C CNN
+	1    13750 9100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13550 8800 13550 8700
+Wire Wire Line
+	13550 8700 13100 8700
+Wire Wire Line
+	13550 9400 13550 9500
+Wire Wire Line
+	13550 9500 13100 9500
+Wire Wire Line
+	13950 8800 13950 8700
+Wire Wire Line
+	13950 8700 14250 8700
+Wire Wire Line
+	13950 9400 13950 9500
+Wire Wire Line
+	13950 9500 14550 9500
+Text Label 13100 8700 0    50   ~ 0
+12VDC
+Text Label 13100 9500 0    50   ~ 0
+K3
+Text Label 14250 8700 2    50   ~ 0
+ACL
+Text HLabel 14550 9500 2    50   Output ~ 0
+EHALLLIGHT
+Text HLabel 14550 9350 2    50   Output ~ 0
+EHALLLIGHT_N
+Wire Wire Line
+	14550 9350 14250 9350
+Text Label 14250 9350 0    50   ~ 0
+ACN
+Text Notes 15250 9500 0    50   Italic 0
+Koridoriaus\napsvietimas
+Wire Wire Line
+	10350 2300 10700 2300
+Text Label 10700 2300 2    50   ~ 0
+K3
+Wire Wire Line
+	9550 2300 9150 2300
+Text HLabel 9150 2300 0    50   Input ~ 0
+INK3
+$Comp
+L Triac_Thyristor:Z0103MN D?
+U 1 1 5BFEC09C
+P 13650 6850
+F 0 "D?" H 13779 6896 50  0000 L CNN
+F 1 "Z0103MN" H 13779 6805 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-223" H 14400 6700 50  0001 C CNN
+F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 13800 7150 50  0001 C CNN
+	1    13650 6850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Triac_Thyristor:Z0103MN D?
+U 1 1 5BFEC46C
+P 13000 4500
+F 0 "D?" H 13129 4546 50  0000 L CNN
+F 1 "Z0103MN" H 13129 4455 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-223" H 13750 4350 50  0001 C CNN
+F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 13150 4800 50  0001 C CNN
+	1    13000 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5C043341
+P 11750 5500
+F 0 "R?" V 11650 5400 50  0000 C CNN
+F 1 "33k" V 11650 5600 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 11680 5500 50  0001 C CNN
+F 3 "~" H 11750 5500 50  0001 C CNN
+	1    11750 5500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5C049706
+P 12100 5500
+F 0 "R?" V 12000 5400 50  0000 C CNN
+F 1 "33k" V 12000 5600 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 12030 5500 50  0001 C CNN
+F 3 "~" H 12100 5500 50  0001 C CNN
+	1    12100 5500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5C04F6B0
+P 11750 5700
+F 0 "R?" V 11650 5600 50  0000 C CNN
+F 1 "33k" V 11650 5800 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 11680 5700 50  0001 C CNN
+F 3 "~" H 11750 5700 50  0001 C CNN
+	1    11750 5700
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5C04F70A
+P 12100 5700
+F 0 "R?" V 12000 5600 50  0000 C CNN
+F 1 "33k" V 12000 5800 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 12030 5700 50  0001 C CNN
+F 3 "~" H 12100 5700 50  0001 C CNN
+	1    12100 5700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	12250 5700 12800 5700
+Wire Wire Line
+	12800 5700 12800 5650
+Connection ~ 12800 5650
+Wire Wire Line
+	12800 5650 12450 5650
+Wire Wire Line
+	12350 5500 12250 5500
+Connection ~ 12350 5500
+Wire Wire Line
+	11950 5500 11900 5500
+Wire Wire Line
+	11950 5700 11900 5700
+$Comp
+L Diode:LL4148 D?
+U 1 1 5C06FCE3
+P 11200 5600
+F 0 "D?" V 11154 5679 50  0000 L CNN
+F 1 "LL4148" V 11245 5679 50  0000 L CNN
+F 2 "Diode_SMD:D_MiniMELF" H 11200 5425 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/85557/ll4148.pdf" H 11200 5600 50  0001 C CNN
+	1    11200 5600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	11000 5500 11050 5500
+Wire Wire Line
+	11050 5500 11050 5400
+Wire Wire Line
+	11050 5400 11200 5400
+Wire Wire Line
+	11500 5400 11500 5500
+Wire Wire Line
+	11500 5500 11600 5500
+Wire Wire Line
+	11000 5700 11050 5700
+Wire Wire Line
+	11050 5700 11050 5800
+Wire Wire Line
+	11050 5800 11200 5800
+Wire Wire Line
+	11500 5800 11500 5700
+Wire Wire Line
+	11500 5700 11600 5700
+Wire Wire Line
+	11200 5450 11200 5400
+Connection ~ 11200 5400
+Wire Wire Line
+	11200 5400 11500 5400
+Wire Wire Line
+	11200 5750 11200 5800
+Connection ~ 11200 5800
+Wire Wire Line
+	11200 5800 11500 5800
+$Comp
+L Isolator:LTV-817 U?
+U 1 1 5C09C33B
+P 10700 5600
+F 0 "U?" H 10700 5925 50  0000 C CNN
+F 1 "LTV-817" H 10700 5834 50  0000 C CNN
+F 2 "Package_DIP:DIP-4_W7.62mm" H 10500 5400 50  0001 L CIN
+F 3 "http://www.us.liteon.com/downloads/LTV-817-827-847.PDF" H 10700 5500 50  0001 L CNN
+	1    10700 5600
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	10400 5700 9950 5700
+Wire Wire Line
+	10400 5500 9950 5500
+Text Label 9950 5500 0    50   ~ 0
+LIGHTON
+Text Label 9950 5700 0    50   ~ 0
+COM
+$EndSCHEMATC
