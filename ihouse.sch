@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
 LIBS:ihouse-cache
-LIBS:test-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268

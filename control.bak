@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
 LIBS:ihouse-cache
-LIBS:test-cache
 EELAYER 26 0
 EELAYER END
 $Descr A3 16535 11693
@@ -15,17 +14,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L Relay:FINDER-30.22 K?
-U 1 1 5BC63A8D
-P 14050 3350
-F 0 "K?" V 14725 3350 50  0000 C CNN
-F 1 "FINDER-30.22" V 14726 3350 50  0001 C CNN
-F 2 "Relay_THT:Relay_DPDT_Finder_40.52" H 15400 3320 50  0001 C CNN
-F 3 "http://gfinder.findernet.com/assets/Series/354/S30EN.pdf" H 13850 3350 50  0001 C CNN
-	1    14050 3350
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	14350 2950 14450 2950
 Wire Wire Line
@@ -39,10 +27,10 @@ K1
 Text Label 14750 3750 2    50   ~ 0
 12VDC
 $Comp
-L disc:MOC3060S U?
+L disc:MOC3060S U4
 U 1 1 5BC643F3
 P 11950 4350
-F 0 "U?" H 11950 4663 50  0000 C CNN
+F 0 "U4" H 11950 4663 50  0000 C CNN
 F 1 "MOC3060S" H 13600 4500 50  0001 L CNN
 F 2 "disc:DIP-6_W9.53mm_SMD" H 12800 4400 50  0001 L CIN
 F 3 "http://datasheet.octopart.com/MOC3063SR2M-Fairchild-Semiconductor-datasheet-10497244.pdf" H 12800 4300 50  0001 L CNN
@@ -55,10 +43,10 @@ F 8 "MOC3060S" H 11950 4574 47  0000 C CNN "Gamintojo kodas"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R15
 U 1 1 5BC6465A
 P 12600 4250
-F 0 "R?" V 12500 4150 50  0000 C CNN
+F 0 "R15" V 12500 4150 50  0000 C CNN
 F 1 "R" V 12500 4350 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 12530 4250 50  0001 C CNN
 F 3 "~" H 12600 4250 50  0001 C CNN
@@ -72,10 +60,10 @@ Wire Wire Line
 Wire Wire Line
 	13000 4250 13000 4350
 $Comp
-L Device:R R?
+L Device:R R16
 U 1 1 5BC64A93
 P 12600 4600
-F 0 "R?" V 12500 4500 50  0000 C CNN
+F 0 "R16" V 12500 4500 50  0000 C CNN
 F 1 "R" V 12500 4700 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 12530 4600 50  0001 C CNN
 F 3 "~" H 12600 4600 50  0001 C CNN
@@ -108,17 +96,6 @@ Wire Wire Line
 	11650 4250 11550 4250
 Wire Wire Line
 	11650 4450 10950 4450
-$Comp
-L Relay:G5Q-1A K?
-U 1 1 5BC6750B
-P 14050 5750
-F 0 "K?" H 13620 5750 50  0000 R CNN
-F 1 "G5Q-1A" H 13620 5795 50  0001 R CNN
-F 2 "Relay_THT:Relay_SPDT_Schrack-RP-II-1-FormC_RM3.5mm" H 14400 5700 50  0001 L CNN
-F 3 "https://www.omron.com/ecb/products/pdf/en-g5q.pdf" H 15150 5450 50  0001 C CNN
-	1    14050 5750
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	14250 6050 14250 6150
 Wire Wire Line
@@ -127,17 +104,6 @@ Text HLabel 14550 5350 2    50   Output ~ 0
 LIGHTWC1
 Text HLabel 14500 6150 2    50   Output ~ 0
 LIGHTWC2
-$Comp
-L Relay:FINDER-30.22 K?
-U 1 1 5BC6EFBC
-P 14050 1900
-F 0 "K?" V 14725 1900 50  0000 C CNN
-F 1 "FINDER-30.22" V 14726 1900 50  0001 C CNN
-F 2 "Relay_THT:Relay_DPDT_Finder_40.52" H 15400 1870 50  0001 C CNN
-F 3 "http://gfinder.findernet.com/assets/Series/354/S30EN.pdf" H 13850 1900 50  0001 C CNN
-	1    14050 1900
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	14350 1900 14750 1900
 Wire Wire Line
@@ -149,10 +115,10 @@ ACN
 Text Label 14750 2300 2    50   ~ 0
 12VDC
 $Comp
-L Transistor_Array:ULN2003A U?
+L Transistor_Array:ULN2003A U2
 U 1 1 5BC78A12
 P 9950 2200
-F 0 "U?" H 9950 2867 50  0000 C CNN
+F 0 "U2" H 9950 2867 50  0000 C CNN
 F 1 "ULN2003A" H 9950 2776 50  0000 C CNN
 F 2 "" H 10000 1650 50  0001 L CNN
 F 3 "http://www.ti.com/lit/ds/symlink/uln2003a.pdf" H 10050 2000 50  0001 C CNN
@@ -196,10 +162,10 @@ Wire Wire Line
 Text Label 10700 1800 2    50   ~ 0
 12VDC
 $Comp
-L Device:R R?
+L Device:R R9
 U 1 1 5BC7CD6F
 P 11400 4250
-F 0 "R?" V 11300 4150 50  0000 C CNN
+F 0 "R9" V 11300 4150 50  0000 C CNN
 F 1 "R" V 11300 4350 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 11330 4250 50  0001 C CNN
 F 3 "~" H 11400 4250 50  0001 C CNN
@@ -217,10 +183,10 @@ OC1
 Text Label 10950 4250 0    50   ~ 0
 12VDC
 $Comp
-L Isolator:LTV-817 U?
+L Isolator:LTV-817 U1
 U 1 1 5BC87B94
 P 8750 9450
-F 0 "U?" H 8750 9775 50  0000 C CNN
+F 0 "U1" H 8750 9775 50  0000 C CNN
 F 1 "LTV-817" H 8750 9684 50  0000 C CNN
 F 2 "Package_DIP:DIP-4_W7.62mm" H 8550 9250 50  0001 L CIN
 F 3 "http://www.us.liteon.com/downloads/LTV-817-827-847.PDF" H 8750 9350 50  0001 L CNN
@@ -232,10 +198,10 @@ Wire Wire Line
 Text Label 7900 9550 0    50   ~ 0
 COM
 $Comp
-L Diode:LL4148 D?
+L Diode:LL4148 D1
 U 1 1 5BC8BE72
 P 9350 9450
-F 0 "D?" V 9304 9529 50  0000 L CNN
+F 0 "D1" V 9304 9529 50  0000 L CNN
 F 1 "LL4148" V 9395 9529 50  0000 L CNN
 F 2 "Diode_SMD:D_MiniMELF" H 9350 9275 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/85557/ll4148.pdf" H 9350 9450 50  0001 C CNN
@@ -265,10 +231,10 @@ Wire Wire Line
 	9350 9700 9600 9700
 Connection ~ 9350 9700
 $Comp
-L Device:R R?
+L Device:R R5
 U 1 1 5BC8FEE7
 P 9750 9200
-F 0 "R?" V 9650 9100 50  0000 C CNN
+F 0 "R5" V 9650 9100 50  0000 C CNN
 F 1 "33k" V 9650 9300 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 9680 9200 50  0001 C CNN
 F 3 "~" H 9750 9200 50  0001 C CNN
@@ -276,10 +242,10 @@ F 3 "~" H 9750 9200 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R6
 U 1 1 5BC8FFB1
 P 9750 9700
-F 0 "R?" V 9650 9600 50  0000 C CNN
+F 0 "R6" V 9650 9600 50  0000 C CNN
 F 1 "33k" V 9650 9800 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 9680 9700 50  0001 C CNN
 F 3 "~" H 9750 9700 50  0001 C CNN
@@ -287,10 +253,10 @@ F 3 "~" H 9750 9700 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R7
 U 1 1 5BC90026
 P 10150 9200
-F 0 "R?" V 10050 9100 50  0000 C CNN
+F 0 "R7" V 10050 9100 50  0000 C CNN
 F 1 "33k" V 10050 9300 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 10080 9200 50  0001 C CNN
 F 3 "~" H 10150 9200 50  0001 C CNN
@@ -298,10 +264,10 @@ F 3 "~" H 10150 9200 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R8
 U 1 1 5BC90060
 P 10150 9700
-F 0 "R?" V 10050 9600 50  0000 C CNN
+F 0 "R8" V 10050 9600 50  0000 C CNN
 F 1 "33k" V 10050 9800 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 10080 9700 50  0001 C CNN
 F 3 "~" H 10150 9700 50  0001 C CNN
@@ -344,10 +310,10 @@ AIN
 Text Label 7900 10450 0    50   ~ 0
 VREF
 $Comp
-L capacitors:CP_100uFx16V C?
+L capacitors:CP_100uFx16V C1
 U 1 1 5BC1DECF
 P 9100 10650
-F 0 "C?" H 8800 10700 50  0000 L CNN
+F 0 "C1" H 8800 10700 50  0000 L CNN
 F 1 "100uFx16V" H 8550 10600 50  0000 L CNN
 F 2 "Capacitors_SMD:CP_Elec_6.3x5.7" H 9950 10900 50  0001 C CNN
 F 3 "" H 9125 10750 50  0001 C CNN
@@ -370,19 +336,13 @@ Text Label 11250 10050 2    50   ~ 0
 Text Label 11250 10450 2    50   ~ 0
 230N
 $Comp
-L disc:Transformer_TEZ_22x24_6V T?
+L disc:Transformer_TEZ_22x24_6V T1
 U 1 1 5BCA7928
 P 10000 10250
-F 0 "T?" H 10000 10537 50  0000 C CNN
+F 0 "T1" H 10000 10537 50  0000 C CNN
 F 1 "Transformer_TEZ_22x24_6V" H 10000 10537 50  0001 C CNN
-F 2 "disc:Transformer_Breve_TEZ-22x24_6V" H 11400 10350 50  0001 C CNN
+F 2 "Transformer_THT:Transformer_Breve_TEZ-22x24" H 11400 10350 50  0001 C CNN
 F 3 "" H 10000 10500 50  0001 C CNN
-F 4 "Transformatorius" H 11100 10250 60  0001 C CNN "Pavadinimas"
-F 5 "ventcode" H 11800 10250 60  0001 C CNN "ventcode"
-F 6 "0" H 10800 10150 60  0001 C CNN "Kaina"
-F 7 "DIP" H 11200 10150 60  0001 C CNN "Korpuso tipas"
-F 8 "6V/0.35A" H 10000 10544 60  0001 C CNN "Nominalas"
-F 9 "15 mm" H 11550 10150 60  0001 C CNN "Aukstis"
 	1    10000 10250
 	-1   0    0    -1  
 $EndComp
@@ -401,10 +361,10 @@ Connection ~ 10600 10050
 Wire Wire Line
 	10600 10050 10700 10050
 $Comp
-L Device:Thermistor_PTC TH?
+L Device:Thermistor_PTC TH1
 U 1 1 5BCECEDB
 P 10850 10050
-F 0 "TH?" V 10700 10000 50  0000 C CNN
+F 0 "TH1" V 10700 10000 50  0000 C CNN
 F 1 "230V/150mA" V 11000 10050 50  0000 C CNN
 F 2 "" H 10900 9850 50  0001 L CNN
 F 3 "~" H 10850 10050 50  0001 C CNN
@@ -414,10 +374,10 @@ $EndComp
 Wire Wire Line
 	11000 10050 11250 10050
 $Comp
-L disc:MOC3060S U?
+L disc:MOC3060S U5
 U 1 1 5BCF4FFD
 P 12600 6700
-F 0 "U?" H 12600 7013 50  0000 C CNN
+F 0 "U5" H 12600 7013 50  0000 C CNN
 F 1 "MOC3060S" H 14250 6850 50  0001 L CNN
 F 2 "disc:DIP-6_W9.53mm_SMD" H 13450 6750 50  0001 L CIN
 F 3 "http://datasheet.octopart.com/MOC3063SR2M-Fairchild-Semiconductor-datasheet-10497244.pdf" H 13450 6650 50  0001 L CNN
@@ -430,10 +390,10 @@ F 8 "MOC3060S" H 12600 6924 47  0000 C CNN "Gamintojo kodas"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R17
 U 1 1 5BCF5009
 P 13250 6600
-F 0 "R?" V 13150 6500 50  0000 C CNN
+F 0 "R17" V 13150 6500 50  0000 C CNN
 F 1 "R" V 13150 6700 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13180 6600 50  0001 C CNN
 F 3 "~" H 13250 6600 50  0001 C CNN
@@ -447,10 +407,10 @@ Wire Wire Line
 Wire Wire Line
 	13650 6600 13650 6700
 $Comp
-L Device:R R?
+L Device:R R18
 U 1 1 5BCF5012
 P 13250 6950
-F 0 "R?" V 13150 6850 50  0000 C CNN
+F 0 "R18" V 13150 6850 50  0000 C CNN
 F 1 "R" V 13150 7050 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13180 6950 50  0001 C CNN
 F 3 "~" H 13250 6950 50  0001 C CNN
@@ -483,10 +443,10 @@ Wire Wire Line
 Wire Wire Line
 	14500 7150 13650 7150
 $Comp
-L Device:R R?
+L Device:R R12
 U 1 1 5BCF5026
 P 12050 6600
-F 0 "R?" V 11950 6500 50  0000 C CNN
+F 0 "R12" V 11950 6500 50  0000 C CNN
 F 1 "R" V 11950 6700 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 11980 6600 50  0001 C CNN
 F 3 "~" H 12050 6600 50  0001 C CNN
@@ -522,10 +482,10 @@ INOC1
 Text HLabel 9150 2600 0    50   Input ~ 0
 INOC2
 $Comp
-L Device:R R?
+L Device:R R4
 U 1 1 5BD17636
 P 9350 10050
-F 0 "R?" V 9250 9950 50  0000 C CNN
+F 0 "R4" V 9250 9950 50  0000 C CNN
 F 1 "1k" V 9250 10150 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 9280 10050 50  0001 C CNN
 F 3 "~" H 9350 10050 50  0001 C CNN
@@ -533,10 +493,10 @@ F 3 "~" H 9350 10050 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R3
 U 1 1 5BD178E3
 P 9100 10250
-F 0 "R?" H 9250 10300 50  0000 C CNN
+F 0 "R3" H 9250 10300 50  0000 C CNN
 F 1 "120" H 9250 10200 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 9030 10250 50  0001 C CNN
 F 3 "~" H 9100 10250 50  0001 C CNN
@@ -544,10 +504,10 @@ F 3 "~" H 9100 10250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R2
 U 1 1 5BD22557
 P 8600 10650
-F 0 "R?" H 8750 10700 50  0000 C CNN
+F 0 "R2" H 8750 10700 50  0000 C CNN
 F 1 "Rx" H 8750 10600 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 8530 10650 50  0001 C CNN
 F 3 "~" H 8600 10650 50  0001 C CNN
@@ -555,10 +515,10 @@ F 3 "~" H 8600 10650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R1
 U 1 1 5BD226B9
 P 8350 10450
-F 0 "R?" V 8450 10550 50  0000 C CNN
+F 0 "R1" V 8450 10550 50  0000 C CNN
 F 1 "Rx" V 8450 10400 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 8280 10450 50  0001 C CNN
 F 3 "~" H 8350 10450 50  0001 C CNN
@@ -574,10 +534,10 @@ Wire Wire Line
 Wire Wire Line
 	12550 850  13200 850 
 $Comp
-L Device:Fuse F?
+L Device:Fuse F1
 U 1 1 5BD5CB3F
 P 13450 1400
-F 0 "F?" V 13350 1300 50  0000 C CNN
+F 0 "F1" V 13350 1300 50  0000 C CNN
 F 1 "3A" V 13350 1500 50  0000 C CNN
 F 2 "Fuse:Fuseholder_Cylinder-5x20mm_Schurter_0031_8201_Horizontal_Open" V 13380 1400 50  0001 C CNN
 F 3 "~" H 13450 1400 50  0001 C CNN
@@ -597,17 +557,6 @@ Wire Wire Line
 Connection ~ 8600 10900
 Text Label 8250 10900 0    50   ~ 0
 COM
-$Comp
-L Relay:G5Q-1A K?
-U 1 1 5BDAC595
-P 14050 4800
-F 0 "K?" H 13620 4800 50  0000 R CNN
-F 1 "G5Q-1A" H 13620 4845 50  0001 R CNN
-F 2 "Relay_THT:Relay_SPDT_Schrack-RP-II-1-FormC_RM3.5mm" H 14400 4750 50  0001 L CNN
-F 3 "https://www.omron.com/ecb/products/pdf/en-g5q.pdf" H 15150 4500 50  0001 C CNN
-	1    14050 4800
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	13850 5100 13850 5250
 Wire Wire Line
@@ -630,13 +579,13 @@ Connection ~ 12350 5250
 Wire Wire Line
 	12350 5250 12350 5500
 Wire Wire Line
-	13000 5250 13850 5250
+	13000 5250 13750 5250
 Connection ~ 13000 5250
 Wire Wire Line
-	13850 4500 13850 4250
-Connection ~ 13850 4250
+	13750 4500 13750 4250
+Connection ~ 13750 4250
 Wire Wire Line
-	13850 4250 14600 4250
+	13750 4250 14600 4250
 Wire Wire Line
 	14250 5350 14550 5350
 Wire Wire Line
@@ -650,9 +599,6 @@ Wire Wire Line
 Wire Wire Line
 	12350 5500 12900 5500
 Wire Wire Line
-	13850 5250 13850 5450
-Connection ~ 13850 5250
-Wire Wire Line
 	13850 6050 13850 6150
 Wire Wire Line
 	13850 6150 13600 6150
@@ -660,14 +606,14 @@ Wire Wire Line
 	13600 6150 13600 4250
 Connection ~ 13600 4250
 Wire Wire Line
-	13600 4250 13850 4250
+	13600 4250 13750 4250
 $Comp
-L Relay:G5Q-1A K?
+L Relay:G5Q-1A K1
 U 1 1 5BEDF07A
 P 13750 8050
-F 0 "K?" H 13320 8050 50  0000 R CNN
+F 0 "K1" H 13320 8050 50  0000 R CNN
 F 1 "G5Q-1A" H 13320 8095 50  0001 R CNN
-F 2 "Relay_THT:Relay_SPDT_Schrack-RP-II-1-FormC_RM5mm" H 14100 8000 50  0001 L CNN
+F 2 "Relay_THT:Relay_SPDT_Finder_34.51_Vertical" H 14100 8000 50  0001 L CNN
 F 3 "https://www.omron.com/ecb/products/pdf/en-g5q.pdf" H 14850 7750 50  0001 C CNN
 	1    13750 8050
 	1    0    0    -1  
@@ -749,12 +695,12 @@ Wire Wire Line
 	13100 3250 13750 3250
 Connection ~ 13100 1800
 $Comp
-L Relay:G5Q-1A K?
+L Relay:G5Q-1A K2
 U 1 1 5BFB5E20
 P 13750 9100
-F 0 "K?" H 13320 9100 50  0000 R CNN
+F 0 "K2" H 13320 9100 50  0000 R CNN
 F 1 "G5Q-1A" H 13320 9145 50  0001 R CNN
-F 2 "Relay_THT:Relay_SPDT_Schrack-RP-II-1-FormC_RM5mm" H 14100 9050 50  0001 L CNN
+F 2 "Relay_THT:Relay_SPDT_Finder_34.51_Vertical" H 14100 9050 50  0001 L CNN
 F 3 "https://www.omron.com/ecb/products/pdf/en-g5q.pdf" H 14850 8800 50  0001 C CNN
 	1    13750 9100
 	1    0    0    -1  
@@ -800,10 +746,10 @@ Wire Wire Line
 Text HLabel 9150 2300 0    50   Input ~ 0
 INK3
 $Comp
-L Triac_Thyristor:Z0103MN D?
+L Triac_Thyristor:Z0103MN D4
 U 1 1 5BFEC09C
 P 13650 6850
-F 0 "D?" H 13779 6896 50  0000 L CNN
+F 0 "D4" H 13779 6896 50  0000 L CNN
 F 1 "Z0103MN" H 13779 6805 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-223" H 14400 6700 50  0001 C CNN
 F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 13800 7150 50  0001 C CNN
@@ -811,10 +757,10 @@ F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 13800 7150 50  0001 C CN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Triac_Thyristor:Z0103MN D?
+L Triac_Thyristor:Z0103MN D3
 U 1 1 5BFEC46C
 P 13000 4500
-F 0 "D?" H 13129 4546 50  0000 L CNN
+F 0 "D3" H 13129 4546 50  0000 L CNN
 F 1 "Z0103MN" H 13129 4455 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-223" H 13750 4350 50  0001 C CNN
 F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 13150 4800 50  0001 C CNN
@@ -822,10 +768,10 @@ F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 13150 4800 50  0001 C CN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R10
 U 1 1 5C043341
 P 11750 5500
-F 0 "R?" V 11650 5400 50  0000 C CNN
+F 0 "R10" V 11650 5400 50  0000 C CNN
 F 1 "33k" V 11650 5600 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 11680 5500 50  0001 C CNN
 F 3 "~" H 11750 5500 50  0001 C CNN
@@ -833,10 +779,10 @@ F 3 "~" H 11750 5500 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R13
 U 1 1 5C049706
 P 12100 5500
-F 0 "R?" V 12000 5400 50  0000 C CNN
+F 0 "R13" V 12000 5400 50  0000 C CNN
 F 1 "33k" V 12000 5600 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 12030 5500 50  0001 C CNN
 F 3 "~" H 12100 5500 50  0001 C CNN
@@ -844,10 +790,10 @@ F 3 "~" H 12100 5500 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R11
 U 1 1 5C04F6B0
 P 11750 5700
-F 0 "R?" V 11650 5600 50  0000 C CNN
+F 0 "R11" V 11650 5600 50  0000 C CNN
 F 1 "33k" V 11650 5800 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 11680 5700 50  0001 C CNN
 F 3 "~" H 11750 5700 50  0001 C CNN
@@ -855,10 +801,10 @@ F 3 "~" H 11750 5700 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R14
 U 1 1 5C04F70A
 P 12100 5700
-F 0 "R?" V 12000 5600 50  0000 C CNN
+F 0 "R14" V 12000 5600 50  0000 C CNN
 F 1 "33k" V 12000 5800 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 12030 5700 50  0001 C CNN
 F 3 "~" H 12100 5700 50  0001 C CNN
@@ -880,10 +826,10 @@ Wire Wire Line
 Wire Wire Line
 	11950 5700 11900 5700
 $Comp
-L Diode:LL4148 D?
+L Diode:LL4148 D2
 U 1 1 5C06FCE3
 P 11200 5600
-F 0 "D?" V 11154 5679 50  0000 L CNN
+F 0 "D2" V 11154 5679 50  0000 L CNN
 F 1 "LL4148" V 11245 5679 50  0000 L CNN
 F 2 "Diode_SMD:D_MiniMELF" H 11200 5425 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/85557/ll4148.pdf" H 11200 5600 50  0001 C CNN
@@ -921,10 +867,10 @@ Connection ~ 11200 5800
 Wire Wire Line
 	11200 5800 11500 5800
 $Comp
-L Isolator:LTV-817 U?
+L Isolator:LTV-817 U3
 U 1 1 5C09C33B
 P 10700 5600
-F 0 "U?" H 10700 5925 50  0000 C CNN
+F 0 "U3" H 10700 5925 50  0000 C CNN
 F 1 "LTV-817" H 10700 5834 50  0000 C CNN
 F 2 "Package_DIP:DIP-4_W7.62mm" H 10500 5400 50  0001 L CIN
 F 3 "http://www.us.liteon.com/downloads/LTV-817-827-847.PDF" H 10700 5500 50  0001 L CNN
@@ -939,4 +885,53 @@ Text Label 9950 5500 0    50   ~ 0
 LIGHTON
 Text Label 9950 5700 0    50   ~ 0
 COM
+$Comp
+L Relay:RT42xxxx K4
+U 1 1 5BC708E2
+P 14050 3350
+F 0 "K4" V 14817 3350 50  0000 C CNN
+F 1 "RT42xxxx" V 14726 3350 50  0000 C CNN
+F 2 "Relay_THT:Relay_DPDT_Schrack-RT2-FormC_RM5mm" H 14050 3350 50  0001 C CNN
+F 3 "http://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7FRT2%7F1014%7Fpdf%7FEnglish%7FENG_DS_RT2_1014.pdf%7F6-1393243-3" H 14700 3500 50  0001 C CNN
+	1    14050 3350
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Relay:RT42xxxx K3
+U 1 1 5BC81394
+P 14050 1900
+F 0 "K3" V 14817 1900 50  0000 C CNN
+F 1 "RT42xxxx" V 14726 1900 50  0000 C CNN
+F 2 "Relay_THT:Relay_DPDT_Schrack-RT2-FormC_RM5mm" H 14050 1900 50  0001 C CNN
+F 3 "http://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7FRT2%7F1014%7Fpdf%7FEnglish%7FENG_DS_RT2_1014.pdf%7F6-1393243-3" H 14700 2050 50  0001 C CNN
+	1    14050 1900
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	13750 5450 13750 5250
+Connection ~ 13750 5250
+Wire Wire Line
+	13750 5250 13850 5250
+$Comp
+L Relay:FINDER-32.21-x300 K?
+U 1 1 5BCB52BE
+P 14050 4800
+F 0 "K?" H 13620 4800 50  0000 R CNN
+F 1 "FINDER-32.21-x300" H 13620 4755 50  0001 R CNN
+F 2 "Relay_THT:Relay_SPST_Schrack-RT1-FormA_RM5mm" H 15320 4770 50  0001 C CNN
+F 3 "http://gfinder.findernet.com/assets/Series/355/S32EN.pdf" H 14050 4800 50  0001 C CNN
+	1    14050 4800
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Relay:FINDER-32.21-x300 K?
+U 1 1 5BCBD973
+P 14050 5750
+F 0 "K?" H 13620 5750 50  0000 R CNN
+F 1 "FINDER-32.21-x300" H 13620 5705 50  0001 R CNN
+F 2 "Relay_THT:Relay_SPST_Schrack-RT1-FormA_RM5mm" H 15320 5720 50  0001 C CNN
+F 3 "http://gfinder.findernet.com/assets/Series/355/S32EN.pdf" H 14050 5750 50  0001 C CNN
+	1    14050 5750
+	-1   0    0    -1  
+$EndComp
 $EndSCHEMATC
