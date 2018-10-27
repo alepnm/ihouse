@@ -2,7 +2,7 @@ EESchema Schematic File Version 4
 LIBS:ihouse-cache
 EELAYER 26 0
 EELAYER END
-$Descr A4 11693 8268
+$Descr A3 16535 11693
 encoding utf-8
 Sheet 3 3
 Title ""
@@ -15,18 +15,18 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 Wire Wire Line
-	2700 3300 2800 3300
+	2650 2500 2750 2500
 Wire Wire Line
-	2700 3700 2800 3700
-Text HLabel 2800 3300 2    50   Output ~ 0
-iSocket
-Text HLabel 2800 3700 2    50   Output ~ 0
-ISOCKN
+	2650 2900 2750 2900
+Text HLabel 2750 2500 2    50   Output ~ 0
+OUTAC10
+Text HLabel 2750 2900 2    50   Output ~ 0
+OUTAC10N
 $Comp
-L disc:MOC3060S U3
+L disc:MOC3060S U?
 U 1 1 5BC643F3
 P 7100 1000
-F 0 "U3" H 7100 1313 50  0000 C CNN
+F 0 "U?" H 7100 1313 50  0000 C CNN
 F 1 "MOC3060S" H 8750 1150 50  0001 L CNN
 F 2 "disc:DIP-6_W9.53mm_SMD" H 7950 1050 50  0001 L CIN
 F 3 "http://datasheet.octopart.com/MOC3063SR2M-Fairchild-Semiconductor-datasheet-10497244.pdf" H 7950 950 50  0001 L CNN
@@ -39,10 +39,10 @@ F 8 "MOC3060S" H 7100 1224 47  0000 C CNN "Gamintojo kodas"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R10
+L Device:R R?
 U 1 1 5BC6465A
 P 7750 900
-F 0 "R10" V 7650 800 50  0000 C CNN
+F 0 "R?" V 7650 800 50  0000 C CNN
 F 1 "R" V 7650 1000 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 7680 900 50  0001 C CNN
 F 3 "~" H 7750 900 50  0001 C CNN
@@ -56,10 +56,10 @@ Wire Wire Line
 Wire Wire Line
 	8150 900  8150 1000
 $Comp
-L Device:R R11
+L Device:R R?
 U 1 1 5BC64A93
 P 7750 1250
-F 0 "R11" V 7650 1150 50  0000 C CNN
+F 0 "R?" V 7650 1150 50  0000 C CNN
 F 1 "R" V 7650 1350 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 7680 1250 50  0001 C CNN
 F 3 "~" H 7750 1250 50  0001 C CNN
@@ -77,17 +77,11 @@ Wire Wire Line
 Wire Wire Line
 	7500 1250 7500 1900
 Connection ~ 7500 1250
-Text HLabel 8050 2150 2    50   Output ~ 0
-ExtractAir_WC
+Text HLabel 7700 2150 2    50   Output ~ 0
+OUTAC9
 Connection ~ 8150 900 
 Text Label 9750 900  2    50   ~ 0
 ACL
-Text HLabel 8050 2300 2    50   Output ~ 0
-EAWCN
-Wire Wire Line
-	8050 2300 7950 2300
-Text Label 7600 2300 0    50   ~ 0
-ACN
 Wire Wire Line
 	6800 900  6700 900 
 Wire Wire Line
@@ -97,30 +91,26 @@ Wire Wire Line
 Wire Wire Line
 	9400 2800 9650 2800
 Text HLabel 9700 2000 2    50   Output ~ 0
-LIGHTWC1
+INACL1
 Text HLabel 9650 2800 2    50   Output ~ 0
-LIGHTWC2
+INACN1
 Wire Wire Line
-	2700 2250 3100 2250
-Wire Wire Line
-	2700 1850 3100 1850
-Text Label 3100 1850 2    50   ~ 0
+	2650 1450 2900 1450
+Text Label 2900 950  2    50   ~ 0
 ACL
-Text Label 3100 2250 2    50   ~ 0
-ACN
 Wire Wire Line
-	2000 2650 2100 2650
+	1950 1850 2050 1850
 Wire Wire Line
-	2700 2650 2800 2650
+	2650 1850 2750 1850
 Wire Wire Line
-	2000 4100 2100 4100
+	1950 3300 2050 3300
 Wire Wire Line
-	2700 4100 2800 4100
+	2650 3300 2750 3300
 $Comp
-L Device:R R9
+L Device:R R?
 U 1 1 5BC7CD6F
 P 6550 900
-F 0 "R9" V 6450 800 50  0000 C CNN
+F 0 "R?" V 6450 800 50  0000 C CNN
 F 1 "R" V 6450 1000 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 6480 900 50  0001 C CNN
 F 3 "~" H 6550 900 50  0001 C CNN
@@ -129,115 +119,23 @@ F 3 "~" H 6550 900 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6400 900  6300 900 
+Wire Wire Line
+	1250 1350 1400 1350
+Wire Wire Line
+	1250 950  1500 950 
 $Comp
-L disc:MOC3060S U5
-U 1 1 5BCF4FFD
-P 7750 3350
-F 0 "U5" H 7750 3663 50  0000 C CNN
-F 1 "MOC3060S" H 9400 3500 50  0001 L CNN
-F 2 "disc:DIP-6_W9.53mm_SMD" H 8600 3400 50  0001 L CIN
-F 3 "http://datasheet.octopart.com/MOC3063SR2M-Fairchild-Semiconductor-datasheet-10497244.pdf" H 8600 3300 50  0001 L CNN
-F 4 "-" H 7750 2950 60  0001 C CNN "ventcode"
-F 5 "Optosimistorius" H 8950 3500 60  0001 C CNN "Pavadinimas"
-F 6 "0" H 9400 3200 60  0001 C CNN "Kaina"
-F 7 "SMD" H 9050 3200 60  0001 C CNN "Korpuso tipas"
-F 8 "MOC3060S" H 7750 3574 47  0000 C CNN "Gamintojo kodas"
-	1    7750 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R17
-U 1 1 5BCF5009
-P 8400 3250
-F 0 "R17" V 8300 3150 50  0000 C CNN
-F 1 "R" V 8300 3350 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 8330 3250 50  0001 C CNN
-F 3 "~" H 8400 3250 50  0001 C CNN
-	1    8400 3250
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	8250 3250 8050 3250
-Wire Wire Line
-	8550 3250 8800 3250
-Wire Wire Line
-	8800 3250 8800 3350
-$Comp
-L Device:R R18
-U 1 1 5BCF5012
-P 8400 3600
-F 0 "R18" V 8300 3500 50  0000 C CNN
-F 1 "R" V 8300 3700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 8330 3600 50  0001 C CNN
-F 3 "~" H 8400 3600 50  0001 C CNN
-	1    8400 3600
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	8550 3600 8650 3600
-Wire Wire Line
-	8250 3600 8150 3600
-Wire Wire Line
-	8150 3600 8150 3450
-Wire Wire Line
-	8150 3450 8050 3450
-Wire Wire Line
-	8150 3600 8150 3800
-Wire Wire Line
-	8150 3800 8800 3800
-Wire Wire Line
-	8800 3800 8800 3650
-Connection ~ 8150 3600
-Connection ~ 8800 3800
-Wire Wire Line
-	8800 3250 9200 3250
-Connection ~ 8800 3250
-Wire Wire Line
-	7450 3250 7350 3250
-Wire Wire Line
-	7450 3450 6950 3450
-Wire Wire Line
-	9650 3800 8800 3800
-$Comp
-L Device:R R16
-U 1 1 5BC77E13
-P 7200 3250
-F 0 "R16" V 7100 3150 50  0000 C CNN
-F 1 "R" V 7100 3350 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 7130 3250 50  0001 C CNN
-F 3 "~" H 7200 3250 50  0001 C CNN
-	1    7200 3250
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	7050 3250 6950 3250
-Text Label 9200 3250 2    50   ~ 0
-ACL
-Text HLabel 9650 3800 2    50   Output ~ 0
-ExtractAir_KITCH
-Text HLabel 9650 3650 2    50   Output ~ 0
-EAKITCHN
-Wire Wire Line
-	9650 3650 9400 3650
-Text Label 9400 3650 0    50   ~ 0
-ACN
-Wire Wire Line
-	1300 2150 1450 2150
-Wire Wire Line
-	1300 1750 1550 1750
-$Comp
-L Device:Fuse F1
+L Device:Fuse F?
 U 1 1 5BC77E18
-P 1800 1750
-F 0 "F1" V 1700 1650 50  0000 C CNN
-F 1 "3A" V 1700 1850 50  0000 C CNN
-F 2 "Fuse:Fuseholder_Cylinder-5x20mm_Schurter_0031_8201_Horizontal_Open" V 1730 1750 50  0001 C CNN
-F 3 "~" H 1800 1750 50  0001 C CNN
-	1    1800 1750
+P 2050 950
+F 0 "F?" V 1950 850 50  0000 C CNN
+F 1 "3A" V 1950 1050 50  0000 C CNN
+F 2 "Fuse:Fuseholder_Cylinder-5x20mm_Schurter_0031_8201_Horizontal_Open" V 1980 950 50  0001 C CNN
+F 3 "~" H 2050 950 50  0001 C CNN
+	1    2050 950 
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	1950 1750 2100 1750
+	2200 950  2900 950 
 Wire Wire Line
 	9000 1750 9000 1900
 Wire Wire Line
@@ -251,9 +149,9 @@ Wire Wire Line
 Wire Wire Line
 	9400 1050 9700 1050
 Text HLabel 9700 1050 2    50   Output ~ 0
-LIGHTBASH1
+INACL2
 Text HLabel 9700 1850 2    50   Output ~ 0
-LIGHTBASH2
+INACN2
 Wire Wire Line
 	8150 1900 7500 1900
 Connection ~ 7500 1900
@@ -271,14 +169,10 @@ Wire Wire Line
 	9400 2000 9700 2000
 Wire Wire Line
 	9400 2000 9400 2100
-Text Notes 9850 1450 0    50   Italic 0
-Vonios apsvietimas\n230VAC
-Text Notes 9850 2450 0    50   Italic 0
-WC apsvietimas\n230VAC
 Wire Wire Line
 	8150 900  8750 900 
 Wire Wire Line
-	7500 2150 8050 2150
+	7500 2150 7700 2150
 Wire Wire Line
 	9000 2700 9000 2800
 Wire Wire Line
@@ -288,120 +182,56 @@ Wire Wire Line
 Connection ~ 8750 900 
 Wire Wire Line
 	8750 900  8900 900 
+Wire Wire Line
+	1500 950  1900 950 
+Wire Wire Line
+	1500 950  1500 2400
+Wire Wire Line
+	1500 2400 2050 2400
+Connection ~ 1500 950 
+Wire Wire Line
+	1400 1350 2050 1350
+Wire Wire Line
+	1400 2800 1400 1350
+Wire Wire Line
+	1400 2800 2050 2800
+Connection ~ 1400 1350
 $Comp
-L Relay:G5Q-1A K5
-U 1 1 5BEDF07A
-P 8600 4600
-F 0 "K5" H 8170 4600 50  0000 R CNN
-F 1 "G5Q-1A" H 8170 4645 50  0001 R CNN
-F 2 "Relay_THT:Relay_SPDT_Finder_34.51_Vertical" H 8950 4550 50  0001 L CNN
-F 3 "https://www.omron.com/ecb/products/pdf/en-g5q.pdf" H 9700 4300 50  0001 C CNN
-	1    8600 4600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8400 4300 8400 4200
-Wire Wire Line
-	8400 4200 8200 4200
-Wire Wire Line
-	8400 4900 8400 5000
-Wire Wire Line
-	8400 5000 8200 5000
-Wire Wire Line
-	8800 4300 8800 4200
-Wire Wire Line
-	8800 4200 9100 4200
-Wire Wire Line
-	8800 4900 8800 5000
-Wire Wire Line
-	8800 5000 9400 5000
-Text Label 9100 4200 2    50   ~ 0
-ACL
-Text HLabel 9400 5000 2    50   Output ~ 0
-WORKLIGHT
-Text HLabel 9400 4850 2    50   Output ~ 0
-WORKLIGHT_N
-Wire Wire Line
-	9400 4850 9100 4850
-Text Label 9100 4850 0    50   ~ 0
-ACN
-Text Notes 10050 5000 0    50   Italic 0
-Virtuves darbo\nzonos apsvietimas
-Text Notes 8100 2550 0    50   Italic 0
-Vonios ir WC\nventiliatorius
-Text Notes 10400 3750 0    50   Italic 0
-Virtuves\nventiliatorius
-Text Notes 3100 3550 0    50   Italic 0
-Arkos rozete
-Wire Wire Line
-	1550 1750 1650 1750
-Wire Wire Line
-	1550 1750 1550 3200
-Wire Wire Line
-	1550 3200 2100 3200
-Connection ~ 1550 1750
-Wire Wire Line
-	1450 2150 2100 2150
-Wire Wire Line
-	1450 3600 1450 2150
-Wire Wire Line
-	1450 3600 2100 3600
-Connection ~ 1450 2150
-$Comp
-L Relay:G5Q-1A K6
+L Relay:G5Q-1A K?
 U 1 1 5BFB5E20
-P 8600 5650
-F 0 "K6" H 8170 5650 50  0000 R CNN
-F 1 "G5Q-1A" H 8170 5695 50  0001 R CNN
-F 2 "Relay_THT:Relay_SPDT_Finder_34.51_Vertical" H 8950 5600 50  0001 L CNN
-F 3 "https://www.omron.com/ecb/products/pdf/en-g5q.pdf" H 9700 5350 50  0001 C CNN
-	1    8600 5650
+P 9200 3500
+F 0 "K?" H 8770 3500 50  0000 R CNN
+F 1 "G5Q-1A" H 8770 3545 50  0001 R CNN
+F 2 "Relay_THT:Relay_SPDT_Finder_34.51_Vertical" H 9550 3450 50  0001 L CNN
+F 3 "https://www.omron.com/ecb/products/pdf/en-g5q.pdf" H 10300 3200 50  0001 C CNN
+	1    9200 3500
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8400 5350 8400 5250
+	9000 3200 9000 3100
 Wire Wire Line
-	8400 5250 8200 5250
+	9000 3100 8800 3100
 Wire Wire Line
-	8400 5950 8400 6050
+	9000 3800 9000 3900
 Wire Wire Line
-	8400 6050 8200 6050
+	9000 3900 8800 3900
 Wire Wire Line
-	8800 5350 8800 5250
+	9400 3200 9400 3100
 Wire Wire Line
-	8800 5250 9100 5250
+	9400 3100 9700 3100
 Wire Wire Line
-	8800 5950 8800 6050
+	9400 3800 9400 3900
 Wire Wire Line
-	8800 6050 9400 6050
-Text Label 9100 5250 2    50   ~ 0
+	9400 3900 9550 3900
+Text Label 9700 3100 2    50   ~ 0
 ACL
-Text HLabel 9400 6050 2    50   Output ~ 0
-EHALLLIGHT
-Text HLabel 9400 5900 2    50   Output ~ 0
-EHALLLIGHT_N
-Wire Wire Line
-	9400 5900 9100 5900
-Text Label 9100 5900 0    50   ~ 0
-ACN
-Text Notes 10100 6050 0    50   Italic 0
-Koridoriaus\napsvietimas
+Text HLabel 9550 3900 2    50   Output ~ 0
+OUTAC6
 $Comp
-L Triac_Thyristor:Z0103MN D4
-U 1 1 5BFEC09C
-P 8800 3500
-F 0 "D4" H 8929 3546 50  0000 L CNN
-F 1 "Z0103MN" H 8929 3455 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 9550 3350 50  0001 C CNN
-F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 8950 3800 50  0001 C CNN
-	1    8800 3500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Triac_Thyristor:Z0103MN D2
+L Triac_Thyristor:Z0103MN D?
 U 1 1 5BFEC46C
 P 8150 1150
-F 0 "D2" H 8279 1196 50  0000 L CNN
+F 0 "D?" H 8279 1196 50  0000 L CNN
 F 1 "Z0103MN" H 8279 1105 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-223" H 8900 1000 50  0001 C CNN
 F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 8300 1450 50  0001 C CNN
@@ -409,139 +239,109 @@ F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 8300 1450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R12
+L Device:R R?
 U 1 1 5C043341
+P 6550 1750
+F 0 "R?" V 6450 1650 50  0000 C CNN
+F 1 "33k" V 6450 1850 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 6480 1750 50  0001 C CNN
+F 3 "~" H 6550 1750 50  0001 C CNN
+	1    6550 1750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BC77E1E
+P 6900 1750
+F 0 "R?" V 6800 1650 50  0000 C CNN
+F 1 "33k" V 6800 1850 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 6830 1750 50  0001 C CNN
+F 3 "~" H 6900 1750 50  0001 C CNN
+	1    6900 1750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BC77E1F
+P 6550 2150
+F 0 "R?" V 6450 2050 50  0000 C CNN
+F 1 "33k" V 6450 2250 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 6480 2150 50  0001 C CNN
+F 3 "~" H 6550 2150 50  0001 C CNN
+	1    6550 2150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BC77E20
 P 6900 2150
-F 0 "R12" V 6800 2050 50  0000 C CNN
+F 0 "R?" V 6800 2050 50  0000 C CNN
 F 1 "33k" V 6800 2250 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 6830 2150 50  0001 C CNN
 F 3 "~" H 6900 2150 50  0001 C CNN
 	1    6900 2150
 	0    1    1    0   
 $EndComp
-$Comp
-L Device:R R13
-U 1 1 5BC77E1E
-P 7250 2150
-F 0 "R13" V 7150 2050 50  0000 C CNN
-F 1 "33k" V 7150 2250 50  0000 C CNN
-F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 7180 2150 50  0001 C CNN
-F 3 "~" H 7250 2150 50  0001 C CNN
-	1    7250 2150
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R R14
-U 1 1 5BC77E1F
-P 6900 2350
-F 0 "R14" V 6800 2250 50  0000 C CNN
-F 1 "33k" V 6800 2450 50  0000 C CNN
-F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 6830 2350 50  0001 C CNN
-F 3 "~" H 6900 2350 50  0001 C CNN
-	1    6900 2350
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R R15
-U 1 1 5BC77E20
-P 7250 2350
-F 0 "R15" V 7150 2250 50  0000 C CNN
-F 1 "33k" V 7150 2450 50  0000 C CNN
-F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 7180 2350 50  0001 C CNN
-F 3 "~" H 7250 2350 50  0001 C CNN
-	1    7250 2350
-	0    1    1    0   
-$EndComp
 Wire Wire Line
-	7400 2350 7950 2350
-Wire Wire Line
-	7950 2350 7950 2300
-Connection ~ 7950 2300
-Wire Wire Line
-	7950 2300 7600 2300
-Wire Wire Line
-	7500 2150 7400 2150
+	7500 2150 7050 2150
 Connection ~ 7500 2150
 Wire Wire Line
-	7100 2150 7050 2150
+	6750 1750 6700 1750
 Wire Wire Line
-	7100 2350 7050 2350
+	6750 2150 6700 2150
 $Comp
-L Diode:LL4148 D3
+L Diode:LL4148 D?
 U 1 1 5BC77E21
-P 6350 2250
-F 0 "D3" V 6304 2329 50  0000 L CNN
-F 1 "LL4148" V 6395 2329 50  0000 L CNN
-F 2 "Diode_SMD:D_MiniMELF" H 6350 2075 50  0001 C CNN
-F 3 "http://www.vishay.com/docs/85557/ll4148.pdf" H 6350 2250 50  0001 C CNN
-	1    6350 2250
+P 6000 1950
+F 0 "D?" V 5954 2029 50  0000 L CNN
+F 1 "LL4148" V 6045 2029 50  0000 L CNN
+F 2 "Diode_SMD:D_MiniMELF" H 6000 1775 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/85557/ll4148.pdf" H 6000 1950 50  0001 C CNN
+	1    6000 1950
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	6150 2150 6200 2150
+	5800 1850 5850 1850
 Wire Wire Line
-	6200 2150 6200 2050
+	5850 1850 5850 1750
 Wire Wire Line
-	6200 2050 6350 2050
+	5850 1750 6000 1750
 Wire Wire Line
-	6650 2050 6650 2150
+	5800 2050 5850 2050
 Wire Wire Line
-	6650 2150 6750 2150
+	5850 2050 5850 2150
 Wire Wire Line
-	6150 2350 6200 2350
+	5850 2150 6000 2150
 Wire Wire Line
-	6200 2350 6200 2450
+	6000 1800 6000 1750
+Connection ~ 6000 1750
 Wire Wire Line
-	6200 2450 6350 2450
-Wire Wire Line
-	6650 2450 6650 2350
-Wire Wire Line
-	6650 2350 6750 2350
-Wire Wire Line
-	6350 2100 6350 2050
-Connection ~ 6350 2050
-Wire Wire Line
-	6350 2050 6650 2050
-Wire Wire Line
-	6350 2400 6350 2450
-Connection ~ 6350 2450
-Wire Wire Line
-	6350 2450 6650 2450
+	6000 2100 6000 2150
+Connection ~ 6000 2150
 $Comp
-L Isolator:LTV-817 U4
+L Isolator:LTV-817 U?
 U 1 1 5C09C33B
-P 5850 2250
-F 0 "U4" H 5850 2575 50  0000 C CNN
-F 1 "LTV-817" H 5850 2484 50  0000 C CNN
-F 2 "Package_DIP:DIP-4_W7.62mm" H 5650 2050 50  0001 L CIN
-F 3 "http://www.us.liteon.com/downloads/LTV-817-827-847.PDF" H 5850 2150 50  0001 L CNN
-	1    5850 2250
+P 5500 1950
+F 0 "U?" H 5500 2275 50  0000 C CNN
+F 1 "LTV-817" H 5500 2184 50  0000 C CNN
+F 2 "Package_DIP:DIP-4_W7.62mm" H 5300 1750 50  0001 L CIN
+F 3 "http://www.us.liteon.com/downloads/LTV-817-827-847.PDF" H 5500 1850 50  0001 L CNN
+	1    5500 1950
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	5550 2350 5450 2350
+	5200 2050 5100 2050
 Wire Wire Line
-	5550 2150 5450 2150
+	5200 1850 5100 1850
 $Comp
-L Relay:RT42xxxx K4
+L Relay:RT42xxxx K?
 U 1 1 5BC77E02
-P 2400 3700
-F 0 "K4" V 3167 3700 50  0000 C CNN
-F 1 "RT42xxxx" V 3076 3700 50  0000 C CNN
-F 2 "Relay_THT:Relay_DPDT_Schrack-RT2-FormC_RM5mm" H 2400 3700 50  0001 C CNN
-F 3 "http://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7FRT2%7F1014%7Fpdf%7FEnglish%7FENG_DS_RT2_1014.pdf%7F6-1393243-3" H 3050 3850 50  0001 C CNN
-	1    2400 3700
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Relay:RT42xxxx K2
-U 1 1 5BC81394
-P 2400 2250
-F 0 "K2" V 3167 2250 50  0000 C CNN
-F 1 "RT42xxxx" V 3076 2250 50  0000 C CNN
-F 2 "Relay_THT:Relay_DPDT_Schrack-RT2-FormC_RM5mm" H 2400 2250 50  0001 C CNN
-F 3 "http://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7FRT2%7F1014%7Fpdf%7FEnglish%7FENG_DS_RT2_1014.pdf%7F6-1393243-3" H 3050 2400 50  0001 C CNN
-	1    2400 2250
+P 2350 2900
+F 0 "K?" V 3000 2900 50  0000 C CNN
+F 1 "RT42xxxx" V 3026 2900 50  0001 C CNN
+F 2 "Relay_THT:Relay_DPDT_Schrack-RT2-FormC_RM5mm" H 2350 2900 50  0001 C CNN
+F 3 "http://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7FRT2%7F1014%7Fpdf%7FEnglish%7FENG_DS_RT2_1014.pdf%7F6-1393243-3" H 3000 3050 50  0001 C CNN
+	1    2350 2900
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
@@ -550,10 +350,10 @@ Connection ~ 8900 1900
 Wire Wire Line
 	8900 1900 9000 1900
 $Comp
-L Relay:FINDER-32.21-x300 K1
+L Relay:FINDER-32.21-x300 K?
 U 1 1 5BC77E0D
 P 9200 1450
-F 0 "K1" H 8770 1450 50  0000 R CNN
+F 0 "K?" H 8770 1450 50  0000 R CNN
 F 1 "FINDER-32.21-x300" H 8770 1405 50  0001 R CNN
 F 2 "Relay_THT:Relay_SPST_Schrack-RT1-FormA_RM5mm" H 10470 1420 50  0001 C CNN
 F 3 "http://gfinder.findernet.com/assets/Series/355/S32EN.pdf" H 9200 1450 50  0001 C CNN
@@ -561,46 +361,968 @@ F 3 "http://gfinder.findernet.com/assets/Series/355/S32EN.pdf" H 9200 1450 50  0
 	-1   0    0    -1  
 $EndComp
 $Comp
-L Relay:FINDER-32.21-x300 K3
+L Relay:FINDER-32.21-x300 K?
 U 1 1 5BC77E0E
 P 9200 2400
-F 0 "K3" H 8770 2400 50  0000 R CNN
+F 0 "K?" H 8770 2400 50  0000 R CNN
 F 1 "FINDER-32.21-x300" H 8770 2355 50  0001 R CNN
 F 2 "Relay_THT:Relay_SPST_Schrack-RT1-FormA_RM5mm" H 10470 2370 50  0001 C CNN
 F 3 "http://gfinder.findernet.com/assets/Series/355/S32EN.pdf" H 9200 2400 50  0001 C CNN
 	1    9200 2400
 	-1   0    0    -1  
 $EndComp
-Text HLabel 1300 1750 0    50   Input ~ 0
+Text HLabel 1250 950  0    50   Input ~ 0
 230L
-Text HLabel 1300 2150 0    50   Input ~ 0
+Text HLabel 1250 1350 0    50   Input ~ 0
 230N
 Text HLabel 6300 900  0    50   Input ~ 0
 12VDC
 Text HLabel 6300 1100 0    50   Input ~ 0
 OC1
-Text HLabel 5450 2150 0    50   Input ~ 0
+Text HLabel 5100 1850 0    50   Input ~ 0
 LIGHTON
-Text HLabel 5450 2350 0    50   Input ~ 0
+Text HLabel 5100 2050 0    50   Input ~ 0
 COM
-Text HLabel 6950 3450 0    50   Input ~ 0
-OC2
-Text HLabel 6950 3250 0    50   Input ~ 0
+Text HLabel 8800 3100 0    50   Input ~ 0
 12VDC
-Text HLabel 8200 4200 0    50   Input ~ 0
-12VDC
-Text HLabel 8200 5250 0    50   Input ~ 0
-12VDC
-Text HLabel 2000 2650 0    50   Input ~ 0
+Text HLabel 1950 1850 0    50   Input ~ 0
 K0
-Text HLabel 2000 4100 0    50   Input ~ 0
+Text HLabel 1950 3300 0    50   Input ~ 0
 K1
-Text HLabel 2800 2650 2    50   Input ~ 0
+Text HLabel 2750 1850 2    50   Input ~ 0
 12VDC
-Text HLabel 2800 4100 2    50   Input ~ 0
+Text HLabel 2750 3300 2    50   Input ~ 0
 12VDC
-Text HLabel 8200 5000 0    50   Input ~ 0
-K2
-Text HLabel 8200 6050 0    50   Input ~ 0
+Text HLabel 8800 3900 0    50   Input ~ 0
 K3
+$Comp
+L disc:MOC3060S U?
+U 1 1 5BD53887
+P 13200 1900
+F 0 "U?" H 13200 2213 50  0000 C CNN
+F 1 "MOC3060S" H 14850 2050 50  0001 L CNN
+F 2 "disc:DIP-6_W9.53mm_SMD" H 14050 1950 50  0001 L CIN
+F 3 "http://datasheet.octopart.com/MOC3063SR2M-Fairchild-Semiconductor-datasheet-10497244.pdf" H 14050 1850 50  0001 L CNN
+F 4 "-" H 13200 1500 60  0001 C CNN "ventcode"
+F 5 "Optosimistorius" H 14400 2050 60  0001 C CNN "Pavadinimas"
+F 6 "0" H 14850 1750 60  0001 C CNN "Kaina"
+F 7 "SMD" H 14500 1750 60  0001 C CNN "Korpuso tipas"
+F 8 "MOC3060S" H 13200 2124 47  0000 C CNN "Gamintojo kodas"
+	1    13200 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BD5388D
+P 13850 1800
+F 0 "R?" V 13750 1700 50  0000 C CNN
+F 1 "R" V 13750 1900 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 1800 50  0001 C CNN
+F 3 "~" H 13850 1800 50  0001 C CNN
+	1    13850 1800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	13700 1800 13500 1800
+Wire Wire Line
+	14000 1800 14250 1800
+Wire Wire Line
+	14250 1800 14250 1900
+$Comp
+L Device:R R?
+U 1 1 5BD53896
+P 13850 2150
+F 0 "R?" V 13750 2050 50  0000 C CNN
+F 1 "R" V 13750 2250 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 2150 50  0001 C CNN
+F 3 "~" H 13850 2150 50  0001 C CNN
+	1    13850 2150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	14000 2150 14100 2150
+Wire Wire Line
+	13700 2150 13600 2150
+Wire Wire Line
+	13600 2150 13600 2000
+Wire Wire Line
+	13600 2000 13500 2000
+Wire Wire Line
+	13600 2150 13600 2350
+Wire Wire Line
+	13600 2350 14250 2350
+Wire Wire Line
+	14250 2350 14250 2200
+Connection ~ 13600 2150
+Connection ~ 14250 2350
+Wire Wire Line
+	14250 1800 14650 1800
+Connection ~ 14250 1800
+Wire Wire Line
+	12900 1800 12800 1800
+Wire Wire Line
+	12900 2000 12400 2000
+Wire Wire Line
+	14400 2350 14250 2350
+$Comp
+L Device:R R?
+U 1 1 5BD538AA
+P 12650 1800
+F 0 "R?" V 12550 1700 50  0000 C CNN
+F 1 "R" V 12550 1900 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 12580 1800 50  0001 C CNN
+F 3 "~" H 12650 1800 50  0001 C CNN
+	1    12650 1800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	12500 1800 12400 1800
+Text Label 14650 1800 2    50   ~ 0
+ACL
+Text HLabel 14400 2350 2    50   Output ~ 0
+OUTAC1
+$Comp
+L Triac_Thyristor:Z0103MN D?
+U 1 1 5BD538B7
+P 14250 2050
+F 0 "D?" H 14379 2096 50  0000 L CNN
+F 1 "Z0103MN" H 14379 2005 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-223" H 15000 1900 50  0001 C CNN
+F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 14400 2350 50  0001 C CNN
+	1    14250 2050
+	1    0    0    -1  
+$EndComp
+Text HLabel 12400 2000 0    50   Input ~ 0
+OAC1
+Text HLabel 12400 1800 0    50   Input ~ 0
+12VDC
+$Comp
+L disc:MOC3060S U?
+U 1 1 5BD586E6
+P 13200 2700
+F 0 "U?" H 13200 3013 50  0000 C CNN
+F 1 "MOC3060S" H 14850 2850 50  0001 L CNN
+F 2 "disc:DIP-6_W9.53mm_SMD" H 14050 2750 50  0001 L CIN
+F 3 "http://datasheet.octopart.com/MOC3063SR2M-Fairchild-Semiconductor-datasheet-10497244.pdf" H 14050 2650 50  0001 L CNN
+F 4 "-" H 13200 2300 60  0001 C CNN "ventcode"
+F 5 "Optosimistorius" H 14400 2850 60  0001 C CNN "Pavadinimas"
+F 6 "0" H 14850 2550 60  0001 C CNN "Kaina"
+F 7 "SMD" H 14500 2550 60  0001 C CNN "Korpuso tipas"
+F 8 "MOC3060S" H 13200 2924 47  0000 C CNN "Gamintojo kodas"
+	1    13200 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BD586EC
+P 13850 2600
+F 0 "R?" V 13750 2500 50  0000 C CNN
+F 1 "R" V 13750 2700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 2600 50  0001 C CNN
+F 3 "~" H 13850 2600 50  0001 C CNN
+	1    13850 2600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	13700 2600 13500 2600
+Wire Wire Line
+	14000 2600 14250 2600
+Wire Wire Line
+	14250 2600 14250 2700
+$Comp
+L Device:R R?
+U 1 1 5BD586F5
+P 13850 2950
+F 0 "R?" V 13750 2850 50  0000 C CNN
+F 1 "R" V 13750 3050 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 2950 50  0001 C CNN
+F 3 "~" H 13850 2950 50  0001 C CNN
+	1    13850 2950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	14000 2950 14100 2950
+Wire Wire Line
+	13700 2950 13600 2950
+Wire Wire Line
+	13600 2950 13600 2800
+Wire Wire Line
+	13600 2800 13500 2800
+Wire Wire Line
+	13600 2950 13600 3150
+Wire Wire Line
+	13600 3150 14250 3150
+Wire Wire Line
+	14250 3150 14250 3000
+Connection ~ 13600 2950
+Connection ~ 14250 3150
+Wire Wire Line
+	14250 2600 14650 2600
+Connection ~ 14250 2600
+Wire Wire Line
+	12900 2600 12800 2600
+Wire Wire Line
+	12900 2800 12400 2800
+Wire Wire Line
+	14400 3150 14250 3150
+$Comp
+L Device:R R?
+U 1 1 5BD58709
+P 12650 2600
+F 0 "R?" V 12550 2500 50  0000 C CNN
+F 1 "R" V 12550 2700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 12580 2600 50  0001 C CNN
+F 3 "~" H 12650 2600 50  0001 C CNN
+	1    12650 2600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	12500 2600 12400 2600
+Text Label 14650 2600 2    50   ~ 0
+ACL
+Text HLabel 14400 3150 2    50   Output ~ 0
+OUTAC2
+$Comp
+L Triac_Thyristor:Z0103MN D?
+U 1 1 5BD58716
+P 14250 2850
+F 0 "D?" H 14379 2896 50  0000 L CNN
+F 1 "Z0103MN" H 14379 2805 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-223" H 15000 2700 50  0001 C CNN
+F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 14400 3150 50  0001 C CNN
+	1    14250 2850
+	1    0    0    -1  
+$EndComp
+Text HLabel 12400 2800 0    50   Input ~ 0
+OAC2
+Text HLabel 12400 2600 0    50   Input ~ 0
+12VDC
+$Comp
+L disc:MOC3060S U?
+U 1 1 5BD69F64
+P 13200 3500
+F 0 "U?" H 13200 3813 50  0000 C CNN
+F 1 "MOC3060S" H 14850 3650 50  0001 L CNN
+F 2 "disc:DIP-6_W9.53mm_SMD" H 14050 3550 50  0001 L CIN
+F 3 "http://datasheet.octopart.com/MOC3063SR2M-Fairchild-Semiconductor-datasheet-10497244.pdf" H 14050 3450 50  0001 L CNN
+F 4 "-" H 13200 3100 60  0001 C CNN "ventcode"
+F 5 "Optosimistorius" H 14400 3650 60  0001 C CNN "Pavadinimas"
+F 6 "0" H 14850 3350 60  0001 C CNN "Kaina"
+F 7 "SMD" H 14500 3350 60  0001 C CNN "Korpuso tipas"
+F 8 "MOC3060S" H 13200 3724 47  0000 C CNN "Gamintojo kodas"
+	1    13200 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BD69F6A
+P 13850 3400
+F 0 "R?" V 13750 3300 50  0000 C CNN
+F 1 "R" V 13750 3500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 3400 50  0001 C CNN
+F 3 "~" H 13850 3400 50  0001 C CNN
+	1    13850 3400
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	13700 3400 13500 3400
+Wire Wire Line
+	14000 3400 14250 3400
+Wire Wire Line
+	14250 3400 14250 3500
+$Comp
+L Device:R R?
+U 1 1 5BD69F73
+P 13850 3750
+F 0 "R?" V 13750 3650 50  0000 C CNN
+F 1 "R" V 13750 3850 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 3750 50  0001 C CNN
+F 3 "~" H 13850 3750 50  0001 C CNN
+	1    13850 3750
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	14000 3750 14100 3750
+Wire Wire Line
+	13700 3750 13600 3750
+Wire Wire Line
+	13600 3750 13600 3600
+Wire Wire Line
+	13600 3600 13500 3600
+Wire Wire Line
+	13600 3750 13600 3950
+Wire Wire Line
+	13600 3950 14250 3950
+Wire Wire Line
+	14250 3950 14250 3800
+Connection ~ 13600 3750
+Connection ~ 14250 3950
+Wire Wire Line
+	14250 3400 14650 3400
+Connection ~ 14250 3400
+Wire Wire Line
+	12900 3400 12800 3400
+Wire Wire Line
+	12900 3600 12400 3600
+Wire Wire Line
+	14400 3950 14250 3950
+$Comp
+L Device:R R?
+U 1 1 5BD69F87
+P 12650 3400
+F 0 "R?" V 12550 3300 50  0000 C CNN
+F 1 "R" V 12550 3500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 12580 3400 50  0001 C CNN
+F 3 "~" H 12650 3400 50  0001 C CNN
+	1    12650 3400
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	12500 3400 12400 3400
+Text Label 14650 3400 2    50   ~ 0
+ACL
+Text HLabel 14400 3950 2    50   Output ~ 0
+OUTAC3
+$Comp
+L Triac_Thyristor:Z0103MN D?
+U 1 1 5BD69F94
+P 14250 3650
+F 0 "D?" H 14379 3696 50  0000 L CNN
+F 1 "Z0103MN" H 14379 3605 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-223" H 15000 3500 50  0001 C CNN
+F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 14400 3950 50  0001 C CNN
+	1    14250 3650
+	1    0    0    -1  
+$EndComp
+Text HLabel 12400 3600 0    50   Input ~ 0
+OAC3
+Text HLabel 12400 3400 0    50   Input ~ 0
+12VDC
+$Comp
+L disc:MOC3060S U?
+U 1 1 5BD844F9
+P 13200 4300
+F 0 "U?" H 13200 4613 50  0000 C CNN
+F 1 "MOC3060S" H 14850 4450 50  0001 L CNN
+F 2 "disc:DIP-6_W9.53mm_SMD" H 14050 4350 50  0001 L CIN
+F 3 "http://datasheet.octopart.com/MOC3063SR2M-Fairchild-Semiconductor-datasheet-10497244.pdf" H 14050 4250 50  0001 L CNN
+F 4 "-" H 13200 3900 60  0001 C CNN "ventcode"
+F 5 "Optosimistorius" H 14400 4450 60  0001 C CNN "Pavadinimas"
+F 6 "0" H 14850 4150 60  0001 C CNN "Kaina"
+F 7 "SMD" H 14500 4150 60  0001 C CNN "Korpuso tipas"
+F 8 "MOC3060S" H 13200 4524 47  0000 C CNN "Gamintojo kodas"
+	1    13200 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BD844FF
+P 13850 4200
+F 0 "R?" V 13750 4100 50  0000 C CNN
+F 1 "R" V 13750 4300 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 4200 50  0001 C CNN
+F 3 "~" H 13850 4200 50  0001 C CNN
+	1    13850 4200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	13700 4200 13500 4200
+Wire Wire Line
+	14000 4200 14250 4200
+Wire Wire Line
+	14250 4200 14250 4300
+$Comp
+L Device:R R?
+U 1 1 5BD84508
+P 13850 4550
+F 0 "R?" V 13750 4450 50  0000 C CNN
+F 1 "R" V 13750 4650 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 4550 50  0001 C CNN
+F 3 "~" H 13850 4550 50  0001 C CNN
+	1    13850 4550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	14000 4550 14100 4550
+Wire Wire Line
+	13700 4550 13600 4550
+Wire Wire Line
+	13600 4550 13600 4400
+Wire Wire Line
+	13600 4400 13500 4400
+Wire Wire Line
+	13600 4550 13600 4750
+Wire Wire Line
+	13600 4750 14250 4750
+Wire Wire Line
+	14250 4750 14250 4600
+Connection ~ 13600 4550
+Connection ~ 14250 4750
+Wire Wire Line
+	14250 4200 14650 4200
+Connection ~ 14250 4200
+Wire Wire Line
+	12900 4200 12800 4200
+Wire Wire Line
+	12900 4400 12400 4400
+Wire Wire Line
+	14400 4750 14250 4750
+$Comp
+L Device:R R?
+U 1 1 5BD8451C
+P 12650 4200
+F 0 "R?" V 12550 4100 50  0000 C CNN
+F 1 "R" V 12550 4300 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 12580 4200 50  0001 C CNN
+F 3 "~" H 12650 4200 50  0001 C CNN
+	1    12650 4200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	12500 4200 12400 4200
+Text Label 14650 4200 2    50   ~ 0
+ACL
+Text HLabel 14400 4750 2    50   Output ~ 0
+OUTAC4
+$Comp
+L Triac_Thyristor:Z0103MN D?
+U 1 1 5BD84529
+P 14250 4450
+F 0 "D?" H 14379 4496 50  0000 L CNN
+F 1 "Z0103MN" H 14379 4405 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-223" H 15000 4300 50  0001 C CNN
+F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 14400 4750 50  0001 C CNN
+	1    14250 4450
+	1    0    0    -1  
+$EndComp
+Text HLabel 12400 4400 0    50   Input ~ 0
+OAC4
+Text HLabel 12400 4200 0    50   Input ~ 0
+12VDC
+$Comp
+L disc:MOC3060S U?
+U 1 1 5BD8C551
+P 13200 5100
+F 0 "U?" H 13200 5413 50  0000 C CNN
+F 1 "MOC3060S" H 14850 5250 50  0001 L CNN
+F 2 "disc:DIP-6_W9.53mm_SMD" H 14050 5150 50  0001 L CIN
+F 3 "http://datasheet.octopart.com/MOC3063SR2M-Fairchild-Semiconductor-datasheet-10497244.pdf" H 14050 5050 50  0001 L CNN
+F 4 "-" H 13200 4700 60  0001 C CNN "ventcode"
+F 5 "Optosimistorius" H 14400 5250 60  0001 C CNN "Pavadinimas"
+F 6 "0" H 14850 4950 60  0001 C CNN "Kaina"
+F 7 "SMD" H 14500 4950 60  0001 C CNN "Korpuso tipas"
+F 8 "MOC3060S" H 13200 5324 47  0000 C CNN "Gamintojo kodas"
+	1    13200 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BD8C557
+P 13850 5000
+F 0 "R?" V 13750 4900 50  0000 C CNN
+F 1 "R" V 13750 5100 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 5000 50  0001 C CNN
+F 3 "~" H 13850 5000 50  0001 C CNN
+	1    13850 5000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	13700 5000 13500 5000
+Wire Wire Line
+	14000 5000 14250 5000
+Wire Wire Line
+	14250 5000 14250 5100
+$Comp
+L Device:R R?
+U 1 1 5BD8C560
+P 13850 5350
+F 0 "R?" V 13750 5250 50  0000 C CNN
+F 1 "R" V 13750 5450 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 5350 50  0001 C CNN
+F 3 "~" H 13850 5350 50  0001 C CNN
+	1    13850 5350
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	14000 5350 14100 5350
+Wire Wire Line
+	13700 5350 13600 5350
+Wire Wire Line
+	13600 5350 13600 5200
+Wire Wire Line
+	13600 5200 13500 5200
+Wire Wire Line
+	13600 5350 13600 5550
+Wire Wire Line
+	13600 5550 14250 5550
+Wire Wire Line
+	14250 5550 14250 5400
+Connection ~ 13600 5350
+Connection ~ 14250 5550
+Wire Wire Line
+	14250 5000 14650 5000
+Connection ~ 14250 5000
+Wire Wire Line
+	12900 5000 12800 5000
+Wire Wire Line
+	12900 5200 12400 5200
+Wire Wire Line
+	14400 5550 14250 5550
+$Comp
+L Device:R R?
+U 1 1 5BD8C574
+P 12650 5000
+F 0 "R?" V 12550 4900 50  0000 C CNN
+F 1 "R" V 12550 5100 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 12580 5000 50  0001 C CNN
+F 3 "~" H 12650 5000 50  0001 C CNN
+	1    12650 5000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	12500 5000 12400 5000
+Text Label 14650 5000 2    50   ~ 0
+ACL
+Text HLabel 14400 5550 2    50   Output ~ 0
+OUTAC5
+$Comp
+L Triac_Thyristor:Z0103MN D?
+U 1 1 5BD8C581
+P 14250 5250
+F 0 "D?" H 14379 5296 50  0000 L CNN
+F 1 "Z0103MN" H 14379 5205 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-223" H 15000 5100 50  0001 C CNN
+F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 14400 5550 50  0001 C CNN
+	1    14250 5250
+	1    0    0    -1  
+$EndComp
+Text HLabel 12400 5200 0    50   Input ~ 0
+OAC5
+Text HLabel 12400 5000 0    50   Input ~ 0
+12VDC
+$Comp
+L Relay:FINDER-40.51 K?
+U 1 1 5C0C01E4
+P 2350 1650
+F 0 "K?" V 2825 1650 50  0000 C CNN
+F 1 "FINDER-40.51" V 2826 1650 50  0001 C CNN
+F 2 "Relay_THT:Relay_SPST_Schrack-RP-II-1-FormA_RM5mm" H 3490 1610 50  0001 C CNN
+F 3 "http://gfinder.findernet.com/assets/Series/353/S40EN.pdf" H 2350 1650 50  0001 C CNN
+	1    2350 1650
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6000 1750 6400 1750
+Wire Wire Line
+	6000 2150 6400 2150
+Wire Wire Line
+	7050 1750 7350 1750
+Text Label 7350 1750 2    50   ~ 0
+ACL
+$Comp
+L disc:MOC3060S U?
+U 1 1 5C19D259
+P 13200 5900
+F 0 "U?" H 13200 6213 50  0000 C CNN
+F 1 "MOC3060S" H 14850 6050 50  0001 L CNN
+F 2 "disc:DIP-6_W9.53mm_SMD" H 14050 5950 50  0001 L CIN
+F 3 "http://datasheet.octopart.com/MOC3063SR2M-Fairchild-Semiconductor-datasheet-10497244.pdf" H 14050 5850 50  0001 L CNN
+F 4 "-" H 13200 5500 60  0001 C CNN "ventcode"
+F 5 "Optosimistorius" H 14400 6050 60  0001 C CNN "Pavadinimas"
+F 6 "0" H 14850 5750 60  0001 C CNN "Kaina"
+F 7 "SMD" H 14500 5750 60  0001 C CNN "Korpuso tipas"
+F 8 "MOC3060S" H 13200 6124 47  0000 C CNN "Gamintojo kodas"
+	1    13200 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5C19D25F
+P 13850 5800
+F 0 "R?" V 13750 5700 50  0000 C CNN
+F 1 "R" V 13750 5900 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 5800 50  0001 C CNN
+F 3 "~" H 13850 5800 50  0001 C CNN
+	1    13850 5800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	13700 5800 13500 5800
+Wire Wire Line
+	14000 5800 14250 5800
+Wire Wire Line
+	14250 5800 14250 5900
+$Comp
+L Device:R R?
+U 1 1 5C19D268
+P 13850 6150
+F 0 "R?" V 13750 6050 50  0000 C CNN
+F 1 "R" V 13750 6250 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 6150 50  0001 C CNN
+F 3 "~" H 13850 6150 50  0001 C CNN
+	1    13850 6150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	14000 6150 14100 6150
+Wire Wire Line
+	13700 6150 13600 6150
+Wire Wire Line
+	13600 6150 13600 6000
+Wire Wire Line
+	13600 6000 13500 6000
+Wire Wire Line
+	13600 6150 13600 6350
+Wire Wire Line
+	13600 6350 14250 6350
+Wire Wire Line
+	14250 6350 14250 6200
+Connection ~ 13600 6150
+Connection ~ 14250 6350
+Wire Wire Line
+	14250 5800 14650 5800
+Connection ~ 14250 5800
+Wire Wire Line
+	12900 5800 12800 5800
+Wire Wire Line
+	12900 6000 12400 6000
+Wire Wire Line
+	14400 6350 14250 6350
+$Comp
+L Device:R R?
+U 1 1 5C19D27C
+P 12650 5800
+F 0 "R?" V 12550 5700 50  0000 C CNN
+F 1 "R" V 12550 5900 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 12580 5800 50  0001 C CNN
+F 3 "~" H 12650 5800 50  0001 C CNN
+	1    12650 5800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	12500 5800 12400 5800
+Text Label 14650 5800 2    50   ~ 0
+ACL
+Text HLabel 14400 6350 2    50   Output ~ 0
+OUTAC6
+$Comp
+L Triac_Thyristor:Z0103MN D?
+U 1 1 5C19D285
+P 14250 6050
+F 0 "D?" H 14379 6096 50  0000 L CNN
+F 1 "Z0103MN" H 14379 6005 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-223" H 15000 5900 50  0001 C CNN
+F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 14400 6350 50  0001 C CNN
+	1    14250 6050
+	1    0    0    -1  
+$EndComp
+Text HLabel 12400 6000 0    50   Input ~ 0
+OAC6
+Text HLabel 12400 5800 0    50   Input ~ 0
+12VDC
+$Comp
+L disc:MOC3060S U?
+U 1 1 5C1AD12C
+P 13200 6700
+F 0 "U?" H 13200 7013 50  0000 C CNN
+F 1 "MOC3060S" H 14850 6850 50  0001 L CNN
+F 2 "disc:DIP-6_W9.53mm_SMD" H 14050 6750 50  0001 L CIN
+F 3 "http://datasheet.octopart.com/MOC3063SR2M-Fairchild-Semiconductor-datasheet-10497244.pdf" H 14050 6650 50  0001 L CNN
+F 4 "-" H 13200 6300 60  0001 C CNN "ventcode"
+F 5 "Optosimistorius" H 14400 6850 60  0001 C CNN "Pavadinimas"
+F 6 "0" H 14850 6550 60  0001 C CNN "Kaina"
+F 7 "SMD" H 14500 6550 60  0001 C CNN "Korpuso tipas"
+F 8 "MOC3060S" H 13200 6924 47  0000 C CNN "Gamintojo kodas"
+	1    13200 6700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5C1AD132
+P 13850 6600
+F 0 "R?" V 13750 6500 50  0000 C CNN
+F 1 "R" V 13750 6700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 6600 50  0001 C CNN
+F 3 "~" H 13850 6600 50  0001 C CNN
+	1    13850 6600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	13700 6600 13500 6600
+Wire Wire Line
+	14000 6600 14250 6600
+Wire Wire Line
+	14250 6600 14250 6700
+$Comp
+L Device:R R?
+U 1 1 5C1AD13B
+P 13850 6950
+F 0 "R?" V 13750 6850 50  0000 C CNN
+F 1 "R" V 13750 7050 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 6950 50  0001 C CNN
+F 3 "~" H 13850 6950 50  0001 C CNN
+	1    13850 6950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	14000 6950 14100 6950
+Wire Wire Line
+	13700 6950 13600 6950
+Wire Wire Line
+	13600 6950 13600 6800
+Wire Wire Line
+	13600 6800 13500 6800
+Wire Wire Line
+	13600 6950 13600 7150
+Wire Wire Line
+	13600 7150 14250 7150
+Wire Wire Line
+	14250 7150 14250 7000
+Connection ~ 13600 6950
+Connection ~ 14250 7150
+Wire Wire Line
+	14250 6600 14650 6600
+Connection ~ 14250 6600
+Wire Wire Line
+	12900 6600 12800 6600
+Wire Wire Line
+	12900 6800 12400 6800
+Wire Wire Line
+	14400 7150 14250 7150
+$Comp
+L Device:R R?
+U 1 1 5C1AD14F
+P 12650 6600
+F 0 "R?" V 12550 6500 50  0000 C CNN
+F 1 "R" V 12550 6700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 12580 6600 50  0001 C CNN
+F 3 "~" H 12650 6600 50  0001 C CNN
+	1    12650 6600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	12500 6600 12400 6600
+Text Label 14650 6600 2    50   ~ 0
+ACL
+Text HLabel 14400 7150 2    50   Output ~ 0
+OUTAC7
+$Comp
+L Triac_Thyristor:Z0103MN D?
+U 1 1 5C1AD158
+P 14250 6850
+F 0 "D?" H 14379 6896 50  0000 L CNN
+F 1 "Z0103MN" H 14379 6805 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-223" H 15000 6700 50  0001 C CNN
+F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 14400 7150 50  0001 C CNN
+	1    14250 6850
+	1    0    0    -1  
+$EndComp
+Text HLabel 12400 6800 0    50   Input ~ 0
+OAC7
+Text HLabel 12400 6600 0    50   Input ~ 0
+12VDC
+$Comp
+L disc:MOC3060S U?
+U 1 1 5C1B5B8F
+P 13200 7500
+F 0 "U?" H 13200 7813 50  0000 C CNN
+F 1 "MOC3060S" H 14850 7650 50  0001 L CNN
+F 2 "disc:DIP-6_W9.53mm_SMD" H 14050 7550 50  0001 L CIN
+F 3 "http://datasheet.octopart.com/MOC3063SR2M-Fairchild-Semiconductor-datasheet-10497244.pdf" H 14050 7450 50  0001 L CNN
+F 4 "-" H 13200 7100 60  0001 C CNN "ventcode"
+F 5 "Optosimistorius" H 14400 7650 60  0001 C CNN "Pavadinimas"
+F 6 "0" H 14850 7350 60  0001 C CNN "Kaina"
+F 7 "SMD" H 14500 7350 60  0001 C CNN "Korpuso tipas"
+F 8 "MOC3060S" H 13200 7724 47  0000 C CNN "Gamintojo kodas"
+	1    13200 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5C1B5B95
+P 13850 7400
+F 0 "R?" V 13750 7300 50  0000 C CNN
+F 1 "R" V 13750 7500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 7400 50  0001 C CNN
+F 3 "~" H 13850 7400 50  0001 C CNN
+	1    13850 7400
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	13700 7400 13500 7400
+Wire Wire Line
+	14000 7400 14250 7400
+Wire Wire Line
+	14250 7400 14250 7500
+$Comp
+L Device:R R?
+U 1 1 5C1B5B9E
+P 13850 7750
+F 0 "R?" V 13750 7650 50  0000 C CNN
+F 1 "R" V 13750 7850 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 7750 50  0001 C CNN
+F 3 "~" H 13850 7750 50  0001 C CNN
+	1    13850 7750
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	14000 7750 14100 7750
+Wire Wire Line
+	13700 7750 13600 7750
+Wire Wire Line
+	13600 7750 13600 7600
+Wire Wire Line
+	13600 7600 13500 7600
+Wire Wire Line
+	13600 7750 13600 7950
+Wire Wire Line
+	13600 7950 14250 7950
+Wire Wire Line
+	14250 7950 14250 7800
+Connection ~ 13600 7750
+Connection ~ 14250 7950
+Wire Wire Line
+	14250 7400 14650 7400
+Connection ~ 14250 7400
+Wire Wire Line
+	12900 7400 12800 7400
+Wire Wire Line
+	12900 7600 12400 7600
+Wire Wire Line
+	14400 7950 14250 7950
+$Comp
+L Device:R R?
+U 1 1 5C1B5BB2
+P 12650 7400
+F 0 "R?" V 12550 7300 50  0000 C CNN
+F 1 "R" V 12550 7500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 12580 7400 50  0001 C CNN
+F 3 "~" H 12650 7400 50  0001 C CNN
+	1    12650 7400
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	12500 7400 12400 7400
+Text Label 14650 7400 2    50   ~ 0
+ACL
+Text HLabel 14400 7950 2    50   Output ~ 0
+OUTAC8
+$Comp
+L Triac_Thyristor:Z0103MN D?
+U 1 1 5C1B5BBB
+P 14250 7650
+F 0 "D?" H 14379 7696 50  0000 L CNN
+F 1 "Z0103MN" H 14379 7605 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-223" H 15000 7500 50  0001 C CNN
+F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 14400 7950 50  0001 C CNN
+	1    14250 7650
+	1    0    0    -1  
+$EndComp
+Text HLabel 12400 7600 0    50   Input ~ 0
+OAC8
+Text HLabel 12400 7400 0    50   Input ~ 0
+12VDC
+$Comp
+L disc:MOC3060S U?
+U 1 1 5C1C2219
+P 13200 8300
+F 0 "U?" H 13200 8613 50  0000 C CNN
+F 1 "MOC3060S" H 14850 8450 50  0001 L CNN
+F 2 "disc:DIP-6_W9.53mm_SMD" H 14050 8350 50  0001 L CIN
+F 3 "http://datasheet.octopart.com/MOC3063SR2M-Fairchild-Semiconductor-datasheet-10497244.pdf" H 14050 8250 50  0001 L CNN
+F 4 "-" H 13200 7900 60  0001 C CNN "ventcode"
+F 5 "Optosimistorius" H 14400 8450 60  0001 C CNN "Pavadinimas"
+F 6 "0" H 14850 8150 60  0001 C CNN "Kaina"
+F 7 "SMD" H 14500 8150 60  0001 C CNN "Korpuso tipas"
+F 8 "MOC3060S" H 13200 8524 47  0000 C CNN "Gamintojo kodas"
+	1    13200 8300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5C1C221F
+P 13850 8200
+F 0 "R?" V 13750 8100 50  0000 C CNN
+F 1 "R" V 13750 8300 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 8200 50  0001 C CNN
+F 3 "~" H 13850 8200 50  0001 C CNN
+	1    13850 8200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	13700 8200 13500 8200
+Wire Wire Line
+	14000 8200 14250 8200
+Wire Wire Line
+	14250 8200 14250 8300
+$Comp
+L Device:R R?
+U 1 1 5C1C2228
+P 13850 8550
+F 0 "R?" V 13750 8450 50  0000 C CNN
+F 1 "R" V 13750 8650 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 13780 8550 50  0001 C CNN
+F 3 "~" H 13850 8550 50  0001 C CNN
+	1    13850 8550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	14000 8550 14100 8550
+Wire Wire Line
+	13700 8550 13600 8550
+Wire Wire Line
+	13600 8550 13600 8400
+Wire Wire Line
+	13600 8400 13500 8400
+Wire Wire Line
+	13600 8550 13600 8750
+Wire Wire Line
+	13600 8750 14250 8750
+Wire Wire Line
+	14250 8750 14250 8600
+Connection ~ 13600 8550
+Connection ~ 14250 8750
+Wire Wire Line
+	14250 8200 14650 8200
+Connection ~ 14250 8200
+Wire Wire Line
+	12900 8200 12800 8200
+Wire Wire Line
+	12900 8400 12400 8400
+Wire Wire Line
+	14400 8750 14250 8750
+$Comp
+L Device:R R?
+U 1 1 5C1C223C
+P 12650 8200
+F 0 "R?" V 12550 8100 50  0000 C CNN
+F 1 "R" V 12550 8300 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 12580 8200 50  0001 C CNN
+F 3 "~" H 12650 8200 50  0001 C CNN
+	1    12650 8200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	12500 8200 12400 8200
+Text Label 14650 8200 2    50   ~ 0
+ACL
+Text HLabel 14400 8750 2    50   Output ~ 0
+OUTAC9
+$Comp
+L Triac_Thyristor:Z0103MN D?
+U 1 1 5C1C2245
+P 14250 8450
+F 0 "D?" H 14379 8496 50  0000 L CNN
+F 1 "Z0103MN" H 14379 8405 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-223" H 15000 8300 50  0001 C CNN
+F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 14400 8750 50  0001 C CNN
+	1    14250 8450
+	1    0    0    -1  
+$EndComp
+Text HLabel 12400 8400 0    50   Input ~ 0
+OAC9
+Text HLabel 12400 8200 0    50   Input ~ 0
+12VDC
+Text Label 2900 1450 2    50   ~ 0
+ACN
 $EndSCHEMATC
