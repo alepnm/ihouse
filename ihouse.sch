@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 3
+Sheet 1 4
 Title ""
 Date ""
 Rev ""
@@ -15,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Sheet
-S 2100 1350 1950 4700
+S 2000 5200 1750 1550
 U 5BC6397F
 F0 "Controller" 50
 F1 "control.sch" 50
@@ -60,10 +60,10 @@ Text Label 9850 2550 0    50   ~ 0
 Text Label 9850 2650 0    50   ~ 0
 PE
 $Comp
-L Connector_Generic:Conn_01x01 J?
+L Connector_Generic:Conn_01x01 J1
 U 1 1 5BC9AA2A
 P 10550 1600
-F 0 "J?" H 10630 1596 50  0000 L CNN
+F 0 "J1" H 10630 1596 50  0000 L CNN
 F 1 "Conn_01x01" H 10630 1551 50  0001 L CNN
 F 2 "mech:Faston_6.3x0.8x14" H 10550 1600 50  0001 C CNN
 F 3 "~" H 10550 1600 50  0001 C CNN
@@ -71,10 +71,10 @@ F 3 "~" H 10550 1600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x01 J?
+L Connector_Generic:Conn_01x01 J2
 U 1 1 5BC9AB40
 P 10550 1750
-F 0 "J?" H 10630 1746 50  0000 L CNN
+F 0 "J2" H 10630 1746 50  0000 L CNN
 F 1 "Conn_01x01" H 10630 1701 50  0001 L CNN
 F 2 "mech:Faston_6.3x0.8x14" H 10550 1750 50  0001 C CNN
 F 3 "~" H 10550 1750 50  0001 C CNN
@@ -82,10 +82,10 @@ F 3 "~" H 10550 1750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x01 J?
+L Connector_Generic:Conn_01x01 J3
 U 1 1 5BC9AB58
 P 10550 1900
-F 0 "J?" H 10630 1896 50  0000 L CNN
+F 0 "J3" H 10630 1896 50  0000 L CNN
 F 1 "Conn_01x01" H 10630 1851 50  0001 L CNN
 F 2 "mech:Faston_6.3x0.8x14" H 10550 1900 50  0001 C CNN
 F 3 "~" H 10550 1900 50  0001 C CNN
@@ -93,10 +93,10 @@ F 3 "~" H 10550 1900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x01 J?
+L Connector_Generic:Conn_01x01 J4
 U 1 1 5BC9AB72
 P 10550 2050
-F 0 "J?" H 10630 2046 50  0000 L CNN
+F 0 "J4" H 10630 2046 50  0000 L CNN
 F 1 "Conn_01x01" H 10630 2001 50  0001 L CNN
 F 2 "mech:Faston_6.3x0.8x14" H 10550 2050 50  0001 C CNN
 F 3 "~" H 10550 2050 50  0001 C CNN
@@ -133,10 +133,10 @@ Wire Wire Line
 Wire Wire Line
 	6400 4050 6700 4050
 $Comp
-L Connector_Generic:Conn_01x03 J?
+L Connector_Generic:Conn_01x03 J5
 U 1 1 5BC74B70
 P 10550 2550
-F 0 "J?" H 10630 2546 50  0000 L CNN
+F 0 "J5" H 10630 2546 50  0000 L CNN
 F 1 "Conn_01x03" H 10630 2501 50  0001 L CNN
 F 2 "Connectors_Phoenix:PhoenixContact_MSTBA-G_03x5.00mm_Angled" H 10550 2550 50  0001 C CNN
 F 3 "~" H 10550 2550 50  0001 C CNN
@@ -170,8 +170,8 @@ L Connector_Generic:Conn_02x12_Counter_Clockwise J?
 U 1 1 5C039156
 P 6050 5850
 AR Path="/5BC77CC5/5C039156" Ref="J?"  Part="1" 
-AR Path="/5C039156" Ref="J?"  Part="1" 
-F 0 "J?" H 6100 6450 50  0000 C CNN
+AR Path="/5C039156" Ref="J7"  Part="1" 
+F 0 "J7" H 6100 6450 50  0000 C CNN
 F 1 "AC OUTS" H 6100 5150 50  0000 C CNN
 F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-24A_2x12_P4.20mm_Vertical" H 6050 5850 50  0001 C CNN
 F 3 "~" H 6050 5850 50  0001 C CNN
@@ -243,8 +243,8 @@ L Connector_Generic:Conn_02x02_Counter_Clockwise J?
 U 1 1 5C03917E
 P 7800 5350
 AR Path="/5BC77CC5/5C03917E" Ref="J?"  Part="1" 
-AR Path="/5C03917E" Ref="J?"  Part="1" 
-F 0 "J?" H 7850 5450 50  0000 C CNN
+AR Path="/5C03917E" Ref="J6"  Part="1" 
+F 0 "J6" H 7850 5450 50  0000 C CNN
 F 1 "AC INPUTS" H 7850 5150 50  0000 C CNN
 F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-04A_2x02_P4.20mm_Vertical" H 7800 5350 50  0001 C CNN
 F 3 "~" H 7800 5350 50  0001 C CNN
@@ -356,5 +356,11 @@ F33 "OAC7" I R 7900 2750 50
 F34 "OUTAC8" O R 7900 3950 50 
 F35 "OAC8" I R 7900 2850 50 
 F36 "OAC9" I R 7900 2950 50 
+$EndSheet
+$Sheet
+S 2000 1200 1750 1250
+U 5E405C96
+F0 "DC sklendziu valdymas" 50
+F1 "dc_valve_control.sch" 50
 $EndSheet
 $EndSCHEMATC
