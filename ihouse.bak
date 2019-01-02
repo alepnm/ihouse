@@ -21,9 +21,9 @@ F0 "Controller" 50
 F1 "control.sch" 50
 $EndSheet
 Wire Wire Line
-	6700 2150 6500 2150
+	6000 2150 6500 2150
 Wire Wire Line
-	6700 2250 6600 2250
+	6000 2250 6600 2250
 Text Label 6000 2150 0    50   ~ 0
 230VAC_L
 Text Label 6000 2250 0    50   ~ 0
@@ -32,19 +32,15 @@ Wire Wire Line
 	6500 1250 7300 1250
 Connection ~ 6500 2150
 Wire Wire Line
-	6500 2150 6000 2150
-Wire Wire Line
-	6600 2250 6600 1600
+	6600 1350 6600 1600
 Wire Wire Line
 	6600 1350 7300 1350
 Connection ~ 6600 2250
 Wire Wire Line
-	6600 2250 6000 2250
-Wire Wire Line
 	6500 1500 7300 1500
 Connection ~ 6500 1500
 Wire Wire Line
-	6500 1500 6500 1250
+	6500 1250 6500 1500
 Text Label 7300 1250 2    50   ~ 0
 OUTAC11
 Text Label 7300 1350 2    50   ~ 0
@@ -60,10 +56,10 @@ Text Label 9850 2550 0    50   ~ 0
 Text Label 9850 2650 0    50   ~ 0
 PE
 $Comp
-L Connector_Generic:Conn_01x01 J1
+L ihouse-rescue:Connector_Generic_Conn_01x01-ihouse-rescue J3
 U 1 1 5BC9AA2A
 P 10550 1600
-F 0 "J1" H 10630 1596 50  0000 L CNN
+F 0 "J3" H 10630 1596 50  0000 L CNN
 F 1 "Conn_01x01" H 10630 1551 50  0001 L CNN
 F 2 "mech:Faston_6.3x0.8x14" H 10550 1600 50  0001 C CNN
 F 3 "~" H 10550 1600 50  0001 C CNN
@@ -71,10 +67,10 @@ F 3 "~" H 10550 1600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x01 J2
+L ihouse-rescue:Connector_Generic_Conn_01x01-ihouse-rescue J4
 U 1 1 5BC9AB40
 P 10550 1750
-F 0 "J2" H 10630 1746 50  0000 L CNN
+F 0 "J4" H 10630 1746 50  0000 L CNN
 F 1 "Conn_01x01" H 10630 1701 50  0001 L CNN
 F 2 "mech:Faston_6.3x0.8x14" H 10550 1750 50  0001 C CNN
 F 3 "~" H 10550 1750 50  0001 C CNN
@@ -82,10 +78,10 @@ F 3 "~" H 10550 1750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x01 J3
+L ihouse-rescue:Connector_Generic_Conn_01x01-ihouse-rescue J5
 U 1 1 5BC9AB58
 P 10550 1900
-F 0 "J3" H 10630 1896 50  0000 L CNN
+F 0 "J5" H 10630 1896 50  0000 L CNN
 F 1 "Conn_01x01" H 10630 1851 50  0001 L CNN
 F 2 "mech:Faston_6.3x0.8x14" H 10550 1900 50  0001 C CNN
 F 3 "~" H 10550 1900 50  0001 C CNN
@@ -93,10 +89,10 @@ F 3 "~" H 10550 1900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x01 J4
+L ihouse-rescue:Connector_Generic_Conn_01x01-ihouse-rescue J6
 U 1 1 5BC9AB72
 P 10550 2050
-F 0 "J4" H 10630 2046 50  0000 L CNN
+F 0 "J6" H 10630 2046 50  0000 L CNN
 F 1 "Conn_01x01" H 10630 2001 50  0001 L CNN
 F 2 "mech:Faston_6.3x0.8x14" H 10550 2050 50  0001 C CNN
 F 3 "~" H 10550 2050 50  0001 C CNN
@@ -108,19 +104,13 @@ Wire Wire Line
 Wire Wire Line
 	10250 1600 10250 1750
 Wire Wire Line
-	10250 2050 10350 2050
+	9850 2050 10250 2050
 Wire Wire Line
-	10350 1900 10250 1900
+	10250 1900 10350 1900
 Connection ~ 10250 1900
 Wire Wire Line
-	10250 1900 10250 2050
-Wire Wire Line
-	10350 1750 10250 1750
+	10250 1750 10350 1750
 Connection ~ 10250 1750
-Wire Wire Line
-	10250 1750 10250 1900
-Wire Wire Line
-	10250 2050 9850 2050
 Connection ~ 10250 2050
 Text Label 9850 2050 0    50   ~ 0
 PE
@@ -133,10 +123,10 @@ Wire Wire Line
 Wire Wire Line
 	6400 4050 6700 4050
 $Comp
-L Connector_Generic:Conn_01x03 J5
+L ihouse-rescue:Connector_Generic_Conn_01x03-ihouse-rescue J7
 U 1 1 5BC74B70
 P 10550 2550
-F 0 "J5" H 10630 2546 50  0000 L CNN
+F 0 "J7" H 10630 2546 50  0000 L CNN
 F 1 "Conn_01x03" H 10630 2501 50  0001 L CNN
 F 2 "Connectors_Phoenix:PhoenixContact_MSTBA-G_03x5.00mm_Angled" H 10550 2550 50  0001 C CNN
 F 3 "~" H 10550 2550 50  0001 C CNN
@@ -166,12 +156,10 @@ OUTAC6
 Text Label 5450 5950 0    50   ~ 0
 OUTAC7
 $Comp
-L Connector_Generic:Conn_02x12_Counter_Clockwise J?
+L ihouse-rescue:Connector_Generic_Conn_02x12_Counter_Clockwise-ihouse-rescue J1
 U 1 1 5C039156
 P 6050 5850
-AR Path="/5BC77CC5/5C039156" Ref="J?"  Part="1" 
-AR Path="/5C039156" Ref="J7"  Part="1" 
-F 0 "J7" H 6100 6450 50  0000 C CNN
+F 0 "J1" H 6100 6450 50  0000 C CNN
 F 1 "AC OUTS" H 6100 5150 50  0000 C CNN
 F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-24A_2x12_P4.20mm_Vertical" H 6050 5850 50  0001 C CNN
 F 3 "~" H 6050 5850 50  0001 C CNN
@@ -195,22 +183,14 @@ Wire Wire Line
 Wire Wire Line
 	6450 5750 6350 5750
 Wire Wire Line
-	6350 5650 6450 5650
+	6450 5650 6350 5650
 Connection ~ 6450 5650
 Wire Wire Line
-	6450 5650 6450 5750
-Wire Wire Line
-	6350 5550 6450 5550
+	6450 5550 6350 5550
 Connection ~ 6450 5550
 Wire Wire Line
-	6450 5550 6450 5650
-Wire Wire Line
-	6350 5450 6450 5450
+	6450 5450 6350 5450
 Connection ~ 6450 5450
-Wire Wire Line
-	6450 5450 6450 5550
-Wire Wire Line
-	6450 5350 6800 5350
 Connection ~ 6450 5350
 Wire Wire Line
 	5850 6450 5450 6450
@@ -221,15 +201,11 @@ Wire Wire Line
 Wire Wire Line
 	5850 5950 5450 5950
 Wire Wire Line
-	6350 5950 6450 5950
-Wire Wire Line
-	6450 5950 6450 5850
+	6450 5950 6350 5950
 Connection ~ 6450 5750
 Wire Wire Line
 	6350 5850 6450 5850
 Connection ~ 6450 5850
-Wire Wire Line
-	6450 5850 6450 5750
 Wire Wire Line
 	7600 5350 7300 5350
 Wire Wire Line
@@ -239,12 +215,10 @@ Wire Wire Line
 Wire Wire Line
 	8100 5450 8400 5450
 $Comp
-L Connector_Generic:Conn_02x02_Counter_Clockwise J?
+L ihouse-rescue:Connector_Generic_Conn_02x02_Counter_Clockwise-ihouse-rescue J2
 U 1 1 5C03917E
 P 7800 5350
-AR Path="/5BC77CC5/5C03917E" Ref="J?"  Part="1" 
-AR Path="/5C03917E" Ref="J6"  Part="1" 
-F 0 "J6" H 7850 5450 50  0000 C CNN
+F 0 "J2" H 7850 5450 50  0000 C CNN
 F 1 "AC INPUTS" H 7850 5150 50  0000 C CNN
 F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-04A_2x02_P4.20mm_Vertical" H 7800 5350 50  0001 C CNN
 F 3 "~" H 7800 5350 50  0001 C CNN
@@ -260,9 +234,7 @@ INACL2
 Text Label 8400 5450 2    50   ~ 0
 INACN2
 Wire Wire Line
-	6350 6050 6450 6050
-Wire Wire Line
-	6450 6050 6450 5950
+	6450 6050 6350 6050
 Connection ~ 6450 5950
 Wire Wire Line
 	5850 6050 5450 6050
@@ -279,7 +251,7 @@ Wire Wire Line
 Text Label 5450 6150 0    50   ~ 0
 OUTAC9
 Wire Wire Line
-	6350 6150 6450 6150
+	6450 6150 6350 6150
 Wire Wire Line
 	5850 6350 5450 6350
 Wire Wire Line
@@ -296,8 +268,6 @@ Text Label 5450 6250 0    50   ~ 0
 OUTAC10
 Text Label 6800 6250 2    50   ~ 0
 OUTAC10N
-Wire Wire Line
-	6450 6150 6450 6050
 Connection ~ 6450 6050
 Text Notes 7300 6000 0    50   ~ 0
 INACL1 -> WC apsvietimas L\nINACN1 -> WC apsvietimas N\nINACL2 -> vonios apsvietimas L\nINACN2 -> vonios apsvietimas N
@@ -310,12 +280,8 @@ INACL2
 Text Label 6400 3800 0    50   ~ 0
 INACN2
 Wire Wire Line
-	6500 1500 6500 2150
-Wire Wire Line
-	7300 1600 6600 1600
+	6600 1600 7300 1600
 Connection ~ 6600 1600
-Wire Wire Line
-	6600 1600 6600 1350
 $Sheet
 S 6700 2050 1200 2400
 U 5BC77CC5
@@ -363,4 +329,34 @@ U 5E405C96
 F0 "DC sklendziu valdymas" 50
 F1 "dc_valve_control.sch" 50
 $EndSheet
+Wire Wire Line
+	6500 2150 6700 2150
+Wire Wire Line
+	6600 2250 6700 2250
+Wire Wire Line
+	6500 1500 6500 2150
+Wire Wire Line
+	10250 1900 10250 2050
+Wire Wire Line
+	10250 1750 10250 1900
+Wire Wire Line
+	10250 2050 10350 2050
+Wire Wire Line
+	6450 5650 6450 5750
+Wire Wire Line
+	6450 5550 6450 5650
+Wire Wire Line
+	6450 5450 6450 5550
+Wire Wire Line
+	6450 5350 6800 5350
+Wire Wire Line
+	6450 5750 6450 5850
+Wire Wire Line
+	6450 5850 6450 5950
+Wire Wire Line
+	6450 5950 6450 6050
+Wire Wire Line
+	6450 6050 6450 6150
+Wire Wire Line
+	6600 1600 6600 2250
 $EndSCHEMATC

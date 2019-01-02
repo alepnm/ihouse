@@ -15,10 +15,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Transistor_Array:ULN2003A U1
+L ihouse-rescue:Transistor_Array_ULN2003A-ihouse-rescue U2
 U 1 1 5BC77E03
 P 13450 2150
-F 0 "U1" H 13450 2817 50  0000 C CNN
+F 0 "U2" H 13450 2817 50  0000 C CNN
 F 1 "ULN2003A" H 13450 2726 50  0000 C CNN
 F 2 "" H 13500 1600 50  0001 L CNN
 F 3 "http://www.ti.com/lit/ds/symlink/uln2003a.pdf" H 13550 1950 50  0001 C CNN
@@ -56,10 +56,10 @@ Wire Wire Line
 Text Label 14200 2450 2    50   ~ 0
 OC1
 $Comp
-L Isolator:LTV-817 U2
+L ihouse-rescue:Isolator_LTV-817-ihouse-rescue U1
 U 1 1 5BC77E06
 P 2650 8900
-F 0 "U2" H 2650 9225 50  0000 C CNN
+F 0 "U1" H 2650 9225 50  0000 C CNN
 F 1 "LTV-817" H 2650 9134 50  0000 C CNN
 F 2 "Package_DIP:DIP-4_W7.62mm" H 2450 8700 50  0001 L CIN
 F 3 "http://www.us.liteon.com/downloads/LTV-817-827-847.PDF" H 2650 8800 50  0001 L CNN
@@ -71,7 +71,7 @@ Wire Wire Line
 Text Label 1800 9000 0    50   ~ 0
 COM
 $Comp
-L Diode:LL4148 D1
+L ihouse-rescue:Diode_LL4148-ihouse-rescue D1
 U 1 1 5BC77E07
 P 3250 8900
 F 0 "D1" V 3204 8979 50  0000 L CNN
@@ -104,10 +104,10 @@ Wire Wire Line
 	3250 9150 3500 9150
 Connection ~ 3250 9150
 $Comp
-L Device:R R1
+L ihouse-rescue:Device_R-ihouse-rescue R5
 U 1 1 5BC77E08
 P 3650 8650
-F 0 "R1" V 3550 8550 50  0000 C CNN
+F 0 "R5" V 3550 8550 50  0000 C CNN
 F 1 "33k" V 3550 8750 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 3580 8650 50  0001 C CNN
 F 3 "~" H 3650 8650 50  0001 C CNN
@@ -115,10 +115,10 @@ F 3 "~" H 3650 8650 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R3
+L ihouse-rescue:Device_R-ihouse-rescue R6
 U 1 1 5BC8FFB1
 P 3650 9150
-F 0 "R3" V 3550 9050 50  0000 C CNN
+F 0 "R6" V 3550 9050 50  0000 C CNN
 F 1 "33k" V 3550 9250 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 3580 9150 50  0001 C CNN
 F 3 "~" H 3650 9150 50  0001 C CNN
@@ -126,10 +126,10 @@ F 3 "~" H 3650 9150 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R2
+L ihouse-rescue:Device_R-ihouse-rescue R7
 U 1 1 5BC77E0A
 P 4050 8650
-F 0 "R2" V 3950 8550 50  0000 C CNN
+F 0 "R7" V 3950 8550 50  0000 C CNN
 F 1 "33k" V 3950 8750 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 3980 8650 50  0001 C CNN
 F 3 "~" H 4050 8650 50  0001 C CNN
@@ -137,10 +137,10 @@ F 3 "~" H 4050 8650 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R4
+L ihouse-rescue:Device_R-ihouse-rescue R8
 U 1 1 5BC90060
 P 4050 9150
-F 0 "R4" V 3950 9050 50  0000 C CNN
+F 0 "R8" V 3950 9050 50  0000 C CNN
 F 1 "33k" V 3950 9250 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 3980 9150 50  0001 C CNN
 F 3 "~" H 4050 9150 50  0001 C CNN
@@ -183,7 +183,7 @@ AIN
 Text Label 1800 9900 0    50   ~ 0
 VREF
 $Comp
-L capacitors:CP_100uFx16V C1
+L ihouse-rescue:capacitors_CP_100uFx16V-ihouse-rescue C1
 U 1 1 5BC1DECF
 P 3000 10100
 F 0 "C1" H 2700 10150 50  0000 L CNN
@@ -209,7 +209,7 @@ Text Label 5150 9500 2    50   ~ 0
 Text Label 5150 9900 2    50   ~ 0
 230N
 $Comp
-L disc:Transformer_TEZ_22x24_6V T1
+L ihouse-rescue:disc_Transformer_TEZ_22x24_6V-ihouse-rescue T1
 U 1 1 5BCA7928
 P 3900 9700
 F 0 "T1" H 3900 9987 50  0000 C CNN
@@ -234,7 +234,7 @@ Connection ~ 4500 9500
 Wire Wire Line
 	4500 9500 4600 9500
 $Comp
-L Device:Thermistor_PTC TH1
+L ihouse-rescue:Device_Thermistor_PTC-ihouse-rescue TH1
 U 1 1 5BC77E0F
 P 4750 9500
 F 0 "TH1" V 4600 9450 50  0000 C CNN
@@ -259,10 +259,10 @@ INOC1
 Text HLabel 12650 2550 0    50   Input ~ 0
 INOC2
 $Comp
-L Device:R R5
+L ihouse-rescue:Device_R-ihouse-rescue R4
 U 1 1 5BC77E14
 P 3250 9500
-F 0 "R5" V 3150 9400 50  0000 C CNN
+F 0 "R4" V 3150 9400 50  0000 C CNN
 F 1 "1k" V 3150 9600 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3180 9500 50  0001 C CNN
 F 3 "~" H 3250 9500 50  0001 C CNN
@@ -270,10 +270,10 @@ F 3 "~" H 3250 9500 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R6
+L ihouse-rescue:Device_R-ihouse-rescue R3
 U 1 1 5BC77E15
 P 3000 9700
-F 0 "R6" H 3150 9750 50  0000 C CNN
+F 0 "R3" H 3150 9750 50  0000 C CNN
 F 1 "120" H 3150 9650 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2930 9700 50  0001 C CNN
 F 3 "~" H 3000 9700 50  0001 C CNN
@@ -281,10 +281,10 @@ F 3 "~" H 3000 9700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R8
+L ihouse-rescue:Device_R-ihouse-rescue R2
 U 1 1 5BC77E16
 P 2500 10100
-F 0 "R8" H 2650 10150 50  0000 C CNN
+F 0 "R2" H 2650 10150 50  0000 C CNN
 F 1 "Rx" H 2650 10050 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2430 10100 50  0001 C CNN
 F 3 "~" H 2500 10100 50  0001 C CNN
@@ -292,10 +292,10 @@ F 3 "~" H 2500 10100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R7
+L ihouse-rescue:Device_R-ihouse-rescue R1
 U 1 1 5BC77E17
 P 2250 9900
-F 0 "R7" V 2350 10000 50  0000 C CNN
+F 0 "R1" V 2350 10000 50  0000 C CNN
 F 1 "Rx" V 2350 9850 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2180 9900 50  0001 C CNN
 F 3 "~" H 2250 9900 50  0001 C CNN
