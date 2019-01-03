@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 4
+Sheet 1 5
 Title ""
 Date ""
 Rev ""
@@ -359,4 +359,10 @@ Wire Wire Line
 	6450 6050 6450 6150
 Wire Wire Line
 	6600 1600 6600 2250
+$Sheet
+S 2000 2800 1750 1300
+U 5C3058F0
+F0 "DC sklendziu valdymas L293" 50
+F1 "dc_valve_control_L293.sch" 50
+$EndSheet
 $EndSCHEMATC
