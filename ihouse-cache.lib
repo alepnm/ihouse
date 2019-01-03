@@ -1,15 +1,16 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# Device:D
+# Device_D
 #
-DEF Device:D D 0 40 N N 1 F N
+DEF Device_D D 0 40 N N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "Device:D" 0 -100 50 H V C CNN
+F1 "Device_D" 0 -100 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
  TO-???*
+ *SingleDiode
  *_Diode_*
  *SingleDiode*
  D_*
@@ -23,106 +24,11 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Driver_Motor:L293
+# ihouse-rescue_Connector_Generic_Conn_01x01-ihouse-rescue
 #
-DEF Driver_Motor:L293 U 0 40 Y Y 1 F N
-F0 "U" -200 1025 50 H V R CNN
-F1 "Driver_Motor:L293" -200 950 50 H V R CNN
-F2 "Package_DIP:DIP-16_W7.62mm" 250 -750 50 H I L CNN
-F3 "" -300 700 50 H I C CNN
-ALIAS L293D
-$FPLIST
- DIP*W7.62mm*
-$ENDFPLIST
-DRAW
-C -90 -270 10 0 1 0 F
-C -90 325 10 0 1 0 F
-S -400 900 400 -700 0 1 10 f
-P 2 0 1 0 -250 -195 -50 -195 N
-P 2 0 1 0 -250 5 -125 5 N
-P 2 0 1 0 -250 400 -50 400 N
-P 2 0 1 0 -250 600 -125 600 N
-P 2 0 1 0 -50 5 250 5 N
-P 2 0 1 0 -50 600 250 600 N
-P 2 0 1 0 25 -195 250 -195 N
-P 2 0 1 0 25 400 250 400 N
-P 3 0 1 0 -90 -270 -10 -270 -10 -220 N
-P 3 0 1 0 -90 -25 -90 -400 -140 -400 N
-P 3 0 1 0 -90 325 -10 325 -10 375 N
-P 3 0 1 0 -90 570 -90 200 -140 200 N
-P 4 0 1 0 -125 55 -125 -45 -50 5 -125 55 N
-P 4 0 1 0 -125 650 -125 550 -50 600 -125 650 N
-P 4 0 1 0 -50 -145 -50 -245 25 -195 -50 -145 N
-P 4 0 1 0 -50 450 -50 350 25 400 -50 450 N
-X EN1,2 1 -500 200 100 R 50 50 1 1 I
-X 3A 10 -500 0 100 R 50 50 1 1 I
-X 3Y 11 500 0 100 L 50 50 1 1 O
-X GND 12 100 -800 100 U 50 50 1 1 W
-X GND 13 200 -800 100 U 50 50 1 1 W
-X 4Y 14 500 -200 100 L 50 50 1 1 O
-X 4A 15 -500 -200 100 R 50 50 1 1 I
-X VCC1 16 -100 1000 100 D 50 50 1 1 W
-X 1A 2 -500 600 100 R 50 50 1 1 I
-X 1Y 3 500 600 100 L 50 50 1 1 O
-X GND 4 -200 -800 100 U 50 50 1 1 W
-X GND 5 -100 -800 100 U 50 50 1 1 W
-X 2Y 6 500 400 100 L 50 50 1 1 O
-X 2A 7 -500 400 100 R 50 50 1 1 I
-X VCC2 8 100 1000 100 D 50 50 1 1 W
-X EN3,4 9 -500 -400 100 R 50 50 1 1 I
-ENDDRAW
-ENDDEF
-#
-# Regulator_Linear:LM1117-5.0
-#
-DEF Regulator_Linear:LM1117-5.0 U 0 10 Y Y 1 F N
-F0 "U" -150 125 50 H V C CNN
-F1 "Regulator_Linear:LM1117-5.0" 0 125 50 H V L CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-ALIAS LM1117-2.5 LM1117-3.3 LM1117-5.0 TLV1117-15 TLV1117-18 TLV1117-25 TLV1117-33 TLV1117-50
-$FPLIST
- SOT?223*
- TO?263*
- TO?252*
- TO?220*
-$ENDFPLIST
-DRAW
-S -200 -200 200 75 0 1 10 f
-X GND 1 0 -300 100 U 50 50 1 1 W
-X VO 2 300 0 100 L 50 50 1 1 w
-X VI 3 -300 0 100 R 50 50 1 1 W
-ENDDRAW
-ENDDEF
-#
-# ihouse-rescue:Conn_01x04-ihouse-rescue
-#
-DEF ihouse-rescue:Conn_01x04-ihouse-rescue J 0 40 Y N 1 F N
-F0 "J" 0 200 50 H V C CNN
-F1 "ihouse-rescue:Conn_01x04-ihouse-rescue" 0 -300 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-$FPLIST
- Connector*:*_1x??_*
-$ENDFPLIST
-DRAW
-S -50 -195 0 -205 1 1 6 N
-S -50 -95 0 -105 1 1 6 N
-S -50 5 0 -5 1 1 6 N
-S -50 105 0 95 1 1 6 N
-S -50 150 50 -250 1 1 10 f
-X Pin_1 1 -200 100 150 R 50 50 1 1 P
-X Pin_2 2 -200 0 150 R 50 50 1 1 P
-X Pin_3 3 -200 -100 150 R 50 50 1 1 P
-X Pin_4 4 -200 -200 150 R 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
-# ihouse-rescue:Connector_Generic_Conn_01x01-ihouse-rescue
-#
-DEF ihouse-rescue:Connector_Generic_Conn_01x01-ihouse-rescue J 0 40 Y N 1 F N
+DEF ihouse-rescue_Connector_Generic_Conn_01x01-ihouse-rescue J 0 40 Y N 1 F N
 F0 "J" 0 100 50 H V C CNN
-F1 "ihouse-rescue:Connector_Generic_Conn_01x01-ihouse-rescue" 0 -100 50 H V C CNN
+F1 "ihouse-rescue_Connector_Generic_Conn_01x01-ihouse-rescue" 0 -100 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -135,11 +41,11 @@ X Pin_1 1 -200 0 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Connector_Generic_Conn_01x03-ihouse-rescue
+# ihouse-rescue_Connector_Generic_Conn_01x03-ihouse-rescue
 #
-DEF ihouse-rescue:Connector_Generic_Conn_01x03-ihouse-rescue J 0 40 Y N 1 F N
+DEF ihouse-rescue_Connector_Generic_Conn_01x03-ihouse-rescue J 0 40 Y N 1 F N
 F0 "J" 0 200 50 H V C CNN
-F1 "ihouse-rescue:Connector_Generic_Conn_01x03-ihouse-rescue" 0 -200 50 H V C CNN
+F1 "ihouse-rescue_Connector_Generic_Conn_01x03-ihouse-rescue" 0 -200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -156,11 +62,11 @@ X Pin_3 3 -200 -100 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Connector_Generic_Conn_02x02_Counter_Clockwise-ihouse-rescue
+# ihouse-rescue_Connector_Generic_Conn_02x02_Counter_Clockwise-ihouse-rescue
 #
-DEF ihouse-rescue:Connector_Generic_Conn_02x02_Counter_Clockwise-ihouse-rescue J 0 40 Y N 1 F N
+DEF ihouse-rescue_Connector_Generic_Conn_02x02_Counter_Clockwise-ihouse-rescue J 0 40 Y N 1 F N
 F0 "J" 50 100 50 H V C CNN
-F1 "ihouse-rescue:Connector_Generic_Conn_02x02_Counter_Clockwise-ihouse-rescue" 50 -200 50 H V C CNN
+F1 "ihouse-rescue_Connector_Generic_Conn_02x02_Counter_Clockwise-ihouse-rescue" 50 -200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -179,11 +85,11 @@ X Pin_4 4 300 0 150 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Connector_Generic_Conn_02x05_Counter_Clockwise-ihouse-rescue
+# ihouse-rescue_Connector_Generic_Conn_02x05_Counter_Clockwise-ihouse-rescue
 #
-DEF ihouse-rescue:Connector_Generic_Conn_02x05_Counter_Clockwise-ihouse-rescue J 0 40 Y N 1 F N
+DEF ihouse-rescue_Connector_Generic_Conn_02x05_Counter_Clockwise-ihouse-rescue J 0 40 Y N 1 F N
 F0 "J" 50 300 50 H V C CNN
-F1 "ihouse-rescue:Connector_Generic_Conn_02x05_Counter_Clockwise-ihouse-rescue" 50 -300 50 H V C CNN
+F1 "ihouse-rescue_Connector_Generic_Conn_02x05_Counter_Clockwise-ihouse-rescue" 50 -300 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -214,11 +120,11 @@ X Pin_9 9 300 100 150 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Connector_Generic_Conn_02x12_Counter_Clockwise-ihouse-rescue
+# ihouse-rescue_Connector_Generic_Conn_02x12_Counter_Clockwise-ihouse-rescue
 #
-DEF ihouse-rescue:Connector_Generic_Conn_02x12_Counter_Clockwise-ihouse-rescue J 0 40 Y N 1 F N
+DEF ihouse-rescue_Connector_Generic_Conn_02x12_Counter_Clockwise-ihouse-rescue J 0 40 Y N 1 F N
 F0 "J" 50 600 50 H V C CNN
-F1 "ihouse-rescue:Connector_Generic_Conn_02x12_Counter_Clockwise-ihouse-rescue" 50 -700 50 H V C CNN
+F1 "ihouse-rescue_Connector_Generic_Conn_02x12_Counter_Clockwise-ihouse-rescue" 50 -700 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -277,11 +183,11 @@ X Pin_9 9 -200 -300 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Connector_Screw_Terminal_01x03-ihouse-rescue
+# ihouse-rescue_Connector_Screw_Terminal_01x03-ihouse-rescue
 #
-DEF ihouse-rescue:Connector_Screw_Terminal_01x03-ihouse-rescue J 0 40 Y N 1 F N
+DEF ihouse-rescue_Connector_Screw_Terminal_01x03-ihouse-rescue J 0 40 Y N 1 F N
 F0 "J" 0 200 50 H V C CNN
-F1 "ihouse-rescue:Connector_Screw_Terminal_01x03-ihouse-rescue" 0 -200 50 H V C CNN
+F1 "ihouse-rescue_Connector_Screw_Terminal_01x03-ihouse-rescue" 0 -200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -304,11 +210,11 @@ X Pin_3 3 -200 -100 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Device_C-ihouse-rescue
+# ihouse-rescue_Device_C-ihouse-rescue
 #
-DEF ihouse-rescue:Device_C-ihouse-rescue C 0 10 N Y 1 F N
+DEF ihouse-rescue_Device_C-ihouse-rescue C 0 10 N Y 1 F N
 F0 "C" 25 100 50 H V L CNN
-F1 "ihouse-rescue:Device_C-ihouse-rescue" 25 -100 50 H V L CNN
+F1 "ihouse-rescue_Device_C-ihouse-rescue" 25 -100 50 H V L CNN
 F2 "" 38 -150 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -322,11 +228,11 @@ X ~ 2 0 -150 110 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Device_D-ihouse-rescue
+# ihouse-rescue_Device_D-ihouse-rescue
 #
-DEF ihouse-rescue:Device_D-ihouse-rescue D 0 40 N N 1 F N
+DEF ihouse-rescue_Device_D-ihouse-rescue D 0 40 N N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "ihouse-rescue:Device_D-ihouse-rescue" 0 -100 50 H V C CNN
+F1 "ihouse-rescue_Device_D-ihouse-rescue" 0 -100 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -344,11 +250,11 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Device_Fuse-ihouse-rescue
+# ihouse-rescue_Device_Fuse-ihouse-rescue
 #
-DEF ihouse-rescue:Device_Fuse-ihouse-rescue F 0 0 N Y 1 F N
+DEF ihouse-rescue_Device_Fuse-ihouse-rescue F 0 0 N Y 1 F N
 F0 "F" 80 0 50 V V C CNN
-F1 "ihouse-rescue:Device_Fuse-ihouse-rescue" -75 0 50 V V C CNN
+F1 "ihouse-rescue_Device_Fuse-ihouse-rescue" -75 0 50 V V C CNN
 F2 "" -70 0 50 V I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -362,11 +268,11 @@ X ~ 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Device_R-ihouse-rescue
+# ihouse-rescue_Device_R-ihouse-rescue
 #
-DEF ihouse-rescue:Device_R-ihouse-rescue R 0 0 N Y 1 F N
+DEF ihouse-rescue_Device_R-ihouse-rescue R 0 0 N Y 1 F N
 F0 "R" 80 0 50 V V C CNN
-F1 "ihouse-rescue:Device_R-ihouse-rescue" 0 0 50 V V C CNN
+F1 "ihouse-rescue_Device_R-ihouse-rescue" 0 0 50 V V C CNN
 F2 "" -70 0 50 V I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -379,47 +285,11 @@ X ~ 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Device_R_Pack04-ihouse-rescue
+# ihouse-rescue_Device_Thermistor_PTC-ihouse-rescue
 #
-DEF ihouse-rescue:Device_R_Pack04-ihouse-rescue RN 0 0 Y N 1 F N
-F0 "RN" -300 0 50 V V C CNN
-F1 "ihouse-rescue:Device_R_Pack04-ihouse-rescue" 200 0 50 V V C CNN
-F2 "" 275 0 50 V I C CNN
-F3 "" 0 0 50 H I C CNN
-$FPLIST
- DIP*
- SOIC*
-$ENDFPLIST
-DRAW
-S -250 -95 150 95 0 1 10 f
-S -225 75 -175 -75 0 1 10 N
-S -125 75 -75 -75 0 1 10 N
-S -25 75 25 -75 0 1 10 N
-S 75 75 125 -75 0 1 10 N
-P 2 0 1 0 -200 -100 -200 -75 N
-P 2 0 1 0 -200 75 -200 100 N
-P 2 0 1 0 -100 -100 -100 -75 N
-P 2 0 1 0 -100 75 -100 100 N
-P 2 0 1 0 0 -100 0 -75 N
-P 2 0 1 0 0 75 0 100 N
-P 2 0 1 0 100 -100 100 -75 N
-P 2 0 1 0 100 75 100 100 N
-X R1.1 1 -200 -200 100 U 50 50 1 1 P
-X R2.1 2 -100 -200 100 U 50 50 1 1 P
-X R3.1 3 0 -200 100 U 50 50 1 1 P
-X R4.1 4 100 -200 100 U 50 50 1 1 P
-X R4.2 5 100 200 100 D 50 50 1 1 P
-X R3.2 6 0 200 100 D 50 50 1 1 P
-X R2.2 7 -100 200 100 D 50 50 1 1 P
-X R1.2 8 -200 200 100 D 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
-# ihouse-rescue:Device_Thermistor_PTC-ihouse-rescue
-#
-DEF ihouse-rescue:Device_Thermistor_PTC-ihouse-rescue TH 0 0 N Y 1 F N
+DEF ihouse-rescue_Device_Thermistor_PTC-ihouse-rescue TH 0 0 N Y 1 F N
 F0 "TH" -160 0 50 V V C CNN
-F1 "ihouse-rescue:Device_Thermistor_PTC-ihouse-rescue" 120 0 50 V V C CNN
+F1 "ihouse-rescue_Device_Thermistor_PTC-ihouse-rescue" 120 0 50 V V C CNN
 F2 "" 50 -200 50 H I L CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -447,11 +317,11 @@ X ~ 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Diode_LL4148-ihouse-rescue
+# ihouse-rescue_Diode_LL4148-ihouse-rescue
 #
-DEF ihouse-rescue:Diode_LL4148-ihouse-rescue D 0 40 N N 1 F N
+DEF ihouse-rescue_Diode_LL4148-ihouse-rescue D 0 40 N N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "ihouse-rescue:Diode_LL4148-ihouse-rescue" 0 -100 50 H V C CNN
+F1 "ihouse-rescue_Diode_LL4148-ihouse-rescue" 0 -100 50 H V C CNN
 F2 "Diode_SMD:D_MiniMELF" 0 -175 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -466,11 +336,11 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Isolator_LTV-817-ihouse-rescue
+# ihouse-rescue_Isolator_LTV-817-ihouse-rescue
 #
-DEF ihouse-rescue:Isolator_LTV-817-ihouse-rescue U 0 40 Y Y 1 F N
+DEF ihouse-rescue_Isolator_LTV-817-ihouse-rescue U 0 40 Y Y 1 F N
 F0 "U" -200 200 50 H V L CNN
-F1 "ihouse-rescue:Isolator_LTV-817-ihouse-rescue" 0 200 50 H V L CNN
+F1 "ihouse-rescue_Isolator_LTV-817-ihouse-rescue" 0 200 50 H V L CNN
 F2 "Package_DIP:DIP-4_W7.62mm" -200 -200 50 H I L CIN
 F3 "" 0 -100 50 H I L CNN
 $FPLIST
@@ -497,11 +367,60 @@ X ~ 4 300 100 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Motor_Motor_DC-ihouse-rescue
+# ihouse-rescue_L293-Driver_Motor
 #
-DEF ihouse-rescue:Motor_Motor_DC-ihouse-rescue M 0 0 Y Y 1 F N
+DEF ihouse-rescue_L293-Driver_Motor U 0 40 Y Y 1 F N
+F0 "U" -200 1025 50 H V R CNN
+F1 "ihouse-rescue_L293-Driver_Motor" -200 950 50 H V R CNN
+F2 "Package_DIP:DIP-16_W7.62mm" 250 -750 50 H I L CNN
+F3 "" -300 700 50 H I C CNN
+$FPLIST
+ DIP*W7.62mm*
+$ENDFPLIST
+DRAW
+C -90 -270 10 0 1 0 F
+C -90 325 10 0 1 0 F
+S -400 900 400 -700 0 1 10 f
+P 2 0 1 0 -250 -195 -50 -195 N
+P 2 0 1 0 -250 5 -125 5 N
+P 2 0 1 0 -250 400 -50 400 N
+P 2 0 1 0 -250 600 -125 600 N
+P 2 0 1 0 -50 5 250 5 N
+P 2 0 1 0 -50 600 250 600 N
+P 2 0 1 0 25 -195 250 -195 N
+P 2 0 1 0 25 400 250 400 N
+P 3 0 1 0 -90 -270 -10 -270 -10 -220 N
+P 3 0 1 0 -90 -25 -90 -400 -140 -400 N
+P 3 0 1 0 -90 325 -10 325 -10 375 N
+P 3 0 1 0 -90 570 -90 200 -140 200 N
+P 4 0 1 0 -125 55 -125 -45 -50 5 -125 55 N
+P 4 0 1 0 -125 650 -125 550 -50 600 -125 650 N
+P 4 0 1 0 -50 -145 -50 -245 25 -195 -50 -145 N
+P 4 0 1 0 -50 450 -50 350 25 400 -50 450 N
+X EN1,2 1 -500 200 100 R 50 50 1 1 I
+X 3A 10 -500 0 100 R 50 50 1 1 I
+X 3Y 11 500 0 100 L 50 50 1 1 O
+X GND 12 100 -800 100 U 50 50 1 1 W
+X GND 13 200 -800 100 U 50 50 1 1 W
+X 4Y 14 500 -200 100 L 50 50 1 1 O
+X 4A 15 -500 -200 100 R 50 50 1 1 I
+X VCC1 16 -100 1000 100 D 50 50 1 1 W
+X 1A 2 -500 600 100 R 50 50 1 1 I
+X 1Y 3 500 600 100 L 50 50 1 1 O
+X GND 4 -200 -800 100 U 50 50 1 1 W
+X GND 5 -100 -800 100 U 50 50 1 1 W
+X 2Y 6 500 400 100 L 50 50 1 1 O
+X 2A 7 -500 400 100 R 50 50 1 1 I
+X VCC2 8 100 1000 100 D 50 50 1 1 W
+X EN3,4 9 -500 -400 100 R 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+# ihouse-rescue_Motor_Motor_DC-ihouse-rescue
+#
+DEF ihouse-rescue_Motor_Motor_DC-ihouse-rescue M 0 0 Y Y 1 F N
 F0 "M" 100 100 50 H V L CNN
-F1 "ihouse-rescue:Motor_Motor_DC-ihouse-rescue" 100 -200 50 H V L TNN
+F1 "ihouse-rescue_Motor_Motor_DC-ihouse-rescue" 100 -200 50 H V L TNN
 F2 "" 0 -90 50 H I C CNN
 F3 "" 0 -90 50 H I C CNN
 $FPLIST
@@ -520,11 +439,11 @@ X - 2 0 -300 100 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Relay_FINDER-32.21-x300-ihouse-rescue
+# ihouse-rescue_Relay_FINDER-32.21-x300-ihouse-rescue
 #
-DEF ihouse-rescue:Relay_FINDER-32.21-x300-ihouse-rescue K 0 40 Y Y 1 F N
+DEF ihouse-rescue_Relay_FINDER-32.21-x300-ihouse-rescue K 0 40 Y Y 1 F N
 F0 "K" 450 150 50 H V L CNN
-F1 "ihouse-rescue:Relay_FINDER-32.21-x300-ihouse-rescue" 450 50 50 H V L CNN
+F1 "ihouse-rescue_Relay_FINDER-32.21-x300-ihouse-rescue" 450 50 50 H V L CNN
 F2 "Relay_THT:Relay_SPST_Finder_32.21-x300" 1270 -30 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -552,11 +471,11 @@ X ~ A2 -200 -300 100 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Relay_FINDER-40.51-ihouse-rescue
+# ihouse-rescue_Relay_FINDER-40.51-ihouse-rescue
 #
-DEF ihouse-rescue:Relay_FINDER-40.51-ihouse-rescue K 0 40 Y Y 1 F N
+DEF ihouse-rescue_Relay_FINDER-40.51-ihouse-rescue K 0 40 Y Y 1 F N
 F0 "K" 450 150 50 H V L CNN
-F1 "ihouse-rescue:Relay_FINDER-40.51-ihouse-rescue" 450 50 50 H V L CNN
+F1 "ihouse-rescue_Relay_FINDER-40.51-ihouse-rescue" 450 50 50 H V L CNN
 F2 "Relay_THT:Relay_SPDT_Finder_40.51" 1140 -40 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -588,11 +507,11 @@ X ~ A2 -200 -300 100 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Relay_G5Q-1A-ihouse-rescue
+# ihouse-rescue_Relay_G5Q-1A-ihouse-rescue
 #
-DEF ihouse-rescue:Relay_G5Q-1A-ihouse-rescue K 0 40 Y Y 1 F N
+DEF ihouse-rescue_Relay_G5Q-1A-ihouse-rescue K 0 40 Y Y 1 F N
 F0 "K" 350 150 50 H V L CNN
-F1 "ihouse-rescue:Relay_G5Q-1A-ihouse-rescue" 350 50 50 H V L CNN
+F1 "ihouse-rescue_Relay_G5Q-1A-ihouse-rescue" 350 50 50 H V L CNN
 F2 "Relay_THT:Relay_SPST_Omron-G5Q-1A" 350 -50 50 H I L CNN
 F3 "" 1100 -300 50 H I C CNN
 $FPLIST
@@ -621,11 +540,11 @@ X ~ 5 -200 300 100 D 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Relay_RT42xxxx-ihouse-rescue
+# ihouse-rescue_Relay_RT42xxxx-ihouse-rescue
 #
-DEF ihouse-rescue:Relay_RT42xxxx-ihouse-rescue K 0 40 Y Y 1 F N
+DEF ihouse-rescue_Relay_RT42xxxx-ihouse-rescue K 0 40 Y Y 1 F N
 F0 "K" 650 150 50 H V L CNN
-F1 "ihouse-rescue:Relay_RT42xxxx-ihouse-rescue" 650 50 50 H V L CNN
+F1 "ihouse-rescue_Relay_RT42xxxx-ihouse-rescue" 650 50 50 H V L CNN
 F2 "Relay_THT:Relay_DPDT_Schrack-RT2-FormC_RM5mm" 0 0 50 H I C CNN
 F3 "" 650 150 50 H I C CNN
 $FPLIST
@@ -673,11 +592,11 @@ X ~ A2 -400 -300 100 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Switch_SW_Push_Open-ihouse-rescue
+# ihouse-rescue_Switch_SW_Push_Open-ihouse-rescue
 #
-DEF ihouse-rescue:Switch_SW_Push_Open-ihouse-rescue SW 0 40 N N 1 F N
+DEF ihouse-rescue_Switch_SW_Push_Open-ihouse-rescue SW 0 40 N N 1 F N
 F0 "SW" 0 100 50 H V C CNN
-F1 "ihouse-rescue:Switch_SW_Push_Open-ihouse-rescue" 0 -75 50 H V C CNN
+F1 "ihouse-rescue_Switch_SW_Push_Open-ihouse-rescue" 0 -75 50 H V C CNN
 F2 "" 0 200 50 H I C CNN
 F3 "" 0 200 50 H I C CNN
 DRAW
@@ -690,57 +609,11 @@ X B 2 200 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Transistor_Array_ULN2003A-ihouse-rescue
+# ihouse-rescue_Transistor_Array_ULN2803A-ihouse-rescue
 #
-DEF ihouse-rescue:Transistor_Array_ULN2003A-ihouse-rescue U 0 20 Y Y 1 F N
-F0 "U" 0 625 50 H V C CNN
-F1 "ihouse-rescue:Transistor_Array_ULN2003A-ihouse-rescue" 0 550 50 H V C CNN
-F2 "" 50 -550 50 H I L CNN
-F3 "" 100 -200 50 H I C CNN
-$FPLIST
- DIP*W7.62mm*
- SOIC*3.9x9.9mm*P1.27mm*
- SSOP*4.4x5.2mm*P0.65mm*
- TSSOP*4.4x5mm*P0.65mm*
- SOIC*W*5.3x10.2mm*P1.27mm*
-$ENDFPLIST
-DRAW
-C -70 200 10 0 1 0 N
-C -50 -90 10 0 1 0 F
-C -50 0 10 0 1 0 F
-C -50 100 10 0 1 0 F
-C -20 200 10 0 1 0 F
-S -300 -500 300 500 0 1 10 f
-P 2 0 1 0 -180 200 -140 200 N
-P 2 0 1 0 -60 200 160 200 N
-P 2 0 1 0 0 265 -40 265 N
-P 3 0 1 0 -20 200 -20 400 115 400 N
-P 4 0 1 0 -140 240 -140 160 -80 200 -140 240 N
-P 4 0 1 0 0 235 -40 235 -20 265 0 235 N
-X I1 1 -400 200 100 R 50 50 1 1 I
-X O7 10 400 -400 100 L 50 50 1 1 C
-X O6 11 400 -300 100 L 50 50 1 1 C
-X O5 12 400 -200 100 L 50 50 1 1 C
-X O4 13 400 -100 100 L 50 50 1 1 C
-X O3 14 400 0 100 L 50 50 1 1 C
-X O2 15 400 100 100 L 50 50 1 1 C
-X O1 16 400 200 100 L 50 50 1 1 C
-X I2 2 -400 100 100 R 50 50 1 1 I
-X I3 3 -400 0 100 R 50 50 1 1 I
-X I4 4 -400 -100 100 R 50 50 1 1 I
-X I5 5 -400 -200 100 R 50 50 1 1 I
-X I6 6 -400 -300 100 R 50 50 1 1 I
-X I7 7 -400 -400 100 R 50 50 1 1 I
-X GND 8 0 -600 100 U 50 50 1 1 W
-X COM 9 400 400 100 L 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
-# ihouse-rescue:Transistor_Array_ULN2803A-ihouse-rescue
-#
-DEF ihouse-rescue:Transistor_Array_ULN2803A-ihouse-rescue U 0 20 Y Y 1 F N
+DEF ihouse-rescue_Transistor_Array_ULN2803A-ihouse-rescue U 0 20 Y Y 1 F N
 F0 "U" 0 525 50 H V C CNN
-F1 "ihouse-rescue:Transistor_Array_ULN2803A-ihouse-rescue" 0 450 50 H V C CNN
+F1 "ihouse-rescue_Transistor_Array_ULN2803A-ihouse-rescue" 0 450 50 H V C CNN
 F2 "" 50 -650 50 H I L CNN
 F3 "" 100 -200 50 H I C CNN
 $FPLIST
@@ -781,11 +654,11 @@ X GND 9 0 -700 100 U 50 50 1 1 W
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:Triac_Thyristor_Z0103MN-ihouse-rescue
+# ihouse-rescue_Triac_Thyristor_Z0103MN-ihouse-rescue
 #
-DEF ihouse-rescue:Triac_Thyristor_Z0103MN-ihouse-rescue D 0 0 Y N 1 F N
+DEF ihouse-rescue_Triac_Thyristor_Z0103MN-ihouse-rescue D 0 0 Y N 1 F N
 F0 "D" 125 25 50 H V L CNN
-F1 "ihouse-rescue:Triac_Thyristor_Z0103MN-ihouse-rescue" 125 -50 50 H V L CNN
+F1 "ihouse-rescue_Triac_Thyristor_Z0103MN-ihouse-rescue" 125 -50 50 H V L CNN
 F2 "Package_TO_SOT_SMD:SOT-223" 750 -150 50 H I C CNN
 F3 "" 150 300 50 H I C CNN
 $FPLIST
@@ -804,11 +677,11 @@ X A4 4 0 150 100 D 50 50 1 1 P N
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:capacitors_CP_100uFx16V-ihouse-rescue
+# ihouse-rescue_capacitors_CP_100uFx16V-ihouse-rescue
 #
-DEF ~ihouse-rescue:capacitors_CP_100uFx16V-ihouse-rescue C 0 0 N N 1 F N
+DEF ~ihouse-rescue_capacitors_CP_100uFx16V-ihouse-rescue C 0 0 N N 1 F N
 F0 "C" 25 100 50 H V L CNN
-F1 "ihouse-rescue:capacitors_CP_100uFx16V-ihouse-rescue" 200 150 50 H I L CNN
+F1 "ihouse-rescue_capacitors_CP_100uFx16V-ihouse-rescue" 200 150 50 H I L CNN
 F2 "capacitors:CP_Radial_D6.3mm_P2.50mm" 850 250 50 H I C CNN
 F3 "" 25 100 50 H I C CNN
 F4 "ZKN008" 50 -250 60 H I C CNN "ventcode"
@@ -832,11 +705,11 @@ X ~ 2 0 -150 110 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:disc_MOC3060S-ihouse-rescue
+# ihouse-rescue_disc_MOC3060S-ihouse-rescue
 #
-DEF ~ihouse-rescue:disc_MOC3060S-ihouse-rescue U 0 40 Y N 1 F N
+DEF ~ihouse-rescue_disc_MOC3060S-ihouse-rescue U 0 40 Y N 1 F N
 F0 "U" -200 200 50 H V L CNN
-F1 "ihouse-rescue:disc_MOC3060S-ihouse-rescue" 1650 150 50 H I L CNN
+F1 "ihouse-rescue_disc_MOC3060S-ihouse-rescue" 1650 150 50 H I L CNN
 F2 "disc:DIP-6_W9.53mm_SMD" 850 50 50 H I L CIN
 F3 "http://datasheet.octopart.com/MOC3063SR2M-Fairchild-Semiconductor-datasheet-10497244.pdf" 850 -50 50 H I L CNN
 F4 "-" 0 -400 60 H I C CNN "ventcode"
@@ -885,11 +758,11 @@ X ~ 6 300 100 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:disc_Transformer_TEZ_22x24_6V-ihouse-rescue
+# ihouse-rescue_disc_Transformer_TEZ_22x24_6V-ihouse-rescue
 #
-DEF ~ihouse-rescue:disc_Transformer_TEZ_22x24_6V-ihouse-rescue T 0 40 Y N 1 F N
+DEF ~ihouse-rescue_disc_Transformer_TEZ_22x24_6V-ihouse-rescue T 0 40 Y N 1 F N
 F0 "T" 0 250 50 H V C CNN
-F1 "ihouse-rescue:disc_Transformer_TEZ_22x24_6V-ihouse-rescue" 1150 200 50 H I C CNN
+F1 "ihouse-rescue_disc_Transformer_TEZ_22x24_6V-ihouse-rescue" 1150 200 50 H I C CNN
 F2 "disc:Transformer_Breve_TEZ-22x24_6V" 1400 100 50 H I C CNN
 F3 "" 0 250 50 H I C CNN
 F4 "Transformatorius" 1100 0 60 H I C CNN "Pavadinimas"
@@ -924,11 +797,11 @@ X SA 7 400 -200 300 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# ihouse-rescue:dk_Interface-I-O-Expanders_MCP23017-E_SP-ihouse-rescue
+# ihouse-rescue_dk_Interface-I-O-Expanders_MCP23017-E_SP-ihouse-rescue
 #
-DEF ihouse-rescue:dk_Interface-I-O-Expanders_MCP23017-E_SP-ihouse-rescue U 0 40 Y Y 1 F N
+DEF ihouse-rescue_dk_Interface-I-O-Expanders_MCP23017-E_SP-ihouse-rescue U 0 40 Y Y 1 F N
 F0 "U" -100 750 60 H V C CNN
-F1 "ihouse-rescue:dk_Interface-I-O-Expanders_MCP23017-E_SP-ihouse-rescue" 200 -700 60 V V C CNN
+F1 "ihouse-rescue_dk_Interface-I-O-Expanders_MCP23017-E_SP-ihouse-rescue" 200 -700 60 V V C CNN
 F2 "digikey-footprints:DIP-28_W7.62mm" 200 200 60 H I L CNN
 F3 "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en023709" 200 300 60 H I L CNN
 F4 "MCP23017-E/SP-ND" 200 400 60 H I L CNN "Digi-Key_PN"
@@ -970,6 +843,90 @@ X GPB5 6 -300 100 100 R 50 50 1 1 B
 X GPB6 7 -300 0 100 R 50 50 1 1 B
 X GPB7 8 -300 -100 100 R 50 50 1 1 B
 X VDD 9 100 800 100 D 50 50 1 1 W
+ENDDRAW
+ENDDEF
+#
+# unicon_unicon_v1
+#
+DEF unicon_unicon_v1 M 0 40 Y Y 1 F N
+F0 "M" -500 1350 50 H V C CNN
+F1 "unicon_unicon_v1" 250 1350 50 H V C CNN
+F2 "unicon:unicon_v1" 0 3100 50 H I C CNN
+F3 "" 0 3100 50 H I C CNN
+DRAW
+T 0 -250 -1250 50 0 0 0 D2 Normal 0 C C
+T 0 -100 -1250 50 0 0 0 D5 Normal 0 C C
+T 0 100 -1250 50 0 0 0 D6 Normal 0 C C
+T 0 250 -1250 50 0 0 0 D7 Normal 0 C C
+T 0 -600 1250 60 0 0 0 J2 Normal 0 C C
+T 0 -600 450 60 0 0 0 J3 Normal 0 C C
+T 0 600 750 60 0 0 0 J4 Normal 0 C C
+T 900 -100 -900 50 0 0 0 PB0 Normal 0 C C
+T 900 -250 -900 50 0 0 0 PB1 Normal 0 C C
+T 900 100 -875 50 0 0 0 PB10 Normal 0 C C
+T 900 250 -900 50 0 0 0 PB2 Normal 0 C C
+S -750 1300 -450 600 0 0 0 N
+S -750 500 -450 -1350 0 1 0 N
+S -750 1300 750 -1350 0 1 0 N
+S 450 800 750 -1350 0 1 0 N
+P 2 0 1 0 -300 -1150 -200 -1150 N
+P 2 0 1 0 -250 -1000 -250 -1200 N
+P 2 0 1 0 -150 -1150 -50 -1150 N
+P 2 0 1 0 -100 -1000 -100 -1200 N
+P 2 0 1 0 50 -1150 150 -1150 N
+P 2 0 1 0 100 -1000 100 -1200 N
+P 2 0 1 0 200 -1150 300 -1150 N
+P 2 0 1 0 250 -1000 250 -1200 N
+P 4 0 1 0 -300 -1050 -200 -1050 -250 -1150 -300 -1050 N
+P 4 0 1 0 -150 -1050 -50 -1050 -100 -1150 -150 -1050 N
+P 4 0 1 0 50 -1050 150 -1050 100 -1150 50 -1050 N
+P 4 0 1 0 200 -1050 300 -1050 250 -1150 200 -1050 N
+X 12VDC 1 -950 1150 200 R 50 50 1 1 W
+X PB6 10 -950 350 200 R 50 50 1 1 B
+X PB7 11 -950 250 200 R 50 50 1 1 B
+X PB8 12 -950 150 200 R 50 50 1 1 B
+X PB9 13 -950 50 200 R 50 50 1 1 B
+X PC13 14 -950 -50 200 R 50 50 1 1 B
+X PA4 15 -950 -150 200 R 50 50 1 1 B
+X PA5 16 -950 -250 200 R 50 50 1 1 B
+X PA6 17 -950 -350 200 R 50 50 1 1 B
+X PA7 18 -950 -450 200 R 50 50 1 1 B
+X PA0 19 -950 -550 200 R 50 50 1 1 B
+X 5VDC 2 -950 1050 200 R 50 50 1 1 w
+X PA1 20 -950 -650 200 R 50 50 1 1 B
+X PA2 21 -950 -750 200 R 50 50 1 1 B
+X PA3 22 -950 -850 200 R 50 50 1 1 B
+X PB0 23 -950 -950 200 R 50 50 1 1 B
+X PB1 24 -950 -1050 200 R 50 50 1 1 B
+X PB2 25 -950 -1150 200 R 50 50 1 1 B
+X PB10 26 -950 -1250 200 R 50 50 1 1 B
+X 3VDC 27 950 650 200 L 50 50 1 1 w
+X COM 28 950 550 200 L 50 50 1 1 P
+X ~NRSTP 29 950 450 200 L 50 50 1 1 I
+X 3VDC 3 -950 950 200 R 50 50 1 1 w
+X BOOT0 30 950 350 200 L 50 50 1 1 I
+X PB4 31 950 250 200 L 50 50 1 1 B
+X PB5 32 950 150 200 L 50 50 1 1 B
+X PA15 33 950 50 200 L 50 50 1 1 B
+X PB3 34 950 -50 200 L 50 50 1 1 B
+X PF6 35 950 -150 200 L 50 50 1 1 B
+X PF7 36 950 -250 200 L 50 50 1 1 B
+X PA11 37 950 -350 200 L 50 50 1 1 B
+X PA12 38 950 -450 200 L 50 50 1 1 B
+X PA9 39 950 -550 200 L 50 50 1 1 B
+X COM 4 -950 850 200 R 50 50 1 1 P
+X PA10 40 950 -650 200 L 50 50 1 1 B
+X PB15 41 950 -750 200 L 50 50 1 1 B
+X PA8 42 950 -850 200 L 50 50 1 1 B
+X PB13 43 950 -950 200 L 50 50 1 1 B
+X PB14 44 950 -1050 200 L 50 50 1 1 B
+X PB11 45 950 -1150 200 L 50 50 1 1 B
+X PB12 46 950 -1250 200 L 50 50 1 1 B
+X COM 5 -950 750 200 R 50 50 1 1 P
+X COM 6 -950 650 200 R 50 50 1 1 P
+X ~ 7 950 1100 200 L 50 50 1 1 N N
+X ~ 8 950 1000 200 L 50 50 1 1 N N
+X ~ 9 950 900 200 L 50 50 1 1 N N
 ENDDRAW
 ENDDEF
 #
