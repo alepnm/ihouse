@@ -1,0 +1,4 @@
+#ifndef USART_H_INCLUDED
+#define USART_H_INCLUDED
+
+#endif /* USART_H_INCLUDED */

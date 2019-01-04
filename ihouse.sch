@@ -374,9 +374,9 @@ Connection ~ 2650 9400
 Wire Wire Line
 	1750 9800 1450 9800
 Text Label 1450 9400 0    50   ~ 0
-AIN
+VLINE
 Text Label 1450 9800 0    50   ~ 0
-VREF
+3VDC
 $Comp
 L ihouse-rescue:capacitors_CP_100uFx16V-ihouse-rescue C?
 U 1 1 5C3B44AF
@@ -497,7 +497,7 @@ Connection ~ 2150 10250
 Text Label 1800 10250 0    50   ~ 0
 COM
 $Comp
-L unicon:unicon_v1 M?
+L ihouse-rescue:unicon_v1-unicon M?
 U 1 1 5C94CB7C
 P 3200 3250
 F 0 "M?" H 3200 4715 50  0000 C CNN
@@ -508,12 +508,12 @@ F 3 "" H 3200 6350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2250 2200 1950 2200
-Text Label 1950 2200 0    50   ~ 0
+	2250 2200 1900 2200
+Text Label 1900 2200 0    50   ~ 0
 5VDC
 Wire Wire Line
-	2250 2100 1950 2100
-Text Label 1950 2100 0    50   ~ 0
+	2250 2100 1900 2100
+Text Label 1900 2100 0    50   ~ 0
 12VDC
 Wire Wire Line
 	2250 2400 2150 2400
@@ -527,9 +527,9 @@ Connection ~ 2150 2500
 Wire Wire Line
 	2150 2500 2150 2600
 Wire Wire Line
-	2150 2600 1950 2600
+	2150 2600 1900 2600
 Connection ~ 2150 2600
-Text Label 1950 2600 0    50   ~ 0
+Text Label 1900 2600 0    50   ~ 0
 COM
 Wire Wire Line
 	4150 2700 4400 2700
@@ -2084,4 +2084,40 @@ Text Label 8900 2500 0    50   ~ 0
 SCL
 Text Label 9100 3700 0    50   ~ 0
 EXT0
+Wire Wire Line
+	2250 2900 1900 2900
+Wire Wire Line
+	2250 3000 1900 3000
+Text Label 1900 3000 0    50   ~ 0
+SDA
+Text Label 1900 2900 0    50   ~ 0
+SCL
+Wire Wire Line
+	4150 3800 4500 3800
+Wire Wire Line
+	4150 3900 4500 3900
+Text Label 4500 3800 2    50   ~ 0
+UART_TX
+Text Label 4500 3900 2    50   ~ 0
+UART_RX
+Wire Wire Line
+	4150 3700 4500 3700
+Text Label 4500 3700 2    50   ~ 0
+UART_DE
+Wire Wire Line
+	2250 3200 1900 3200
+Text Label 1900 3200 0    50   ~ 0
+BUZZ
+Wire Wire Line
+	4150 3400 4500 3400
+Text Label 4500 3400 2    50   ~ 0
+LPULSE
+Wire Wire Line
+	2250 3800 1900 3800
+Text Label 1900 3800 0    50   ~ 0
+VLINE
+Wire Wire Line
+	1900 2300 2250 2300
+Text Label 1900 2300 0    50   ~ 0
+3VDC
 $EndSCHEMATC
