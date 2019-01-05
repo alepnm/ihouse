@@ -45,7 +45,9 @@ extern const uint32_t baudrates[];
 
 void    USART_Config(uint8_t ucPORT, uint32_t ulBaudRate, uint32_t ulDataBits,  uint8_t ulParity);
 void    USART_SendByte(uint8_t ucPORT, uint8_t data);
-void    USART_IRQ_Handler(void);
+
+void    USART1_IRQ_Handler(void);
+void    USART2_IRQ_Handler(void);
 
 void    USART_Send( uint8_t ucPORT, void* buf, size_t size_of_data );
 void    USART_SendString( uint8_t ucPORT, const char* str );

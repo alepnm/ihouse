@@ -63,8 +63,6 @@ extern "C" {
 #include "stm32f0xx_ll_usart.h"
 #include "stm32f0xx_ll_gpio.h"
 
-#define USE_FULL_ASSERT
-
 #if defined(USE_FULL_ASSERT)
 #include "stm32_assert.h"
 #endif /* USE_FULL_ASSERT */
@@ -99,8 +97,25 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define VLINE_Pin LL_GPIO_PIN_0
 #define VLINE_GPIO_Port GPIOA
+#define OPTIC_Pin LL_GPIO_PIN_4
+#define OPTIC_GPIO_Port GPIOA
+#define BUZZ_Pin LL_GPIO_PIN_6
+#define BUZZ_GPIO_Port GPIOA
+#define LED5_Pin LL_GPIO_PIN_0
+#define LED5_GPIO_Port GPIOB
+#define LED2_Pin LL_GPIO_PIN_1
+#define LED2_GPIO_Port GPIOB
+#define LED7_Pin LL_GPIO_PIN_2
+#define LED7_GPIO_Port GPIOB
+#define LED6_Pin LL_GPIO_PIN_10
+#define LED6_GPIO_Port GPIOB
+#define PWM1_Pin LL_GPIO_PIN_14
+#define PWM1_GPIO_Port GPIOB
+#define PWM2_Pin LL_GPIO_PIN_15
+#define PWM2_GPIO_Port GPIOB
 #define LPULSE_Pin LL_GPIO_PIN_6
 #define LPULSE_GPIO_Port GPIOF
+#define LPULSE_EXTI_IRQn EXTI4_15_IRQn
 #ifndef NVIC_PRIORITYGROUP_0
 #define NVIC_PRIORITYGROUP_0         ((uint32_t)0x00000007) /*!< 0 bit  for pre-emption priority,
                                                                  4 bits for subpriority */

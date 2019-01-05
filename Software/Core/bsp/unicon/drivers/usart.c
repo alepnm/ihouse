@@ -1,7 +1,5 @@
 #include "defs.h"
-#include "io.h"
 #include "usart.h"
-//#include "user_mb_app.h"
 
 
 #define USART_PAR_NONE  0   //MB_PAR_NONE
@@ -9,7 +7,7 @@
 #define USART_PAR_EVEN  2   //MB_PAR_EVEN
 
 
-USART_TypeDef* ports[3u] = {USART1, NULL, NULL};
+USART_TypeDef* ports[3u] = {USART1, USART2, NULL};
 
 const uint32_t baudrates[6u] = { 2400u, 4800u, 9600u, 19200u, 38400u, 57600u };
 
@@ -26,8 +24,6 @@ uint32_t    Usart_ConfigRegister;
 
 extern LL_USART_InitTypeDef USART_InitStruct;
 
-#if !defined(MODBUS_ENABLE)
-
 uint8_t UsartState = 0; // 0-IDLE, 1-RXNE, 2-TC
 uint8_t RxByte;
 
@@ -39,8 +35,6 @@ static uint8_t TxBuffer[255], TxBytesQuant = 0, TxByteIdx = 0;
 void USART_Config(uint8_t ucPORT, uint32_t ulBaudRate, uint32_t ulDataBits,  uint8_t ulParity ) {
 
     UNUSED(ulDataBits);
-
-    //MbPortParams.Uart = ucPORT;
 
     do{
          LL_USART_Disable(ports[ucPORT]);
@@ -111,8 +105,6 @@ void USART_SendString( uint8_t ucPORT, const char* str ){
 
 
 
-
-
 /*  */
 uint8_t GetIndexByBaudrate( uint32_t baudrate ) {
 
@@ -130,45 +122,37 @@ uint8_t GetIndexByBaudrate( uint32_t baudrate ) {
     return i;
 }
 
-#endif  //!defined(MODBUS_ENABLE)
+
+/*  */
+void USART1_IRQ_Handler(void){
+
+    if( LL_USART_IsActiveFlag_RXNE(USART1) && LL_USART_IsEnabledIT_RXNE(USART1) ) {
+
+        RxByte = LL_USART_ReceiveData8(USART1);
+
+        UsartState = USART_STATE_IDLE;
+    }
+
+    if( LL_USART_IsActiveFlag_TC(USART1) && LL_USART_IsEnabledIT_TC(USART1) ) {
+        if(--TxBytesQuant > 0){
+
+            LL_USART_TransmitData8(USART1, TxBuffer[++TxByteIdx]);
+
+        }else{
+            LL_USART_ClearFlag_TC(USART1);
+
+            LL_USART_DisableIT_TC(USART1);
+
+            UsartState = USART_STATE_IDLE;
+        }
+    }
+}
 
 
 /*  */
-void USART_IRQ_Handler(void){
+void USART2_IRQ_Handler(void){
 
-    if( LL_USART_IsActiveFlag_RXNE(ports[0]) && LL_USART_IsEnabledIT_RXNE(ports[0]) ) {
 
-#if defined(MODBUS_ENABLE)
-        (void)pxMBFrameCBByteReceived();
-        return;
-#else
-        RxByte = LL_USART_ReceiveData8(ports[0]);
-        UsartState = USART_STATE_IDLE;
-#endif
-
-    }
-
-    if( LL_USART_IsActiveFlag_TC(ports[0]) && LL_USART_IsEnabledIT_TC(ports[0]) ) {
-
-#if defined(MODBUS_ENABLE)
-        (void)pxMBFrameCBTransmitterEmpty();
-        return;
-#else
-
-        if(--TxBytesQuant > 0){
-
-            USART_SendByte(0, TxBuffer[++TxByteIdx]);
-
-        }else{
-            LL_USART_ClearFlag_TC(ports[0]);
-            LL_USART_DisableIT_TC(ports[0]);
-            UsartState = USART_STATE_IDLE;
-        }
-
-        LED2_OFF();
-#endif
-
-    }
 }
 
 

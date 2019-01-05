@@ -18,6 +18,6 @@ output\obj\debug\core\src\stm32f0xx_it.o: Core\Src\stm32f0xx_it.c \
  Drivers\STM32F0xx_HAL_Driver\Inc/stm32f0xx_ll_tim.h \
  Drivers\STM32F0xx_HAL_Driver\Inc/stm32f0xx_ll_usart.h \
  Drivers\STM32F0xx_HAL_Driver\Inc/stm32f0xx_ll_gpio.h \
- Core\Inc/stm32_assert.h Core\Inc/stm32f0xx_it.h \
- Core\bsp\unicon\drivers/tim.h Core\bsp\unicon\drivers/usart.h \
- Core\Inc/defs.h Core\Inc/main.h
+ Core\Inc/stm32f0xx_it.h Core\bsp\unicon\drivers/tim.h \
+ Core\bsp\unicon\drivers/usart.h Core\Inc/defs.h Core\Inc/stm32_assert.h \
+ Core\Inc/main.h

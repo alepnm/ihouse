@@ -2104,9 +2104,7 @@ Wire Wire Line
 	4150 3700 4500 3700
 Text Label 4500 3700 2    50   ~ 0
 UART_DE
-Wire Wire Line
-	2250 3200 1900 3200
-Text Label 1900 3200 0    50   ~ 0
+Text Label 1900 3600 0    50   ~ 0
 BUZZ
 Wire Wire Line
 	4150 3400 4500 3400
@@ -2120,4 +2118,18 @@ Wire Wire Line
 	1900 2300 2250 2300
 Text Label 1900 2300 0    50   ~ 0
 3VDC
+Text Label 1900 3400 0    50   ~ 0
+OPTIC
+Wire Wire Line
+	2250 3400 1900 3400
+Wire Wire Line
+	2250 3600 1900 3600
+Wire Wire Line
+	4150 4300 4500 4300
+Wire Wire Line
+	4150 4000 4500 4000
+Text Label 4500 4300 2    50   ~ 0
+PWM1
+Text Label 4500 4000 2    50   ~ 0
+PWM2
 $EndSCHEMATC

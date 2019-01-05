@@ -1,16 +1,15 @@
 #ifndef UNICON_H_INCLUDED
 #define UNICON_H_INCLUDED
 
-
 #include "defs.h"
 
 #include "io.h"
-//#include "usart.h"
+#include "usart.h"
 //#include "adc.h"
 //#include "spi.h"
 //#include "rtc.h"
 //#include "pwm.h"
-//#include "tim.h"
+#include "tim.h"
 
 
 /* Private functions */

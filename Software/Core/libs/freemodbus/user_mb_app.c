@@ -183,9 +183,6 @@ eMBRegDiscreteCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNDiscrete ) {
 //}
 
 
-
-
-
 /**/
 uint8_t xMbGetCoil( uint16_t usBitOffset ) {
     return xMBUtilGetBits( ucCoilBuf, usBitOffset, 1 );

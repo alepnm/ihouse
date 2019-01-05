@@ -1,3 +1,3 @@
 (fp_lib_table
-  (lib (name unicon)(type KiCad)(uri C:/Working/Git/unicon/hardware/Schema/kicad/UNICON/unicon.pretty)(options "")(descr ""))
+  (lib (name unicon)(type KiCad)(uri D:/Projects/unicon/hardware/Schema/kicad/UNICON/unicon.pretty)(options "")(descr ""))
 )

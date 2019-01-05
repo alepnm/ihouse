@@ -1,6 +1,6 @@
 output\obj\debug\core\bsp\unicon\unicon.o: Core\bsp\unicon\unicon.c \
- Core\bsp\unicon\unicon.h Core\Inc/defs.h Core\Inc/main.h \
- Drivers\STM32F0xx_HAL_Driver\Inc/stm32f0xx_ll_adc.h \
+ Core\bsp\unicon\unicon.h Core\Inc/defs.h Core\Inc/stm32_assert.h \
+ Core\Inc/main.h Drivers\STM32F0xx_HAL_Driver\Inc/stm32f0xx_ll_adc.h \
  Drivers\CMSIS\Device\ST\STM32F0xx\Include/stm32f0xx.h \
  Drivers\CMSIS\Device\ST\STM32F0xx\Include/stm32f051x8.h \
  Drivers\CMSIS\Include/core_cm0.h Drivers\CMSIS\Include/core_cmInstr.h \
@@ -19,4 +19,5 @@ output\obj\debug\core\bsp\unicon\unicon.o: Core\bsp\unicon\unicon.c \
  Drivers\STM32F0xx_HAL_Driver\Inc/stm32f0xx_ll_tim.h \
  Drivers\STM32F0xx_HAL_Driver\Inc/stm32f0xx_ll_usart.h \
  Drivers\STM32F0xx_HAL_Driver\Inc/stm32f0xx_ll_gpio.h \
- Core\Inc/stm32_assert.h Core\bsp\unicon\drivers/io.h
+ Core\bsp\unicon\drivers/io.h Core\bsp\unicon\drivers/usart.h \
+ Core\bsp\unicon\drivers/tim.h
