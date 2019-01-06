@@ -44,6 +44,11 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "unicon.h"
+
+#if defined(MODBUS_ENABLE)
+    #include "mb.h"
+    #include "user_mb_app.h"
+#endif
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -65,6 +70,8 @@
 
 /* USER CODE BEGIN PV */
 extern volatile uint32_t timestamp;
+
+char str[10] = {'r', 'e', 's', 't', 0xff, 0xff, 0xff};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -130,33 +137,51 @@ int main(void)
 
     SysTick_Config(SystemCoreClock/1000);
 
-    LL_mDelay(1000);
+    LL_mDelay(10);
 
     UNI_Start();
+
+    BEEP();
+    LL_mDelay(10);
+    BEEP();
+    LL_mDelay(10);
+    BEEP();
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
+#if defined(MODBUS_ENABLE)
+    eMBInit( MB_RTU, port_config[SECONDARY_PORT].MbAddr, SECONDARY_PORT, port_config[SECONDARY_PORT].Baudrate, port_config[SECONDARY_PORT].Parity );
+    eMBSetSlaveID( 123, TRUE, ucSlaveIdBuf, (MB_FUNC_OTHER_REP_SLAVEID_BUF - 4) );
+    eMBEnable();
+#endif
 
   while (1)
   {
 
         if(delay <= timestamp) {
 
-            delay = timestamp + 500;
+            delay = timestamp + 5000;
 
-            USART_Send(0, &timestamp, sizeof(timestamp));
+            LEDS_OFF();
 
-            BEEP();
-
-            LED2_ON();
+            Nextion_CommandSend(cmd_rest, sizeof(cmd_rest));
         }
 
+        UNI_Process();
+
+//        if(port_register[NEXTION_PORT].PortTimer > 0) LED2_ON();
+//        else LED2_OFF();
+//
+//        if(port_register[SECONDARY_PORT].PortTimer > 0) LED7_ON();
+//        else LED7_OFF();
 
     /* USER CODE END WHILE */
-
+#if defined(MODBUS_ENABLE)
+    (void)eMBPoll();
+#endif
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -586,7 +611,7 @@ static void MX_USART1_UART_Init(void)
   GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
   GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_HIGH;
   GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-  GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
+  GPIO_InitStruct.Pull = LL_GPIO_PULL_UP;
   GPIO_InitStruct.Alternate = LL_GPIO_AF_1;
   LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
@@ -671,7 +696,7 @@ static void MX_USART2_UART_Init(void)
   GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
   GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_HIGH;
   GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-  GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
+  GPIO_InitStruct.Pull = LL_GPIO_PULL_UP;
   GPIO_InitStruct.Alternate = LL_GPIO_AF_1;
   LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
@@ -710,8 +735,8 @@ static void MX_USART2_UART_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
-  LL_EXTI_InitTypeDef EXTI_InitStruct = {0};
   LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
+  LL_EXTI_InitTypeDef EXTI_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
   LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_GPIOC);

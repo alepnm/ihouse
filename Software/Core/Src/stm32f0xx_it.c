@@ -40,6 +40,7 @@
 /* USER CODE BEGIN Includes */
 #include "tim.h"
 #include "usart.h"
+#include "nextion.h"
 
 #if defined(MODBUS_ENABLE)
 #include "mbport.h"
@@ -85,7 +86,7 @@ volatile uint32_t timestamp = 0;
 /* USER CODE END EV */
 
 /******************************************************************************/
-/*           Cortex-M0 Processor Interruption and Exception Handlers          */ 
+/*           Cortex-M0 Processor Interruption and Exception Handlers          */
 /******************************************************************************/
 /**
   * @brief This function handles Non maskable interrupt.
@@ -152,8 +153,23 @@ void SysTick_Handler(void)
 
     BeeperHandler();
 
+    if(port_register[NEXTION_PORT].PortTimer > 0) port_register[NEXTION_PORT].PortTimer--;
+    else{
+        if(port_register[NEXTION_PORT].PortState == USART_STATE_RX){
+            port_register[NEXTION_PORT].PortState = USART_STATE_IDLE;
+            NextionDataReceived = true;
+        }
+    }
+
+    if(port_register[SECONDARY_PORT].PortTimer > 0) port_register[SECONDARY_PORT].PortTimer--;
+    else{
+        if(port_register[SECONDARY_PORT].PortState == USART_STATE_RX){
+            port_register[SECONDARY_PORT].PortState = USART_STATE_IDLE;
+        }
+    }
+
   /* USER CODE END SysTick_IRQn 0 */
-  
+
   /* USER CODE BEGIN SysTick_IRQn 1 */
 
   /* USER CODE END SysTick_IRQn 1 */
@@ -201,7 +217,7 @@ void TIM6_DAC_IRQHandler(void)
 #endif
 
   /* USER CODE END TIM6_DAC_IRQn 0 */
-  
+
   /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
 
   /* USER CODE END TIM6_DAC_IRQn 1 */
@@ -213,19 +229,7 @@ void TIM6_DAC_IRQHandler(void)
 void USART1_IRQHandler(void)
 {
   /* USER CODE BEGIN USART1_IRQn 0 */
-
-#if defined(MODBUS_ENABLE)
-    if( LL_USART_IsActiveFlag_RXNE(USART1) && LL_USART_IsEnabledIT_RXNE(USART1) ) {
-        (void)pxMBFrameCBByteReceived();
-    }
-
-    if( LL_USART_IsActiveFlag_TC(USART1) && LL_USART_IsEnabledIT_TC(USART1) ) {
-        (void)pxMBFrameCBTransmitterEmpty();
-    }
-#else
-    USART1_IRQ_Handler();
-#endif
-
+    USART_IRQ_Handler();
   /* USER CODE END USART1_IRQn 0 */
   /* USER CODE BEGIN USART1_IRQn 1 */
 
@@ -238,7 +242,7 @@ void USART1_IRQHandler(void)
 void USART2_IRQHandler(void)
 {
   /* USER CODE BEGIN USART2_IRQn 0 */
-    USART2_IRQ_Handler();
+    USART_IRQ_Handler();
   /* USER CODE END USART2_IRQn 0 */
   /* USER CODE BEGIN USART2_IRQn 1 */
 

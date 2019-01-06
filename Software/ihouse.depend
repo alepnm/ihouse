@@ -595,7 +595,7 @@
 	"defs.h"
 	"adc.h"
 
-1546641067 d:\projects\ihouse\software\core\inc\defs.h
+1546700963 d:\projects\ihouse\software\core\inc\defs.h
 	<stdint.h>
 	<stdbool.h>
 	<string.h>
@@ -603,7 +603,7 @@
 	"stm32_assert.h"
 	"main.h"
 
-1546647223 d:\projects\ihouse\software\core\inc\main.h
+1546724195 d:\projects\ihouse\software\core\inc\main.h
 	"stm32f0xx_ll_adc.h"
 	"stm32f0xx_ll_i2c.h"
 	"stm32f0xx_ll_crs.h"
@@ -715,11 +715,11 @@
 1523690876 d:\projects\ihouse\software\drivers\stm32f0xx_hal_driver\inc\stm32f0xx_ll_gpio.h
 	"stm32f0xx.h"
 
-1546647223 d:\projects\ihouse\software\core\inc\stm32_assert.h
+1546724194 d:\projects\ihouse\software\core\inc\stm32_assert.h
 
 1546619007 d:\projects\ihouse\software\core\bsp\unicon\drivers\adc.h
 
-1546619007 source:d:\projects\ihouse\software\core\bsp\unicon\drivers\iic.c
+1546710812 source:d:\projects\ihouse\software\core\bsp\unicon\drivers\iic.c
 	"defs.h"
 	"iic.h"
 
@@ -744,28 +744,34 @@
 
 1546619007 d:\projects\ihouse\software\core\bsp\unicon\drivers\rtc.h
 
-1546650310 source:d:\projects\ihouse\software\core\bsp\unicon\drivers\tim.c
+1546716352 source:d:\projects\ihouse\software\core\bsp\unicon\drivers\tim.c
 	"defs.h"
 	"tim.h"
-	"io.h"
-
-1546649693 d:\projects\ihouse\software\core\bsp\unicon\drivers\tim.h
-
-1546633596 source:d:\projects\ihouse\software\core\bsp\unicon\drivers\usart.c
-	"defs.h"
-	"usart.h"
-
-1546632288 d:\projects\ihouse\software\core\bsp\unicon\drivers\usart.h
-	"defs.h"
-
-1546649784 source:d:\projects\ihouse\software\core\bsp\unicon\unicon.c
 	"unicon.h"
 
-1546634947 d:\projects\ihouse\software\core\bsp\unicon\unicon.h
+1546716368 d:\projects\ihouse\software\core\bsp\unicon\drivers\tim.h
+
+1546812730 source:d:\projects\ihouse\software\core\bsp\unicon\drivers\usart.c
 	"defs.h"
+	"usart.h"
+	"nextion.h"
+	"mbport.h"
+
+1546816889 d:\projects\ihouse\software\core\bsp\unicon\drivers\usart.h
+	"defs.h"
+
+1546809802 source:d:\projects\ihouse\software\core\bsp\unicon\unicon.c
+	"unicon.h"
+
+1546809752 d:\projects\ihouse\software\core\bsp\unicon\unicon.h
+	"defs.h"
+	"defaults.h"
 	"io.h"
 	"usart.h"
 	"tim.h"
+	"iic_eeprom.h"
+	"eeprom_addr.h"
+	"nextion.h"
 
 1546619007 source:d:\projects\ihouse\software\core\libs\freemodbus\modbus\ascii\mbascii.c
 	"stdlib.h"
@@ -921,7 +927,7 @@
 	"mb.h"
 	"mbport.h"
 
-1546619007 source:d:\projects\ihouse\software\core\libs\freemodbus\port\portserial.c
+1546798723 source:d:\projects\ihouse\software\core\libs\freemodbus\port\portserial.c
 	"port.h"
 	"mb.h"
 	"usart.h"
@@ -944,24 +950,28 @@
 1546619007 d:\projects\ihouse\software\core\libs\iic_eeprom\iic_eeprom.h
 	<stdint.h>
 
-1546619007 source:d:\projects\ihouse\software\core\libs\nextion\nextion.c
+1546816848 source:d:\projects\ihouse\software\core\libs\nextion\nextion.c
 	"nextion.h"
-
-1546619007 d:\projects\ihouse\software\core\libs\nextion\nextion.h
-	"defs.h"
-
-1546649421 source:d:\projects\ihouse\software\core\src\main.c
-	"main.h"
 	"unicon.h"
 
-1546647223 source:d:\projects\ihouse\software\core\src\stm32f0xx_it.c
+1546816606 d:\projects\ihouse\software\core\libs\nextion\nextion.h
+	"defs.h"
+
+1546816606 source:d:\projects\ihouse\software\core\src\main.c
+	"main.h"
+	"unicon.h"
+	"mb.h"
+	"user_mb_app.h"
+
+1546806041 source:d:\projects\ihouse\software\core\src\stm32f0xx_it.c
 	"main.h"
 	"stm32f0xx_it.h"
 	"tim.h"
 	"usart.h"
+	"nextion.h"
 	"mbport.h"
 
-1546647223 d:\projects\ihouse\software\core\inc\stm32f0xx_it.h
+1546724194 d:\projects\ihouse\software\core\inc\stm32f0xx_it.h
 	"stm32f0xx_ll_tim.h"
 	"stm32f0xx_ll_system.h"
 	"stm32f0xx_ll_gpio.h"
@@ -1118,4 +1128,14 @@
 
 1523690876 d:\projects\ihouse\software\drivers\stm32f0xx_hal_driver\inc\stm32f0xx_hal_uart_ex.h
 	"stm32f0xx_hal_def.h"
+
+1546721141 d:\projects\ihouse\software\core\inc\eeprom_addr.h
+
+1546718408 d:\projects\ihouse\software\core\inc\defaults.h
+
+1546718163 source:d:\projects\ihouse\software\core\libs\mcp23017\mcp23017.c
+	"mcp23017.h"
+	"iic.h"
+
+1546717959 d:\projects\ihouse\software\core\libs\mcp23017\mcp23017.h
 

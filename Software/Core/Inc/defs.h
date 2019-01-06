@@ -47,11 +47,6 @@ typedef enum { RES_OK = 0, RES_ERROR, RES_BUSY, RES_TIMEOUT, RES_BAD_PARAMS } eR
 
 
 /*  SYSTEM DEFAULTS */
-//#define     MODBUS_ENABLE
-
-#define     SOUND_LEVEL_DEF             SND_OFF
-#define     WDT_FUNC_DEF                DISABLE
-
 
 /* EEPROM bazinis adresas */
 #define     EEADR_BASE                  10

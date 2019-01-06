@@ -1,0 +1,11 @@
+#ifndef DEFAULTS_H_INCLUDED
+#define DEFAULTS_H_INCLUDED
+
+
+
+#define EE_CONTR_BYTE   0x55
+#define BAUDRATE_DEF    19200
+
+
+
+#endif /* DEFAULTS_H_INCLUDED */

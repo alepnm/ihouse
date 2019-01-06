@@ -19,5 +19,7 @@ output\obj\debug\core\src\main.o: Core\Src\main.c Core\Inc/main.h \
  Drivers\STM32F0xx_HAL_Driver\Inc/stm32f0xx_ll_usart.h \
  Drivers\STM32F0xx_HAL_Driver\Inc/stm32f0xx_ll_gpio.h \
  Core\bsp\unicon/unicon.h Core\Inc/defs.h Core\Inc/stm32_assert.h \
- Core\Inc/main.h Core\bsp\unicon\drivers/io.h \
- Core\bsp\unicon\drivers/usart.h Core\bsp\unicon\drivers/tim.h
+ Core\Inc/main.h Core\Inc/defaults.h Core\bsp\unicon\drivers/io.h \
+ Core\bsp\unicon\drivers/usart.h Core\bsp\unicon\drivers/tim.h \
+ Core\libs\IIC_EEPROM/iic_eeprom.h Core\Inc/eeprom_addr.h \
+ Core\libs\nextion/nextion.h

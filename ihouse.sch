@@ -2132,4 +2132,16 @@ Text Label 4500 4300 2    50   ~ 0
 PWM1
 Text Label 4500 4000 2    50   ~ 0
 PWM2
+Wire Wire Line
+	2250 4000 1900 4000
+Text Label 1900 4000 0    50   ~ 0
+UART2_TX
+Wire Wire Line
+	2250 4100 1900 4100
+Text Label 1900 4100 0    50   ~ 0
+UART2_RX
+Wire Wire Line
+	2250 3900 1900 3900
+Text Label 1900 3900 0    50   ~ 0
+UART2_DE
 $EndSCHEMATC

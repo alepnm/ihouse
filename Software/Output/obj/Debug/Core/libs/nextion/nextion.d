@@ -18,4 +18,8 @@ output\obj\debug\core\libs\nextion\nextion.o: Core\libs\nextion\nextion.c \
  Drivers\STM32F0xx_HAL_Driver\Inc/stm32f0xx_ll_dma.h \
  Drivers\STM32F0xx_HAL_Driver\Inc/stm32f0xx_ll_tim.h \
  Drivers\STM32F0xx_HAL_Driver\Inc/stm32f0xx_ll_usart.h \
- Drivers\STM32F0xx_HAL_Driver\Inc/stm32f0xx_ll_gpio.h
+ Drivers\STM32F0xx_HAL_Driver\Inc/stm32f0xx_ll_gpio.h \
+ Core\bsp\unicon/unicon.h Core\Inc/defaults.h \
+ Core\bsp\unicon\drivers/io.h Core\bsp\unicon\drivers/usart.h \
+ Core\bsp\unicon\drivers/tim.h Core\libs\IIC_EEPROM/iic_eeprom.h \
+ Core\Inc/eeprom_addr.h Core\libs\nextion/nextion.h

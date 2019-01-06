@@ -34,16 +34,16 @@ extern USART_TypeDef* ports[];
 void vMBPortSerialEnable( BOOL xRxEnable, BOOL xTxEnable ) {
     if( xRxEnable ) {
         //SLAVE_RS485_RECEIVE_MODE;
-        LL_USART_EnableIT_RXNE(ports[0]);
+        LL_USART_EnableIT_RXNE(usart_handle[SECONDARY_PORT]);
     } else {
-        LL_USART_DisableIT_RXNE(ports[0]);
+        LL_USART_DisableIT_RXNE(usart_handle[SECONDARY_PORT]);
     }
 
     if( xTxEnable ) {
         //SLAVE_RS485_SEND_MODE;
-        LL_USART_EnableIT_TC(ports[0]);
+        LL_USART_EnableIT_TC(usart_handle[SECONDARY_PORT]);
     } else {
-        LL_USART_DisableIT_TC(ports[0]);
+        LL_USART_DisableIT_TC(usart_handle[SECONDARY_PORT]);
     }
 }
 
@@ -54,7 +54,7 @@ BOOL xMBPortSerialInit( UCHAR ucPORT, ULONG ulBaudRate, UCHAR ucDataBits, eMBPar
 
     USART_Config( (uint8_t)ucPORT, (uint32_t)ulBaudRate, (uint32_t)ucDataBits, (uint32_t)eParity );
 
-    LL_USART_Enable(ports[ucPORT]);
+    LL_USART_Enable(usart_handle[SECONDARY_PORT]);
 
     vMBPortSerialEnable( TRUE, FALSE );
 
@@ -62,12 +62,12 @@ BOOL xMBPortSerialInit( UCHAR ucPORT, ULONG ulBaudRate, UCHAR ucDataBits, eMBPar
 }
 
 BOOL xMBPortSerialPutByte( CHAR ucByte ) {
-    LL_USART_TransmitData8(ports[0], ucByte);
+    LL_USART_TransmitData8(usart_handle[SECONDARY_PORT], ucByte);
     return TRUE;
 }
 
 BOOL xMBPortSerialGetByte( CHAR * pucByte ) {
-    *pucByte = LL_USART_ReceiveData8(ports[0]);
+    *pucByte = LL_USART_ReceiveData8(usart_handle[SECONDARY_PORT]);
     return TRUE;
 }
 
