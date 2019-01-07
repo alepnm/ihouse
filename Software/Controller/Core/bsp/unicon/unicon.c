@@ -153,46 +153,10 @@ static void UNI_SetDefaults(void){
 
     SysData.Beeper.tone = 0;
     SysData.Beeper.level = BEEP_LOW;    // 0-7
-    SysData.Beeper.ms_counter = 0;  //ms
+    SysData.Beeper.ms_counter = 0;      //ms
 
     SysData.PWM.ch1 = 0;
     SysData.PWM.ch2 = 0;
-
-    SysData.ExtPort.ext0 = 0x00;
-    SysData.ExtPort.ext1 = 0x00;
-}
-
-
-
-
-
-/*  */
-void HMI_SuccesStart(void){
-    LEDS_ON();
-}
-
-/*  */
-void HMI_InvalidInstruction(void){
-
-
-}
-
-
-void HMI_TouchEvent(uint8_t pageid, uint8_t compid, uint8_t event){
-
-    /* page0 komponentai */
-    if( pageid == 0 && compid == 0 && event == 1 ) { LED2_ON(); return; }
-    if( pageid == 0 && compid == 0 && event == 0 ) { LED2_OFF(); return; }
-
-    if( pageid == 0 && compid == 1 && event == 1 ) { LED5_ON(); return; }
-    if( pageid == 0 && compid == 1 && event == 0 ) { LED5_OFF(); return; }
-
-    if( pageid == 0 && compid == 2 && event == 1 ) { LED6_ON(); return; }
-    if( pageid == 0 && compid == 2 && event == 0 ) { LED6_OFF(); return; }
-
-    if( pageid == 0 && compid == 3 && event == 1 ) { LED7_ON(); return; }
-    if( pageid == 0 && compid == 3 && event == 0 ) { LED7_OFF(); return; }
-
 }
 
 

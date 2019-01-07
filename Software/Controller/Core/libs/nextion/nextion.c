@@ -147,7 +147,6 @@ void Nextion_Decoder(uint8_t cmd) {
 
     switch(cmd) {
     case NEX_INVALID_INSTRUCTION:
-        HMI_InvalidInstruction();
         break;
     case NEX_SUCCESSFUL_EXECUTE:
         break;
@@ -157,7 +156,6 @@ void Nextion_Decoder(uint8_t cmd) {
         HMI_TouchEvent( *(ptrNextionRxBuffer+1), *(ptrNextionRxBuffer+2), *(ptrNextionRxBuffer+3) );
         break;
     case NEX_SYSTEM_SUCCESS_START:
-        HMI_SuccesStart();
         break;
     }
 
@@ -200,3 +198,26 @@ void Nextion_InstPage(uint8_t pageid){
     nextion_buf[i] = 0xFF;
 }
 
+
+/*  */
+void HMI_TouchEvent(uint8_t pageid, uint8_t compid, uint8_t event){
+
+    static uint8_t btn0 = 0, btn1 = 0, btn2 = 0, btn3 = 0;
+
+    /* page0 komponentai */
+    if( pageid == 0 && compid == 0 && event == TOUCH ) { btn0 = ~btn1; goto lp012; }
+    if( pageid == 0 && compid == 1 && event == TOUCH ) { btn1 = ~btn2; goto lp012; }
+    if( pageid == 0 && compid == 2 && event == TOUCH ) { btn2 = ~btn3; goto lp012; }
+
+    if( pageid == 0 && compid == 3 && event == TOUCH ) { btn3 = 1; goto lp012; }
+    if( pageid == 0 && compid == 3 && event == RELEASE ) { btn3 = 0; goto lp012; }
+
+
+
+
+lp012:
+    if(btn0) LED2_ON(); else LED2_OFF();
+    if(btn1) LED5_ON(); else LED5_OFF();
+    if(btn2) LED6_ON(); else LED6_OFF();
+    if(btn3) LED7_ON(); else LED7_OFF();
+}

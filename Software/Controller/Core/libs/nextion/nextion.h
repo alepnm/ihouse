@@ -101,6 +101,8 @@ extern const char cmd_cirs[4];
 void Nextion_Decoder(uint8_t cmd);
 void Nextion_CommandSend(const char* cmd, size_t len);
 
+void HMI_TouchEvent(uint8_t pageid, uint8_t compid, uint8_t event);
+
 
 
 #endif /* NEXTION_H_INCLUDED */

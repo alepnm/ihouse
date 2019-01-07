@@ -20,6 +20,4 @@
 #define LED7_OFF()      LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_2)
 #define LED7_TOGGLE()   LL_GPIO_TogglePin(GPIOB, LL_GPIO_PIN_2)
 
-
-
 #endif /* IO_H_INCLUDED */
