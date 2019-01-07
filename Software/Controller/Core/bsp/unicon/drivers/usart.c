@@ -1,5 +1,6 @@
 #include "defs.h"
 #include "usart.h"
+#include "io.h"
 #include "nextion.h"
 
 #if defined(MODBUS_ENABLE)
@@ -129,12 +130,14 @@ void USART_IRQ_Handler(void) {
 
         port_register[NEXTION_PORT].ReceivedData = LL_USART_ReceiveData8(usart_handle[NEXTION_PORT]);
 
-        //port_register[NEXTION_PORT].RxBuffer[port_register[NEXTION_PORT].RxBufferIndex++] = port_register[NEXTION_PORT].ReceivedData;
-        *(ptrNextionRxBuffer++) = port_register[NEXTION_PORT].ReceivedData;
+        *(ptrNextionRxBuffer + port_register[NEXTION_PORT].RxBufferIndex ) = port_register[NEXTION_PORT].ReceivedData;
+
+        port_register[NEXTION_PORT].RxBufferIndex++;
 
         port_register[NEXTION_PORT].PortState = USART_STATE_RX;
-        port_register[NEXTION_PORT].PortTimer = 100;  //ms
+        port_register[NEXTION_PORT].PortTimer = 10;  //ms
 
+        LED2_ON();
     }
 
 #if defined(MODBUS_ENABLE)
@@ -152,7 +155,7 @@ void USART_IRQ_Handler(void) {
         port_register[SECONDARY_PORT].ReceivedData = LL_USART_ReceiveData8(usart_handle[SECONDARY_PORT]);
         port_register[SECONDARY_PORT].RxBuffer[port_register[SECONDARY_PORT].RxBufferIndex++] = port_register[SECONDARY_PORT].ReceivedData;
         port_register[SECONDARY_PORT].PortState = USART_STATE_RX;
-        port_register[SECONDARY_PORT].PortTimer = 100;  //ms
+        port_register[SECONDARY_PORT].PortTimer = 10;  //ms
     }
 
 #endif

@@ -202,22 +202,18 @@ void Nextion_InstPage(uint8_t pageid){
 /*  */
 void HMI_TouchEvent(uint8_t pageid, uint8_t compid, uint8_t event){
 
-    static uint8_t btn0 = 0, btn1 = 0, btn2 = 0, btn3 = 0;
+    uint8_t btn0 = 0, btn1 = 0, btn2 = 0, btn3 = 0;
 
     /* page0 komponentai */
-    if( pageid == 0 && compid == 0 && event == TOUCH ) { btn0 = ~btn1; goto lp012; }
-    if( pageid == 0 && compid == 1 && event == TOUCH ) { btn1 = ~btn2; goto lp012; }
-    if( pageid == 0 && compid == 2 && event == TOUCH ) { btn2 = ~btn3; goto lp012; }
-
-    if( pageid == 0 && compid == 3 && event == TOUCH ) { btn3 = 1; goto lp012; }
-    if( pageid == 0 && compid == 3 && event == RELEASE ) { btn3 = 0; goto lp012; }
+//    if( pageid == 0 && compid == 1 && event == TOUCH ) { btn0 = ~btn0; goto lp012; }
+//    if( pageid == 0 && compid == 2 && event == TOUCH ) { btn1 = ~btn1; goto lp012; }
+//    if( pageid == 0 && compid == 3 && event == TOUCH ) { btn2 = ~btn2; goto lp012; }
+//    if( pageid == 0 && compid == 4 && event == TOUCH ) { btn3 = ~btn3; goto lp012; }
 
 
-
-
-lp012:
-    if(btn0) LED2_ON(); else LED2_OFF();
-    if(btn1) LED5_ON(); else LED5_OFF();
-    if(btn2) LED6_ON(); else LED6_OFF();
-    if(btn3) LED7_ON(); else LED7_OFF();
+//lp012:
+//    if(btn0) LED2_ON(); else LED2_OFF();
+//    if(btn1) LED5_ON(); else LED5_OFF();
+//    if(btn2) LED6_ON(); else LED6_OFF();
+//    if(btn3) LED7_ON(); else LED7_OFF();
 }

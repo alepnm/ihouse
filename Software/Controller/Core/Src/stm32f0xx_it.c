@@ -38,9 +38,7 @@
 #include "stm32f0xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "tim.h"
-#include "usart.h"
-#include "nextion.h"
+#include "unicon.h"
 
 #if defined(MODBUS_ENABLE)
 #include "mbport.h"
@@ -86,7 +84,7 @@ volatile uint32_t timestamp = 0;
 /* USER CODE END EV */
 
 /******************************************************************************/
-/*           Cortex-M0 Processor Interruption and Exception Handlers          */ 
+/*           Cortex-M0 Processor Interruption and Exception Handlers          */
 /******************************************************************************/
 /**
   * @brief This function handles Non maskable interrupt.
@@ -148,19 +146,24 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
-    char* rx_pointer = ptrNextionRxBuffer + port_register[NEXTION_PORT].RxBufferIndex;
+    char* rx_pointer = NULL;
 
     timestamp++;
 
     BeeperHandler();
 
-    if(port_register[NEXTION_PORT].PortTimer > 0) port_register[NEXTION_PORT].PortTimer--;
+    if(port_register[NEXTION_PORT].PortTimer > 0) { LED2_OFF(); port_register[NEXTION_PORT].PortTimer--;}
     else{
         if(port_register[NEXTION_PORT].PortState == USART_STATE_RX){
             port_register[NEXTION_PORT].PortState = USART_STATE_IDLE;
 
+            rx_pointer = ptrNextionRxBuffer + port_register[NEXTION_PORT].RxBufferIndex-1;
+
             if( *(rx_pointer-2) == 0xFF && *(rx_pointer-1) == 0xFF && *rx_pointer == 0xFF) {
                 port_register[NEXTION_PORT].DataReceivedFlag = true;
+            }else{
+                /* isvalom buferi, jai priimtas blogas freimas (nera 0xFF 0xFF 0xFF) */
+                USART_ClearRxBuffer(NEXTION_PORT);
             }
         }
     }
@@ -173,7 +176,7 @@ void SysTick_Handler(void)
     }
 
   /* USER CODE END SysTick_IRQn 0 */
-  
+
   /* USER CODE BEGIN SysTick_IRQn 1 */
 
   /* USER CODE END SysTick_IRQn 1 */
@@ -221,7 +224,7 @@ void TIM6_DAC_IRQHandler(void)
 #endif
 
   /* USER CODE END TIM6_DAC_IRQn 0 */
-  
+
   /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
 
   /* USER CODE END TIM6_DAC_IRQn 1 */

@@ -18,7 +18,7 @@
 #include "nextion.h"
 
 
-//#define MODBUS_ENABLE       //on SECONDARY_PORT
+#define MODBUS_ENABLE       //on SECONDARY_PORT
 
 
 /* sistemos klaidos */
@@ -32,8 +32,9 @@ enum {
 
 
 enum {
-    TOUCH = 0,
-    RELEASE
+    RELEASE = 0,
+    TOUCH
+
 };
 
 

@@ -163,9 +163,9 @@ int main(void)
 
         if(delay <= timestamp) {
 
-            delay = timestamp + 5000;
+            delay = timestamp + 100;
 
-            Nextion_CommandSend(cmd_rest, sizeof(cmd_rest));
+
         }
 
         UNI_Process();
