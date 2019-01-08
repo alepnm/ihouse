@@ -28,11 +28,11 @@
 #endif
 
 
-uint8_t	    EEP24XX_Write( uint16_t addr, void* data, size_t size_of_data );
-uint8_t	    EEP24XX_Read( uint16_t addr, void* data, size_t size_of_data );
-uint8_t     EEP24XX_Clear( void );
+uint8_t	    EEP24XX_Write(uint16_t addr, void* data, size_t size_of_data);
+uint8_t	    EEP24XX_Read(uint16_t addr, void* data, size_t size_of_data);
+uint8_t     EEP24XX_Clear(void);
 
-
+uint8_t     EEP24XX_WriteByByte(uint16_t mem_addr, void *data, size_t size_of_data);
 uint8_t     EEP24XX_ReadByte(uint16_t mem_addr);
 uint16_t    EEP24XX_ReadWord(uint16_t mem_addr);
 uint32_t    EEP24XX_ReadDWord(uint16_t mem_addr);

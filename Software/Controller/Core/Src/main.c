@@ -69,7 +69,6 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-extern volatile uint32_t timestamp;
 
 char str[10] = {'r', 'e', 's', 't', 0xff, 0xff, 0xff};
 /* USER CODE END PV */

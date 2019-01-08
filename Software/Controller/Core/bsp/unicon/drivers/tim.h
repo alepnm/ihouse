@@ -21,7 +21,9 @@
 #define     BEEP_MID            3
 #define     BEEP_HIGH           7
 
-#define     BEEP()              SysData.Beeper.ms_counter = 10;
+#define     BEEP()              BeeperCounter = 10;
+
+extern uint16_t    BeeperCounter;
 
 
 void BeeperHandler(void);

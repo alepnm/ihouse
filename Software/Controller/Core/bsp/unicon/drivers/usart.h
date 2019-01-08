@@ -28,6 +28,7 @@ typedef struct{
     uint8_t DataReceivedFlag;
     uint8_t DataTransmitedFlag;
     uint8_t PortState;
+    uint8_t PortError;
     volatile uint8_t PortTimer;
     uint8_t ReceivedData;
     char    RxBuffer[RX_BUFFER_SIZE];

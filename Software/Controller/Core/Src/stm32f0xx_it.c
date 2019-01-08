@@ -75,7 +75,7 @@
 /* External variables --------------------------------------------------------*/
 volatile uint32_t timestamp = 0;
 
-
+extern uint8_t AutoBackupToEepromFlag;
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -147,8 +147,18 @@ void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
     char* rx_pointer = NULL;
+    static uint32_t delay = 0;
+    static uint32_t autobackup_delay = AUTOBACKUP_DELAY;
 
     timestamp++;
+
+    if(delay < timestamp){ delay = timestamp + 1000; SysData.WTime++; }
+
+    if(autobackup_delay < timestamp){
+        autobackup_delay = timestamp + AUTOBACKUP_DELAY;
+        AutoBackupToEepromFlag = SET;
+    }
+
 
     BeeperHandler();
 
@@ -161,8 +171,10 @@ void SysTick_Handler(void)
 
             if( *(rx_pointer-2) == 0xFF && *(rx_pointer-1) == 0xFF && *rx_pointer == 0xFF) {
                 port_register[NEXTION_PORT].DataReceivedFlag = true;
+                port_register[NEXTION_PORT].PortError = F_NO_ERROR;
             }else{
                 /* isvalom buferi, jai priimtas blogas freimas (nera 0xFF 0xFF 0xFF) */
+                port_register[NEXTION_PORT].PortError = F_FRAME_ERROR;
                 USART_ClearRxBuffer(NEXTION_PORT);
             }
         }

@@ -3,13 +3,16 @@
 #include "unicon.h"
 
 
+
+uint16_t    BeeperCounter;
+
 /*   */
 void BeeperHandler(void){
 
-    if(SysData.Beeper.ms_counter > 0){
+    if(BeeperCounter > 0){
         LL_TIM_OC_SetCompareCH1(TIM16, ( SysData.Beeper.level ) * 7); // nustatom garso stipruma
         LL_TIM_CC_EnableChannel(TIM16, LL_TIM_CHANNEL_CH1);
-        SysData.Beeper.ms_counter--;
+        BeeperCounter--;
     }else{
         LL_TIM_CC_DisableChannel(TIM16, LL_TIM_CHANNEL_CH1);
     }

@@ -11,7 +11,7 @@ static uint8_t EEP24XX_Process( uint16_t mem_addr, void *txdata, uint16_t len, u
 
 
 /* rasymas i EEPROM pool rezime */
-uint8_t EEP24XX_Write( uint16_t mem_addr, void *data, size_t size_of_data ) {
+uint8_t EEP24XX_Write(uint16_t mem_addr, void *data, size_t size_of_data) {
 
     if( mem_addr > I2C_MEMORY_SIZE-1 || data == NULL || size_of_data == 0 ) return RES_BAD_PARAMS;    //error
 
@@ -19,12 +19,38 @@ uint8_t EEP24XX_Write( uint16_t mem_addr, void *data, size_t size_of_data ) {
 }
 
 /* skaitymas is EEPROM pool rezime */
-uint8_t EEP24XX_Read( uint16_t mem_addr, void *rxdata, size_t size_of_data ) {
+uint8_t EEP24XX_Read(uint16_t mem_addr, void *rxdata, size_t size_of_data) {
 
     if( mem_addr > I2C_MEMORY_SIZE-1 || rxdata == NULL || size_of_data == 0 ) return RES_BAD_PARAMS;    //error
 
     return EEP24XX_Process( mem_addr, rxdata, size_of_data, IIC_READ );
 }
+
+
+/* rasymas i EEPROM baitais su irasymo patikrinimu */
+uint8_t EEP24XX_WriteByByte(uint16_t mem_addr, void *data, size_t size_of_data){
+
+    uint16_t i = 0;
+    uint8_t retr = 0;
+
+    while( i < size_of_data ){
+
+        retr = 0;
+
+        while( EEP24XX_ReadByte(mem_addr + i) != *((uint8_t*)data + i) ){
+            EEP24XX_WriteByte(mem_addr + i, *((uint8_t*)data + i));
+
+            LL_mDelay(3);
+
+            if(retr++ > 10) return 1;
+        }
+
+        i++;
+    }
+
+    return 0;
+}
+
 
 /*   */
 uint8_t EEP24XX_ReadByte(uint16_t mem_addr){

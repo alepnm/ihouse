@@ -1,7 +1,14 @@
 
 #include "unicon.h"
 
-struct _unicon SysData;
+SysData_TypeDef SysData;
+struct _time Time;
+uint8_t AutoBackupToEepromFlag = RESET;
+uint16_t TouchTimeoutCounter = 0;
+
+uint8_t WaitForResponse = RESET;    // po issiuntimo komandos i HMI pakeliam si bita kol lauksim atsakymo
+
+
 
 static void UNI_RestoreEE(void);
 static void UNI_SetDefaults(void);
@@ -34,6 +41,15 @@ void UNI_Start(void) {
     port_register[SECONDARY_PORT].PortState = USART_STATE_IDLE;
 
     USART_ClearRxBuffer(SECONDARY_PORT);
+
+    TouchTimeoutCounter = timestamp;
+
+
+
+
+    // Gaunam duomenys is Nextion. Reikia palaukti kol jis inicializuosis
+//    HMI_GetDateTime(&Time.year, &Time.month, &Time.day, &Time.hour, &Time.minute);
+
 }
 
 
@@ -48,6 +64,16 @@ void UNI_Process(void){
     }
 
 
+    /* periodiskai issaugojam EEPROME sistemos parametrus */
+    if(AutoBackupToEepromFlag != RESET){
+
+        LED2_ON();
+        UNI_SaveDataToEEPROM();
+        LED2_OFF();
+
+        AutoBackupToEepromFlag = RESET;
+    }
+
 
 }
 
@@ -55,8 +81,9 @@ void UNI_Process(void){
 /* saugojam darbine aplinka i EEPROM */
 void UNI_SaveDataToEEPROM(void){
 
-    EEP24XX_Write(EEADR_SYSDATA, &SysData, sizeof(SysData));
-    EEP24XX_Write(EEADR_PORT_SETS, port_config, sizeof(port_config));
+    EEP24XX_WriteByByte(EEADR_SYSDATA, &SysData, sizeof(SysData));              // rasom baitais
+    EEP24XX_WriteByByte(EEADR_PORT_SETS, &port_config, sizeof(port_config));
+    EEP24XX_WriteByByte(EEADR_NEXTION, &Nextion, sizeof(Nextion));
 }
 
 
@@ -64,7 +91,7 @@ void UNI_SaveDataToEEPROM(void){
 void UNI_ReadDataFromEEPROM(void){
 
     EEP24XX_Read(EEADR_SYSDATA, &SysData, sizeof(SysData));
-    EEP24XX_Read(EEADR_PORT_SETS, port_config, sizeof(port_config));
+    EEP24XX_Read(EEADR_PORT_SETS, &port_config, sizeof(port_config));
 }
 
 
@@ -153,16 +180,13 @@ static void UNI_SetDefaults(void){
 
     SysData.Beeper.tone = 0;
     SysData.Beeper.level = BEEP_LOW;    // 0-7
-    SysData.Beeper.ms_counter = 0;      //ms
+    BeeperCounter = 0;      //ms
 
     SysData.PWM.ch1 = 0;
     SysData.PWM.ch2 = 0;
+
+    SysData.WTime = 0;
 }
-
-
-
-
-
 
 
 

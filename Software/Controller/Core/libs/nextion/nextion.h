@@ -2,8 +2,28 @@
 #define NEXTION_H_INCLUDED
 
 #include "defs.h"
-//#include "hmi_components.h"
-//#include "hmi_page.h"
+
+
+/* LANGAI */
+#define W_MAIN          0
+#define W_VIRTUVE       1
+#define W_KORIDORIUS    2
+#define W_VONIAWC       3
+#define W_PAPILDOMAI    4
+
+/* KOMPONENTAI */
+#define B_RESTART       4
+
+
+enum{ NEXTION_STATE_OK = 0, NEXTION_STATE_SLEEP, NEXTION_STATE_RESTART };
+
+
+typedef struct{
+    uint8_t SystemSate;
+    uint8_t CurrentPageID;
+}HMI_TimeDef;
+
+extern HMI_TimeDef Nextion;
 
 
 extern const char var_dim[3];
@@ -102,6 +122,8 @@ void Nextion_Decoder(uint8_t cmd);
 void Nextion_CommandSend(const char* cmd, size_t len);
 
 void HMI_TouchEvent(uint8_t pageid, uint8_t compid, uint8_t event);
+void HMI_SwitchToMainScreen(void);
+void HMI_GetDateTime(uint8_t* year, uint8_t* mon, uint8_t* day, uint8_t* hour, uint8_t* minute);
 
 
 

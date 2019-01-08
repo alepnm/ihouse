@@ -46,6 +46,7 @@
 
 char nextion_buf[32];
 
+HMI_TimeDef Nextion;
 
 /* Nextion system variables */
 const char var_dim[]                = "dim";
@@ -156,6 +157,12 @@ void Nextion_Decoder(uint8_t cmd) {
         HMI_TouchEvent( *(ptrNextionRxBuffer+1), *(ptrNextionRxBuffer+2), *(ptrNextionRxBuffer+3) );
         break;
     case NEX_SYSTEM_SUCCESS_START:
+        Nextion.SystemSate = NEXTION_STATE_OK;
+        break;
+    case NEX_CURRENT_PAGEID_NUMBER:
+        Nextion.CurrentPageID = *(ptrNextionRxBuffer+1);
+        break;
+    case NEX_START_SDCARD_UPGRADE:
         break;
     }
 
@@ -202,18 +209,23 @@ void Nextion_InstPage(uint8_t pageid){
 /*  */
 void HMI_TouchEvent(uint8_t pageid, uint8_t compid, uint8_t event){
 
-    uint8_t btn0 = 0, btn1 = 0, btn2 = 0, btn3 = 0;
-
     /* page0 komponentai */
-//    if( pageid == 0 && compid == 1 && event == TOUCH ) { btn0 = ~btn0; goto lp012; }
-//    if( pageid == 0 && compid == 2 && event == TOUCH ) { btn1 = ~btn1; goto lp012; }
-//    if( pageid == 0 && compid == 3 && event == TOUCH ) { btn2 = ~btn2; goto lp012; }
-//    if( pageid == 0 && compid == 4 && event == TOUCH ) { btn3 = ~btn3; goto lp012; }
+    TouchTimeoutCounter = timestamp;
+
+    Nextion.CurrentPageID = pageid;
+
+    if( pageid == W_PAPILDOMAI && compid == B_RESTART && event == TOUCH ) { Nextion.SystemSate = NEXTION_STATE_RESTART; NVIC_SystemReset(); while(1); }    // Restart system
 
 
-//lp012:
-//    if(btn0) LED2_ON(); else LED2_OFF();
-//    if(btn1) LED5_ON(); else LED5_OFF();
-//    if(btn2) LED6_ON(); else LED6_OFF();
-//    if(btn3) LED7_ON(); else LED7_OFF();
+}
+
+/*  */
+void HMI_SwitchToMainScreen(void){
+
+}
+
+/*  */
+void HMI_GetDateTime(uint8_t* year, uint8_t* mon, uint8_t* day, uint8_t* hour, uint8_t* minute){
+
+
 }

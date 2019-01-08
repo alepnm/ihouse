@@ -19,29 +19,21 @@
 
 
 #define MODBUS_ENABLE       //on SECONDARY_PORT
-
+#define ERROR_ARRAY_LEN     32
+#define AUTOBACKUP_DELAY    60000
 
 /* sistemos klaidos */
 enum {
     F_NO_ERROR = 0,
     F_EEPROM_FAULT,
+    F_FRAME_ERROR,
     F_HMI_FAULT,            // Nextion gedimas (neatsako, jo vidinis gedimas)
     F_HMI_BAD_SOFTWARE      // netinka Nextion programine iranga
-
 };
 
+enum { RELEASE = 0, TOUCH };
 
-enum {
-    RELEASE = 0,
-    TOUCH
-
-};
-
-
-
-#define ERROR_ARRAY_LEN 32
-
-struct _unicon{
+typedef struct{
 
     struct{
         uint8_t     ErrorCodes[ERROR_ARRAY_LEN];
@@ -52,16 +44,30 @@ struct _unicon{
     struct{
         uint8_t     tone;
         uint8_t     level;
-        uint16_t    ms_counter;
     }Beeper;
 
     struct{
         uint8_t     ch1;
         uint8_t     ch2;
     }PWM;
-};
 
-extern struct _unicon SysData;
+    uint32_t WTime;
+}SysData_TypeDef;
+
+struct _time{
+    uint8_t year;
+    uint8_t month;
+    uint8_t day;
+    uint8_t hour;
+    uint8_t minute;
+}Time;
+
+
+extern SysData_TypeDef SysData;
+extern struct _time Time;
+extern volatile uint32_t timestamp;
+extern uint16_t TouchTimeoutCounter;
+extern uint8_t WaitForResponse;
 
 
 /* Private functions */
