@@ -18,7 +18,6 @@
 #include "nextion.h"
 
 
-#define MODBUS_ENABLE           //on SECONDARY_PORT
 #define ERROR_ARRAY_LEN         32
 #define AUTOBACKUP_DELAY        60000
 #define WAIT_RESPONSE_TIMEOUT   200

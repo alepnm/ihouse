@@ -92,22 +92,10 @@ eMBRTUInit( UCHAR ucSlaveAddress, UCHAR ucPort, ULONG ulBaudRate, eMBParity ePar
         eStatus = MB_EPORTERR;
     } else {
 
-        /* If baudrate > 19200 then we should use the fixed timer values
-         * t35 = 1750us. Otherwise t35 must be 3.5 times the character time.
-         */
         if( ulBaudRate > 19200 ) {
-            usTimerT35_50us = (140u);       /* 1800us. */
+            usTimerT35_50us = (34u);       /* 1800us. */
         } else {
-            /* The timer reload value for a character is given by:
-             *
-             * ChTimeValue = Ticks_per_1s / ( Baudrate / 11 )
-             *             = 11 * Ticks_per_1s / Baudrate
-             *             = 220000 / Baudrate
-             * The reload for t3.5 is 1.5 times this value and similary
-             * for t3.5.
-             */
-
-            usTimerT35_50us = SystemCoreClock / ( 25UL * ulBaudRate );  //9600 -> 200, 4800 -> 400, 2400 -> 800
+            usTimerT35_50us = SystemCoreClock / ( 12UL * ulBaudRate );  //9600 -> 200, 4800 -> 400, 2400 -> 800
         }
 
         if( xMBPortTimersInit( ( USHORT ) usTimerT35_50us ) != TRUE ) {
