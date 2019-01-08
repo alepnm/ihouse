@@ -18,9 +18,10 @@
 #include "nextion.h"
 
 
-#define MODBUS_ENABLE       //on SECONDARY_PORT
-#define ERROR_ARRAY_LEN     32
-#define AUTOBACKUP_DELAY    60000
+#define MODBUS_ENABLE           //on SECONDARY_PORT
+#define ERROR_ARRAY_LEN         32
+#define AUTOBACKUP_DELAY        60000
+#define WAIT_RESPONSE_TIMEOUT   200
 
 /* sistemos klaidos */
 enum {
@@ -67,7 +68,7 @@ extern SysData_TypeDef SysData;
 extern struct _time Time;
 extern volatile uint32_t timestamp;
 extern uint16_t TouchTimeoutCounter;
-extern uint8_t WaitForResponse;
+extern uint16_t WaitForResponseTimer;
 
 
 /* Private functions */

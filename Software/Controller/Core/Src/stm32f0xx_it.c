@@ -160,6 +160,8 @@ void SysTick_Handler(void)
     }
 
 
+    if(WaitForResponseTimer > 0) WaitForResponseTimer--;
+
     BeeperHandler();
 
     if(port_register[NEXTION_PORT].PortTimer > 0) { LED2_OFF(); port_register[NEXTION_PORT].PortTimer--;}

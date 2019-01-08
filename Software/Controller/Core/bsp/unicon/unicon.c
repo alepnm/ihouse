@@ -6,7 +6,7 @@ struct _time Time;
 uint8_t AutoBackupToEepromFlag = RESET;
 uint16_t TouchTimeoutCounter = 0;
 
-uint8_t WaitForResponse = RESET;    // po issiuntimo komandos i HMI pakeliam si bita kol lauksim atsakymo
+uint16_t WaitForResponseTimer = 0;    // po uzklausos issiuntimo i HMI uztaisom si taimeri, kai gaunam atsakyma - numetam. Kol jis skaiciuoja, uzklausu nesiunciam.
 
 
 
@@ -73,6 +73,9 @@ void UNI_Process(void){
 
         AutoBackupToEepromFlag = RESET;
     }
+
+
+    //if()
 
 
 }
