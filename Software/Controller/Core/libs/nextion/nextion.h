@@ -14,7 +14,7 @@
 /* KOMPONENTAI */
 #define B_RESTART       4
 
-
+enum{ HMI_RELEASE = 0, HMI_TOUCH };
 enum{ NEXTION_STATE_OK = 0, NEXTION_STATE_SLEEP, NEXTION_STATE_RESTART };
 
 
@@ -118,11 +118,18 @@ extern const char cmd_cir[3];
 extern const char cmd_cirs[4];
 
 
+void NextionInit(void);
 void Nextion_Decoder(uint8_t cmd);
-void Nextion_CommandSend(const char* cmd, size_t len);
+
+void HMI_SetVar(const char* var, uint8_t size, uint32_t value);
+void HMI_GetVar(const char* var, uint8_t size);
+void HMI_SetBaudrate(uint32_t value);
+void HMI_SetBkcmd(uint8_t value);
+void HMI_SetPage(uint8_t pageid);
+void HMI_SwitchToMainScreen(void);
+void Nextion_SendText(const char* var, uint8_t var_size, const char* text, uint8_t text_size);
 
 void HMI_TouchEvent(uint8_t pageid, uint8_t compid, uint8_t event);
-void HMI_SwitchToMainScreen(void);
 void HMI_GetDateTime(uint8_t* year, uint8_t* mon, uint8_t* day, uint8_t* hour, uint8_t* minute);
 
 

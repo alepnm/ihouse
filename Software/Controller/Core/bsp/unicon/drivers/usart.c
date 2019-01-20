@@ -3,7 +3,7 @@
 #include "io.h"
 #include "nextion.h"
 
-#if defined(MODBUS_ENABLE)
+#if defined(MODBUS_PORT)
 #include "mbport.h"
 #endif
 
@@ -12,7 +12,7 @@ USART_TypeDef * usart_handle[2u] = {USART1, USART2};
 PortConfig_TypeDef port_config[2u];
 PortRegister_TypeDef port_register[2u];
 
-char* ptrNextionRxBuffer = port_register[NEXTION_PORT].RxBuffer;
+char* ptrNextionRxBuffer = port_register[PRIMARY_PORT].RxBuffer;
 char* ptrSecondaryRxBuffer = port_register[SECONDARY_PORT].RxBuffer;
 
 const uint32_t baudrates[6u] = { 2400u, 4800u, 9600u, 19200u, 38400u, 57600u };
@@ -73,7 +73,7 @@ void USART_Send( uint8_t ucPORT, void* data, size_t len ) {
 }
 
 /*  */
-void USART_SendByte(uint8_t ucPORT, char data){
+void USART_SendByte(uint8_t ucPORT, char data) {
     LL_USART_TransmitData8(usart_handle[ucPORT], data);
 }
 
@@ -104,48 +104,46 @@ void USART_ClearRxBuffer(uint8_t ucPORT) {
 }
 
 
-
 /*  */
-uint8_t GetIndexByBaudrate( uint32_t baudrate ) {
+uint8_t CheckBaudrate( uint32_t baudrate) {
 
     uint8_t i = 0;
 
-    while(baudrate != baudrates[i]) {
-        if( i >= ( sizeof(baudrates)/sizeof(baudrate) ) ) {
-            i = 0xFF;
-            break;
-        }
 
+    while( i < sizeof(baudrates)/sizeof(baudrate) ) {
+
+        if( baudrate == baudrates[i] ) return i;
         i++;
     }
 
-    return i;
+    return 0xFF;
 }
 
 
 /*  */
 void USART_IRQ_Handler(void) {
 
-    if( LL_USART_IsActiveFlag_RXNE(usart_handle[NEXTION_PORT]) && LL_USART_IsEnabledIT_RXNE(usart_handle[NEXTION_PORT]) ) {
+    if( LL_USART_IsActiveFlag_RXNE(usart_handle[PRIMARY_PORT]) && LL_USART_IsEnabledIT_RXNE(usart_handle[PRIMARY_PORT]) ) {
 
-        port_register[NEXTION_PORT].ReceivedData = LL_USART_ReceiveData8(usart_handle[NEXTION_PORT]);
+        port_register[PRIMARY_PORT].ReceivedData = LL_USART_ReceiveData8(usart_handle[PRIMARY_PORT]);
 
-        *(ptrNextionRxBuffer + port_register[NEXTION_PORT].RxBufferIndex ) = port_register[NEXTION_PORT].ReceivedData;
+        *(ptrNextionRxBuffer + port_register[PRIMARY_PORT].RxBufferIndex) = port_register[PRIMARY_PORT].ReceivedData;
 
-        port_register[NEXTION_PORT].RxBufferIndex++;
+        port_register[PRIMARY_PORT].RxBufferIndex++;
 
-        port_register[NEXTION_PORT].PortState = USART_STATE_RX;
-        port_register[NEXTION_PORT].PortTimer = 10;  //ms
+        port_register[PRIMARY_PORT].PortState = USART_STATE_RX;
 
-        LED2_ON();
+        port_register[PRIMARY_PORT].PortTimer = 10;  //ms
+
+        //LED2_ON();
     }
 
-#if defined(MODBUS_ENABLE)
-    if( LL_USART_IsActiveFlag_RXNE(usart_handle[SECONDARY_PORT]) && LL_USART_IsEnabledIT_RXNE(usart_handle[SECONDARY_PORT]) ) {
+#if defined(MODBUS_PORT)
+    if( LL_USART_IsActiveFlag_RXNE(usart_handle[MODBUS_PORT]) && LL_USART_IsEnabledIT_RXNE(usart_handle[MODBUS_PORT]) ) {
         (void)pxMBFrameCBByteReceived();
     }
 
-    if( LL_USART_IsActiveFlag_TC(usart_handle[SECONDARY_PORT]) && LL_USART_IsEnabledIT_TC(usart_handle[SECONDARY_PORT]) ) {
+    if( LL_USART_IsActiveFlag_TC(usart_handle[MODBUS_PORT]) && LL_USART_IsEnabledIT_TC(usart_handle[MODBUS_PORT]) ) {
         (void)pxMBFrameCBTransmitterEmpty();
     }
 #else
@@ -153,11 +151,15 @@ void USART_IRQ_Handler(void) {
     if( LL_USART_IsActiveFlag_RXNE(usart_handle[SECONDARY_PORT]) && LL_USART_IsEnabledIT_RXNE(usart_handle[SECONDARY_PORT]) ) {
 
         port_register[SECONDARY_PORT].ReceivedData = LL_USART_ReceiveData8(usart_handle[SECONDARY_PORT]);
-        port_register[SECONDARY_PORT].RxBuffer[port_register[SECONDARY_PORT].RxBufferIndex++] = port_register[SECONDARY_PORT].ReceivedData;
+
+        *(ptrSecondaryRxBuffer + port_register[SECONDARY_PORT].RxBufferIndex) = port_register[SECONDARY_PORT].ReceivedData;
+
+        port_register[SECONDARY_PORT].RxBufferIndex++;
+
         port_register[SECONDARY_PORT].PortState = USART_STATE_RX;
+
         port_register[SECONDARY_PORT].PortTimer = 10;  //ms
     }
-
 #endif
 }
 

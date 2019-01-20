@@ -1,4 +1,5 @@
 #include "user_mb_app.h"
+#include "unicon.h"
 
 /*------------------------Slave mode use these variables----------------------*/
 
@@ -21,13 +22,16 @@ UCHAR    ucCoilBuf[COIL_NCOILS/8];
 //Slave mode:InputRegister variables
 USHORT   usRegInputStart = REG_INPUT_START;
 USHORT   usRegInputBuf[REG_INPUT_NREGS];
+uint16_t*   ptrInputRegs = usRegInputBuf;
 
 //Slave mode:HoldingRegister variables
 USHORT   usRegHoldingStart = REG_HOLDING_START;
 USHORT   usRegHoldingBuf[REG_HOLDING_NREGS];
+uint16_t*   ptrHoldingRegs = usRegHoldingBuf;
 
 /* SlaveID buferis */
 uint8_t ucSlaveIdBuf[MB_FUNC_OTHER_REP_SLAVEID_BUF];
+
 
 /************************ Modbus Callback Functions **************************/
 eMBErrorCode

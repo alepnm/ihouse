@@ -9,18 +9,21 @@
 //#include "adc.h"
 //#include "iic.h"
 //#include "spi.h"
-//#include "rtc.h"
+#include "rtc.h"
 //#include "pwm.h"
 #include "tim.h"
 #include "iic_eeprom.h"
 #include "eeprom_addr.h"
 #include "mcp23017.h"
-#include "nextion.h"
+#include "str_functions.h"
 
+#if defined(MODBUS_PORT)
+    #include "mb.h"
+    #include "user_mb_app.h"
+#endif
 
-#define ERROR_ARRAY_LEN         32
-#define AUTOBACKUP_DELAY        60000
-#define WAIT_RESPONSE_TIMEOUT   200
+#define ERROR_ARRAY_LEN     32
+#define AUTOBACKUP_DELAY    60000
 
 /* sistemos klaidos */
 enum {
@@ -30,8 +33,6 @@ enum {
     F_HMI_FAULT,            // Nextion gedimas (neatsako, jo vidinis gedimas)
     F_HMI_BAD_SOFTWARE      // netinka Nextion programine iranga
 };
-
-enum { RELEASE = 0, TOUCH };
 
 typedef struct{
 
@@ -60,20 +61,25 @@ struct _time{
     uint8_t day;
     uint8_t hour;
     uint8_t minute;
-}Time;
+    uint8_t second;
+    uint8_t weekday;
+    char date_time_str[32];     //YYYY.MM.dd hh:mm
+}DateTime;
 
 
 extern SysData_TypeDef SysData;
 extern struct _time Time;
 extern volatile uint32_t timestamp;
 extern uint16_t TouchTimeoutCounter;
-extern uint16_t WaitForResponseTimer;
+extern uint8_t WaitForResponse;
 
 
 /* Private functions */
 void UNI_Start(void);
 void UNI_Process(void);
-void UNI_SaveDataToEEPROM(void);
-void UNI_ReadDataFromEEPROM(void);
-void UNI_ErrorHandler(uint8_t error);
+void UNI_SystemIRQ(void);
+
+void UNI_GetID(uint8_t* bufid);
+uint16_t UNI_GetFlashSize(void);
+uint8_t UNI_CheckUID(uint8_t* bufid);
 #endif /* UNICON_H_INCLUDED */

@@ -40,7 +40,7 @@
 /* USER CODE BEGIN Includes */
 #include "unicon.h"
 
-#if defined(MODBUS_ENABLE)
+#if defined(MODBUS_PORT)
 #include "mbport.h"
 #endif
 /* USER CODE END Includes */
@@ -159,9 +159,6 @@ void SysTick_Handler(void)
         AutoBackupToEepromFlag = SET;
     }
 
-
-    if(WaitForResponseTimer > 0) WaitForResponseTimer--;
-
     BeeperHandler();
 
     if(port_register[NEXTION_PORT].PortTimer > 0) { LED2_OFF(); port_register[NEXTION_PORT].PortTimer--;}
@@ -188,7 +185,6 @@ void SysTick_Handler(void)
             port_register[SECONDARY_PORT].PortState = USART_STATE_IDLE;
         }
     }
-
   /* USER CODE END SysTick_IRQn 0 */
 
   /* USER CODE BEGIN SysTick_IRQn 1 */
@@ -229,7 +225,7 @@ void EXTI4_15_IRQHandler(void)
 void TIM6_DAC_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM6_DAC_IRQn 0 */
-#if defined(MODBUS_ENABLE)
+#if defined(MODBUS_PORT)
      if(LL_TIM_IsActiveFlag_UPDATE(TIM6)){
         LL_TIM_ClearFlag_UPDATE(TIM6);
         (void)pxMBPortCBTimerExpired( );

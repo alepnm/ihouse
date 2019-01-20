@@ -45,10 +45,6 @@
 /* USER CODE BEGIN Includes */
 #include "unicon.h"
 
-#if defined(MODBUS_ENABLE)
-    #include "mb.h"
-    #include "user_mb_app.h"
-#endif
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -70,7 +66,6 @@
 
 /* USER CODE BEGIN PV */
 
-char str[10] = {'r', 'e', 's', 't', 0xff, 0xff, 0xff};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -83,6 +78,7 @@ static void MX_ADC_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM16_Init(void);
 static void MX_TIM15_Init(void);
+static void MX_RTC_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -99,7 +95,31 @@ static void MX_TIM15_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+
     static volatile uint32_t delay = 0;
+
+#ifdef RELEASE
+#warning "Protection is ON. Debug is OFF"
+    FLASH_OBProgramInitTypeDef Optbyte;
+
+    HAL_FLASHEx_OBGetConfig(&Optbyte);          // read out RDPLvL
+
+    if(Optbyte.RDPLevel == RESET) {             // Lvl 0 = 0, Lvl 1,2 =1
+        Optbyte.OptionType = OPTIONBYTE_RDP;    // select RDP optionbyte
+        Optbyte.RDPLevel = OB_RDP_LEVEL_1;      // select RDP level 1
+
+        HAL_FLASH_Unlock();                     // unlock Flash
+        HAL_FLASH_OB_Unlock();                  // unlock Optionbytes
+
+        HAL_FLASHEx_OBProgram(&Optbyte);        // set RDP=1
+
+        HAL_FLASH_OB_Launch();                  // write OB to Flash and reset
+
+        HAL_FLASH_OB_Lock();                    // Lock Optionbytes
+        HAL_FLASH_Lock();                       // lock Flas
+    }
+#endif
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -120,7 +140,7 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+    SysTick_Config(SystemCoreClock/1000);
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -132,19 +152,18 @@ int main(void)
   MX_USART2_UART_Init();
   MX_TIM16_Init();
   MX_TIM15_Init();
+  MX_RTC_Init();
   /* USER CODE BEGIN 2 */
-
-    SysTick_Config(SystemCoreClock/1000);
 
     LL_mDelay(10);
 
     UNI_Start();
 
-    BEEP();
-    LL_mDelay(10);
-    BEEP();
-    LL_mDelay(10);
-    BEEP();
+    //BEEP();
+    //LL_mDelay(10);
+    //BEEP();
+    //LL_mDelay(10);
+    //BEEP();
 
   /* USER CODE END 2 */
 
@@ -157,8 +176,7 @@ int main(void)
     eMBEnable();
 #endif
 
-  while (1)
-  {
+    while (1) {
 
         if(delay <= timestamp) {
 
@@ -172,10 +190,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-#if defined(MODBUS_ENABLE)
-    (void)eMBPoll();
-#endif
-  }
+    }
   /* USER CODE END 3 */
 }
 
@@ -185,9 +200,9 @@ int main(void)
   */
 void SystemClock_Config(void)
 {
-  LL_FLASH_SetLatency(LL_FLASH_LATENCY_1);
+  LL_FLASH_SetLatency(LL_FLASH_LATENCY_0);
 
-  if(LL_FLASH_GetLatency() != LL_FLASH_LATENCY_1)
+  if(LL_FLASH_GetLatency() != LL_FLASH_LATENCY_0)
   {
   Error_Handler();
   }
@@ -214,26 +229,31 @@ void SystemClock_Config(void)
 
   }
   LL_RCC_HSI14_SetCalibTrimming(16);
-  LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSE_DIV_1, LL_RCC_PLL_MUL_6);
-  LL_RCC_PLL_Enable();
+  LL_PWR_EnableBkUpAccess();
+  LL_RCC_ForceBackupDomainReset();
+  LL_RCC_ReleaseBackupDomainReset();
+  LL_RCC_LSE_SetDriveCapability(LL_RCC_LSEDRIVE_HIGH);
+  LL_RCC_LSE_Enable();
 
-   /* Wait till PLL is ready */
-  while(LL_RCC_PLL_IsReady() != 1)
+   /* Wait till LSE is ready */
+  while(LL_RCC_LSE_IsReady() != 1)
   {
 
   }
+  LL_RCC_SetRTCClockSource(LL_RCC_RTC_CLKSOURCE_LSE);
+  LL_RCC_EnableRTC();
   LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
   LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_1);
-  LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
+  LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_HSE);
 
    /* Wait till System clock is ready */
-  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL)
+  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_HSE)
   {
 
   }
-  LL_Init1msTick(48000000);
+  LL_Init1msTick(8000000);
   LL_SYSTICK_SetClkSource(LL_SYSTICK_CLKSOURCE_HCLK);
-  LL_SetSystemCoreClock(48000000);
+  LL_SetSystemCoreClock(8000000);
   LL_RCC_HSI14_EnableADCControl();
   LL_RCC_SetUSARTClockSource(LL_RCC_USART1_CLKSOURCE_PCLK1);
   LL_RCC_SetI2CClockSource(LL_RCC_I2C1_CLKSOURCE_HSI);
@@ -375,6 +395,56 @@ static void MX_I2C1_Init(void)
   /* USER CODE BEGIN I2C1_Init 2 */
 
   /* USER CODE END I2C1_Init 2 */
+
+}
+
+/**
+  * @brief RTC Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_RTC_Init(void)
+{
+
+  /* USER CODE BEGIN RTC_Init 0 */
+
+  /* USER CODE END RTC_Init 0 */
+
+  LL_RTC_InitTypeDef RTC_InitStruct = {0};
+  LL_RTC_TimeTypeDef RTC_TimeStruct = {0};
+  LL_RTC_DateTypeDef RTC_DateStruct = {0};
+
+  /* Peripheral clock enable */
+  LL_RCC_EnableRTC();
+
+  /* USER CODE BEGIN RTC_Init 1 */
+
+  /* USER CODE END RTC_Init 1 */
+  /**Initialize RTC and set the Time and Date
+  */
+  RTC_InitStruct.HourFormat = LL_RTC_HOURFORMAT_24HOUR;
+  RTC_InitStruct.AsynchPrescaler = 127;
+  RTC_InitStruct.SynchPrescaler = 255;
+  LL_RTC_Init(RTC, &RTC_InitStruct);
+  LL_RTC_SetAsynchPrescaler(RTC, 127);
+  LL_RTC_SetSynchPrescaler(RTC, 255);
+  /**Initialize RTC and set the Time and Date
+  */
+  if(LL_RTC_BAK_GetRegister(RTC, LL_RTC_BKP_DR0) != 0x32F2){
+
+  RTC_TimeStruct.Hours = 0;
+  RTC_TimeStruct.Minutes = 0;
+  RTC_TimeStruct.Seconds = 0;
+  LL_RTC_TIME_Init(RTC, LL_RTC_FORMAT_BCD, &RTC_TimeStruct);
+  RTC_DateStruct.WeekDay = LL_RTC_WEEKDAY_MONDAY;
+  RTC_DateStruct.Month = LL_RTC_MONTH_JANUARY;
+  RTC_DateStruct.Year = 0;
+  LL_RTC_DATE_Init(RTC, LL_RTC_FORMAT_BCD, &RTC_DateStruct);
+    LL_RTC_BAK_SetRegister(RTC,LL_RTC_BKP_DR0,0x32F2);
+  }
+  /* USER CODE BEGIN RTC_Init 2 */
+
+  /* USER CODE END RTC_Init 2 */
 
 }
 
@@ -727,8 +797,8 @@ static void MX_USART2_UART_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
-  LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
   LL_EXTI_InitTypeDef EXTI_InitStruct = {0};
+  LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
   LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_GPIOC);
@@ -813,7 +883,7 @@ static void MX_GPIO_Init(void)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
+    /* User can add his own implementation to report the HAL error return state */
 
   /* USER CODE END Error_Handler_Debug */
 }
@@ -829,8 +899,8 @@ void Error_Handler(void)
 void assert_failed(char *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
-     tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+    /* User can add his own implementation to report the file name and line number,
+       tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */

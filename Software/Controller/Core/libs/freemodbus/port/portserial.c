@@ -31,19 +31,22 @@ extern USART_TypeDef* ports[];
 //static void prvvUARTRxISR( void );
 
 /* ----------------------- Start implementation -----------------------------*/
+
+#if defined(MODBUS_PORT)
+
 void vMBPortSerialEnable( BOOL xRxEnable, BOOL xTxEnable ) {
     if( xRxEnable ) {
         //SLAVE_RS485_RECEIVE_MODE;
-        LL_USART_EnableIT_RXNE(usart_handle[SECONDARY_PORT]);
+        LL_USART_EnableIT_RXNE(usart_handle[MODBUS_PORT]);
     } else {
-        LL_USART_DisableIT_RXNE(usart_handle[SECONDARY_PORT]);
+        LL_USART_DisableIT_RXNE(usart_handle[MODBUS_PORT]);
     }
 
     if( xTxEnable ) {
         //SLAVE_RS485_SEND_MODE;
-        LL_USART_EnableIT_TC(usart_handle[SECONDARY_PORT]);
+        LL_USART_EnableIT_TC(usart_handle[MODBUS_PORT]);
     } else {
-        LL_USART_DisableIT_TC(usart_handle[SECONDARY_PORT]);
+        LL_USART_DisableIT_TC(usart_handle[MODBUS_PORT]);
     }
 }
 
@@ -54,7 +57,7 @@ BOOL xMBPortSerialInit( UCHAR ucPORT, ULONG ulBaudRate, UCHAR ucDataBits, eMBPar
 
     USART_Config( (uint8_t)ucPORT, (uint32_t)ulBaudRate, (uint32_t)ucDataBits, (uint32_t)eParity );
 
-    LL_USART_Enable(usart_handle[SECONDARY_PORT]);
+    LL_USART_Enable(usart_handle[MODBUS_PORT]);
 
     vMBPortSerialEnable( TRUE, FALSE );
 
@@ -62,14 +65,16 @@ BOOL xMBPortSerialInit( UCHAR ucPORT, ULONG ulBaudRate, UCHAR ucDataBits, eMBPar
 }
 
 BOOL xMBPortSerialPutByte( CHAR ucByte ) {
-    LL_USART_TransmitData8(usart_handle[SECONDARY_PORT], ucByte);
+    LL_USART_TransmitData8(usart_handle[MODBUS_PORT], ucByte);
     return TRUE;
 }
 
 BOOL xMBPortSerialGetByte( CHAR * pucByte ) {
-    *pucByte = LL_USART_ReceiveData8(usart_handle[SECONDARY_PORT]);
+    *pucByte = LL_USART_ReceiveData8(usart_handle[MODBUS_PORT]);
     return TRUE;
 }
+
+#endif
 
 /*
  * Create an interrupt handler for the transmit buffer empty interrupt
@@ -93,4 +98,5 @@ BOOL xMBPortSerialGetByte( CHAR * pucByte ) {
 //{
 //    pxMBFrameCBByteReceived(  );
 //}
+
 

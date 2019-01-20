@@ -35,32 +35,35 @@
 //#define     DI_TH_SHUTDOWN_ALARM        ( 2u )
 
 /* INPUTS */
-#define     IR_FAULT_CODE               ( 1u )
+#define     IR_LAST_FAULT            ( 1u )
 
 /* HOLDINGS */
-#define     HR_MBADDR                     4
-#define     HR_MBPARITY                   5
-#define     HR_MBBAUDRATE                 6
-#define     HR_MBSTOPBITS                 7
-#define     HR_TESTMODE                 ( 9u )
-
+#define     HR_MBADDR                   4
+#define     HR_MBPARITY                 5
+#define     HR_MBBAUDRATE               6
+#define     HR_MBSTOPBITS               7
+#define     HR_WTIME_LO                 8
+#define     HR_WTIME_HI                 9
 
 
 /* daugiafunkcinis registras:
 0xABBA - nuresetinam WTIME
-0x
+0x18C9 - System Reset
 0x
  */
-#define     HR_MAGIC_REG                ( 49u )     // 0x31h
+#define     HR_MAGIC_REG                ( 15u )     // 0x31h
 
 
 /* extern data */
 extern UCHAR    ucDiscInputBuf[];
 extern UCHAR    ucCoilBuf[];
 extern USHORT   usRegInputBuf[];
+extern uint16_t*   ptrInputRegs;
 extern USHORT   usRegHoldingBuf[];
+extern uint16_t*   ptrHoldingRegs;
 
 extern uint8_t  ucSlaveIdBuf[];
+
 
 
 uint8_t xMbGetCoil( uint16_t usBitOffset );

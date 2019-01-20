@@ -93,9 +93,9 @@ eMBRTUInit( UCHAR ucSlaveAddress, UCHAR ucPort, ULONG ulBaudRate, eMBParity ePar
     } else {
 
         if( ulBaudRate > 19200 ) {
-            usTimerT35_50us = (34u);       /* 1800us. */
+            usTimerT35_50us = (32u);
         } else {
-            usTimerT35_50us = SystemCoreClock / ( 12UL * ulBaudRate );  //9600 -> 200, 4800 -> 400, 2400 -> 800
+            usTimerT35_50us = SystemCoreClock / ( 12UL * ulBaudRate );
         }
 
         if( xMBPortTimersInit( ( USHORT ) usTimerT35_50us ) != TRUE ) {

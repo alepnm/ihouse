@@ -3,9 +3,12 @@
 
 #include "defs.h"
 
-#define NEXTION_PORT    0
+#define PRIMARY_PORT    0
 #define SECONDARY_PORT  1
-#define MODBUS_ENABLE           //on SECONDARY_PORT
+
+#define NEXTION_PORT    PRIMARY_PORT
+//#define MODBUS_PORT     SECONDARY_PORT
+
 
 enum { BR2400 = 0, BR4800, BR9600, BR19200, BR38400, BR57600 };
 enum { USART_STATE_IDLE = 0, USART_STATE_RX, USART_STATE_TX };
@@ -49,8 +52,9 @@ void    USART_Send( uint8_t ucPORT, void* buf, size_t size_of_data );
 void    USART_SendByte(uint8_t ucPORT, char data);
 void    USART_SendString( uint8_t ucPORT, const char* str );
 void    USART_IRQ_Handler(void);
-uint8_t GetIndexByBaudrate(uint32_t baudrate);
+
 void    USART_ClearRxBuffer(uint8_t ucPORT);
+uint8_t CheckBaudrate( uint32_t baudrate);
 
 #endif /* USART_H_INCLUDED */
 

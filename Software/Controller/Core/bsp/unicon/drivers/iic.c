@@ -1,4 +1,3 @@
-#include "defs.h"
 #include "iic.h"
 
 #define     I2C_WRITE 0

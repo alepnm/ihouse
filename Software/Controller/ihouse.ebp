@@ -55,6 +55,7 @@
 					<Add option="-Os" />
 					<Add option="-g2" />
 					<Add symbol="STM32F051x8" />
+					<Add symbol="RELEASE" />
 				</Compiler>
 				<Cpp>
 					<Add option="-fdata-sections" />
@@ -74,7 +75,7 @@
 		<Device>
 			<Add option="$device=cortex-m0" />
 			<Add option="$lscript=startup\stm32f051c8_flash.ld" />
-			<Add option="$stack=0x0200" />
+			<Add option="$stack=0x0100" />
 			<Add option="$heap=0x0400" />
 		</Device>
 		<Compiler>
@@ -123,6 +124,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Core\bsp\unicon\unicon.h" />
+		<Unit filename="Core\func\str_functions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\func\str_functions.h" />
 		<Unit filename="Core\Inc\defaults.h" />
 		<Unit filename="Core\Inc\defs.h" />
 		<Unit filename="Core\Inc\eeprom_addr.h" />
@@ -233,6 +238,7 @@
 		<Unit filename="Drivers\CMSIS\Include\core_cmSimd.h" />
 		<Unit filename="Drivers\CMSIS\Include\core_sc000.h" />
 		<Unit filename="Drivers\CMSIS\Include\core_sc300.h" />
+		<Unit filename="Drivers\STM32F0xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h" />
 		<Unit filename="Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_ll_adc.h" />
 		<Unit filename="Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_ll_bus.h" />
 		<Unit filename="Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_ll_cortex.h" />
@@ -243,6 +249,7 @@
 		<Unit filename="Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_ll_i2c.h" />
 		<Unit filename="Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_ll_pwr.h" />
 		<Unit filename="Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_ll_rcc.h" />
+		<Unit filename="Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_ll_rtc.h" />
 		<Unit filename="Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_ll_system.h" />
 		<Unit filename="Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_ll_tim.h" />
 		<Unit filename="Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_ll_usart.h" />
@@ -266,6 +273,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_ll_rcc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_ll_rtc.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_ll_tim.c">

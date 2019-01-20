@@ -1,6 +1,7 @@
 
 #include "nextion.h"
 #include "unicon.h"
+#include "str_functions.h"
 
 #define NEXTION_ENHANCED
 
@@ -44,7 +45,7 @@
 #define NEX_COLOR_YELLOW                0xFFE0
 
 
-char nextion_buf[32];
+char cmd_buf[32];
 
 HMI_TimeDef Nextion;
 
@@ -143,6 +144,21 @@ const char cmd_cir[]                = "cir";
 const char cmd_cirs[]               = "cirs";
 
 
+
+static void Nextion_SendParameter(const char* param, uint8_t size, uint32_t value, char delim);
+
+
+
+/*  */
+void NextionInit(void) {
+
+
+
+}
+
+
+
+
 /* instrukciju dekoderis */
 void Nextion_Decoder(uint8_t cmd) {
 
@@ -169,63 +185,138 @@ void Nextion_Decoder(uint8_t cmd) {
 }
 
 
-/* komandos i HMI paruosimas ir siuntimas */
-void Nextion_CommandSend(const char* cmd, size_t len) {
 
-    uint8_t i = 0;
+/*  */
+void HMI_SetBaudrate(uint32_t value) {
+    Nextion_SendParameter(var_baud, sizeof(var_baud), value, '=');
+}
 
-    while(i < len){
-        nextion_buf[i] = cmd[i];
-        i++;
-    }
+/*  */
+void HMI_SetBkcmd(uint8_t value) {
+    Nextion_SendParameter(var_bkcmd, sizeof(var_bkcmd), value, '=');
+}
 
-    nextion_buf[i++] = 0xFF;
-    nextion_buf[i++] = 0xFF;
-    nextion_buf[i] = 0xFF;
+/*  */
+void HMI_SetPage(uint8_t pageid) {
+    Nextion_SendParameter(cmd_page, sizeof(cmd_page), pageid, ' ');
+}
 
-    USART_Send( NEXTION_PORT, nextion_buf, i+1 );
+/*  */
+void HMI_SwitchToMainScreen(void) {
+    HMI_SetPage(0);
+}
+
+void HMI_SetVar(const char* var, uint8_t size, uint32_t value){
+    Nextion_SendParameter(var, size, value, '=');
 }
 
 
 
-/*  */
-void Nextion_InstPage(uint8_t pageid){
 
-    uint8_t i = 0;
 
-    while(i < sizeof(cmd_page)){
-        nextion_buf[i] = cmd_page[i];
-        i++;
-    }
 
-    nextion_buf[i++] = ' ';
-    nextion_buf[i++] = pageid;
-    nextion_buf[i++] = 0xFF;
-    nextion_buf[i++] = 0xFF;
-    nextion_buf[i] = 0xFF;
-}
+
 
 
 /*  */
-void HMI_TouchEvent(uint8_t pageid, uint8_t compid, uint8_t event){
+void HMI_TouchEvent(uint8_t pageid, uint8_t compid, uint8_t event) {
 
     /* page0 komponentai */
     TouchTimeoutCounter = timestamp;
 
-    Nextion.CurrentPageID = pageid;
-
-    if( pageid == W_PAPILDOMAI && compid == B_RESTART && event == TOUCH ) { Nextion.SystemSate = NEXTION_STATE_RESTART; NVIC_SystemReset(); while(1); }    // Restart system
+    if( pageid == W_PAPILDOMAI && compid == B_RESTART && event == HMI_TOUCH ) {
+        Nextion.SystemSate = NEXTION_STATE_RESTART;    // Restart system
+        NVIC_SystemReset();
+        while(1);
+    }
 
 
 }
 
 /*  */
-void HMI_SwitchToMainScreen(void){
+void HMI_GetDateTime(uint8_t* year, uint8_t* mon, uint8_t* day, uint8_t* hour, uint8_t* minute) {
+
 
 }
 
+
 /*  */
-void HMI_GetDateTime(uint8_t* year, uint8_t* mon, uint8_t* day, uint8_t* hour, uint8_t* minute){
+static void Nextion_SendParameter(const char* param, uint8_t size, uint32_t value, char delim){
+
+    //char* cmd_buf = pvPortMalloc(32);
+
+    uint8_t i = 0;
+
+    while(i < size) {
+        cmd_buf[i] = param[i];
+        i++;
+    }
+
+    cmd_buf[i++] = delim;
+
+    i += fun_itoa(cmd_buf+i, value, 10);
+
+    cmd_buf[i++] = 0xFF;
+    cmd_buf[i++] = 0xFF;
+    cmd_buf[i] = 0xFF;
+
+    USART_Send( PRIMARY_PORT, cmd_buf, i+1 );
+
+    //vPortFree(cmd_buf);
+
+    //cmd_buf = NULL;
+}
 
 
+
+/*  */
+void Nextion_SendText(const char* var, uint8_t var_size, const char* text, uint8_t text_size){
+
+    uint8_t i = 0, j = 0;
+
+    while(i < var_size) {
+        cmd_buf[i] = var[i];
+        i++;
+    }
+
+    cmd_buf[i++] = '=';
+    cmd_buf[i++] = '"';
+
+    while(j < text_size) {
+        cmd_buf[i++] = text[j++];
+    }
+
+    cmd_buf[i++] = '"';
+
+    cmd_buf[i++] = 0xFF;
+    cmd_buf[i++] = 0xFF;
+    cmd_buf[i] = 0xFF;
+
+    USART_Send( PRIMARY_PORT, cmd_buf, i+1 );
+}
+
+
+
+/*  */
+void Nextion_GetVar(const char* var, uint8_t size){
+
+    uint8_t i = 0, j = 0;
+
+    while(i < sizeof(cmd_get)) {
+        cmd_buf[i] = cmd_get[i];
+        i++;
+    }
+
+    cmd_buf[i++] = ' ';
+
+    while(j < size) {
+        cmd_buf[i++] = var[j];
+        j++;
+    }
+
+    cmd_buf[i++] = 0xFF;
+    cmd_buf[i++] = 0xFF;
+    cmd_buf[i] = 0xFF;
+
+    USART_Send( PRIMARY_PORT, cmd_buf, i+1 );
 }
