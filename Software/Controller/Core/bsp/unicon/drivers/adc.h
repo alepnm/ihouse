@@ -23,9 +23,9 @@ void        ADC_Init(void);
 void        ADC_Read_VREFINT(void);
 void        ADC_Read_MCUTEMP(void);
 void        ADC_Read_VBAT(void);
+uint16_t    ADC_ReadAnalog(uint32_t channel);
 
-uint16_t    ADC_StartConversion(uint32_t channel, uint32_t resolution);
-uint16_t    ADC_ConvertToMvolts(uint16_t adcval, uint32_t resolution);
+uint16_t    ADC_ConvertTo_mVolts(uint16_t adcval, uint32_t resolution);
 
 
 #endif /* ADC_H_INCLUDED */

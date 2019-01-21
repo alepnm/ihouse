@@ -6,7 +6,7 @@
 
 #include "io.h"
 #include "usart.h"
-//#include "adc.h"
+#include "adc.h"
 //#include "iic.h"
 //#include "spi.h"
 #include "rtc.h"
@@ -15,12 +15,16 @@
 #include "iic_eeprom.h"
 #include "eeprom_addr.h"
 #include "mcp23017.h"
-#include "str_functions.h"
+//#include "str_functions.h"
 
 #if defined(MODBUS_PORT)
     #include "mb.h"
     #include "user_mb_app.h"
 #endif
+
+
+#define Delay_ms(x) LL_mDelay(x);
+
 
 #define ERROR_ARRAY_LEN     32
 #define AUTOBACKUP_DELAY    60000
@@ -65,6 +69,27 @@ struct _time{
     uint8_t weekday;
     char date_time_str[32];     //YYYY.MM.dd hh:mm
 }DateTime;
+
+
+
+
+#define AI_VLINE    0
+#define AI_OPTIC    4
+
+
+typedef struct{
+    uint16_t    adcval;
+    uint16_t    conv_val;
+}AnalogInput_TypeDef;
+
+
+struct _analogs{
+    AnalogInput_TypeDef ch0;
+    AnalogInput_TypeDef ch4;
+}AnalogInputs;
+
+extern struct _analogs AnalogInputs;
+
 
 
 extern SysData_TypeDef SysData;

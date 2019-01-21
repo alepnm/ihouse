@@ -1,6 +1,7 @@
 #MicroXplorer Configuration settings - do not modify
-ADC.IPParameters=Resolution
+ADC.IPParameters=Resolution,SamplingTime
 ADC.Resolution=ADC_RESOLUTION_10B
+ADC.SamplingTime=ADC_SAMPLETIME_55CYCLES_5
 File.Version=6
 KeepUserPlacement=false
 Mcu.Family=STM32F0

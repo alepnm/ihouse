@@ -1,7 +1,7 @@
 
 #include "nextion.h"
 #include "unicon.h"
-#include "str_functions.h"
+//#include "str_functions.h"
 
 #define NEXTION_ENHANCED
 
@@ -254,7 +254,7 @@ static void Nextion_SendParameter(const char* param, uint8_t size, uint32_t valu
 
     cmd_buf[i++] = delim;
 
-    i += fun_itoa(cmd_buf+i, value, 10);
+//    i += fun_itoa(cmd_buf+i, value, 10);
 
     cmd_buf[i++] = 0xFF;
     cmd_buf[i++] = 0xFF;

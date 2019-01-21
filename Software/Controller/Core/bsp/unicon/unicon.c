@@ -5,6 +5,8 @@
 
 SysData_TypeDef SysData;
 struct _time DateTime;
+struct _analogs AnalogInputs;
+
 uint8_t AutoBackupToEepromFlag = RESET;
 uint16_t TouchTimeoutCounter = 0;
 
@@ -16,6 +18,7 @@ char buf[32];
 
 
 /*   */
+static void UNI_ReadAnalogs(void);
 static void UNI_GetDateTime(struct _time* time);
 static void UNI_SaveDataToEEPROM(void);
 static void UNI_ReadDataFromEEPROM(void);
@@ -47,6 +50,10 @@ void UNI_Start(void) {
 
     LL_TIM_OC_SetCompareCH1(TIM15, SysData.PWM.ch1);
     LL_TIM_OC_SetCompareCH2(TIM15, SysData.PWM.ch2);
+
+    ADC_Init();
+
+    UNI_ReadAnalogs();
 
     StartBeeper();
 
@@ -105,8 +112,6 @@ uint8_t UNI_CheckUID(uint8_t* bufid) {
 }
 
 
-
-
 /* sisteminiu procesu hendleris */
 void UNI_Process(void) {
 
@@ -119,32 +124,24 @@ void UNI_Process(void) {
 
         delay = timestamp + 300;
 
+        UNI_GetDateTime(&DateTime);
+
+        UNI_ReadAnalogs();      // skaitom analoginius iejimus
+
 #if defined(MODBUS_PORT)
         UNI_UpdateMbRegisters();
 #endif
-
-        UNI_GetDateTime(&DateTime);
-
-
-
-
-
-
-
-
 
         LED2_OFF();
         LED5_OFF();
         LED6_OFF();
         LED7_OFF();
 
-
         switch(Nextion.CurrentPageID) {
 
         case W_MAIN:
 
             i = sprintf( buf, "t0.txt=\"%02d.%02d.%02d   %02d:%02d\"", DateTime.year, DateTime.month, DateTime.day, DateTime.hour, DateTime.minute );
-            //i = sprintf( buf, "t0.txt=\"%02d:%02d:%02d\"", DateTime.hour, DateTime.minute, DateTime.second );
 
             buf[i++] = 0xFF;
             buf[i++] = 0xFF;
@@ -156,11 +153,6 @@ void UNI_Process(void) {
         case W_VIRTUVE:
 
             LED2_ON();
-
-
-
-
-
 
             break;
         case W_KORIDORIUS:
@@ -182,13 +174,6 @@ void UNI_Process(void) {
 
 
     }
-
-
-
-
-
-
-
 
 
 
@@ -216,6 +201,19 @@ void UNI_Process(void) {
 #if defined(MODBUS_PORT)
     (void)eMBPoll();
 #endif
+}
+
+
+/*  */
+static void UNI_ReadAnalogs(void){
+
+    ADC_Read_VREFINT();
+    ADC_Read_MCUTEMP();
+
+    AnalogInputs.ch0.adcval = ADC_ReadAnalog(AI_VLINE);
+    AnalogInputs.ch0.conv_val = ADC_ConvertTo_mVolts(AnalogInputs.ch0.adcval, LL_ADC_RESOLUTION_10B);
+    AnalogInputs.ch4.adcval = ADC_ReadAnalog(AI_OPTIC);
+    AnalogInputs.ch4.conv_val = ADC_ConvertTo_mVolts(AnalogInputs.ch4.adcval, LL_ADC_RESOLUTION_10B);
 }
 
 
@@ -370,7 +368,7 @@ static void UNI_SystemShutdown(void) {
     // ka nors siunciam i HMI
     //....
 
-    LL_mDelay(100);
+    Delay_ms(100);
 
     NVIC_SystemReset();
 }
