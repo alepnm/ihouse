@@ -49,6 +49,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f0xx_ll_adc.h"
+#include "stm32f0xx_ll_dma.h"
 #include "stm32f0xx_ll_i2c.h"
 #include "stm32f0xx_ll_crs.h"
 #include "stm32f0xx_ll_rcc.h"
@@ -58,7 +59,6 @@ extern "C" {
 #include "stm32f0xx_ll_cortex.h"
 #include "stm32f0xx_ll_utils.h"
 #include "stm32f0xx_ll_pwr.h"
-#include "stm32f0xx_ll_dma.h"
 #include "stm32f0xx_ll_rtc.h"
 #include "stm32f0xx_ll_tim.h"
 #include "stm32f0xx_ll_usart.h"
@@ -110,13 +110,12 @@ void Error_Handler(void);
 #define LED7_GPIO_Port GPIOB
 #define LED6_Pin LL_GPIO_PIN_10
 #define LED6_GPIO_Port GPIOB
+#define LPULSE_Pin LL_GPIO_PIN_11
+#define LPULSE_GPIO_Port GPIOB
 #define PWM1_Pin LL_GPIO_PIN_14
 #define PWM1_GPIO_Port GPIOB
 #define PWM2_Pin LL_GPIO_PIN_15
 #define PWM2_GPIO_Port GPIOB
-#define LPULSE_Pin LL_GPIO_PIN_6
-#define LPULSE_GPIO_Port GPIOF
-#define LPULSE_EXTI_IRQn EXTI4_15_IRQn
 #ifndef NVIC_PRIORITYGROUP_0
 #define NVIC_PRIORITYGROUP_0         ((uint32_t)0x00000007) /*!< 0 bit  for pre-emption priority,
                                                                  4 bits for subpriority */

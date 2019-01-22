@@ -11,7 +11,7 @@
 
 
 enum { BR2400 = 0, BR4800, BR9600, BR19200, BR38400, BR57600 };
-enum { USART_STATE_IDLE = 0, USART_STATE_RX, USART_STATE_TX };
+enum { USART_STATE_IDLE = 0, USART_STATE_BUSY, USART_STATE_ANSWER_WAITING, USART_STATE_DATA_TRANSMITTED, USART_STATE_DATA_RECEIVED };
 
 
 #define USART_PAR_NONE  0   //MB_PAR_NONE
@@ -19,24 +19,25 @@ enum { USART_STATE_IDLE = 0, USART_STATE_RX, USART_STATE_TX };
 #define USART_PAR_EVEN  2   //MB_PAR_EVEN
 
 #define RX_BUFFER_SIZE  32
+#define TX_BUFFER_SIZE  32
 
 typedef struct{
-    uint8_t         MbAddr;
-    uint16_t        Baudrate;
-    uint8_t         Parity;
-    uint8_t         StopBits;
-    uint8_t         DataBits;
+    uint8_t             MbAddr;
+    uint16_t            Baudrate;
+    uint8_t             Parity;
+    uint8_t             StopBits;
+    uint8_t             DataBits;
 }PortConfig_TypeDef;
 
 typedef struct{
-    uint8_t DataReceivedFlag;
-    uint8_t DataTransmitedFlag;
-    uint8_t PortState;
-    uint8_t PortError;
-    volatile uint8_t PortTimer;
-    uint8_t ReceivedData;
-    char    RxBuffer[RX_BUFFER_SIZE];
-    uint8_t RxBufferIndex;
+    uint8_t             PortState;                  // porto busena
+    uint8_t             PortError;
+    volatile uint8_t    PortTimer;                  //
+    uint8_t             ReceivedData;               // priimtas baitas
+    char                RxBuffer[RX_BUFFER_SIZE];   // porto RX buferis
+    char                TxBuffer[TX_BUFFER_SIZE];   // porto TX buferis
+    uint8_t             RxBufferIndex;              // porto RX buferio indeksas
+    uint8_t             TxBufferIndex;              // porto TX buferio indeksas
 }PortRegister_TypeDef;
 
 extern USART_TypeDef * usart_handle[2u];
@@ -44,7 +45,10 @@ extern PortConfig_TypeDef port_config[2u];
 extern PortRegister_TypeDef port_register[2u];
 extern const uint32_t baudrates[6u];
 
-extern char* ptrNextionRxBuffer;
+extern char* ptrPrimaryRxBuffer;
+extern char* ptrPrimaryTxBuffer;
+extern char* ptrSecondaryRxBuffer;
+extern char* ptrSecondaryTxBuffer;
 
 
 void    USART_Config(uint8_t ucPORT, uint32_t ulBaudRate, uint32_t ulDataBits,  uint8_t ulParity);

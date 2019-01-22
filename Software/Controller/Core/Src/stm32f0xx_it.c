@@ -84,7 +84,7 @@ extern uint8_t AutoBackupToEepromFlag;
 /* USER CODE END EV */
 
 /******************************************************************************/
-/*           Cortex-M0 Processor Interruption and Exception Handlers          */ 
+/*           Cortex-M0 Processor Interruption and Exception Handlers          */
 /******************************************************************************/
 /**
   * @brief This function handles Non maskable interrupt.
@@ -163,13 +163,13 @@ void SysTick_Handler(void)
 
     if(port_register[NEXTION_PORT].PortTimer > 0) { LED2_OFF(); port_register[NEXTION_PORT].PortTimer--;}
     else{
-        if(port_register[NEXTION_PORT].PortState == USART_STATE_RX){
+        if(port_register[NEXTION_PORT].PortState == USART_STATE_ANSWER_WAITING){
             port_register[NEXTION_PORT].PortState = USART_STATE_IDLE;
 
-            rx_pointer = ptrNextionRxBuffer + port_register[NEXTION_PORT].RxBufferIndex-1;
+            rx_pointer = ptrPrimaryRxBuffer + port_register[NEXTION_PORT].RxBufferIndex-1;
 
             if( *(rx_pointer-2) == 0xFF && *(rx_pointer-1) == 0xFF && *rx_pointer == 0xFF) {
-                port_register[NEXTION_PORT].DataReceivedFlag = true;
+                port_register[PRIMARY_PORT].PortState = USART_STATE_DATA_RECEIVED;
                 port_register[NEXTION_PORT].PortError = F_NO_ERROR;
             }else{
                 /* isvalom buferi, jai priimtas blogas freimas (nera 0xFF 0xFF 0xFF) */
@@ -181,12 +181,12 @@ void SysTick_Handler(void)
 
     if(port_register[SECONDARY_PORT].PortTimer > 0) port_register[SECONDARY_PORT].PortTimer--;
     else{
-        if(port_register[SECONDARY_PORT].PortState == USART_STATE_RX){
+        if(port_register[SECONDARY_PORT].PortState == USART_STATE_ANSWER_WAITING){
             port_register[SECONDARY_PORT].PortState = USART_STATE_IDLE;
         }
     }
   /* USER CODE END SysTick_IRQn 0 */
-  
+
   /* USER CODE BEGIN SysTick_IRQn 1 */
 
   /* USER CODE END SysTick_IRQn 1 */
@@ -200,23 +200,34 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles EXTI line 4 to 15 interrupts.
+  * @brief This function handles DMA1 channel 2 and 3 interrupts.
   */
-void EXTI4_15_IRQHandler(void)
+void DMA1_Channel2_3_IRQHandler(void)
 {
-  /* USER CODE BEGIN EXTI4_15_IRQn 0 */
+  /* USER CODE BEGIN DMA1_Channel2_3_IRQn 0 */
 
-  /* USER CODE END EXTI4_15_IRQn 0 */
-  if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_6) != RESET)
-  {
-    LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_6);
-    /* USER CODE BEGIN LL_EXTI_LINE_6 */
+    if(LL_DMA_IsActiveFlag_TC2(DMA1)){
 
-    /* USER CODE END LL_EXTI_LINE_6 */
-  }
-  /* USER CODE BEGIN EXTI4_15_IRQn 1 */
+        LL_DMA_ClearFlag_TC2(DMA1);
 
-  /* USER CODE END EXTI4_15_IRQn 1 */
+        port_register[PRIMARY_PORT].PortState = USART_STATE_IDLE;//port_register[PRIMARY_PORT].PortState = USART_STATE_DATA_TRANSMITTED;
+
+
+        LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_2);
+    }
+
+
+    if(LL_DMA_IsActiveFlag_TC3(DMA1)){
+        LL_DMA_ClearFlag_TC3(DMA1);
+
+        port_register[PRIMARY_PORT].PortState = USART_STATE_DATA_RECEIVED;
+    }
+
+  /* USER CODE END DMA1_Channel2_3_IRQn 0 */
+
+  /* USER CODE BEGIN DMA1_Channel2_3_IRQn 1 */
+
+  /* USER CODE END DMA1_Channel2_3_IRQn 1 */
 }
 
 /**
@@ -234,7 +245,7 @@ void TIM6_DAC_IRQHandler(void)
 #endif
 
   /* USER CODE END TIM6_DAC_IRQn 0 */
-  
+
   /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
 
   /* USER CODE END TIM6_DAC_IRQn 1 */

@@ -6,6 +6,7 @@
 
 #include "io.h"
 #include "usart.h"
+#include "dma.h"
 #include "adc.h"
 //#include "iic.h"
 //#include "spi.h"

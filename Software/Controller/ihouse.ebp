@@ -96,6 +96,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Core\bsp\unicon\drivers\adc.h" />
+		<Unit filename="Core\bsp\unicon\drivers\dma.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\bsp\unicon\drivers\dma.h" />
 		<Unit filename="Core\bsp\unicon\drivers\iic.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -298,11 +302,11 @@
 			</DoxyBlocks>
 			<code_completion />
 			<debugger>
-				<target_debugging_settings target="Release" active_interface="ST-link">
+				<target_debugging_settings target="Debug" active_interface="ST-link">
 					<debug_interface interface_id="J-link" ip_address="localhost" ip_port="2331" path="C:\Program Files (x86)\SEGGER\JLink_V620a" executable="JLinkGDBServer.exe" description="" dont_start_server="false" backoff_time="2000" options="2" reg_filter="0" active_family="STMicroelectronics" gdb_before_conn="" gdb_after_conn="">
 						<family_options family_id="Generic" />
 						<family_options family_id="STMicroelectronics">
-							<option opt_id="ID_DEVICE" opt_value="STM32F051C8" />
+							<option opt_id="ID_DEVICE" opt_value="STM32F051R8" />
 							<option opt_id="ID_JTAG_SWD" opt_value="swd" />
 							<option opt_id="ID_SPEED" opt_value="1000" />
 							<option opt_id="ID_AUTO_SPEED" opt_value="1" />
@@ -338,11 +342,11 @@
 						</family_options>
 					</debug_interface>
 				</target_debugging_settings>
-				<target_debugging_settings target="Debug" active_interface="ST-link">
+				<target_debugging_settings target="Release" active_interface="ST-link">
 					<debug_interface interface_id="J-link" ip_address="localhost" ip_port="2331" path="C:\Program Files (x86)\SEGGER\JLink_V620a" executable="JLinkGDBServer.exe" description="" dont_start_server="false" backoff_time="2000" options="2" reg_filter="0" active_family="STMicroelectronics" gdb_before_conn="" gdb_after_conn="">
 						<family_options family_id="Generic" />
 						<family_options family_id="STMicroelectronics">
-							<option opt_id="ID_DEVICE" opt_value="STM32F051R8" />
+							<option opt_id="ID_DEVICE" opt_value="STM32F051C8" />
 							<option opt_id="ID_JTAG_SWD" opt_value="swd" />
 							<option opt_id="ID_SPEED" opt_value="1000" />
 							<option opt_id="ID_AUTO_SPEED" opt_value="1" />

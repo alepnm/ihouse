@@ -12,8 +12,10 @@ USART_TypeDef * usart_handle[2u] = {USART1, USART2};
 PortConfig_TypeDef port_config[2u];
 PortRegister_TypeDef port_register[2u];
 
-char* ptrNextionRxBuffer = port_register[PRIMARY_PORT].RxBuffer;
+char* ptrPrimaryRxBuffer = port_register[PRIMARY_PORT].RxBuffer;
+char* ptrPrimaryTxBuffer = port_register[PRIMARY_PORT].TxBuffer;
 char* ptrSecondaryRxBuffer = port_register[SECONDARY_PORT].RxBuffer;
+char* ptrSecondaryTxBuffer = port_register[SECONDARY_PORT].TxBuffer;
 
 const uint32_t baudrates[6u] = { 2400u, 4800u, 9600u, 19200u, 38400u, 57600u };
 
@@ -127,11 +129,11 @@ void USART_IRQ_Handler(void) {
 
         port_register[PRIMARY_PORT].ReceivedData = LL_USART_ReceiveData8(usart_handle[PRIMARY_PORT]);
 
-        *(ptrNextionRxBuffer + port_register[PRIMARY_PORT].RxBufferIndex) = port_register[PRIMARY_PORT].ReceivedData;
+        *(ptrPrimaryRxBuffer + port_register[PRIMARY_PORT].RxBufferIndex) = port_register[PRIMARY_PORT].ReceivedData;
 
         port_register[PRIMARY_PORT].RxBufferIndex++;
 
-        port_register[PRIMARY_PORT].PortState = USART_STATE_RX;
+        port_register[PRIMARY_PORT].PortState = USART_STATE_ANSWER_WAITING;
 
         port_register[PRIMARY_PORT].PortTimer = 10;  //ms
 
@@ -156,7 +158,7 @@ void USART_IRQ_Handler(void) {
 
         port_register[SECONDARY_PORT].RxBufferIndex++;
 
-        port_register[SECONDARY_PORT].PortState = USART_STATE_RX;
+        port_register[SECONDARY_PORT].PortState = USART_STATE_ANSWER_WAITING;
 
         port_register[SECONDARY_PORT].PortTimer = 10;  //ms
     }

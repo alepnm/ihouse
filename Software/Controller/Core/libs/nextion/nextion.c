@@ -170,13 +170,13 @@ void Nextion_Decoder(uint8_t cmd) {
     case NEX_COMPONENTID_INVALID:
         break;
     case NEX_TOUCH_EVENT_DATA:
-        HMI_TouchEvent( *(ptrNextionRxBuffer+1), *(ptrNextionRxBuffer+2), *(ptrNextionRxBuffer+3) );
+        HMI_TouchEvent( *(ptrPrimaryRxBuffer+1), *(ptrPrimaryRxBuffer+2), *(ptrPrimaryRxBuffer+3) );
         break;
     case NEX_SYSTEM_SUCCESS_START:
         Nextion.SystemSate = NEXTION_STATE_OK;
         break;
     case NEX_CURRENT_PAGEID_NUMBER:
-        Nextion.CurrentPageID = *(ptrNextionRxBuffer+1);
+        Nextion.CurrentPageID = *(ptrPrimaryRxBuffer+1);
         break;
     case NEX_START_SDCARD_UPGRADE:
         break;

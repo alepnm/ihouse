@@ -14,7 +14,7 @@ uint16_t flashsize;
 uint8_t UnitID[12];
 
 
-char buf[32];
+//char buf[32];
 
 
 /*   */
@@ -68,6 +68,10 @@ void UNI_Start(void) {
     port_register[SECONDARY_PORT].PortState = USART_STATE_IDLE;
 
     USART_ClearRxBuffer(SECONDARY_PORT);
+
+
+    DMA_Init();
+
 
     TouchTimeoutCounter = timestamp;
 
@@ -141,13 +145,15 @@ void UNI_Process(void) {
 
         case W_MAIN:
 
-            i = sprintf( buf, "t0.txt=\"%02d.%02d.%02d   %02d:%02d\"", DateTime.year, DateTime.month, DateTime.day, DateTime.hour, DateTime.minute );
+            i = sprintf( ptrPrimaryTxBuffer, "t0.txt=\"%02d.%02d.%02d   %02d:%02d\"", DateTime.year, DateTime.month, DateTime.day, DateTime.hour, DateTime.minute );
 
-            buf[i++] = 0xFF;
-            buf[i++] = 0xFF;
-            buf[i] = 0xFF;
+            *(ptrPrimaryTxBuffer + i++) = 0xFF;
+            *(ptrPrimaryTxBuffer + i++) = 0xFF;
+            *(ptrPrimaryTxBuffer + i) = 0xFF;
 
-            USART_Send( NEXTION_PORT, buf, i+1 );
+
+            //USART_Send( NEXTION_PORT, ptrPrimaryTxBuffer, i+1 );
+            DMA_Send(i+1);
 
             break;
         case W_VIRTUVE:
@@ -177,10 +183,10 @@ void UNI_Process(void) {
 
 
 
-    if(port_register[PRIMARY_PORT].DataReceivedFlag == true) {
+    if(port_register[PRIMARY_PORT].PortState == USART_STATE_DATA_RECEIVED) {
 
-        Nextion_Decoder(port_register[PRIMARY_PORT].RxBuffer[0]);
-        port_register[PRIMARY_PORT].DataReceivedFlag = false;
+        Nextion_Decoder( *ptrPrimaryTxBuffer );
+        port_register[PRIMARY_PORT].PortState = USART_STATE_IDLE;
         USART_ClearRxBuffer(PRIMARY_PORT);
     }
 
@@ -269,13 +275,13 @@ void UNI_SystemIRQ(void) {
         //LED2_OFF();
         port_register[PRIMARY_PORT].PortTimer--;
     } else {
-        if(port_register[PRIMARY_PORT].PortState == USART_STATE_RX) {
+        if(port_register[PRIMARY_PORT].PortState == USART_STATE_ANSWER_WAITING) {
             port_register[PRIMARY_PORT].PortState = USART_STATE_IDLE;
 
-            rx_pointer = ptrNextionRxBuffer + port_register[PRIMARY_PORT].RxBufferIndex-1;
+            rx_pointer = ptrPrimaryRxBuffer + port_register[PRIMARY_PORT].RxBufferIndex-1;
 
             if( *(rx_pointer-2) == 0xFF && *(rx_pointer-1) == 0xFF && *rx_pointer == 0xFF) {
-                port_register[PRIMARY_PORT].DataReceivedFlag = true;
+                port_register[PRIMARY_PORT].PortState = USART_STATE_DATA_RECEIVED;
                 port_register[PRIMARY_PORT].PortError = F_NO_ERROR;
             } else {
                 /* isvalom buferi, jai priimtas blogas freimas (nera 0xFF 0xFF 0xFF) */
@@ -287,7 +293,7 @@ void UNI_SystemIRQ(void) {
 
     if(port_register[SECONDARY_PORT].PortTimer > 0) port_register[SECONDARY_PORT].PortTimer--;
     else {
-        if(port_register[SECONDARY_PORT].PortState == USART_STATE_RX) {
+        if(port_register[SECONDARY_PORT].PortState == USART_STATE_ANSWER_WAITING) {
             port_register[SECONDARY_PORT].PortState = USART_STATE_IDLE;
         }
     }
