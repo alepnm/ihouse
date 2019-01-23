@@ -328,7 +328,7 @@ AR Path="/5F2E1EAC" Ref="U?"  Part="1"
 AR Path="/5C3058F0/5F2E1EAC" Ref="U?"  Part="1" 
 AR Path="/5F287616/5F2E1EAC" Ref="U?"  Part="1" 
 F 0 "U?" H 4900 4350 50  0000 C CNN
-F 1 "L293" H 4900 4250 50  0000 C CNN
+F 1 "L293D" H 4900 4250 50  0000 C CNN
 F 2 "Package_DIP:DIP-16_W7.62mm" H 5450 2500 50  0001 L CNN
 F 3 "http://www.ti.com/lit/ds/symlink/l293.pdf" H 4900 3950 50  0001 C CNN
 	1    5200 3250
@@ -342,7 +342,7 @@ AR Path="/5F2E1EB3" Ref="U?"  Part="1"
 AR Path="/5C3058F0/5F2E1EB3" Ref="U?"  Part="1" 
 AR Path="/5F287616/5F2E1EB3" Ref="U?"  Part="1" 
 F 0 "U?" H 7750 4350 50  0000 C CNN
-F 1 "L293" H 7750 4250 50  0000 C CNN
+F 1 "L293D" H 7750 4250 50  0000 C CNN
 F 2 "Package_DIP:DIP-16_W7.62mm" H 8300 2500 50  0001 L CNN
 F 3 "http://www.ti.com/lit/ds/symlink/l293.pdf" H 7750 3950 50  0001 C CNN
 	1    8050 3250
@@ -452,269 +452,31 @@ Text Label 3850 2900 2    50   ~ 0
 DIRA
 Text Label 3850 3000 2    50   ~ 0
 DIRB
-$Comp
-L Device:D D?
-U 1 1 5F2E1EF2
-P 5800 3800
-AR Path="/5F2E1EF2" Ref="D?"  Part="1" 
-AR Path="/5F287616/5F2E1EF2" Ref="D?"  Part="1" 
-F 0 "D?" V 5900 3900 50  0000 R CNN
-F 1 "10MQ100" V 5755 3721 50  0001 R CNN
-F 2 "Diodes_SMD:D_SMA" H 5800 3800 50  0001 C CNN
-F 3 "~" H 5800 3800 50  0001 C CNN
-	1    5800 3800
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:D D?
-U 1 1 5F2E1EF9
-P 5950 2400
-AR Path="/5F2E1EF9" Ref="D?"  Part="1" 
-AR Path="/5F287616/5F2E1EF9" Ref="D?"  Part="1" 
-F 0 "D?" V 6050 2500 50  0000 R CNN
-F 1 "10MQ100" V 5905 2321 50  0001 R CNN
-F 2 "Diodes_SMD:D_SMA" H 5950 2400 50  0001 C CNN
-F 3 "~" H 5950 2400 50  0001 C CNN
-	1    5950 2400
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:D D?
-U 1 1 5F2E1F00
-P 6100 3800
-AR Path="/5F2E1F00" Ref="D?"  Part="1" 
-AR Path="/5F287616/5F2E1F00" Ref="D?"  Part="1" 
-F 0 "D?" V 6200 3900 50  0000 R CNN
-F 1 "10MQ100" V 6055 3721 50  0001 R CNN
-F 2 "Diodes_SMD:D_SMA" H 6100 3800 50  0001 C CNN
-F 3 "~" H 6100 3800 50  0001 C CNN
-	1    6100 3800
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:D D?
-U 1 1 5F2E1F07
-P 6250 2400
-AR Path="/5F2E1F07" Ref="D?"  Part="1" 
-AR Path="/5F287616/5F2E1F07" Ref="D?"  Part="1" 
-F 0 "D?" V 6350 2500 50  0000 R CNN
-F 1 "10MQ100" V 6205 2321 50  0001 R CNN
-F 2 "Diodes_SMD:D_SMA" H 6250 2400 50  0001 C CNN
-F 3 "~" H 6250 2400 50  0001 C CNN
-	1    6250 2400
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	5950 2250 5950 2150
-Wire Wire Line
-	5950 2150 6100 2150
-Wire Wire Line
-	6250 2150 6250 2250
 Text Label 5700 4150 2    50   ~ 0
 COM
 Text Label 8550 4150 2    50   ~ 0
 COM
-Text Label 5450 2150 0    50   ~ 0
+Text Label 5700 2150 2    50   ~ 0
 12VDC
-$Comp
-L Device:D D?
-U 1 1 5F2E1F14
-P 5800 2400
-AR Path="/5F2E1F14" Ref="D?"  Part="1" 
-AR Path="/5F287616/5F2E1F14" Ref="D?"  Part="1" 
-F 0 "D?" V 5900 2500 50  0000 R CNN
-F 1 "10MQ100" V 5755 2321 50  0001 R CNN
-F 2 "Diodes_SMD:D_SMA" H 5800 2400 50  0001 C CNN
-F 3 "~" H 5800 2400 50  0001 C CNN
-	1    5800 2400
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:D D?
-U 1 1 5F2E1F1B
-P 5950 3800
-AR Path="/5F2E1F1B" Ref="D?"  Part="1" 
-AR Path="/5F287616/5F2E1F1B" Ref="D?"  Part="1" 
-F 0 "D?" V 6050 3900 50  0000 R CNN
-F 1 "10MQ100" V 5905 3721 50  0001 R CNN
-F 2 "Diodes_SMD:D_SMA" H 5950 3800 50  0001 C CNN
-F 3 "~" H 5950 3800 50  0001 C CNN
-	1    5950 3800
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:D D?
-U 1 1 5F2E1F22
-P 6100 2400
-AR Path="/5F2E1F22" Ref="D?"  Part="1" 
-AR Path="/5F287616/5F2E1F22" Ref="D?"  Part="1" 
-F 0 "D?" V 6200 2500 50  0000 R CNN
-F 1 "10MQ100" V 6055 2321 50  0001 R CNN
-F 2 "Diodes_SMD:D_SMA" H 6100 2400 50  0001 C CNN
-F 3 "~" H 6100 2400 50  0001 C CNN
-	1    6100 2400
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:D D?
-U 1 1 5F2E1F29
-P 6250 3800
-AR Path="/5F2E1F29" Ref="D?"  Part="1" 
-AR Path="/5F287616/5F2E1F29" Ref="D?"  Part="1" 
-F 0 "D?" V 6350 3900 50  0000 R CNN
-F 1 "10MQ100" V 6205 3721 50  0001 R CNN
-F 2 "Diodes_SMD:D_SMA" H 6250 3800 50  0001 C CNN
-F 3 "~" H 6250 3800 50  0001 C CNN
-	1    6250 3800
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	5950 3950 5950 4150
-Wire Wire Line
-	5950 4150 6100 4150
-Wire Wire Line
-	6250 4150 6250 3950
-Wire Wire Line
-	5950 4150 5800 4150
-Connection ~ 5950 4150
 Connection ~ 5400 4150
-$Comp
-L Device:D D?
-U 1 1 5F2E1F36
-P 8650 2400
-AR Path="/5F2E1F36" Ref="D?"  Part="1" 
-AR Path="/5F287616/5F2E1F36" Ref="D?"  Part="1" 
-F 0 "D?" V 8750 2500 50  0000 R CNN
-F 1 "10MQ100" V 8605 2321 50  0001 R CNN
-F 2 "Diodes_SMD:D_SMA" H 8650 2400 50  0001 C CNN
-F 3 "~" H 8650 2400 50  0001 C CNN
-	1    8650 2400
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:D D?
-U 1 1 5F2E1F3D
-P 8800 2400
-AR Path="/5F2E1F3D" Ref="D?"  Part="1" 
-AR Path="/5F287616/5F2E1F3D" Ref="D?"  Part="1" 
-F 0 "D?" V 8900 2500 50  0000 R CNN
-F 1 "10MQ100" V 8755 2321 50  0001 R CNN
-F 2 "Diodes_SMD:D_SMA" H 8800 2400 50  0001 C CNN
-F 3 "~" H 8800 2400 50  0001 C CNN
-	1    8800 2400
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:D D?
-U 1 1 5F2E1F44
-P 8950 2400
-AR Path="/5F2E1F44" Ref="D?"  Part="1" 
-AR Path="/5F287616/5F2E1F44" Ref="D?"  Part="1" 
-F 0 "D?" V 9050 2500 50  0000 R CNN
-F 1 "10MQ100" V 8905 2321 50  0001 R CNN
-F 2 "Diodes_SMD:D_SMA" H 8950 2400 50  0001 C CNN
-F 3 "~" H 8950 2400 50  0001 C CNN
-	1    8950 2400
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:D D?
-U 1 1 5F2E1F4B
-P 9100 2400
-AR Path="/5F2E1F4B" Ref="D?"  Part="1" 
-AR Path="/5F287616/5F2E1F4B" Ref="D?"  Part="1" 
-F 0 "D?" V 9200 2500 50  0000 R CNN
-F 1 "10MQ100" V 9055 2321 50  0001 R CNN
-F 2 "Diodes_SMD:D_SMA" H 9100 2400 50  0001 C CNN
-F 3 "~" H 9100 2400 50  0001 C CNN
-	1    9100 2400
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	8800 2250 8800 2150
-Wire Wire Line
-	8800 2150 8950 2150
-Wire Wire Line
-	9100 2150 9100 2250
-Text Label 8300 2150 0    50   ~ 0
+Text Label 8550 2150 2    50   ~ 0
 12VDC
-$Comp
-L Device:D D?
-U 1 1 5F2E1F56
-P 8650 3800
-AR Path="/5F2E1F56" Ref="D?"  Part="1" 
-AR Path="/5F287616/5F2E1F56" Ref="D?"  Part="1" 
-F 0 "D?" V 8750 3900 50  0000 R CNN
-F 1 "10MQ100" V 8605 3721 50  0001 R CNN
-F 2 "Diodes_SMD:D_SMA" H 8650 3800 50  0001 C CNN
-F 3 "~" H 8650 3800 50  0001 C CNN
-	1    8650 3800
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:D D?
-U 1 1 5F2E1F5D
-P 8800 3800
-AR Path="/5F2E1F5D" Ref="D?"  Part="1" 
-AR Path="/5F287616/5F2E1F5D" Ref="D?"  Part="1" 
-F 0 "D?" V 8900 3900 50  0000 R CNN
-F 1 "10MQ100" V 8755 3721 50  0001 R CNN
-F 2 "Diodes_SMD:D_SMA" H 8800 3800 50  0001 C CNN
-F 3 "~" H 8800 3800 50  0001 C CNN
-	1    8800 3800
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:D D?
-U 1 1 5F2E1F64
-P 8950 3800
-AR Path="/5F2E1F64" Ref="D?"  Part="1" 
-AR Path="/5F287616/5F2E1F64" Ref="D?"  Part="1" 
-F 0 "D?" V 9050 3900 50  0000 R CNN
-F 1 "10MQ100" V 8905 3721 50  0001 R CNN
-F 2 "Diodes_SMD:D_SMA" H 8950 3800 50  0001 C CNN
-F 3 "~" H 8950 3800 50  0001 C CNN
-	1    8950 3800
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:D D?
-U 1 1 5F2E1F6B
-P 9100 3800
-AR Path="/5F2E1F6B" Ref="D?"  Part="1" 
-AR Path="/5F287616/5F2E1F6B" Ref="D?"  Part="1" 
-F 0 "D?" V 9200 3900 50  0000 R CNN
-F 1 "10MQ100" V 9055 3721 50  0001 R CNN
-F 2 "Diodes_SMD:D_SMA" H 9100 3800 50  0001 C CNN
-F 3 "~" H 9100 3800 50  0001 C CNN
-	1    9100 3800
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	8800 3950 8800 4150
-Wire Wire Line
-	8800 4150 8950 4150
-Wire Wire Line
-	9100 4150 9100 3950
-Wire Wire Line
-	8800 4150 8650 4150
-Connection ~ 8800 4150
 Connection ~ 8250 4150
-Text Label 6600 2650 2    50   ~ 0
+Text Label 6050 2650 2    50   ~ 0
 V1A1
-Text Label 6600 2850 2    50   ~ 0
+Text Label 6050 2850 2    50   ~ 0
 V1A2
-Text Label 6600 3250 2    50   ~ 0
+Text Label 6050 3250 2    50   ~ 0
 V2A1
-Text Label 6600 3450 2    50   ~ 0
+Text Label 6050 3450 2    50   ~ 0
 V2A2
-Text Label 9450 2650 2    50   ~ 0
+Text Label 8900 2650 2    50   ~ 0
 V3A1
-Text Label 9450 2850 2    50   ~ 0
+Text Label 8900 2850 2    50   ~ 0
 V3A2
-Text Label 9450 3250 2    50   ~ 0
+Text Label 8900 3250 2    50   ~ 0
 V4A1
-Text Label 9450 3450 2    50   ~ 0
+Text Label 8900 3450 2    50   ~ 0
 V4A2
 Entry Wire Line
 	7000 2950 7100 3050
@@ -725,127 +487,17 @@ Entry Wire Line
 Entry Wire Line
 	7000 3550 7100 3650
 Wire Wire Line
-	5700 2650 5800 2650
+	5700 4150 5400 4150
 Wire Wire Line
-	5700 2850 5950 2850
-Wire Wire Line
-	5800 2250 5800 2150
-Wire Wire Line
-	5800 2150 5950 2150
-Connection ~ 5950 2150
-Wire Wire Line
-	6100 2250 6100 2150
-Connection ~ 6100 2150
-Wire Wire Line
-	6100 2150 6250 2150
-Wire Wire Line
-	5700 3450 6250 3450
-Wire Wire Line
-	5700 3250 6100 3250
-Wire Wire Line
-	5800 3950 5800 4150
-Connection ~ 5800 4150
-Wire Wire Line
-	5800 4150 5400 4150
-Wire Wire Line
-	6100 3950 6100 4150
-Connection ~ 6100 4150
-Wire Wire Line
-	6100 4150 6250 4150
-Wire Wire Line
-	5800 3650 5800 2650
-Connection ~ 5800 2650
-Wire Wire Line
-	5800 2650 6600 2650
-Wire Wire Line
-	5800 2650 5800 2550
-Wire Wire Line
-	5950 2550 5950 2850
-Connection ~ 5950 2850
-Wire Wire Line
-	5950 2850 6600 2850
-Wire Wire Line
-	5950 2850 5950 3650
-Wire Wire Line
-	6100 3650 6100 3250
-Connection ~ 6100 3250
-Wire Wire Line
-	6100 3250 6600 3250
-Wire Wire Line
-	6100 3250 6100 2550
-Wire Wire Line
-	6250 2550 6250 3450
-Connection ~ 6250 3450
-Wire Wire Line
-	6250 3450 6600 3450
-Wire Wire Line
-	6250 3450 6250 3650
-Wire Wire Line
-	8550 3250 8950 3250
-Wire Wire Line
-	8550 3450 9100 3450
-Wire Wire Line
-	8550 2650 8650 2650
-Wire Wire Line
-	8550 2850 8800 2850
-Wire Wire Line
-	8650 2550 8650 2650
-Connection ~ 8650 2650
-Wire Wire Line
-	8650 2650 9450 2650
-Wire Wire Line
-	8650 2650 8650 3650
-Wire Wire Line
-	8650 3950 8650 4150
-Connection ~ 8650 4150
-Wire Wire Line
-	8650 4150 8250 4150
-Wire Wire Line
-	8950 4150 8950 3950
-Connection ~ 8950 4150
-Wire Wire Line
-	8950 4150 9100 4150
-Wire Wire Line
-	8800 3650 8800 2850
-Connection ~ 8800 2850
-Wire Wire Line
-	8800 2850 9450 2850
-Wire Wire Line
-	8800 2550 8800 2850
-Wire Wire Line
-	8950 3650 8950 3250
-Connection ~ 8950 3250
-Wire Wire Line
-	8950 3250 9450 3250
-Wire Wire Line
-	8950 3250 8950 2550
-Wire Wire Line
-	9100 2550 9100 3450
-Connection ~ 9100 3450
-Wire Wire Line
-	9100 3450 9450 3450
-Wire Wire Line
-	9100 3450 9100 3650
-Wire Wire Line
-	8950 2250 8950 2150
-Connection ~ 8950 2150
-Wire Wire Line
-	8800 2150 8650 2150
-Wire Wire Line
-	8650 2150 8650 2250
-Connection ~ 8800 2150
-Wire Wire Line
-	8950 2150 9100 2150
-Connection ~ 5800 2150
+	8550 4150 8250 4150
 Wire Wire Line
 	5300 2250 5300 2150
 Wire Wire Line
-	5300 2150 5800 2150
-Connection ~ 8650 2150
+	5300 2150 5700 2150
 Wire Wire Line
 	8150 2250 8150 2150
 Wire Wire Line
-	8150 2150 8650 2150
+	8150 2150 8550 2150
 Wire Wire Line
 	5100 2250 5100 2000
 Wire Wire Line
@@ -1254,6 +906,26 @@ Entry Wire Line
 	5500 4300 5600 4400
 Wire Wire Line
 	5600 4400 5600 5000
+Text HLabel 5600 5000 3    50   Input ~ 0
+OC5V
+Text Label 5600 4400 3    50   ~ 0
+5VDC
+Wire Wire Line
+	5700 2650 6050 2650
+Wire Wire Line
+	5700 2850 6050 2850
+Wire Wire Line
+	5700 3250 6050 3250
+Wire Wire Line
+	5700 3450 6050 3450
+Wire Wire Line
+	8550 2650 8900 2650
+Wire Wire Line
+	8550 2850 8900 2850
+Wire Wire Line
+	8550 3250 8900 3250
+Wire Wire Line
+	8550 3450 8900 3450
 Wire Bus Line
 	7000 2900 7000 4300
 Wire Bus Line
@@ -1262,8 +934,4 @@ Wire Bus Line
 	4150 4300 7000 4300
 Wire Bus Line
 	3950 2000 3950 4150
-Text HLabel 5600 5000 3    50   Input ~ 0
-OC5V
-Text Label 5600 4400 3    50   ~ 0
-5VDC
 $EndSCHEMATC
