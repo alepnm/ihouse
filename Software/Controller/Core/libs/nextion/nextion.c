@@ -47,7 +47,7 @@
 
 char cmd_buf[32];
 
-HMI_TimeDef Nextion;
+HMI_TypeDef Nextion;
 
 /* Nextion system variables */
 const char var_dim[]                = "dim";
@@ -152,7 +152,7 @@ static void Nextion_SendParameter(const char* param, uint8_t size, uint32_t valu
 /*  */
 void NextionInit(void) {
 
-
+    Nextion.DimValue = 50;
 
 }
 
@@ -173,7 +173,7 @@ void Nextion_Decoder(uint8_t cmd) {
         HMI_TouchEvent( *(ptrPrimaryRxBuffer+1), *(ptrPrimaryRxBuffer+2), *(ptrPrimaryRxBuffer+3) );
         break;
     case NEX_SYSTEM_SUCCESS_START:
-        Nextion.SystemSate = NEXTION_STATE_OK;
+        Nextion.SystemState = NEXTION_STATE_OK;
         break;
     case NEX_CURRENT_PAGEID_NUMBER:
         Nextion.CurrentPageID = *(ptrPrimaryRxBuffer+1);
@@ -225,7 +225,7 @@ void HMI_TouchEvent(uint8_t pageid, uint8_t compid, uint8_t event) {
     TouchTimeoutCounter = timestamp;
 
     if( pageid == W_PAPILDOMAI && compid == B_RESTART && event == HMI_TOUCH ) {
-        Nextion.SystemSate = NEXTION_STATE_RESTART;    // Restart system
+        Nextion.SystemState = NEXTION_STATE_RESTART;    // Restart system
         NVIC_SystemReset();
         while(1);
     }

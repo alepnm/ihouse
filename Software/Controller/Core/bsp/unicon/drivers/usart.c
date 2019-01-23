@@ -12,6 +12,9 @@ USART_TypeDef * usart_handle[2u] = {USART1, USART2};
 PortConfig_TypeDef port_config[2u];
 PortRegister_TypeDef port_register[2u];
 
+uint8_t TxState = USART_STATE_IDLE;
+
+
 char* ptrPrimaryRxBuffer = port_register[PRIMARY_PORT].RxBuffer;
 char* ptrPrimaryTxBuffer = port_register[PRIMARY_PORT].TxBuffer;
 char* ptrSecondaryRxBuffer = port_register[SECONDARY_PORT].RxBuffer;
@@ -73,6 +76,14 @@ void USART_Send( uint8_t ucPORT, void* data, size_t len ) {
         LL_USART_TransmitData8(usart_handle[ucPORT], *((uint8_t*)data++));
     }
 }
+
+
+/*  */
+void USART_Send_DMA(size_t len){
+    LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_2, len);
+    LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_2);
+}
+
 
 /*  */
 void USART_SendByte(uint8_t ucPORT, char data) {

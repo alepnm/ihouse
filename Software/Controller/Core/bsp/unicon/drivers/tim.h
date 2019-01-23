@@ -1,6 +1,7 @@
-#ifndef PWM_H_INCLUDED
-#define PWM_H_INCLUDED
+#ifndef TIM_H_INCLUDED
+#define TIM_H_INCLUDED
 
+#include "pwm.h"
 
 ///* Beeper defines */
 //#define     BEEPER_LEVEL_MSK        0b0000000000000111000000000000
@@ -33,4 +34,4 @@ void StopBeeper(void);
 void StartPWM(void);
 void StopPWM(void);
 
-#endif /* PWM_H_INCLUDED */
+#endif /* TIM_H_INCLUDED */

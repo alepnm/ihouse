@@ -45,6 +45,8 @@ extern PortConfig_TypeDef port_config[2u];
 extern PortRegister_TypeDef port_register[2u];
 extern const uint32_t baudrates[6u];
 
+extern uint8_t TxState;
+
 extern char* ptrPrimaryRxBuffer;
 extern char* ptrPrimaryTxBuffer;
 extern char* ptrSecondaryRxBuffer;
@@ -53,6 +55,7 @@ extern char* ptrSecondaryTxBuffer;
 
 void    USART_Config(uint8_t ucPORT, uint32_t ulBaudRate, uint32_t ulDataBits,  uint8_t ulParity);
 void    USART_Send( uint8_t ucPORT, void* buf, size_t size_of_data );
+void    USART_Send_DMA(size_t len);
 void    USART_SendByte(uint8_t ucPORT, char data);
 void    USART_SendString( uint8_t ucPORT, const char* str );
 void    USART_IRQ_Handler(void);

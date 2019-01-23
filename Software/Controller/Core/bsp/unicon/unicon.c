@@ -48,8 +48,8 @@ void UNI_Start(void) {
 
     StartPWM();
 
-    LL_TIM_OC_SetCompareCH1(TIM15, SysData.PWM.ch1);
-    LL_TIM_OC_SetCompareCH2(TIM15, SysData.PWM.ch2);
+    PWM_Set(PWM_CH1, SysData.PWM.ch1);
+    PWM_Set(PWM_CH2, SysData.PWM.ch2);
 
     ADC_Init();
 
@@ -72,10 +72,7 @@ void UNI_Start(void) {
 
     DMA_Init();
 
-
     TouchTimeoutCounter = timestamp;
-
-
 
     NextionInit();
 
@@ -145,15 +142,21 @@ void UNI_Process(void) {
 
         case W_MAIN:
 
-            i = sprintf( ptrPrimaryTxBuffer, "t0.txt=\"%02d.%02d.%02d   %02d:%02d\"", DateTime.year, DateTime.month, DateTime.day, DateTime.hour, DateTime.minute );
+            if(TxState == USART_STATE_IDLE){
 
-            *(ptrPrimaryTxBuffer + i++) = 0xFF;
-            *(ptrPrimaryTxBuffer + i++) = 0xFF;
-            *(ptrPrimaryTxBuffer + i) = 0xFF;
+                //i = sprintf( ptrPrimaryTxBuffer, "t0.txt=\"%02d.%02d.%02d   %02d:%02d\"", DateTime.year, DateTime.month, DateTime.day, DateTime.hour, DateTime.minute );
+                i = sprintf( ptrPrimaryTxBuffer, "t0.txt=\"MCU:%02d IN0:%1.2fV\"", (int)ADC_InternalRegisters.McuTemp.ConvertedValue, (float)AnalogInputs.ch0.conv_val/1000 );
 
+                *(ptrPrimaryTxBuffer + i++) = 0xFF;
+                *(ptrPrimaryTxBuffer + i++) = 0xFF;
+                *(ptrPrimaryTxBuffer + i) = 0xFF;
 
-            //USART_Send( NEXTION_PORT, ptrPrimaryTxBuffer, i+1 );
-            DMA_Send(i+1);
+                //USART_Send( NEXTION_PORT, ptrPrimaryTxBuffer, i+1 );
+                USART_Send_DMA(i+1);
+
+                TxState = USART_STATE_BUSY;
+            }
+
 
             break;
         case W_VIRTUVE:
@@ -179,13 +182,35 @@ void UNI_Process(void) {
         }
 
 
-    }
 
+        if(TxState == USART_STATE_IDLE){
+
+            /* to niekad nevykdo, nes nespeja atlikti priestai buvusios komandos UARTui */
+
+            Nextion.DimValue = (uint8_t)(AnalogInputs.ch0.adcval/10);
+
+            i = sprintf( ptrPrimaryTxBuffer, "dim=%d", Nextion.DimValue );
+
+            *(ptrPrimaryTxBuffer + i++) = 0xFF;
+            *(ptrPrimaryTxBuffer + i++) = 0xFF;
+            *(ptrPrimaryTxBuffer + i) = 0xFF;
+
+            USART_Send_DMA(i+1);
+
+            TxState = USART_STATE_BUSY;
+        }
+
+
+
+        PWM_Set(PWM_CH1, SysData.PWM.ch1);
+        PWM_Set(PWM_CH2, SysData.PWM.ch2);
+
+    }
 
 
     if(port_register[PRIMARY_PORT].PortState == USART_STATE_DATA_RECEIVED) {
 
-        Nextion_Decoder( *ptrPrimaryTxBuffer );
+        Nextion_Decoder( *ptrPrimaryRxBuffer );
         port_register[PRIMARY_PORT].PortState = USART_STATE_IDLE;
         USART_ClearRxBuffer(PRIMARY_PORT);
     }
@@ -297,6 +322,7 @@ void UNI_SystemIRQ(void) {
             port_register[SECONDARY_PORT].PortState = USART_STATE_IDLE;
         }
     }
+
 }
 
 

@@ -116,6 +116,8 @@ void Error_Handler(void);
 #define PWM1_GPIO_Port GPIOB
 #define PWM2_Pin LL_GPIO_PIN_15
 #define PWM2_GPIO_Port GPIOB
+#define RCCONTR_Pin LL_GPIO_PIN_3
+#define RCCONTR_GPIO_Port GPIOB
 #ifndef NVIC_PRIORITYGROUP_0
 #define NVIC_PRIORITYGROUP_0         ((uint32_t)0x00000007) /*!< 0 bit  for pre-emption priority,
                                                                  4 bits for subpriority */

@@ -61,6 +61,8 @@ typedef enum { RES_OK = 0, RES_ERROR, RES_BUSY, RES_TIMEOUT, RES_BAD_PARAMS } eR
 #define     EE_INITBYTE_DEF             0xAA
 
 
+
+
 void SystickDelay_ms(uint32_t delay);
 void Delay_ms(uint32_t delay);
 

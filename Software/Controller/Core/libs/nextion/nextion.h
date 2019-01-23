@@ -19,11 +19,12 @@ enum{ NEXTION_STATE_OK = 0, NEXTION_STATE_SLEEP, NEXTION_STATE_RESTART };
 
 
 typedef struct{
-    uint8_t SystemSate;
+    uint8_t SystemState;
     uint8_t CurrentPageID;
-}HMI_TimeDef;
+    uint8_t DimValue;           // saugom eeprome
+}HMI_TypeDef;
 
-extern HMI_TimeDef Nextion;
+extern HMI_TypeDef Nextion;
 
 
 extern const char var_dim[3];

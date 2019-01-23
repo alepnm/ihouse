@@ -146,45 +146,11 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
-    char* rx_pointer = NULL;
-    static uint32_t delay = 0;
-    static uint32_t autobackup_delay = AUTOBACKUP_DELAY;
 
     timestamp++;
 
-    if(delay < timestamp){ delay = timestamp + 1000; SysData.WTime++; }
+    UNI_SystemIRQ();
 
-    if(autobackup_delay < timestamp){
-        autobackup_delay = timestamp + AUTOBACKUP_DELAY;
-        AutoBackupToEepromFlag = SET;
-    }
-
-    BeeperHandler();
-
-    if(port_register[NEXTION_PORT].PortTimer > 0) { LED2_OFF(); port_register[NEXTION_PORT].PortTimer--;}
-    else{
-        if(port_register[NEXTION_PORT].PortState == USART_STATE_ANSWER_WAITING){
-            port_register[NEXTION_PORT].PortState = USART_STATE_IDLE;
-
-            rx_pointer = ptrPrimaryRxBuffer + port_register[NEXTION_PORT].RxBufferIndex-1;
-
-            if( *(rx_pointer-2) == 0xFF && *(rx_pointer-1) == 0xFF && *rx_pointer == 0xFF) {
-                port_register[PRIMARY_PORT].PortState = USART_STATE_DATA_RECEIVED;
-                port_register[NEXTION_PORT].PortError = F_NO_ERROR;
-            }else{
-                /* isvalom buferi, jai priimtas blogas freimas (nera 0xFF 0xFF 0xFF) */
-                port_register[NEXTION_PORT].PortError = F_FRAME_ERROR;
-                USART_ClearRxBuffer(NEXTION_PORT);
-            }
-        }
-    }
-
-    if(port_register[SECONDARY_PORT].PortTimer > 0) port_register[SECONDARY_PORT].PortTimer--;
-    else{
-        if(port_register[SECONDARY_PORT].PortState == USART_STATE_ANSWER_WAITING){
-            port_register[SECONDARY_PORT].PortState = USART_STATE_IDLE;
-        }
-    }
   /* USER CODE END SysTick_IRQn 0 */
 
   /* USER CODE BEGIN SysTick_IRQn 1 */
@@ -210,17 +176,9 @@ void DMA1_Channel2_3_IRQHandler(void)
 
         LL_DMA_ClearFlag_TC2(DMA1);
 
-        port_register[PRIMARY_PORT].PortState = USART_STATE_IDLE;//port_register[PRIMARY_PORT].PortState = USART_STATE_DATA_TRANSMITTED;
-
-
         LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_2);
-    }
 
-
-    if(LL_DMA_IsActiveFlag_TC3(DMA1)){
-        LL_DMA_ClearFlag_TC3(DMA1);
-
-        port_register[PRIMARY_PORT].PortState = USART_STATE_DATA_RECEIVED;
+        TxState = USART_STATE_IDLE;
     }
 
   /* USER CODE END DMA1_Channel2_3_IRQn 0 */
