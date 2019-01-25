@@ -145,11 +145,11 @@ void UNI_Process(void) {
             if(TxState == USART_STATE_IDLE){
 
                 //i = sprintf( ptrPrimaryTxBuffer, "t0.txt=\"%02d.%02d.%02d   %02d:%02d\"", DateTime.year, DateTime.month, DateTime.day, DateTime.hour, DateTime.minute );
-                i = sprintf( ptrPrimaryTxBuffer, "t0.txt=\"MCU:%02d IN0:%1.2fV\"", (int)ADC_InternalRegisters.McuTemp.ConvertedValue, (float)AnalogInputs.ch0.conv_val/1000 );
+                i = sprintf( ptrSecondaryTxBuffer, "t0.txt=\"MCU:%02d IN0:%1.2fV\"", (int)ADC_InternalRegisters.McuTemp.ConvertedValue, (float)AnalogInputs.ch0.conv_val/1000 );
 
-                *(ptrPrimaryTxBuffer + i++) = 0xFF;
-                *(ptrPrimaryTxBuffer + i++) = 0xFF;
-                *(ptrPrimaryTxBuffer + i) = 0xFF;
+                *(ptrSecondaryTxBuffer + i++) = 0xFF;
+                *(ptrSecondaryTxBuffer + i++) = 0xFF;
+                *(ptrSecondaryTxBuffer + i) = 0xFF;
 
                 //USART_Send( NEXTION_PORT, ptrPrimaryTxBuffer, i+1 );
                 USART_Send_DMA(i+1);
@@ -189,11 +189,11 @@ void UNI_Process(void) {
 
             Nextion.DimValue = (uint8_t)(AnalogInputs.ch0.adcval/10);
 
-            i = sprintf( ptrPrimaryTxBuffer, "dim=%d", Nextion.DimValue );
+            i = sprintf( ptrSecondaryTxBuffer, "dim=%d", Nextion.DimValue );
 
-            *(ptrPrimaryTxBuffer + i++) = 0xFF;
-            *(ptrPrimaryTxBuffer + i++) = 0xFF;
-            *(ptrPrimaryTxBuffer + i) = 0xFF;
+            *(ptrSecondaryTxBuffer + i++) = 0xFF;
+            *(ptrSecondaryTxBuffer + i++) = 0xFF;
+            *(ptrSecondaryTxBuffer + i) = 0xFF;
 
             USART_Send_DMA(i+1);
 
@@ -208,11 +208,11 @@ void UNI_Process(void) {
     }
 
 
-    if(port_register[PRIMARY_PORT].PortState == USART_STATE_DATA_RECEIVED) {
+    if(port_register[NEXTION_PORT].PortState == USART_STATE_DATA_RECEIVED) {
 
-        Nextion_Decoder( *ptrPrimaryRxBuffer );
-        port_register[PRIMARY_PORT].PortState = USART_STATE_IDLE;
-        USART_ClearRxBuffer(PRIMARY_PORT);
+        Nextion_Decoder( *ptrSecondaryRxBuffer );
+        port_register[NEXTION_PORT].PortState = USART_STATE_IDLE;
+        USART_ClearRxBuffer(NEXTION_PORT);
     }
 
 
@@ -296,30 +296,30 @@ void UNI_SystemIRQ(void) {
 
     BeeperHandler();
 
-    if(port_register[PRIMARY_PORT].PortTimer > 0) {
+    if(port_register[NEXTION_PORT].PortTimer > 0) {
         //LED2_OFF();
-        port_register[PRIMARY_PORT].PortTimer--;
+        port_register[NEXTION_PORT].PortTimer--;
     } else {
-        if(port_register[PRIMARY_PORT].PortState == USART_STATE_ANSWER_WAITING) {
-            port_register[PRIMARY_PORT].PortState = USART_STATE_IDLE;
+        if(port_register[NEXTION_PORT].PortState == USART_STATE_ANSWER_WAITING) {
+            port_register[NEXTION_PORT].PortState = USART_STATE_IDLE;
 
-            rx_pointer = ptrPrimaryRxBuffer + port_register[PRIMARY_PORT].RxBufferIndex-1;
+            rx_pointer = ptrSecondaryRxBuffer + port_register[NEXTION_PORT].RxBufferIndex-1;
 
             if( *(rx_pointer-2) == 0xFF && *(rx_pointer-1) == 0xFF && *rx_pointer == 0xFF) {
-                port_register[PRIMARY_PORT].PortState = USART_STATE_DATA_RECEIVED;
-                port_register[PRIMARY_PORT].PortError = F_NO_ERROR;
+                port_register[NEXTION_PORT].PortState = USART_STATE_DATA_RECEIVED;
+                port_register[NEXTION_PORT].PortError = F_NO_ERROR;
             } else {
                 /* isvalom buferi, jai priimtas blogas freimas (nera 0xFF 0xFF 0xFF) */
-                port_register[PRIMARY_PORT].PortError = F_FRAME_ERROR;
-                USART_ClearRxBuffer(PRIMARY_PORT);
+                port_register[NEXTION_PORT].PortError = F_FRAME_ERROR;
+                USART_ClearRxBuffer(NEXTION_PORT);
             }
         }
     }
 
-    if(port_register[SECONDARY_PORT].PortTimer > 0) port_register[SECONDARY_PORT].PortTimer--;
+    if(port_register[PRIMARY_PORT].PortTimer > 0) port_register[PRIMARY_PORT].PortTimer--;
     else {
-        if(port_register[SECONDARY_PORT].PortState == USART_STATE_ANSWER_WAITING) {
-            port_register[SECONDARY_PORT].PortState = USART_STATE_IDLE;
+        if(port_register[PRIMARY_PORT].PortState == USART_STATE_ANSWER_WAITING) {
+            port_register[PRIMARY_PORT].PortState = USART_STATE_IDLE;
         }
     }
 

@@ -170,13 +170,13 @@ void Nextion_Decoder(uint8_t cmd) {
     case NEX_COMPONENTID_INVALID:
         break;
     case NEX_TOUCH_EVENT_DATA:
-        HMI_TouchEvent( *(ptrPrimaryRxBuffer+1), *(ptrPrimaryRxBuffer+2), *(ptrPrimaryRxBuffer+3) );
+        HMI_TouchEvent( *(ptrSecondaryRxBuffer+1), *(ptrSecondaryRxBuffer+2), *(ptrSecondaryRxBuffer+3) );
         break;
     case NEX_SYSTEM_SUCCESS_START:
         Nextion.SystemState = NEXTION_STATE_OK;
         break;
     case NEX_CURRENT_PAGEID_NUMBER:
-        Nextion.CurrentPageID = *(ptrPrimaryRxBuffer+1);
+        Nextion.CurrentPageID = *(ptrSecondaryRxBuffer+1);
         break;
     case NEX_START_SDCARD_UPGRADE:
         break;
@@ -260,7 +260,7 @@ static void Nextion_SendParameter(const char* param, uint8_t size, uint32_t valu
     cmd_buf[i++] = 0xFF;
     cmd_buf[i] = 0xFF;
 
-    USART_Send( PRIMARY_PORT, cmd_buf, i+1 );
+    USART_Send( SECONDARY_PORT, cmd_buf, i+1 );
 
     //vPortFree(cmd_buf);
 
@@ -292,7 +292,7 @@ void Nextion_SendText(const char* var, uint8_t var_size, const char* text, uint8
     cmd_buf[i++] = 0xFF;
     cmd_buf[i] = 0xFF;
 
-    USART_Send( PRIMARY_PORT, cmd_buf, i+1 );
+    USART_Send( SECONDARY_PORT, cmd_buf, i+1 );
 }
 
 
@@ -318,5 +318,5 @@ void Nextion_GetVar(const char* var, uint8_t size){
     cmd_buf[i++] = 0xFF;
     cmd_buf[i] = 0xFF;
 
-    USART_Send( PRIMARY_PORT, cmd_buf, i+1 );
+    USART_Send( SECONDARY_PORT, cmd_buf, i+1 );
 }

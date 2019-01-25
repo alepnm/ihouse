@@ -80,8 +80,8 @@ void USART_Send( uint8_t ucPORT, void* data, size_t len ) {
 
 /*  */
 void USART_Send_DMA(size_t len){
-    LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_2, len);
-    LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_2);
+    LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_4, len);
+    LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_4);
 }
 
 

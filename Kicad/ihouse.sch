@@ -118,7 +118,7 @@ U 1 1 5C5DAC69
 P 17550 5850
 F 0 "J3" H 17600 6450 50  0000 C CNN
 F 1 "AC OUTS" H 17600 5150 50  0000 C CNN
-F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-24A_2x12_P4.20mm_Vertical" H 17550 5850 50  0001 C CNN
+F 2 "Connectors_Molex:Molex_MiniFit-JR-5556-24A_2x12x4.20mm_Straight" H 17550 5850 50  0001 C CNN
 F 3 "~" H 17550 5850 50  0001 C CNN
 	1    17550 5850
 	1    0    0    -1  
@@ -499,41 +499,41 @@ COM
 $Comp
 L ihouse-rescue:unicon_v1-unicon M1
 U 1 1 5C94CB7C
-P 5700 2750
-F 0 "M1" H 5700 4215 50  0000 C CNN
-F 1 "unicon_v1" H 5700 4124 50  0000 C CNN
-F 2 "unicon:unicon_v1" H 5700 5850 50  0001 C CNN
-F 3 "" H 5700 5850 50  0001 C CNN
-	1    5700 2750
+P 6250 2850
+F 0 "M1" H 6250 4315 50  0000 C CNN
+F 1 "unicon_v1" H 6250 4224 50  0000 C CNN
+F 2 "unicon:unicon_v1" H 6250 5950 50  0001 C CNN
+F 3 "" H 6250 5950 50  0001 C CNN
+	1    6250 2850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4750 1700 4400 1700
-Text Label 4400 1700 0    50   ~ 0
+	5300 1800 4950 1800
+Text Label 4950 1800 0    50   ~ 0
 5VDC
 Wire Wire Line
-	4750 1600 4400 1600
-Text Label 4400 1600 0    50   ~ 0
+	5300 1700 4950 1700
+Text Label 4950 1700 0    50   ~ 0
 12VDC
 Wire Wire Line
-	4750 1900 4650 1900
+	5300 2000 5200 2000
 Wire Wire Line
-	4650 1900 4650 2000
+	5200 2000 5200 2100
 Wire Wire Line
-	4650 2100 4750 2100
+	5200 2200 5300 2200
 Wire Wire Line
-	4750 2000 4650 2000
-Connection ~ 4650 2000
+	5300 2100 5200 2100
+Connection ~ 5200 2100
 Wire Wire Line
-	4650 2000 4650 2100
+	5200 2100 5200 2200
 Wire Wire Line
-	4650 2100 4400 2100
-Connection ~ 4650 2100
-Text Label 4400 2100 0    50   ~ 0
+	5200 2200 4950 2200
+Connection ~ 5200 2200
+Text Label 4950 2200 0    50   ~ 0
 COM
 Wire Wire Line
-	6650 2200 6900 2200
-Text Label 6900 2200 2    50   ~ 0
+	7200 2300 7450 2300
+Text Label 7450 2300 2    50   ~ 0
 COM
 Wire Wire Line
 	9750 6850 9850 6850
@@ -842,7 +842,7 @@ U 1 1 5E406543
 P 9450 7250
 F 0 "K2" V 10100 7250 50  0000 C CNN
 F 1 "RT42xxxx" V 10126 7250 50  0001 C CNN
-F 2 "Relay_THT:Relay_DPDT_Schrack-RT2-FormC_RM5mm" H 9450 7250 50  0001 C CNN
+F 2 "Relays_THT:Relay_DPDT_Finder_40.52" H 9450 7250 50  0001 C CNN
 F 3 "http://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7FRT2%7F1014%7Fpdf%7FEnglish%7FENG_DS_RT2_1014.pdf%7F6-1393243-3" H 10100 7400 50  0001 C CNN
 	1    9450 7250
 	0    -1   -1   0   
@@ -1264,7 +1264,7 @@ U 1 1 5CB6E5D0
 P 9450 6000
 F 0 "K1" V 9925 6000 50  0000 C CNN
 F 1 "FINDER-34.51" V 9926 6000 50  0001 C CNN
-F 2 "" H 10590 5960 50  0001 C CNN
+F 2 "Relays_THT:Relay_DPST_Schrack-RT2-FormA_RM5mm" H 10590 5960 50  0001 C CNN
 F 3 "" H 9450 6000 50  0001 C CNN
 	1    9450 6000
 	0    -1   -1   0   
@@ -2085,141 +2085,441 @@ SCL
 Text Label 8700 3550 0    50   ~ 0
 EXT0
 Wire Wire Line
-	4750 2400 4400 2400
+	5300 2500 4950 2500
 Wire Wire Line
-	4750 2500 4400 2500
-Text Label 4400 2500 0    50   ~ 0
+	5300 2600 4950 2600
+Text Label 4950 2600 0    50   ~ 0
 SDA
-Text Label 4400 2400 0    50   ~ 0
+Text Label 4950 2500 0    50   ~ 0
 SCL
 Wire Wire Line
-	6650 3300 7000 3300
+	7200 3400 7550 3400
 Wire Wire Line
-	6650 3400 7000 3400
-Text Label 7000 3300 2    50   ~ 0
+	7200 3500 7550 3500
+Text Label 7550 3400 2    50   ~ 0
 UART_TX
-Text Label 7000 3400 2    50   ~ 0
+Text Label 7550 3500 2    50   ~ 0
 UART_RX
 Wire Wire Line
-	6650 3200 7000 3200
-Text Label 7000 3200 2    50   ~ 0
+	7200 3300 7550 3300
+Text Label 7550 3300 2    50   ~ 0
 UART_DE
-Text Label 4400 3100 0    50   ~ 0
+Text Label 4950 3200 0    50   ~ 0
 BUZZ
-Text Label 7000 3900 2    50   ~ 0
+Text Label 7550 4000 2    50   ~ 0
 LPULSE
 Wire Wire Line
-	4750 3300 4400 3300
-Text Label 4400 3300 0    50   ~ 0
+	5300 3400 4950 3400
+Text Label 4950 3400 0    50   ~ 0
 VLINE
 Wire Wire Line
-	4400 1800 4750 1800
-Text Label 4400 1800 0    50   ~ 0
+	4950 1900 5300 1900
+Text Label 4950 1900 0    50   ~ 0
 3VDC
-Text Label 4400 2900 0    50   ~ 0
+Text Label 4950 3000 0    50   ~ 0
 OPTIC
 Wire Wire Line
-	4750 2900 4400 2900
+	5300 3000 4950 3000
 Wire Wire Line
-	4750 3100 4400 3100
+	5300 3200 4950 3200
 Wire Wire Line
-	6650 3800 7000 3800
+	7200 3900 7550 3900
 Wire Wire Line
-	6650 3500 7000 3500
-Text Label 7000 3800 2    50   ~ 0
+	7200 3600 7550 3600
+Text Label 7550 3900 2    50   ~ 0
 PWM1
-Text Label 7000 3500 2    50   ~ 0
+Text Label 7550 3600 2    50   ~ 0
 PWM2
 Wire Wire Line
-	4750 3500 4400 3500
-Text Label 4400 3500 0    50   ~ 0
+	5300 3600 4950 3600
+Text Label 4950 3600 0    50   ~ 0
 UART2_TX
 Wire Wire Line
-	4750 3600 4400 3600
-Text Label 4400 3600 0    50   ~ 0
+	5300 3700 4950 3700
+Text Label 4950 3700 0    50   ~ 0
 UART2_RX
 Wire Wire Line
-	4750 3400 4400 3400
-Text Label 4400 3400 0    50   ~ 0
+	5300 3500 4950 3500
+Text Label 4950 3500 0    50   ~ 0
 UART2_DE
 Wire Wire Line
-	6650 3900 7000 3900
-Wire Wire Line
-	6650 2800 7000 2800
+	7200 4000 7550 4000
 $Sheet
-S 2100 1500 1350 900 
+S 2650 1600 1350 900 
 U 5C58A674
 F0 "RS232 interfeisas" 50
 F1 "rs232.sch" 50
-F2 "5VDC" I R 3450 1650 50 
-F3 "UART_TX" I R 3450 1800 50 
-F4 "UART_RX" O R 3450 1950 50 
-F5 "COM" U R 3450 2250 50 
-F6 "RSRX" I L 2100 1800 50 
-F7 "RSTX" O L 2100 2000 50 
-F8 "RS5VDC" O L 2100 1600 50 
-F9 "RSCOM" O L 2100 2100 50 
-F10 "RSCNTRL" I L 2100 2200 50 
-F11 "RC_CONTROL" O R 3450 2100 50 
+F2 "5VDC" I R 4000 1750 50 
+F3 "UART_TX" I R 4000 1900 50 
+F4 "UART_RX" O R 4000 2050 50 
+F5 "COM" U R 4000 2350 50 
+F6 "RSRX" I L 2650 1900 50 
+F7 "RSTX" O L 2650 2100 50 
+F8 "RS5VDC" O L 2650 1700 50 
+F9 "RSCOM" O L 2650 2200 50 
+F10 "RSCNTRL" I L 2650 2300 50 
+F11 "RC_CONTROL" O R 4000 2200 50 
 $EndSheet
 $Comp
 L ihouse-rescue:8P8C-Connector J?
 U 1 1 5C729FEA
-P 1150 2000
+P 1700 2100
 AR Path="/5C58A674/5C729FEA" Ref="J?"  Part="1" 
 AR Path="/5C729FEA" Ref="J1"  Part="1" 
-F 0 "J1" H 1205 2667 50  0000 C CNN
-F 1 "8P8C" H 1205 2576 50  0000 C CNN
-F 2 "" V 1150 2025 50  0001 C CNN
-F 3 "~" V 1150 2025 50  0001 C CNN
-	1    1150 2000
+F 0 "J1" H 1755 2767 50  0000 C CNN
+F 1 "UART2" H 1755 2676 50  0000 C CNN
+F 2 "Connectors:RJ45_8" V 1700 2125 50  0001 C CNN
+F 3 "~" V 1700 2125 50  0001 C CNN
+	1    1700 2100
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1550 1600 1750 1600
+	2100 1700 2300 1700
 Wire Wire Line
-	1750 1600 1750 2300
+	2300 1700 2300 2400
 Wire Wire Line
-	1750 2300 1550 2300
+	2300 2400 2100 2400
 Wire Wire Line
-	1750 1600 2100 1600
-Connection ~ 1750 1600
+	2300 1700 2650 1700
+Connection ~ 2300 1700
 Wire Wire Line
-	1550 2100 1600 2100
+	2100 2200 2150 2200
 Wire Wire Line
-	1600 2100 1600 1900
+	2150 2200 2150 2000
 Wire Wire Line
-	1600 1900 1550 1900
+	2150 2000 2100 2000
 Wire Wire Line
-	1550 1700 1600 1700
+	2100 1800 2150 1800
 Wire Wire Line
-	1600 1700 1600 1900
-Connection ~ 1600 1900
+	2150 1800 2150 2000
+Connection ~ 2150 2000
 Wire Wire Line
-	1550 2200 2100 2200
+	2100 2300 2650 2300
 Wire Wire Line
-	2100 2100 1600 2100
-Connection ~ 1600 2100
+	2650 2200 2150 2200
+Connection ~ 2150 2200
 Wire Wire Line
-	2100 2000 1550 2000
+	2650 2100 2100 2100
 Wire Wire Line
-	2100 1800 1550 1800
+	2650 1900 2100 1900
 Wire Wire Line
-	3450 1650 3800 1650
+	4000 1750 4450 1750
 Wire Wire Line
-	3450 1800 3800 1800
+	4000 1900 4450 1900
 Wire Wire Line
-	3450 1950 3800 1950
+	4000 2050 4450 2050
 Wire Wire Line
-	3450 2100 3800 2100
+	4000 2200 4450 2200
 Wire Wire Line
-	3450 2250 3800 2250
-Text Label 3800 1950 2    50   ~ 0
+	4000 2350 4450 2350
+Text Label 2100 3050 2    50   ~ 0
 UART_RX
-Text Label 3800 1800 2    50   ~ 0
+Text Label 2100 3150 2    50   ~ 0
 UART_TX
-Text Label 3800 2250 2    50   ~ 0
+Text Label 4450 2350 2    50   ~ 0
 COM
-Text Label 3800 1650 2    50   ~ 0
+Text Label 4450 1750 2    50   ~ 0
 5VDC
+$Comp
+L Connector_Generic:Conn_01x05 J13
+U 1 1 5C4E60DB
+P 1500 3150
+F 0 "J13" H 1500 3550 50  0000 C CNN
+F 1 "UART1" H 1500 3450 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x05_Pitch2.54mm" H 1500 3150 50  0001 C CNN
+F 3 "~" H 1500 3150 50  0001 C CNN
+	1    1500 3150
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1700 3350 2100 3350
+Wire Wire Line
+	1700 3250 2100 3250
+Wire Wire Line
+	1700 3150 2100 3150
+Wire Wire Line
+	1700 3050 2100 3050
+Wire Wire Line
+	1700 2950 2100 2950
+Text Label 2100 3250 2    50   ~ 0
+COM
+Text Label 2100 3350 2    50   ~ 0
+5VDC
+Text Label 4450 1900 2    50   ~ 0
+UART2_TX
+Text Label 4450 2050 2    50   ~ 0
+UART2_RX
+Text Notes 1400 3050 3    50   ~ 0
+TB387\nRS485
+Text Label 2100 2950 2    50   ~ 0
+UART_DE
+$Comp
+L Connector_Generic:Conn_01x07 J19
+U 1 1 5C690D32
+P 1500 4000
+F 0 "J19" H 1500 4400 50  0000 C CNN
+F 1 "EV1527" V 1600 4000 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x07_Pitch2.54mm" H 1500 4000 50  0001 C CNN
+F 3 "~" H 1500 4000 50  0001 C CNN
+	1    1500 4000
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1700 4200 2100 4200
+Wire Wire Line
+	1700 4100 2100 4100
+Wire Wire Line
+	1700 4000 2100 4000
+Wire Wire Line
+	1700 3900 2100 3900
+Wire Wire Line
+	1700 3800 2100 3800
+Wire Wire Line
+	1700 3700 2100 3700
+Text Label 2100 3700 2    50   ~ 0
+COM
+Text Label 2100 3800 2    50   ~ 0
+5VDC
+Text Label 2100 3900 2    50   ~ 0
+EV1
+Text Label 2100 4000 2    50   ~ 0
+EV2
+Text Label 2100 4100 2    50   ~ 0
+EV3
+Text Label 2100 4200 2    50   ~ 0
+EV4
+Text Label 4450 2200 2    50   ~ 0
+RCCTRL
+NoConn ~ 7200 3000
+NoConn ~ 7200 3100
+Wire Wire Line
+	10350 13200 10100 13200
+Wire Wire Line
+	10850 13200 11100 13200
+Wire Wire Line
+	10350 13300 10100 13300
+Wire Wire Line
+	10850 13300 11100 13300
+Wire Wire Line
+	10350 13400 10100 13400
+Wire Wire Line
+	10850 13400 11100 13400
+Wire Wire Line
+	10350 13500 10100 13500
+Wire Wire Line
+	10850 13500 11100 13500
+Text Label 10100 13200 0    50   ~ 0
+V1A1
+Text Label 10100 13300 0    50   ~ 0
+V2A1
+Text Label 10100 13400 0    50   ~ 0
+V3A1
+Text Label 10100 13500 0    50   ~ 0
+V4A1
+Text Label 11100 13200 2    50   ~ 0
+V1A2
+Text Label 11100 13300 2    50   ~ 0
+V2A2
+Text Label 11100 13400 2    50   ~ 0
+V3A2
+Text Label 11100 13500 2    50   ~ 0
+V4A2
+$Comp
+L ihouse-rescue:Connector_Generic_Conn_02x05_Counter_Clockwise-ihouse-rescue J20
+U 1 1 5CC9C0CC
+P 10550 13400
+AR Path="/5CC9C0CC" Ref="J20"  Part="1" 
+AR Path="/5F287616/5CC9C0CC" Ref="J?"  Part="1" 
+AR Path="/5C5DACB2/5CC9C0CC" Ref="J?"  Part="1" 
+F 0 "J20" H 10600 13817 50  0000 C CNN
+F 1 "Valves" H 10600 13726 50  0000 C CNN
+F 2 "Connectors_Molex:Molex_MiniFit-JR-5556-10A_2x05x4.20mm_Straight" H 10550 13400 50  0001 C CNN
+F 3 "~" H 10550 13400 50  0001 C CNN
+	1    10550 13400
+	1    0    0    -1  
+$EndComp
+$Comp
+L ihouse-rescue:L293-Driver_Motor U15
+U 1 1 5CC9C0D3
+P 5700 13600
+AR Path="/5CC9C0D3" Ref="U15"  Part="1" 
+AR Path="/5C3058F0/5CC9C0D3" Ref="U?"  Part="1" 
+AR Path="/5F287616/5CC9C0D3" Ref="U?"  Part="1" 
+AR Path="/5C5DACB2/5CC9C0D3" Ref="U?"  Part="1" 
+F 0 "U15" H 5400 14700 50  0000 C CNN
+F 1 "L293D" H 5400 14600 50  0000 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm" H 5950 12850 50  0001 L CNN
+F 3 "http://www.ti.com/lit/ds/symlink/l293.pdf" H 5400 14300 50  0001 C CNN
+	1    5700 13600
+	1    0    0    -1  
+$EndComp
+$Comp
+L ihouse-rescue:L293-Driver_Motor U16
+U 1 1 5CC9C0DA
+P 8550 13600
+AR Path="/5CC9C0DA" Ref="U16"  Part="1" 
+AR Path="/5C3058F0/5CC9C0DA" Ref="U?"  Part="1" 
+AR Path="/5F287616/5CC9C0DA" Ref="U?"  Part="1" 
+AR Path="/5C5DACB2/5CC9C0DA" Ref="U?"  Part="1" 
+F 0 "U16" H 8250 14700 50  0000 C CNN
+F 1 "L293D" H 8250 14600 50  0000 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm" H 8800 12850 50  0001 L CNN
+F 3 "http://www.ti.com/lit/ds/symlink/l293.pdf" H 8250 14300 50  0001 C CNN
+	1    8550 13600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 13000 5100 13000
+Wire Wire Line
+	5100 13000 5100 13600
+Wire Wire Line
+	5100 13600 5200 13600
+Wire Wire Line
+	5200 13800 5000 13800
+Wire Wire Line
+	5000 13800 5000 13200
+Wire Wire Line
+	5000 13200 5200 13200
+Wire Wire Line
+	8050 13000 7950 13000
+Wire Wire Line
+	7950 13000 7950 13600
+Wire Wire Line
+	7950 13600 8050 13600
+Wire Wire Line
+	8050 13800 7850 13800
+Wire Wire Line
+	7850 13800 7850 13200
+Wire Wire Line
+	7850 13200 8050 13200
+Wire Wire Line
+	5100 13600 4750 13600
+Connection ~ 5100 13600
+Wire Wire Line
+	5000 13800 4750 13800
+Connection ~ 5000 13800
+Wire Wire Line
+	5200 13400 4750 13400
+Wire Wire Line
+	5200 14000 4750 14000
+Wire Wire Line
+	8050 14000 7600 14000
+Wire Wire Line
+	8050 13400 7600 13400
+Wire Wire Line
+	5500 14400 5500 14500
+Wire Wire Line
+	5500 14500 5600 14500
+Wire Wire Line
+	5900 14500 5900 14400
+Wire Wire Line
+	5800 14400 5800 14500
+Connection ~ 5800 14500
+Wire Wire Line
+	5800 14500 5900 14500
+Wire Wire Line
+	5600 14400 5600 14500
+Connection ~ 5600 14500
+Wire Wire Line
+	5600 14500 5800 14500
+Wire Wire Line
+	8350 14400 8350 14500
+Wire Wire Line
+	8350 14500 8450 14500
+Wire Wire Line
+	8750 14500 8750 14400
+Wire Wire Line
+	8450 14400 8450 14500
+Connection ~ 8450 14500
+Wire Wire Line
+	8450 14500 8650 14500
+Wire Wire Line
+	8650 14400 8650 14500
+Connection ~ 8650 14500
+Wire Wire Line
+	8650 14500 8750 14500
+Wire Wire Line
+	7850 13800 7600 13800
+Connection ~ 7850 13800
+Wire Wire Line
+	7950 13600 7600 13600
+Connection ~ 7950 13600
+Text Label 4750 13600 0    50   ~ 0
+DIRA
+Text Label 4750 13800 0    50   ~ 0
+DIRB
+Text Label 7600 13600 0    50   ~ 0
+DIRA
+Text Label 7600 13800 0    50   ~ 0
+DIRB
+Text Label 4750 13400 0    50   ~ 0
+VL1
+Text Label 4750 14000 0    50   ~ 0
+VL2
+Text Label 7600 13400 0    50   ~ 0
+VL3
+Text Label 7600 14000 0    50   ~ 0
+VL4
+Text Label 6200 14500 2    50   ~ 0
+COM
+Text Label 9050 14500 2    50   ~ 0
+COM
+Text Label 6200 12500 2    50   ~ 0
+12VDC
+Connection ~ 5900 14500
+Text Label 9050 12500 2    50   ~ 0
+12VDC
+Connection ~ 8750 14500
+Text Label 6550 13000 2    50   ~ 0
+V1A1
+Text Label 6550 13200 2    50   ~ 0
+V1A2
+Text Label 6550 13600 2    50   ~ 0
+V2A1
+Text Label 6550 13800 2    50   ~ 0
+V2A2
+Text Label 9400 13000 2    50   ~ 0
+V3A1
+Text Label 9400 13200 2    50   ~ 0
+V3A2
+Text Label 9400 13600 2    50   ~ 0
+V4A1
+Text Label 9400 13800 2    50   ~ 0
+V4A2
+Wire Wire Line
+	6200 14500 5900 14500
+Wire Wire Line
+	9050 14500 8750 14500
+Wire Wire Line
+	5800 12600 5800 12500
+Wire Wire Line
+	5800 12500 6200 12500
+Wire Wire Line
+	8650 12600 8650 12500
+Wire Wire Line
+	8650 12500 9050 12500
+Wire Wire Line
+	5600 12600 5600 12350
+Wire Wire Line
+	8450 12600 8450 12350
+Text Label 8450 12350 3    50   ~ 0
+5VDC
+Text Label 5600 12350 3    50   ~ 0
+5VDC
+Wire Wire Line
+	6200 13000 6550 13000
+Wire Wire Line
+	6200 13200 6550 13200
+Wire Wire Line
+	6200 13600 6550 13600
+Wire Wire Line
+	6200 13800 6550 13800
+Wire Wire Line
+	9050 13000 9400 13000
+Wire Wire Line
+	9050 13200 9400 13200
+Wire Wire Line
+	9050 13600 9400 13600
+Wire Wire Line
+	9050 13800 9400 13800
 $EndSCHEMATC

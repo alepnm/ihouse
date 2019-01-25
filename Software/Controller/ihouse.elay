@@ -13,7 +13,7 @@
 	</File>
 	<File name="Core\bsp\unicon\drivers\dma.c" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="805" topLine="0" />
+			<Cursor1 position="806" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Core\bsp\unicon\drivers\dma.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -66,19 +66,19 @@
 			<Cursor1 position="66" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\bsp\unicon\drivers\usart.c" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\bsp\unicon\drivers\usart.c" open="1" top="1" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2635" topLine="60" />
+			<Cursor1 position="586" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Core\bsp\unicon\drivers\usart.h" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="903" topLine="0" />
+			<Cursor1 position="1651" topLine="18" />
 		</Cursor>
 	</File>
-	<File name="Core\bsp\unicon\unicon.c" open="1" top="1" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\bsp\unicon\unicon.c" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4562" topLine="180" />
+			<Cursor1 position="1406" topLine="34" />
 		</Cursor>
 	</File>
 	<File name="Core\bsp\unicon\unicon.h" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -203,7 +203,7 @@
 	</File>
 	<File name="Core\libs\nextion\nextion.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5974" topLine="129" />
+			<Cursor1 position="8945" topLine="279" />
 		</Cursor>
 	</File>
 	<File name="Core\libs\nextion\nextion.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -213,12 +213,12 @@
 	</File>
 	<File name="Core\Src\main.c" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6597" topLine="203" />
+			<Cursor1 position="6309" topLine="155" />
 		</Cursor>
 	</File>
 	<File name="Core\Src\stm32f0xx_it.c" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5884" topLine="155" />
+			<Cursor1 position="7239" topLine="187" />
 		</Cursor>
 	</File>
 	<File name="Drivers\CMSIS\Device\ST\STM32F0xx\Include\stm32f051x8.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">

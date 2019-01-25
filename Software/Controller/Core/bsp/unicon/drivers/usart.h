@@ -6,8 +6,8 @@
 #define PRIMARY_PORT    0
 #define SECONDARY_PORT  1
 
-#define NEXTION_PORT    PRIMARY_PORT
-//#define MODBUS_PORT     SECONDARY_PORT
+#define NEXTION_PORT    SECONDARY_PORT
+//#define MODBUS_PORT     PRIMARY_PORT
 
 
 enum { BR2400 = 0, BR4800, BR9600, BR19200, BR38400, BR57600 };
@@ -38,6 +38,8 @@ typedef struct{
     char                TxBuffer[TX_BUFFER_SIZE];   // porto TX buferis
     uint8_t             RxBufferIndex;              // porto RX buferio indeksas
     uint8_t             TxBufferIndex;              // porto TX buferio indeksas
+    char*               ptrRxBuffer;
+    char*               ptrTxBuffer;
 }PortRegister_TypeDef;
 
 extern USART_TypeDef * usart_handle[2u];
