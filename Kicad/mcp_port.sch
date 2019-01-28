@@ -684,8 +684,8 @@ Wire Wire Line
 Connection ~ 2500 4100
 Wire Wire Line
 	1800 4100 1500 4100
-Wire Bus Line
-	3300 950  3300 7100
 Text Label 1500 4100 0    50   ~ 0
 COM
+Wire Bus Line
+	3300 950  3300 7100
 $EndSCHEMATC
