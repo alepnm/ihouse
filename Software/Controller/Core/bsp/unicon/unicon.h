@@ -80,7 +80,7 @@ struct _time{
 
 typedef struct{
     uint16_t    adcval;
-    uint16_t    conv_val;
+    uint16_t    mvolts;
 }AnalogInput_TypeDef;
 
 

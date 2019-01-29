@@ -5,6 +5,9 @@ PCF8574_TypeDef IIC_Keypad = { PCF8574_BASE_ADDRESS<<1, 0x00, I2C_OK };
 PCF8574_TypeDef IIC_LCD = { (PCF8574_BASE_ADDRESS+7)<<1, 0x00, I2C_OK };
 
 
+char lcd_buffer[32];
+
+
 /*  */
 void pcf8574_Config(void) {
 
@@ -31,9 +34,11 @@ void pcf8574_Config(void) {
         // set address to 0x40
         LCD_SendCommand(IIC_LCD.iic_addr, 0b11000000);
         LCD_SendString(IIC_LCD.iic_addr, "  over I2C bus");
+
     }
 
 }
+
 
 /*  */
 void pcf8574_Read(PCF8574_TypeDef* dev) {
@@ -58,6 +63,8 @@ void pcf8574_Write(PCF8574_TypeDef* dev) {
 
     LL_I2C_TransmitData8(I2C1, dev->pcf_port);
     while( LL_I2C_IsActiveFlag_TXE(I2C1) == RESET );
+
+    LL_mDelay(IIC_DELAY_MS);
 }
 
 
@@ -79,7 +86,6 @@ void pcf8574_ResetPin(PCF8574_TypeDef* dev, uint8_t pin) {
     CLEAR_BIT(dev->pcf_port, 1<<pin);
     pcf8574_Write(dev);
 }
-
 
 
 
@@ -116,7 +122,7 @@ void LCD_SendInternal(uint8_t lcd_addr, uint8_t data, uint8_t flags) {
     uint8_t up = data & 0xF0;
     uint8_t lo = (data << 4) & 0xF0;
 
-    uint8_t data_arr[4];
+    uint8_t data_arr[4], i = 0;
 
     data_arr[0] = up|flags|BACKLIGHT|PIN_EN;
     data_arr[1] = up|flags|BACKLIGHT;
@@ -126,13 +132,30 @@ void LCD_SendInternal(uint8_t lcd_addr, uint8_t data, uint8_t flags) {
     LL_I2C_HandleTransfer(I2C1, lcd_addr, LL_I2C_ADDRSLAVE_7BIT, 4, LL_I2C_MODE_AUTOEND, LL_I2C_GENERATE_START_WRITE);
     while( LL_I2C_IsActiveFlag_ADDR(I2C1) != RESET );
 
-    uint8_t i = 0;
-
     do {
         LL_I2C_TransmitData8(I2C1, data_arr[i]);
         while( LL_I2C_IsActiveFlag_TXE(I2C1) == RESET );
     } while(++i < 4);
 
-    LL_mDelay(LCD_DELAY_MS);
+    LL_mDelay(IIC_DELAY_MS);
 }
 
+
+/*  */
+void LCD_Clear(uint8_t lcd_addr){
+    LCD_SendCommand(lcd_addr, 0b00000001);
+}
+
+/*  */
+void LCD_SetPosition(uint8_t lcd_addr, uint8_t line, uint8_t pos){
+
+    uint8_t cmd = 0;
+
+    if(line == 0){
+        cmd = 0b10000000 + line + pos;
+    }else{
+        cmd = 0b10000000 + 0x40 + pos;
+    }
+
+    LCD_SendCommand(lcd_addr, cmd);
+}

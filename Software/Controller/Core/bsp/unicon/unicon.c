@@ -82,6 +82,9 @@ void UNI_Start(void) {
     pcf8574_Config();
 
 
+    LL_mDelay(2000);
+
+    LCD_Clear(IIC_LCD.iic_addr);
 }
 
 
@@ -151,7 +154,7 @@ void UNI_Process(void) {
             if(TxState == USART_STATE_IDLE){
 
                 //i = sprintf( ptrPrimaryTxBuffer, "t0.txt=\"%02d.%02d.%02d   %02d:%02d\"", DateTime.year, DateTime.month, DateTime.day, DateTime.hour, DateTime.minute );
-                i = sprintf( ptrSecondaryTxBuffer, "t0.txt=\"MCU:%02d IN0:%1.2fV\"", (int)ADC_InternalRegisters.McuTemp.ConvertedValue, (float)AnalogInputs.ch0.conv_val/1000 );
+                i = sprintf( ptrSecondaryTxBuffer, "t0.txt=\"MCU:%02d IN0:%1.2fV\"", (int)ADC_InternalRegisters.McuTemp.ConvertedValue, (float)AnalogInputs.ch0.mvolts/1000 );
 
                 *(ptrSecondaryTxBuffer + i++) = 0xFF;
                 *(ptrSecondaryTxBuffer + i++) = 0xFF;
@@ -211,6 +214,13 @@ void UNI_Process(void) {
         PWM_Set(PWM_CH1, SysData.PWM.ch1);
         PWM_Set(PWM_CH2, SysData.PWM.ch2);
 
+
+        i = sprintf( lcd_buffer, "IN0: %2.2fV", (float)AnalogInputs.ch0.mvolts/1000 );
+
+        LCD_SetPosition(IIC_LCD.iic_addr, 0, 0);
+        LCD_SendString(IIC_LCD.iic_addr, lcd_buffer);
+
+
     }
 
 
@@ -248,9 +258,9 @@ static void UNI_ReadAnalogs(void){
     ADC_Read_MCUTEMP();
 
     AnalogInputs.ch0.adcval = ADC_ReadAnalog(AI_VLINE);
-    AnalogInputs.ch0.conv_val = ADC_ConvertTo_mVolts(AnalogInputs.ch0.adcval, LL_ADC_RESOLUTION_10B);
+    AnalogInputs.ch0.mvolts = ADC_ConvertTo_mVolts(AnalogInputs.ch0.adcval, LL_ADC_RESOLUTION_10B);
     AnalogInputs.ch4.adcval = ADC_ReadAnalog(AI_OPTIC);
-    AnalogInputs.ch4.conv_val = ADC_ConvertTo_mVolts(AnalogInputs.ch4.adcval, LL_ADC_RESOLUTION_10B);
+    AnalogInputs.ch4.mvolts = ADC_ConvertTo_mVolts(AnalogInputs.ch4.adcval, LL_ADC_RESOLUTION_10B);
 }
 
 

@@ -2,6 +2,7 @@
 #define PCF8574_H_INCLUDED
 
 #include "iic.h"
+#include "pcf8574_lcd.h"
 
 /*
 Portu struktura: Quasi-bidirectional I/Os.
@@ -15,6 +16,8 @@ PCF8574 konfiguravimas:
 */
 
 #define     PCF8574_BASE_ADDRESS    0x20    // <-- adresas be paskutiniu 3-ju bitu ir be R/W bito islygintas i desine
+#define     IIC_DELAY_MS            5
+
 
 typedef struct{
     uint8_t iic_addr;
@@ -31,22 +34,5 @@ void    pcf8574_Read(PCF8574_TypeDef* dev);
 void    pcf8574_Write(PCF8574_TypeDef* dev);
 void    pcf8574_SetPin(PCF8574_TypeDef* dev, uint8_t pin);
 void    pcf8574_ResetPin(PCF8574_TypeDef* dev, uint8_t pin);
-
-
-
-/* I2C LCD */
-#define PIN_RS    (1 << 0)
-#define PIN_EN    (1 << 2)
-#define BACKLIGHT (1 << 3)
-
-#define LCD_DELAY_MS 5
-
-void LCD_Init(uint8_t lcd_addr);
-void LCD_SendCommand(uint8_t lcd_addr, uint8_t cmd);
-void LCD_SendData(uint8_t lcd_addr, uint8_t data);
-void LCD_SendString(uint8_t lcd_addr, char *str);
-void LCD_SendInternal(uint8_t lcd_addr, uint8_t data, uint8_t flags);
-
-
 
 #endif /* PCF8574_H_INCLUDED */
