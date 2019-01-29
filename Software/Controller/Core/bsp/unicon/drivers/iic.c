@@ -3,10 +3,6 @@
 #define     I2C_WRITE 0
 #define     I2C_READ  1
 
-#define     I2C_ADDR_NACK   1
-#define     I2C_OK          0
-
-
 /*  */
 uint8_t IIC_Check(uint8_t iic_addr) {
 

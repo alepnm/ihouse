@@ -84,7 +84,7 @@ extern uint8_t AutoBackupToEepromFlag;
 /* USER CODE END EV */
 
 /******************************************************************************/
-/*           Cortex-M0 Processor Interruption and Exception Handlers          */
+/*           Cortex-M0 Processor Interruption and Exception Handlers          */ 
 /******************************************************************************/
 /**
   * @brief This function handles Non maskable interrupt.
@@ -152,7 +152,7 @@ void SysTick_Handler(void)
     UNI_SystemIRQ();
 
   /* USER CODE END SysTick_IRQn 0 */
-
+  
   /* USER CODE BEGIN SysTick_IRQn 1 */
 
   /* USER CODE END SysTick_IRQn 1 */
@@ -180,7 +180,7 @@ void DMA1_Channel4_5_IRQHandler(void)
         TxState = USART_STATE_IDLE;
     }
   /* USER CODE END DMA1_Channel4_5_IRQn 0 */
-
+  
   /* USER CODE BEGIN DMA1_Channel4_5_IRQn 1 */
 
   /* USER CODE END DMA1_Channel4_5_IRQn 1 */
@@ -201,7 +201,7 @@ void TIM6_DAC_IRQHandler(void)
 #endif
 
   /* USER CODE END TIM6_DAC_IRQn 0 */
-
+  
   /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
 
   /* USER CODE END TIM6_DAC_IRQn 1 */

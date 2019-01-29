@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "unicon.h"
 #include "nextion.h"
+#include "pcf8574.h"
 
 SysData_TypeDef SysData;
 struct _time DateTime;
@@ -75,6 +76,11 @@ void UNI_Start(void) {
     TouchTimeoutCounter = timestamp;
 
     NextionInit();
+
+
+
+    pcf8574_Config();
+
 
 }
 
