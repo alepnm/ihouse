@@ -1829,249 +1829,249 @@ NoConn ~ 7200 3100
 $Comp
 L ihouse-rescue:L293-Driver_Motor U15
 U 1 1 5CC9C0D3
-P 2300 6550
+P 6900 8500
 AR Path="/5CC9C0D3" Ref="U15"  Part="1" 
 AR Path="/5C3058F0/5CC9C0D3" Ref="U?"  Part="1" 
 AR Path="/5F287616/5CC9C0D3" Ref="U?"  Part="1" 
 AR Path="/5C5DACB2/5CC9C0D3" Ref="U?"  Part="1" 
-F 0 "U15" H 2000 7650 50  0000 C CNN
-F 1 "L293D" H 2000 7550 50  0000 C CNN
-F 2 "Housings_DIP:DIP-16_W7.62mm_LongPads" H 2550 5800 50  0001 L CNN
-F 3 "http://www.ti.com/lit/ds/symlink/l293.pdf" H 2000 7250 50  0001 C CNN
-	1    2300 6550
+F 0 "U15" H 6600 9600 50  0000 C CNN
+F 1 "L293D" H 6600 9500 50  0000 C CNN
+F 2 "Housings_DIP:DIP-16_W7.62mm_LongPads" H 7150 7750 50  0001 L CNN
+F 3 "http://www.ti.com/lit/ds/symlink/l293.pdf" H 6600 9200 50  0001 C CNN
+	1    6900 8500
 	1    0    0    -1  
 $EndComp
 $Comp
 L ihouse-rescue:L293-Driver_Motor U16
 U 1 1 5CC9C0DA
-P 5150 6550
+P 9750 8500
 AR Path="/5CC9C0DA" Ref="U16"  Part="1" 
 AR Path="/5C3058F0/5CC9C0DA" Ref="U?"  Part="1" 
 AR Path="/5F287616/5CC9C0DA" Ref="U?"  Part="1" 
 AR Path="/5C5DACB2/5CC9C0DA" Ref="U?"  Part="1" 
-F 0 "U16" H 4850 7650 50  0000 C CNN
-F 1 "L293D" H 4850 7550 50  0000 C CNN
-F 2 "Housings_DIP:DIP-16_W7.62mm_LongPads" H 5400 5800 50  0001 L CNN
-F 3 "http://www.ti.com/lit/ds/symlink/l293.pdf" H 4850 7250 50  0001 C CNN
-	1    5150 6550
+F 0 "U16" H 9450 9600 50  0000 C CNN
+F 1 "L293D" H 9450 9500 50  0000 C CNN
+F 2 "Housings_DIP:DIP-16_W7.62mm_LongPads" H 10000 7750 50  0001 L CNN
+F 3 "http://www.ti.com/lit/ds/symlink/l293.pdf" H 9450 9200 50  0001 C CNN
+	1    9750 8500
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1800 5950 1700 5950
+	6400 7900 6300 7900
 Wire Wire Line
-	1700 5950 1700 6550
+	6300 7900 6300 8500
 Wire Wire Line
-	1700 6550 1800 6550
+	6300 8500 6400 8500
 Wire Wire Line
-	1800 6750 1600 6750
+	6400 8700 6200 8700
 Wire Wire Line
-	1600 6750 1600 6150
+	6200 8700 6200 8100
 Wire Wire Line
-	1600 6150 1800 6150
+	6200 8100 6400 8100
 Wire Wire Line
-	4650 5950 4550 5950
+	9250 7900 9150 7900
 Wire Wire Line
-	4550 5950 4550 6550
+	9150 7900 9150 8500
 Wire Wire Line
-	4550 6550 4650 6550
+	9150 8500 9250 8500
 Wire Wire Line
-	4650 6750 4450 6750
+	9250 8700 9050 8700
 Wire Wire Line
-	4450 6750 4450 6150
+	9050 8700 9050 8100
 Wire Wire Line
-	4450 6150 4650 6150
+	9050 8100 9250 8100
 Wire Wire Line
-	1700 6550 1350 6550
-Connection ~ 1700 6550
+	6300 8500 5950 8500
+Connection ~ 6300 8500
 Wire Wire Line
-	1600 6750 1350 6750
-Connection ~ 1600 6750
+	6200 8700 5950 8700
+Connection ~ 6200 8700
 Wire Wire Line
-	1800 6350 1350 6350
+	6400 8300 5950 8300
 Wire Wire Line
-	1800 6950 1350 6950
+	6400 8900 5950 8900
 Wire Wire Line
-	4650 6950 4200 6950
+	9250 8900 8800 8900
 Wire Wire Line
-	4650 6350 4200 6350
+	9250 8300 8800 8300
 Wire Wire Line
-	2100 7350 2100 7450
+	6700 9300 6700 9400
 Wire Wire Line
-	2100 7450 2200 7450
+	6700 9400 6800 9400
 Wire Wire Line
-	2500 7450 2500 7350
+	7100 9400 7100 9300
 Wire Wire Line
-	2400 7350 2400 7450
-Connection ~ 2400 7450
+	7000 9300 7000 9400
+Connection ~ 7000 9400
 Wire Wire Line
-	2400 7450 2500 7450
+	7000 9400 7100 9400
 Wire Wire Line
-	2200 7350 2200 7450
-Connection ~ 2200 7450
+	6800 9300 6800 9400
+Connection ~ 6800 9400
 Wire Wire Line
-	2200 7450 2400 7450
+	6800 9400 7000 9400
 Wire Wire Line
-	4950 7350 4950 7450
+	9550 9300 9550 9400
 Wire Wire Line
-	4950 7450 5050 7450
+	9550 9400 9650 9400
 Wire Wire Line
-	5350 7450 5350 7350
+	9950 9400 9950 9300
 Wire Wire Line
-	5050 7350 5050 7450
-Connection ~ 5050 7450
+	9650 9300 9650 9400
+Connection ~ 9650 9400
 Wire Wire Line
-	5050 7450 5250 7450
+	9650 9400 9850 9400
 Wire Wire Line
-	5250 7350 5250 7450
-Connection ~ 5250 7450
+	9850 9300 9850 9400
+Connection ~ 9850 9400
 Wire Wire Line
-	5250 7450 5350 7450
+	9850 9400 9950 9400
 Wire Wire Line
-	4450 6750 4200 6750
-Connection ~ 4450 6750
+	9050 8700 8800 8700
+Connection ~ 9050 8700
 Wire Wire Line
-	4550 6550 4200 6550
-Connection ~ 4550 6550
-Text Label 1350 6550 0    50   ~ 0
+	9150 8500 8800 8500
+Connection ~ 9150 8500
+Text Label 5950 8500 0    50   ~ 0
 DIRA
-Text Label 1350 6750 0    50   ~ 0
+Text Label 5950 8700 0    50   ~ 0
 DIRB
-Text Label 4200 6550 0    50   ~ 0
+Text Label 8800 8500 0    50   ~ 0
 DIRA
-Text Label 4200 6750 0    50   ~ 0
+Text Label 8800 8700 0    50   ~ 0
 DIRB
-Text Label 1350 6350 0    50   ~ 0
+Text Label 5950 8300 0    50   ~ 0
 VL1
-Text Label 1350 6950 0    50   ~ 0
+Text Label 5950 8900 0    50   ~ 0
 VL2
-Text Label 4200 6350 0    50   ~ 0
+Text Label 8800 8300 0    50   ~ 0
 VL3
-Text Label 4200 6950 0    50   ~ 0
+Text Label 8800 8900 0    50   ~ 0
 VL4
-Text Label 2800 7450 2    50   ~ 0
+Text Label 7400 9400 2    50   ~ 0
 COM
-Text Label 5650 7450 2    50   ~ 0
+Text Label 10250 9400 2    50   ~ 0
 COM
-Text Label 2800 5450 2    50   ~ 0
+Text Label 7400 7400 2    50   ~ 0
 12VDC
-Connection ~ 2500 7450
-Text Label 5650 5450 2    50   ~ 0
+Connection ~ 7100 9400
+Text Label 10250 7400 2    50   ~ 0
 12VDC
-Connection ~ 5350 7450
+Connection ~ 9950 9400
 Wire Wire Line
-	2800 7450 2500 7450
+	7400 9400 7100 9400
 Wire Wire Line
-	5650 7450 5350 7450
+	10250 9400 9950 9400
 Wire Wire Line
-	2400 5550 2400 5450
+	7000 7500 7000 7400
 Wire Wire Line
-	2400 5450 2800 5450
+	7000 7400 7400 7400
 Wire Wire Line
-	5250 5550 5250 5450
+	9850 7500 9850 7400
 Wire Wire Line
-	5250 5450 5650 5450
+	9850 7400 10250 7400
 Wire Wire Line
-	2200 5550 2200 5300
+	6800 7500 6800 7250
 Wire Wire Line
-	5050 5550 5050 5300
-Text Label 5050 5300 3    50   ~ 0
+	9650 7500 9650 7250
+Text Label 9650 7250 3    50   ~ 0
 5VDC
-Text Label 2200 5300 3    50   ~ 0
+Text Label 6800 7250 3    50   ~ 0
 5VDC
 Wire Wire Line
-	2800 5950 2900 5950
+	7400 7900 7500 7900
 Wire Wire Line
-	2800 6150 2900 6150
+	7400 8100 7500 8100
 Wire Wire Line
-	2800 6550 2900 6550
+	7400 8500 7500 8500
 Wire Wire Line
-	2800 6750 2900 6750
+	7400 8700 7500 8700
 Wire Wire Line
-	5650 5950 5750 5950
+	10250 7900 10350 7900
 Wire Wire Line
-	5650 6150 5750 6150
+	10250 8100 10350 8100
 Wire Wire Line
-	5650 6550 5750 6550
+	10250 8500 10350 8500
 Wire Wire Line
-	5650 6750 5750 6750
+	10250 8700 10350 8700
 $Comp
-L Connector_Generic:Conn_01x02 J20
+L ihouse-rescue:Conn_01x02-Connector_Generic J20
 U 1 1 5C50DC4E
-P 3200 6000
-F 0 "J20" H 3280 5992 50  0000 L CNN
-F 1 "Valve1" H 3280 5901 50  0000 L CNN
-F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 3200 6000 50  0001 C CNN
-F 3 "~" H 3200 6000 50  0001 C CNN
-	1    3200 6000
+P 7800 7950
+F 0 "J20" H 7880 7942 50  0000 L CNN
+F 1 "Valve1" H 7880 7851 50  0000 L CNN
+F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 7800 7950 50  0001 C CNN
+F 3 "~" H 7800 7950 50  0001 C CNN
+	1    7800 7950
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 J21
+L ihouse-rescue:Conn_01x02-Connector_Generic J21
 U 1 1 5C50DD4E
-P 3200 6600
-F 0 "J21" H 3280 6592 50  0000 L CNN
-F 1 "Valve2" H 3280 6501 50  0000 L CNN
-F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 3200 6600 50  0001 C CNN
-F 3 "~" H 3200 6600 50  0001 C CNN
-	1    3200 6600
+P 7800 8550
+F 0 "J21" H 7880 8542 50  0000 L CNN
+F 1 "Valve2" H 7880 8451 50  0000 L CNN
+F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 7800 8550 50  0001 C CNN
+F 3 "~" H 7800 8550 50  0001 C CNN
+	1    7800 8550
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 J22
+L ihouse-rescue:Conn_01x02-Connector_Generic J22
 U 1 1 5C50DE23
-P 6050 6000
-F 0 "J22" H 6130 5992 50  0000 L CNN
-F 1 "Valve3" H 6130 5901 50  0000 L CNN
-F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 6050 6000 50  0001 C CNN
-F 3 "~" H 6050 6000 50  0001 C CNN
-	1    6050 6000
+P 10650 7950
+F 0 "J22" H 10730 7942 50  0000 L CNN
+F 1 "Valve3" H 10730 7851 50  0000 L CNN
+F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 10650 7950 50  0001 C CNN
+F 3 "~" H 10650 7950 50  0001 C CNN
+	1    10650 7950
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 J23
+L ihouse-rescue:Conn_01x02-Connector_Generic J23
 U 1 1 5C50DEFA
-P 6050 6600
-F 0 "J23" H 6130 6592 50  0000 L CNN
-F 1 "Valve4" H 6130 6501 50  0000 L CNN
-F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 6050 6600 50  0001 C CNN
-F 3 "~" H 6050 6600 50  0001 C CNN
-	1    6050 6600
+P 10650 8550
+F 0 "J23" H 10730 8542 50  0000 L CNN
+F 1 "Valve4" H 10730 8451 50  0000 L CNN
+F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 10650 8550 50  0001 C CNN
+F 3 "~" H 10650 8550 50  0001 C CNN
+	1    10650 8550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2900 5950 2900 6000
+	7500 7900 7500 7950
 Wire Wire Line
-	2900 6000 3000 6000
+	7500 7950 7600 7950
 Wire Wire Line
-	2900 6100 3000 6100
+	7500 8050 7600 8050
 Wire Wire Line
-	2900 6100 2900 6150
+	7500 8050 7500 8100
 Wire Wire Line
-	2900 6550 2900 6600
+	7500 8500 7500 8550
 Wire Wire Line
-	2900 6600 3000 6600
+	7500 8550 7600 8550
 Wire Wire Line
-	2900 6750 2900 6700
+	7500 8700 7500 8650
 Wire Wire Line
-	2900 6700 3000 6700
+	7500 8650 7600 8650
 Wire Wire Line
-	5750 5950 5750 6000
+	10350 7900 10350 7950
 Wire Wire Line
-	5750 6000 5850 6000
+	10350 7950 10450 7950
 Wire Wire Line
-	5750 6150 5750 6100
+	10350 8100 10350 8050
 Wire Wire Line
-	5750 6100 5850 6100
+	10350 8050 10450 8050
 Wire Wire Line
-	5750 6550 5750 6600
+	10350 8500 10350 8550
 Wire Wire Line
-	5750 6600 5850 6600
+	10350 8550 10450 8550
 Wire Wire Line
-	5750 6750 5750 6700
+	10350 8700 10350 8650
 Wire Wire Line
-	5750 6700 5850 6700
+	10350 8650 10450 8650
 $Comp
-L Transformer:TSZZ20-006M_1 TR1
+L ihouse-rescue:TSZZ20-006M_1-Transformer TR1
 U 1 1 5C5BB672
 P 5150 14650
 F 0 "TR1" H 5150 15050 50  0000 C CNN
@@ -2090,7 +2090,7 @@ Wire Wire Line
 Text Label 7750 14750 2    50   ~ 0
 COM
 $Comp
-L Device:D D19
+L ihouse-rescue:D-Device D19
 U 1 1 5C869574
 P 5600 14350
 F 0 "D19" H 5600 14250 50  0000 C CNN
@@ -2101,7 +2101,7 @@ F 3 "~" H 5600 14350 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:D D20
+L ihouse-rescue:D-Device D20
 U 1 1 5C8697C0
 P 5600 15050
 F 0 "D20" H 5600 14950 50  0000 C CNN
@@ -2122,7 +2122,7 @@ Wire Wire Line
 Wire Wire Line
 	5350 14350 5450 14350
 $Comp
-L Device:CP C14
+L ihouse-rescue:CP-Device C14
 U 1 1 5C970BDD
 P 6350 14550
 F 0 "C14" H 6468 14596 50  0000 L CNN
@@ -2149,7 +2149,7 @@ Connection ~ 6350 14750
 Text Label 7750 14350 2    50   ~ 0
 12VDC
 $Comp
-L Device:CP C15
+L ihouse-rescue:CP-Device C15
 U 1 1 5CC3B649
 P 6800 14550
 F 0 "C15" H 6918 14596 50  0000 L CNN
@@ -2179,7 +2179,7 @@ Wire Wire Line
 	3800 14950 3800 14650
 Connection ~ 3800 14950
 $Comp
-L Device:Thermistor_PTC TH3
+L ihouse-rescue:Thermistor_PTC-Device TH3
 U 1 1 5DB5E080
 P 5800 14750
 F 0 "TH3" V 5650 14750 50  0000 C CNN
@@ -2402,7 +2402,7 @@ Wire Wire Line
 Wire Wire Line
 	11750 13750 11700 13750
 $Comp
-L Connector_Generic:Conn_02x02_Top_Bottom J2
+L ihouse-rescue:Conn_02x02_Top_Bottom-Connector_Generic J2
 U 1 1 5CE08B49
 P 11050 12950
 F 0 "J2" V 11050 13350 50  0000 R CNN
@@ -2466,7 +2466,7 @@ Connection ~ 4700 17850
 Wire Wire Line
 	4700 17850 4850 17850
 $Comp
-L Device:Thermistor_PTC TH4
+L ihouse-rescue:Thermistor_PTC-Device TH4
 U 1 1 5DF71A69
 P 4450 14850
 F 0 "TH4" V 4300 14850 50  0000 C CNN
@@ -2543,7 +2543,7 @@ Wire Wire Line
 Text Label 3900 14450 2    50   ~ 0
 ACN
 $Comp
-L Connector_Generic:Conn_01x02 J10
+L ihouse-rescue:Conn_01x02-Connector_Generic J10
 U 1 1 5EF129D9
 P 5900 17200
 F 0 "J10" H 5980 17192 50  0000 L CNN
@@ -2590,7 +2590,7 @@ Wire Wire Line
 Connection ~ 11150 13350
 Connection ~ 11300 13350
 $Comp
-L Connector_Generic:Conn_01x02 J11
+L ihouse-rescue:Conn_01x02-Connector_Generic J11
 U 1 1 6008F10D
 P 3500 14200
 F 0 "J11" H 3420 13875 50  0000 C CNN
@@ -2609,4 +2609,111 @@ Wire Wire Line
 	3700 14100 4200 14100
 Wire Wire Line
 	4200 14100 4200 14450
+$Comp
+L maxim:DS1307+ U?
+U 1 1 5C5C1415
+P 6250 5250
+F 0 "U?" H 5950 5800 50  0000 C CNN
+F 1 "DS1307+" H 6550 5800 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 6250 5250 50  0001 C CNN
+F 3 "" H 6250 5250 50  0001 C CNN
+	1    6250 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L device:Crystal Y?
+U 1 1 5C5C16DE
+P 5150 5450
+F 0 "Y?" H 5150 5718 50  0000 C CNN
+F 1 "Crystal" H 5150 5627 50  0000 C CNN
+F 2 "" H 5150 5450 50  0001 C CNN
+F 3 "" H 5150 5450 50  0001 C CNN
+	1    5150 5450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5300 5450 5400 5450
+Wire Wire Line
+	5000 5450 4900 5450
+Wire Wire Line
+	4900 5450 4900 5650
+Wire Wire Line
+	4900 5650 5650 5650
+$Comp
+L device:C C?
+U 1 1 5C674B4B
+P 4900 5900
+F 0 "C?" H 5015 5946 50  0000 L CNN
+F 1 "C" H 5015 5855 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 4938 5750 50  0001 C CNN
+F 3 "" H 4900 5900 50  0001 C CNN
+	1    4900 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L device:C C?
+U 1 1 5C674C63
+P 5400 5900
+F 0 "C?" H 5515 5946 50  0000 L CNN
+F 1 "C" H 5515 5855 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 5438 5750 50  0001 C CNN
+F 3 "" H 5400 5900 50  0001 C CNN
+	1    5400 5900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5400 5750 5400 5450
+Connection ~ 5400 5450
+Wire Wire Line
+	5400 5450 5650 5450
+Wire Wire Line
+	4900 5750 4900 5650
+Connection ~ 4900 5650
+Wire Wire Line
+	4900 6050 4900 6150
+Wire Wire Line
+	4900 6150 5400 6150
+Wire Wire Line
+	6250 6150 6250 5850
+Wire Wire Line
+	5400 6050 5400 6150
+Connection ~ 5400 6150
+Wire Wire Line
+	5400 6150 6250 6150
+Text Label 5900 6150 2    50   ~ 0
+COM
+Wire Wire Line
+	5650 5150 5350 5150
+Wire Wire Line
+	5650 4950 5350 4950
+Text Label 5350 5150 0    50   ~ 0
+SDA
+Text Label 5350 4950 0    50   ~ 0
+SCL
+Wire Wire Line
+	6250 4650 6250 4550
+Wire Wire Line
+	6250 4550 5750 4550
+Text Label 5750 4550 0    50   ~ 0
+5VDC
+$Comp
+L device:Battery_Cell BT?
+U 1 1 5C8F77F2
+P 7100 5900
+F 0 "BT?" H 7218 5996 50  0000 L CNN
+F 1 "Battery_Cell" H 7218 5905 50  0000 L CNN
+F 2 "" V 7100 5960 50  0001 C CNN
+F 3 "" V 7100 5960 50  0001 C CNN
+	1    7100 5900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6850 5550 7100 5550
+Wire Wire Line
+	7100 5550 7100 5700
+Wire Wire Line
+	6250 6150 7100 6150
+Wire Wire Line
+	7100 6150 7100 6000
+Connection ~ 6250 6150
 $EndSCHEMATC

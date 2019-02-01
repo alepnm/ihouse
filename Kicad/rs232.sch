@@ -82,7 +82,7 @@ Wire Wire Line
 	3600 7100 4900 7100
 Connection ~ 5600 6000
 $Comp
-L Device:C C5
+L ihouse-rescue:C-Device C5
 U 1 1 5C5DAC7B
 P 4500 5050
 F 0 "C5" H 4615 5096 50  0000 L CNN
@@ -97,7 +97,7 @@ Wire Wire Line
 Wire Wire Line
 	4400 5200 4500 5200
 $Comp
-L Device:C C4
+L ihouse-rescue:C-Device C4
 U 1 1 5C5DAC7C
 P 2700 5050
 F 0 "C4" H 2450 5100 50  0000 L CNN
@@ -112,7 +112,7 @@ Wire Wire Line
 Wire Wire Line
 	2700 5200 2800 5200
 $Comp
-L Device:C C8
+L ihouse-rescue:C-Device C8
 U 1 1 5C5DAC7D
 P 4650 5400
 F 0 "C8" V 4500 5450 50  0000 L CNN
@@ -125,7 +125,7 @@ $EndComp
 Wire Wire Line
 	4500 5400 4400 5400
 $Comp
-L Device:C C10
+L ihouse-rescue:C-Device C10
 U 1 1 5C5DAC7F
 P 4650 5700
 F 0 "C10" V 4500 5750 50  0000 L CNN
@@ -182,7 +182,7 @@ Wire Wire Line
 Wire Wire Line
 	5450 2950 5350 2950
 $Comp
-L Device:C C6
+L ihouse-rescue:C-Device C6
 U 1 1 5DF2F8F2
 P 5350 1500
 F 0 "C6" H 5100 1650 50  0000 L CNN
@@ -193,7 +193,7 @@ F 3 "~" H 5350 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C C7
+L ihouse-rescue:C-Device C7
 U 1 1 5C5DAC99
 P 7150 1500
 F 0 "C7" H 7265 1546 50  0000 L CNN
@@ -204,7 +204,7 @@ F 3 "~" H 7150 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C C9
+L ihouse-rescue:C-Device C9
 U 1 1 5DF2FB58
 P 5200 1850
 F 0 "C9" V 5350 1900 50  0000 L CNN
@@ -215,7 +215,7 @@ F 3 "~" H 5200 1850 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Device:C C11
+L ihouse-rescue:C-Device C11
 U 1 1 5C5DAC9B
 P 5200 2150
 F 0 "C11" V 5050 2200 50  0000 L CNN
@@ -250,7 +250,7 @@ Wire Wire Line
 Wire Wire Line
 	7050 2950 7250 2950
 $Comp
-L Device:Thermistor_NTC TH2
+L ihouse-rescue:Thermistor_NTC-Device TH2
 U 1 1 5C5DACB1
 P 3600 1250
 F 0 "TH2" H 3300 1300 50  0000 L CNN
@@ -285,7 +285,7 @@ F 3 "~" H 2400 4750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:LED D16
+L ihouse-rescue:LED-Device D16
 U 1 1 5C5DACB5
 P 2150 5550
 F 0 "D16" V 2250 5750 50  0000 R CNN
@@ -296,7 +296,7 @@ F 3 "~" H 2150 5550 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Device:LED D17
+L ihouse-rescue:LED-Device D17
 U 1 1 5C5DACB6
 P 2400 5550
 F 0 "D17" V 2500 5450 50  0000 R CNN
@@ -311,7 +311,7 @@ Wire Wire Line
 Wire Wire Line
 	2400 5400 2400 4900
 $Comp
-L Device:LED D18
+L ihouse-rescue:LED-Device D18
 U 1 1 5F57F66C
 P 3800 2100
 F 0 "D18" V 3850 1950 50  0000 R CNN
@@ -530,7 +530,7 @@ F 3 "~" H 1200 7100 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:C C12
+L ihouse-rescue:C-Device C12
 U 1 1 5CC72503
 P 5600 4950
 F 0 "C12" H 5350 4900 50  0000 L CNN

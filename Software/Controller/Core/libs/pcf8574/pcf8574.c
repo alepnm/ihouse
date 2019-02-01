@@ -23,7 +23,7 @@ void pcf8574_Config(void) {
     }
 
 
-    if(IIC_LCD.state == I2C_OK){
+    if(IIC_LCD.state == I2C_OK) {
 
         LCD_Init(IIC_LCD.iic_addr);
 
@@ -92,10 +92,18 @@ void pcf8574_ResetPin(PCF8574_TypeDef* dev, uint8_t pin) {
 /*  */
 void LCD_Init(uint8_t lcd_addr) {
 
-    LCD_SendCommand(lcd_addr, 0b00110000);  // 4-bit mode, 2 lines, 5x7 format
-    LCD_SendCommand(lcd_addr, 0b00000010);  // display & cursor home (keep this!)
-    LCD_SendCommand(lcd_addr, 0b00001100);  // display on, right shift, underline off, blink off
-    LCD_SendCommand(lcd_addr, 0b00000001);  // clear display (optional here)
+    //LCD_SendCommand(lcd_addr, L1602_CMD_FUNCTION|L1602_FLAG_DATA8BIT);
+    //LL_mDelay(IIC_DELAY_MS);
+
+    LCD_SendCommand(lcd_addr, L1602_CMD_FUNCTION|L1602_FLAG_2LINE);  // 4-bit mode, 2 lines, 5x7 format (1)
+
+    LCD_SendCommand(lcd_addr, L1602_CMD_RETURN_HOME);  // display & cursor home (keep this!) (2)
+    //LL_mDelay(IIC_DELAY_MS);
+
+    LCD_SendCommand(lcd_addr, L1602_CMD_DISPLAY|L1602_FLAG_DISPLAY_ON);  // display on, right shift, underline off, blink off (3)
+
+    //LCD_SendCommand(lcd_addr, L1602_CMD_CLEAR);  // clear display (optional here) (4)
+    //LL_mDelay(IIC_DELAY_MS);
 }
 
 /*  */
@@ -142,19 +150,17 @@ void LCD_SendInternal(uint8_t lcd_addr, uint8_t data, uint8_t flags) {
 
 
 /*  */
-void LCD_Clear(uint8_t lcd_addr){
-    LCD_SendCommand(lcd_addr, 0b00000001);
+void LCD_Clear(uint8_t lcd_addr) {
+    LCD_SendCommand(lcd_addr, L1602_CMD_CLEAR);
 }
 
 /*  */
-void LCD_SetPosition(uint8_t lcd_addr, uint8_t line, uint8_t pos){
+void LCD_SetPosition(uint8_t lcd_addr, uint8_t line, uint8_t pos) {
 
-    uint8_t cmd = 0;
+    uint8_t cmd = L1602_CMD_SET_DDRAM + pos;
 
-    if(line == 0){
-        cmd = 0b10000000 + line + pos;
-    }else{
-        cmd = 0b10000000 + 0x40 + pos;
+    if(line != 0) {
+        cmd += 0x40;
     }
 
     LCD_SendCommand(lcd_addr, cmd);
