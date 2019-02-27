@@ -51,7 +51,7 @@ uint8_t IIC_Write(uint8_t iic_addr, uint16_t reg, uint8_t *buf, uint8_t len) {
 
         LL_I2C_ClearFlag_STOP(I2C1);
 
-        LL_mDelay(5);
+        LL_mDelay(IIC_DELAY_MS);
 
     }while(len > 0);
 
@@ -122,5 +122,5 @@ void IIC_WriteByte(uint16_t reg, uint8_t data) {
 
     LL_I2C_ClearFlag_STOP(I2C1);
 
-    LL_mDelay(5);
+    LL_mDelay(IIC_DELAY_MS);
 }

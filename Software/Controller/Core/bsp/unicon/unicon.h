@@ -60,18 +60,6 @@ typedef struct{
     uint32_t WTime;
 }SysData_TypeDef;
 
-struct _time{
-    uint8_t year;
-    uint8_t month;
-    uint8_t day;
-    uint8_t hour;
-    uint8_t minute;
-    uint8_t second;
-    uint8_t weekday;
-    char date_time_str[32];     //YYYY.MM.dd hh:mm
-}DateTime;
-
-
 
 
 #define AI_VLINE    0

@@ -16,7 +16,6 @@ PCF8574 konfiguravimas:
 */
 
 #define     PCF8574_BASE_ADDRESS    0x20    // <-- adresas be paskutiniu 3-ju bitu ir be R/W bito islygintas i desine
-#define     IIC_DELAY_MS            5
 
 
 typedef struct{

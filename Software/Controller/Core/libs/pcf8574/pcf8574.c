@@ -8,6 +8,12 @@ PCF8574_TypeDef IIC_LCD = { (PCF8574_BASE_ADDRESS+7)<<1, 0x00, I2C_OK };
 char lcd_buffer[32];
 
 
+
+/************************************************************************************************************************/
+/**                                                   PCF8574 API                                                      **/
+/************************************************************************************************************************/
+
+
 /*  */
 void pcf8574_Config(void) {
 
@@ -23,7 +29,7 @@ void pcf8574_Config(void) {
     }
 
 
-    if(IIC_LCD.state == I2C_OK) {
+    if( IIC_LCD.state == I2C_OK ){
 
         LCD_Init(IIC_LCD.iic_addr);
 
@@ -34,8 +40,8 @@ void pcf8574_Config(void) {
         // set address to 0x40
         LCD_SendCommand(IIC_LCD.iic_addr, 0b11000000);
         LCD_SendString(IIC_LCD.iic_addr, "  over I2C bus");
-
     }
+
 
 }
 
@@ -89,21 +95,25 @@ void pcf8574_ResetPin(PCF8574_TypeDef* dev, uint8_t pin) {
 
 
 
-/*  */
-void LCD_Init(uint8_t lcd_addr) {
 
-    //LCD_SendCommand(lcd_addr, L1602_CMD_FUNCTION|L1602_FLAG_DATA8BIT);
-    //LL_mDelay(IIC_DELAY_MS);
+
+/************************************************************************************************************************/
+/**                                           1602 LCD OVER PCF8574                                                    **/
+/************************************************************************************************************************/
+
+/* LCD init */
+void LCD_Init(uint8_t lcd_addr) {
 
     LCD_SendCommand(lcd_addr, L1602_CMD_FUNCTION|L1602_FLAG_2LINE);  // 4-bit mode, 2 lines, 5x7 format (1)
 
     LCD_SendCommand(lcd_addr, L1602_CMD_RETURN_HOME);  // display & cursor home (keep this!) (2)
-    //LL_mDelay(IIC_DELAY_MS);
+    LL_mDelay(IIC_DELAY_MS);
 
     LCD_SendCommand(lcd_addr, L1602_CMD_DISPLAY|L1602_FLAG_DISPLAY_ON);  // display on, right shift, underline off, blink off (3)
 
-    //LCD_SendCommand(lcd_addr, L1602_CMD_CLEAR);  // clear display (optional here) (4)
-    //LL_mDelay(IIC_DELAY_MS);
+    LCD_SendCommand(lcd_addr, L1602_CMD_CLEAR);  // clear display (optional here) (4)
+
+    LL_mDelay(IIC_DELAY_MS);
 }
 
 /*  */

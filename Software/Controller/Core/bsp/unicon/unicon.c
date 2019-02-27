@@ -3,9 +3,10 @@
 #include "unicon.h"
 #include "nextion.h"
 #include "pcf8574.h"
+#include "pcf8583.h"
+
 
 SysData_TypeDef SysData;
-struct _time DateTime;
 struct _analogs AnalogInputs;
 
 uint8_t AutoBackupToEepromFlag = RESET;
@@ -15,12 +16,9 @@ uint16_t flashsize;
 uint8_t UnitID[12];
 
 
-//char buf[32];
-
 
 /*   */
 static void UNI_ReadAnalogs(void);
-static void UNI_GetDateTime(struct _time* time);
 static void UNI_SaveDataToEEPROM(void);
 static void UNI_ReadDataFromEEPROM(void);
 static void UNI_RestoreEE(void);
@@ -41,9 +39,6 @@ void UNI_Start(void) {
     UNI_RestoreEE();
 
     UNI_GetID(UnitID);
-
-    RTC_SetDateTime(18, 12, 31, 23, 59, 40, 7);
-    UNI_GetDateTime(&DateTime);
 
     LEDS_OFF();
 
@@ -75,12 +70,12 @@ void UNI_Start(void) {
 
     TouchTimeoutCounter = timestamp;
 
+    PCF8583_Init();
+
     NextionInit();
 
 
-
     pcf8574_Config();
-
 
     LL_mDelay(2000);
 
@@ -133,8 +128,6 @@ void UNI_Process(void) {
     if(delay <= timestamp) {
 
         delay = timestamp + 300;
-
-        UNI_GetDateTime(&DateTime);
 
         UNI_ReadAnalogs();      // skaitom analoginius iejimus
 
@@ -262,34 +255,6 @@ static void UNI_ReadAnalogs(void){
     AnalogInputs.ch4.adcval = ADC_ReadAnalog(AI_OPTIC);
     AnalogInputs.ch4.mvolts = ADC_ConvertTo_mVolts(AnalogInputs.ch4.adcval, LL_ADC_RESOLUTION_10B);
 }
-
-
-
-/*  */
-static void UNI_GetDateTime(struct _time* time) {
-
-    uint8_t i = 0;
-
-    RTC_GetDateTime( &(time->year), &(time->month), &(time->day), &(time->hour), &(time->minute), &(time->second), &(time->weekday) );
-
-//    i = fun_itoa(time->date_time_str, time->year, 10);
-//    *( time->date_time_str+(i++) ) = '.';
-//    i += fun_itoa(time->date_time_str+i, time->month, 10);
-//    *( time->date_time_str+(i++) ) = '.';
-//    i += fun_itoa(time->date_time_str+i, time->day, 10);
-//
-//    *( time->date_time_str+(i++) ) = ' ';
-//
-//    i += fun_itoa(time->date_time_str+i, time->hour, 10);
-//    *( time->date_time_str+(i++) ) = ':';
-//    i += fun_itoa(time->date_time_str+i, time->minute, 10);
-//    *( time->date_time_str+(i++) ) = ':';
-//    i += fun_itoa(time->date_time_str+i, time->second, 10);
-
-
-}
-
-
 
 
 /* Sisteminis IRQ hendleris. Vykdomas kas 1 ms is Systiko */
