@@ -1,2 +1,3 @@
 (sym_lib_table
+  (lib (name ihouse_new-rescue)(type Legacy)(uri ${KIPRJMOD}/ihouse_new-rescue.lib)(options "")(descr ""))
 )
