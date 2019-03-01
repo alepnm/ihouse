@@ -15,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L ihouse_new-rescue:PCF8583T-mylibrary U1
+L ihouse_new-rescue:PCF8583T-mylibrary-ihouse_new-rescue U1
 U 1 1 5C779654
 P 2350 2150
 F 0 "U1" H 2150 2500 50  0000 C CNN
@@ -235,7 +235,7 @@ Connection ~ 2850 2350
 Text Label 3750 2350 2    50   ~ 0
 ~INT
 $Comp
-L ihouse_new-rescue:MCP23017-E_SO-dk_Interface-I-O-Expanders U2
+L ihouse_new-rescue:MCP23017-E_SO-dk_Interface-I-O-Expanders-ihouse_new-rescue U2
 U 1 1 5C78068D
 P 2450 4350
 F 0 "U2" H 3350 3750 60  0000 C CNN
@@ -1772,4 +1772,22 @@ Wire Wire Line
 	14450 4650 14450 4600
 Wire Wire Line
 	14450 4600 14550 4600
+Text Label 8600 6350 2    50   ~ 0
+OC1O
+Text Label 8600 7150 2    50   ~ 0
+UC2O
+Text Label 8600 7950 2    50   ~ 0
+OC3O
+Text Label 8600 8750 2    50   ~ 0
+OC4O
+Text Label 8600 9550 2    50   ~ 0
+OC5O
+Text Label 11200 6350 2    50   ~ 0
+OC6O
+Text Label 11200 7150 2    50   ~ 0
+OC7O
+Text Label 11200 7950 2    50   ~ 0
+OC8O
+Text Label 11200 8750 2    50   ~ 0
+OC9O
 $EndSCHEMATC
