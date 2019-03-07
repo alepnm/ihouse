@@ -15,8 +15,6 @@ PCF8574 konfiguravimas:
     pcf8574_Write(0x00);    // <-- visi pinai kaip OUTPUT ir ju isejime turim 0
 */
 
-#define     PCF8574_BASE_ADDRESS    0x20    // <-- adresas be paskutiniu 3-ju bitu ir be R/W bito islygintas i desine
-
 
 typedef struct{
     uint8_t iic_addr;

@@ -3,7 +3,7 @@
 #include "unicon.h"
 #include "nextion.h"
 #include "pcf8574.h"
-#include "pcf8583.h"
+#include "pcf8523.h"
 
 
 SysData_TypeDef SysData;
@@ -70,16 +70,16 @@ void UNI_Start(void) {
 
     TouchTimeoutCounter = timestamp;
 
-    PCF8583_Init();
+    PCF8523_Init();
 
     NextionInit();
 
 
-    pcf8574_Config();
+    //pcf8574_Config();
 
     LL_mDelay(2000);
 
-    LCD_Clear(IIC_LCD.iic_addr);
+    //LCD_Clear(IIC_LCD.iic_addr);
 }
 
 
@@ -128,6 +128,10 @@ void UNI_Process(void) {
     if(delay <= timestamp) {
 
         delay = timestamp + 300;
+
+
+        PCF8523_GetDateTime();
+
 
         UNI_ReadAnalogs();      // skaitom analoginius iejimus
 
@@ -210,8 +214,8 @@ void UNI_Process(void) {
 
         i = sprintf( lcd_buffer, "IN0: %2.2fV", (float)AnalogInputs.ch0.mvolts/1000 );
 
-        LCD_SetPosition(IIC_LCD.iic_addr, 0, 0);
-        LCD_SendString(IIC_LCD.iic_addr, lcd_buffer);
+        //LCD_SetPosition(IIC_LCD.iic_addr, 0, 0);
+        //LCD_SendString(IIC_LCD.iic_addr, lcd_buffer);
 
 
     }

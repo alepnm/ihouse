@@ -1,8 +1,11 @@
 #include "pcf8574.h"
 
 
-PCF8574_TypeDef IIC_Keypad = { PCF8574_BASE_ADDRESS<<1, 0x00, I2C_OK };
-PCF8574_TypeDef IIC_LCD = { (PCF8574_BASE_ADDRESS+7)<<1, 0x00, I2C_OK };
+#define     PCF8574_BASE_ADDRESS    0x20    // <-- adresas be paskutiniu 3-ju bitu ir be R/W bito islygintas i desine
+
+
+PCF8574_TypeDef IIC_Keypad = { PCF8574_BASE_ADDRESS<<1, 0x00, I2C_ADDR_NACK };
+PCF8574_TypeDef IIC_LCD = { (PCF8574_BASE_ADDRESS+7)<<1, 0x00, I2C_ADDR_NACK };
 
 
 char lcd_buffer[32];

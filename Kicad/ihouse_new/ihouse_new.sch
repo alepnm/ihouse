@@ -15,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L ihouse_new-rescue:PCF8583T-mylibrary-ihouse_new-rescue U1
+L ihouse_new-rescue:PCF8583T-mylibrary-ihouse_new-rescue-ihouse_new-rescue U1
 U 1 1 5C779654
 P 2350 2150
 F 0 "U1" H 2150 2500 50  0000 C CNN
@@ -235,7 +235,7 @@ Connection ~ 2850 2350
 Text Label 3750 2350 2    50   ~ 0
 ~INT
 $Comp
-L ihouse_new-rescue:MCP23017-E_SO-dk_Interface-I-O-Expanders-ihouse_new-rescue U2
+L ihouse_new-rescue:MCP23017-E_SO-dk_Interface-I-O-Expanders-ihouse_new-rescue-ihouse_new-rescue U2
 U 1 1 5C78068D
 P 2450 4350
 F 0 "U2" H 3350 3750 60  0000 C CNN
@@ -710,7 +710,7 @@ Wire Wire Line
 Wire Wire Line
 	8350 5750 8350 5850
 Wire Wire Line
-	8350 6350 8600 6350
+	8350 6350 8450 6350
 Connection ~ 8350 6350
 Wire Wire Line
 	8350 5750 8600 5750
@@ -779,7 +779,7 @@ Wire Wire Line
 Wire Wire Line
 	8350 6550 8350 6650
 Wire Wire Line
-	8350 7150 8600 7150
+	8350 7150 8450 7150
 Connection ~ 8350 7150
 Wire Wire Line
 	8350 6550 8600 6550
@@ -848,7 +848,7 @@ Wire Wire Line
 Wire Wire Line
 	8350 7350 8350 7450
 Wire Wire Line
-	8350 7950 8600 7950
+	8350 7950 8450 7950
 Connection ~ 8350 7950
 Wire Wire Line
 	8350 7350 8600 7350
@@ -917,7 +917,7 @@ Wire Wire Line
 Wire Wire Line
 	8350 8150 8350 8250
 Wire Wire Line
-	8350 8750 8600 8750
+	8350 8750 8450 8750
 Connection ~ 8350 8750
 Wire Wire Line
 	8350 8150 8600 8150
@@ -986,7 +986,7 @@ Wire Wire Line
 Wire Wire Line
 	8350 8950 8350 9050
 Wire Wire Line
-	8350 9550 8600 9550
+	8350 9550 8450 9550
 Connection ~ 8350 9550
 Wire Wire Line
 	8350 8950 8600 8950
@@ -1055,7 +1055,7 @@ Wire Wire Line
 Wire Wire Line
 	10950 5750 10950 5850
 Wire Wire Line
-	10950 6350 11200 6350
+	10950 6350 11050 6350
 Connection ~ 10950 6350
 Wire Wire Line
 	10950 5750 11200 5750
@@ -1124,7 +1124,7 @@ Wire Wire Line
 Wire Wire Line
 	10950 6550 10950 6650
 Wire Wire Line
-	10950 7150 11200 7150
+	10950 7150 11050 7150
 Connection ~ 10950 7150
 Wire Wire Line
 	10950 6550 11200 6550
@@ -1193,7 +1193,7 @@ Wire Wire Line
 Wire Wire Line
 	10950 7350 10950 7450
 Wire Wire Line
-	10950 7950 11200 7950
+	10950 7950 11050 7950
 Connection ~ 10950 7950
 Wire Wire Line
 	10950 7350 11200 7350
@@ -1399,9 +1399,7 @@ F 3 "https://gfinder.findernet.com/assets/Series/355/S32EN.pdf" H 13700 6900 50 
 	1    13700 6900
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	13900 7200 13900 7450
-Text Label 13900 7450 1    50   ~ 0
+Text Label 13800 6400 3    50   ~ 0
 ACL
 $Comp
 L power:+15V #PWR0126
@@ -1569,7 +1567,7 @@ Wire Wire Line
 Wire Wire Line
 	10950 8150 10950 8250
 Wire Wire Line
-	10950 8750 11200 8750
+	10950 8750 11050 8750
 Connection ~ 10950 8750
 Wire Wire Line
 	10950 8150 11200 8150
@@ -1772,22 +1770,306 @@ Wire Wire Line
 	14450 4650 14450 4600
 Wire Wire Line
 	14450 4600 14550 4600
-Text Label 8600 6350 2    50   ~ 0
-OC1O
-Text Label 8600 7150 2    50   ~ 0
-UC2O
-Text Label 8600 7950 2    50   ~ 0
-OC3O
-Text Label 8600 8750 2    50   ~ 0
-OC4O
-Text Label 8600 9550 2    50   ~ 0
-OC5O
-Text Label 11200 6350 2    50   ~ 0
-OC6O
-Text Label 11200 7150 2    50   ~ 0
-OC7O
-Text Label 11200 7950 2    50   ~ 0
-OC8O
-Text Label 11200 8750 2    50   ~ 0
-OC9O
+Wire Wire Line
+	13800 6600 13800 6400
+$Comp
+L Connector_Generic:Conn_01x01 T1
+U 1 1 5C7C39DA
+P 8650 6350
+F 0 "T1" H 8729 6346 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 6301 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 8650 6350 50  0001 C CNN
+F 3 "~" H 8650 6350 50  0001 C CNN
+	1    8650 6350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 T2
+U 1 1 5C7D9D8A
+P 8650 7150
+F 0 "T2" H 8729 7146 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 7101 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 8650 7150 50  0001 C CNN
+F 3 "~" H 8650 7150 50  0001 C CNN
+	1    8650 7150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 T3
+U 1 1 5C7F096C
+P 8650 7950
+F 0 "T3" H 8729 7946 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 7901 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 8650 7950 50  0001 C CNN
+F 3 "~" H 8650 7950 50  0001 C CNN
+	1    8650 7950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 T4
+U 1 1 5C7F0A0A
+P 8650 8750
+F 0 "T4" H 8729 8746 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 8701 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 8650 8750 50  0001 C CNN
+F 3 "~" H 8650 8750 50  0001 C CNN
+	1    8650 8750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 T5
+U 1 1 5C81D7CE
+P 8650 9550
+F 0 "T5" H 8729 9546 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 9501 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 8650 9550 50  0001 C CNN
+F 3 "~" H 8650 9550 50  0001 C CNN
+	1    8650 9550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 T6
+U 1 1 5C8340B5
+P 11250 6350
+F 0 "T6" H 11329 6346 50  0000 L CNN
+F 1 "Conn_01x01" H 11330 6301 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 11250 6350 50  0001 C CNN
+F 3 "~" H 11250 6350 50  0001 C CNN
+	1    11250 6350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 T7
+U 1 1 5C834185
+P 11250 7150
+F 0 "T7" H 11329 7146 50  0000 L CNN
+F 1 "Conn_01x01" H 11330 7101 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 11250 7150 50  0001 C CNN
+F 3 "~" H 11250 7150 50  0001 C CNN
+	1    11250 7150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 T8
+U 1 1 5C834243
+P 11250 7950
+F 0 "T8" H 11329 7946 50  0000 L CNN
+F 1 "Conn_01x01" H 11330 7901 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 11250 7950 50  0001 C CNN
+F 3 "~" H 11250 7950 50  0001 C CNN
+	1    11250 7950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 T9
+U 1 1 5C87688A
+P 11250 8750
+F 0 "T9" H 11329 8746 50  0000 L CNN
+F 1 "Conn_01x01" H 11330 8701 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 11250 8750 50  0001 C CNN
+F 3 "~" H 11250 8750 50  0001 C CNN
+	1    11250 8750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 TG1
+U 1 1 5C88D3C9
+P 1950 8250
+F 0 "TG1" H 2029 8246 50  0000 L CNN
+F 1 "Conn_01x01" H 2030 8201 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 1950 8250 50  0001 C CNN
+F 3 "~" H 1950 8250 50  0001 C CNN
+	1    1950 8250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 TG2
+U 1 1 5C88D7B1
+P 2100 8250
+F 0 "TG2" H 2179 8246 50  0000 L CNN
+F 1 "Conn_01x01" H 2180 8201 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 2100 8250 50  0001 C CNN
+F 3 "~" H 2100 8250 50  0001 C CNN
+	1    2100 8250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0129
+U 1 1 5C88DA35
+P 1950 8550
+F 0 "#PWR0129" H 1950 8300 50  0001 C CNN
+F 1 "GND" H 1955 8377 50  0000 C CNN
+F 2 "" H 1950 8550 50  0001 C CNN
+F 3 "" H 1950 8550 50  0001 C CNN
+	1    1950 8550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0130
+U 1 1 5C88DC38
+P 2100 8550
+F 0 "#PWR0130" H 2100 8300 50  0001 C CNN
+F 1 "GND" H 2105 8377 50  0000 C CNN
+F 2 "" H 2100 8550 50  0001 C CNN
+F 3 "" H 2100 8550 50  0001 C CNN
+	1    2100 8550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1950 8550 1950 8450
+Wire Wire Line
+	2100 8550 2100 8450
+$Comp
+L Connector_Generic:Conn_01x01 TP1
+U 1 1 5C8BAA27
+P 2500 8250
+F 0 "TP1" V 2600 8300 50  0000 R CNN
+F 1 "Conn_01x01" H 2580 8201 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 2500 8250 50  0001 C CNN
+F 3 "~" H 2500 8250 50  0001 C CNN
+	1    2500 8250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 TP2
+U 1 1 5C8BABBD
+P 2800 8250
+F 0 "TP2" V 2900 8300 50  0000 R CNN
+F 1 "Conn_01x01" H 2880 8201 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 2800 8250 50  0001 C CNN
+F 3 "~" H 2800 8250 50  0001 C CNN
+	1    2800 8250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+5V #PWR0131
+U 1 1 5C8E8CBA
+P 2350 7900
+F 0 "#PWR0131" H 2350 7750 50  0001 C CNN
+F 1 "+5V" H 2365 8073 50  0000 C CNN
+F 2 "" H 2350 7900 50  0001 C CNN
+F 3 "" H 2350 7900 50  0001 C CNN
+	1    2350 7900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+15V #PWR0132
+U 1 1 5C8E94DD
+P 2650 7900
+F 0 "#PWR0132" H 2650 7750 50  0001 C CNN
+F 1 "+15V" H 2665 8073 50  0000 C CNN
+F 2 "" H 2650 7900 50  0001 C CNN
+F 3 "" H 2650 7900 50  0001 C CNN
+	1    2650 7900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 8450 2500 8550
+Wire Wire Line
+	2500 8550 2350 8550
+Wire Wire Line
+	2350 8550 2350 7900
+Wire Wire Line
+	2800 8450 2800 8550
+Wire Wire Line
+	2800 8550 2650 8550
+Wire Wire Line
+	2650 8550 2650 7900
+$Comp
+L Connector_Generic:Conn_01x01 T10
+U 1 1 5C988EB5
+P 3150 8250
+F 0 "T10" V 3250 8350 50  0000 R CNN
+F 1 "Conn_01x01" H 3230 8201 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 3150 8250 50  0001 C CNN
+F 3 "~" H 3150 8250 50  0001 C CNN
+	1    3150 8250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 T11
+U 1 1 5C989063
+P 3350 8250
+F 0 "T11" V 3450 8300 50  0000 R CNN
+F 1 "Conn_01x01" H 3430 8201 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 3350 8250 50  0001 C CNN
+F 3 "~" H 3350 8250 50  0001 C CNN
+	1    3350 8250
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3150 8450 3150 8750
+Wire Wire Line
+	3350 8450 3350 8750
+Text Label 3150 8750 1    50   ~ 0
+SDA
+Text Label 3350 8750 1    50   ~ 0
+SCL
+$Comp
+L Connector_Generic:Conn_01x01 T14
+U 1 1 5CA1A9C1
+P 3950 8250
+F 0 "T14" V 4050 8300 50  0000 R CNN
+F 1 "Conn_01x01" H 4030 8201 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 3950 8250 50  0001 C CNN
+F 3 "~" H 3950 8250 50  0001 C CNN
+	1    3950 8250
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3950 8450 3950 8750
+Text Label 3950 8750 1    50   ~ 0
+~RST
+$Comp
+L Connector_Generic:Conn_01x01 T15
+U 1 1 5CA4BB99
+P 14250 7950
+F 0 "T15" V 14350 8000 50  0000 R CNN
+F 1 "Conn_01x01" H 14330 7901 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 14250 7950 50  0001 C CNN
+F 3 "~" H 14250 7950 50  0001 C CNN
+	1    14250 7950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	14000 6600 14000 6500
+Wire Wire Line
+	14000 6500 14250 6500
+Wire Wire Line
+	14250 6500 14250 7250
+Wire Wire Line
+	14250 7250 13900 7250
+Wire Wire Line
+	13900 7250 13900 7200
+Wire Wire Line
+	14250 7250 14250 7350
+Connection ~ 14250 7250
+$Comp
+L Device:Thermistor_PTC TH1
+U 1 1 5CA9750F
+P 14250 7500
+F 0 "TH1" H 14348 7546 50  0000 L CNN
+F 1 "Thermistor_PTC" H 14348 7455 50  0000 L CNN
+F 2 "Varistor:RV_Disc_D7mm_W3.5mm_P5mm" H 14300 7300 50  0001 L CNN
+F 3 "~" H 14250 7500 50  0001 C CNN
+	1    14250 7500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14250 7650 14250 7750
+$Comp
+L Connector_Generic:Conn_01x01 T12
+U 1 1 5CAB1193
+P 3650 8250
+F 0 "T12" V 3750 8300 50  0000 R CNN
+F 1 "Conn_01x01" H 3730 8201 50  0001 L CNN
+F 2 "disc:Sold_Pad" H 3650 8250 50  0001 C CNN
+F 3 "~" H 3650 8250 50  0001 C CNN
+	1    3650 8250
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3650 8450 3650 8750
+Text Label 3650 8750 1    50   ~ 0
+~INT
 $EndSCHEMATC

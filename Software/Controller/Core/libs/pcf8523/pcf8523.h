@@ -3,7 +3,7 @@
 
 #include "iic.h"
 
-#define     PCF8523_BASE_ADDRESS    0x68    // be R/W bito islygintas i desine
+#define     PCF8523_IIC_ADDRESS    0xD0    // be R/W bito islygintas i desine
 
 
 
@@ -22,7 +22,7 @@ extern PCF8523_TypeDef PCF8523_DateTime;
 void    PCF8523_Init(void);
 void    PCF8523_ReadRegisters(void);
 void    PCF8523_WriteRegisters(void);
-void    PCF8523_GetDateTime(PCF8523_TypeDef* dest);
+void    PCF8523_GetDateTime(void);
 uint8_t PCF8523_ReadRegister(uint8_t reg);
 void    PCF8523_WriteRegister(uint8_t reg, uint8_t data);
 

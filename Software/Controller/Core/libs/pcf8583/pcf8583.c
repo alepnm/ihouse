@@ -1,7 +1,7 @@
 #include "defs.h"
 #include "pcf8583.h"
 
-#define PCF8583_BASE_ADDRESS        0x28    // be adreso ir R/W bitu islygintas i desine
+#define PCF8583_BASE_ADDRESS        0xD0//0xA0    // be adreso ir R/W bitu islygintas i desine
 
 /* RTC registrai ( 0x00-0x07 ) */
 #define PCF8583_CONTROL_REG         0x00
@@ -48,12 +48,16 @@
 
  */
 #define YEAR_DEF                    16
-//#define LEAP_YEAR_COUNTER           0
+
+
+#define PCF8583_ReadRegister(reg)           IIC_ReadByte( (int16_t)reg )
+#define PCF8583_WriteRegister(reg, data)    IIC_WriteByte( (uint16_t)reg, data )
+
 
 
 DateTime_TypeDef DateTime;
 
-static uint8_t PCF8583_Flag = I2C_ADDR_NACK;
+uint8_t PCF8583_Flag = I2C_ADDR_NACK;
 
 static struct{
     uint8_t ControlRegister;
@@ -67,13 +71,10 @@ static struct{
     uint8_t BackupRegisters[PCF8583_BACKUP_REGS_QUANT];
 }PCF8583_Regs;
 
-static void     PCF8583_GetDateTime(void);
-static void     PCF8583_SetDateTime(void);
-
 static void     PCF8583_ReadRegisters(void);
 static void     PCF8583_WriteRegisters(void);
-static uint8_t  PCF8583_ReadRegister(uint8_t reg);
-static void     PCF8583_WriteRegister(uint8_t reg, uint8_t data);
+
+
 
 /*  */
 void PCF8583_Init(void){
@@ -82,19 +83,19 @@ void PCF8583_Init(void){
         // PCF8583 init error
         PCF8583_Flag = I2C_ADDR_NACK;
 
-        //return;
+        return;
     }
+
+    /* nuskaitom Control_Status registra */
+    PCF8583_Regs.ControlRegister = PCF8583_ReadRegister(PCF8583_CONTROL_REG);
+
+    CLEAR_BIT(PCF8583_Regs.ControlRegister, STATUS_REGISTER_STOP_COUNT);
+    PCF8583_WriteRegister(PCF8583_CONTROL_REG, PCF8583_Regs.ControlRegister);
 
 
 
     if(PCF8583_ReadRegister(PCF8583_INIT_REG) != 0x55){
         /* PCF8583 neinicializuota. Inicializuojam */
-
-        /* Konfiguruojam Control registra */
-        PCF8583_Regs.ControlRegister = 0x00;
-        //...
-
-        PCF8583_WriteRegister(PCF8583_CONTROL_REG, PCF8583_Regs.ControlRegister);
 
         /* Nustatom pradines reiksmes PCF8583 registruose */
         PCF8583_Regs.SecondsRegister = __LL_RTC_CONVERT_BIN2BCD(0x00);
@@ -111,6 +112,7 @@ void PCF8583_Init(void){
 
         do{
             PCF8583_Regs.BackupRegisters[i] = 0xFF;
+            IIC_WriteByte(PCF8583_BACKUP_REGS_START + i, PCF8583_Regs.BackupRegisters[i]);
         }while(++i < PCF8583_BACKUP_REGS_QUANT);
 
         //IIC_Write(PCF8583_BASE_ADDRESS, PCF8583_BACKUP_REGS_START, PCF8583_Regs.BackupRegisters, PCF8583_BACKUP_REGS_QUANT);
@@ -121,8 +123,6 @@ void PCF8583_Init(void){
     }
 
 
-    //PCF8583_ReadRegisters();
-
     PCF8583_GetDateTime();
 
     PCF8583_ReadBackupRegisters();
@@ -131,18 +131,20 @@ void PCF8583_Init(void){
 /*  */
 void PCF8583_ReadBackupRegisters(void){
 
-
+    IIC_Read(PCF8583_BASE_ADDRESS, PCF8583_BACKUP_REGS_START, PCF8583_Regs.BackupRegisters, PCF8583_BACKUP_REGS_QUANT);
 }
 
 /*  */
 void PCF8583_WriteBackupRegisters(void){
 
-
+    IIC_Write(PCF8583_BASE_ADDRESS, PCF8583_BACKUP_REGS_START, PCF8583_Regs.BackupRegisters, PCF8583_BACKUP_REGS_QUANT);
 }
 
 
 /* Gaunam is buferio laiko ir datos reiksmes */
-static void PCF8583_GetDateTime(void){
+void PCF8583_GetDateTime(void){
+
+    PCF8583_ReadRegisters();
 
     DateTime.Seconds = __LL_RTC_CONVERT_BCD2BIN(PCF8583_Regs.SecondsRegister);
     DateTime.Minutes = __LL_RTC_CONVERT_BCD2BIN(PCF8583_Regs.MinutesRegister);
@@ -154,7 +156,7 @@ static void PCF8583_GetDateTime(void){
 }
 
 /*  */
-static void PCF8583_SetDateTime(void){
+void PCF8583_SetDateTime(void){
 
     PCF8583_Regs.SecondsRegister = __LL_RTC_CONVERT_BIN2BCD(DateTime.Seconds);
     PCF8583_Regs.MinutesRegister = __LL_RTC_CONVERT_BIN2BCD(DateTime.Minutes);
@@ -162,6 +164,8 @@ static void PCF8583_SetDateTime(void){
 
     PCF8583_Regs.WeekdayMonthRegister = ( DateTime.WeekDay<<5 & DateTime.Month );
     PCF8583_Regs.YearRegister = __LL_RTC_CONVERT_BIN2BCD(DateTime.Year);
+
+    PCF8583_WriteRegisters();
 }
 
 /* Skaitom i buferi PCF8583 registrus */
@@ -178,42 +182,18 @@ static void PCF8583_ReadRegisters(void){
 /*  */
 static void PCF8583_WriteRegisters(void){
 
+    /* stabdom RTC pries konfiguravima */
+    SET_BIT(PCF8583_Regs.ControlRegister, STATUS_REGISTER_STOP_COUNT);
+    PCF8583_WriteRegister(PCF8583_CONTROL_REG, PCF8583_Regs.ControlRegister);
+
     PCF8583_WriteRegister(PCF8583_SECONDS_REG, PCF8583_Regs.SecondsRegister);
     PCF8583_WriteRegister(PCF8583_MINUTES_REG, PCF8583_Regs.MinutesRegister);
     PCF8583_WriteRegister(PCF8583_HOURS_REG, PCF8583_Regs.HoursRegister);
     PCF8583_WriteRegister(PCF8583_DATE_REG, PCF8583_Regs.DateRegister);
     PCF8583_WriteRegister(PCF8583_WEEKDAY_MONTH_REG, PCF8583_Regs.WeekdayMonthRegister);
     PCF8583_WriteRegister(PCF8583_YEAR_REG, PCF8583_Regs.YearRegister);
+
+    /* startuojam RTC po konfiguravimo */
+    CLEAR_BIT(PCF8583_Regs.ControlRegister, STATUS_REGISTER_STOP_COUNT);
+    PCF8583_WriteRegister(PCF8583_CONTROL_REG, PCF8583_Regs.ControlRegister);
 }
-
-
-/*  */
-static uint8_t PCF8583_ReadRegister(uint8_t reg){
-
-//    LL_I2C_HandleTransfer(I2C1, PCF8583_BASE_ADDRESS, LL_I2C_ADDRSLAVE_7BIT, 1, LL_I2C_MODE_AUTOEND, LL_I2C_GENERATE_START_READ);
-//    while( LL_I2C_IsActiveFlag_ADDR(I2C1) != RESET );
-//
-//    while( LL_I2C_IsActiveFlag_RXNE(I2C1) == RESET );
-//    return LL_I2C_ReceiveData8(I2C1);
-
-    return 0xFF;
-}
-
-/*  */
-static void PCF8583_WriteRegister(uint8_t reg, uint8_t data){
-
-//    LL_I2C_HandleTransfer(I2C1, PCF8583_BASE_ADDRESS, LL_I2C_ADDRSLAVE_7BIT, 1, LL_I2C_MODE_AUTOEND, LL_I2C_GENERATE_START_WRITE);
-//    while( LL_I2C_IsActiveFlag_ADDR(I2C1) != RESET );
-//
-//    LL_I2C_TransmitData8(I2C1, (uint16_t)reg);
-//    while( LL_I2C_IsActiveFlag_TXE(I2C1) == RESET );
-//
-//    LL_I2C_TransmitData8(I2C1, data);
-//    while( LL_I2C_IsActiveFlag_TXE(I2C1) == RESET );
-//
-//    LL_I2C_ClearFlag_STOP(I2C1);
-//
-//    LL_mDelay(IIC_DELAY_MS);
-
-}
-

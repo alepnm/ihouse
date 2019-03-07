@@ -46,11 +46,15 @@ uint8_t PCF8523_Flag = I2C_ADDR_NACK;
 PCF8523_TypeDef PCF8523_DateTime;
 static PCF8523_TypeDef PCF8523_Registers;
 
+uint8_t ControlReg_1 = 0;
+uint8_t ControlReg_2 = 0;
+uint8_t ControlReg_3 = 0;
+
 
 /*  */
 void PCF8523_Init(void){
 
-    if( IIC_Check(PCF8523_BASE_ADDRESS) != I2C_OK ) {
+    if( IIC_Check(PCF8523_IIC_ADDRESS) != I2C_OK ) {
         // PCF8523 init error
         PCF8523_Flag = I2C_ADDR_NACK;
 
@@ -58,14 +62,17 @@ void PCF8523_Init(void){
     }
 
 
+    ControlReg_1 = PCF8523_ReadRegister(PCF8523_CONTROL_1);
+    ControlReg_2 = PCF8523_ReadRegister(PCF8523_CONTROL_2);
+    ControlReg_3 = PCF8523_ReadRegister(PCF8523_CONTROL_3);
+
+
     PCF8523_WriteRegister(PCF8523_CONTROL_1, PCF8523_CAP_SEL);
-    PCF8523_WriteRegister(PCF8523_CONTROL_2, 0b00000000);
-    PCF8523_WriteRegister(PCF8523_CONTROL_3, 0b00000000);
+    PCF8523_WriteRegister(PCF8523_CONTROL_2, 0x00);
+    PCF8523_WriteRegister(PCF8523_CONTROL_3, 0x00);
 
 
-    PCF8523_ReadRegisters();
-
-    PCF8523_GetDateTime(&PCF8523_DateTime);
+    PCF8523_GetDateTime();
 }
 
 
@@ -94,15 +101,17 @@ void PCF8523_WriteRegisters(void){
 }
 
 /* Gaunam is buferio laiko ir datos reiksmes */
-void PCF8523_GetDateTime(PCF8523_TypeDef* dest){
+void PCF8523_GetDateTime(void){
 
-    dest->Seconds = __LL_RTC_CONVERT_BCD2BIN(PCF8523_Registers.Seconds&0x7F);
-    dest->Minutes = __LL_RTC_CONVERT_BCD2BIN(PCF8523_Registers.Minutes&0x7F);
-    dest->Hours = __LL_RTC_CONVERT_BCD2BIN(PCF8523_Registers.Hours&0x3F);
-    dest->WeekDay = __LL_RTC_CONVERT_BCD2BIN(PCF8523_Registers.WeekDay&0x07);
-    dest->Date = __LL_RTC_CONVERT_BCD2BIN(PCF8523_Registers.Date&0x3F);
-    dest->Month = __LL_RTC_CONVERT_BCD2BIN(PCF8523_Registers.Month&0x1F);
-    dest->Year = __LL_RTC_CONVERT_BCD2BIN(PCF8523_Registers.Year);
+    PCF8523_ReadRegisters();
+
+    PCF8523_DateTime.Seconds = __LL_RTC_CONVERT_BCD2BIN(PCF8523_Registers.Seconds&0x7F);
+    PCF8523_DateTime.Minutes = __LL_RTC_CONVERT_BCD2BIN(PCF8523_Registers.Minutes&0x7F);
+    PCF8523_DateTime.Hours = __LL_RTC_CONVERT_BCD2BIN(PCF8523_Registers.Hours&0x3F);
+    PCF8523_DateTime.WeekDay = __LL_RTC_CONVERT_BCD2BIN(PCF8523_Registers.WeekDay&0x07);
+    PCF8523_DateTime.Date = __LL_RTC_CONVERT_BCD2BIN(PCF8523_Registers.Date&0x3F);
+    PCF8523_DateTime.Month = __LL_RTC_CONVERT_BCD2BIN(PCF8523_Registers.Month&0x1F);
+    PCF8523_DateTime.Year = __LL_RTC_CONVERT_BCD2BIN(PCF8523_Registers.Year);
 }
 
 /*  */
@@ -116,15 +125,15 @@ uint8_t PCF8523_GetBateryStatus(void){
 
 
 /*  */
-void PCF8523_SetDateTime(PCF8523_TypeDef* dest){
+void PCF8523_SetDateTime(void){
 
-    PCF8523_Registers.Seconds = __LL_RTC_CONVERT_BIN2BCD(dest->Seconds);
-    PCF8523_Registers.Minutes = __LL_RTC_CONVERT_BIN2BCD(dest->Minutes);
-    PCF8523_Registers.Hours = __LL_RTC_CONVERT_BIN2BCD(dest->Hours);
-    PCF8523_Registers.WeekDay = __LL_RTC_CONVERT_BIN2BCD(dest->WeekDay);
-    PCF8523_Registers.Date = __LL_RTC_CONVERT_BIN2BCD(dest->Date);
-    PCF8523_Registers.Month = __LL_RTC_CONVERT_BIN2BCD(dest->Month);
-    PCF8523_Registers.Year = __LL_RTC_CONVERT_BIN2BCD(dest->Year);
+    PCF8523_Registers.Seconds = __LL_RTC_CONVERT_BIN2BCD(PCF8523_DateTime.Seconds);
+    PCF8523_Registers.Minutes = __LL_RTC_CONVERT_BIN2BCD(PCF8523_DateTime.Minutes);
+    PCF8523_Registers.Hours = __LL_RTC_CONVERT_BIN2BCD(PCF8523_DateTime.Hours);
+    PCF8523_Registers.WeekDay = __LL_RTC_CONVERT_BIN2BCD(PCF8523_DateTime.WeekDay);
+    PCF8523_Registers.Date = __LL_RTC_CONVERT_BIN2BCD(PCF8523_DateTime.Date);
+    PCF8523_Registers.Month = __LL_RTC_CONVERT_BIN2BCD(PCF8523_DateTime.Month);
+    PCF8523_Registers.Year = __LL_RTC_CONVERT_BIN2BCD(PCF8523_DateTime.Year);
 
     PCF8523_WriteRegisters();
 }
@@ -132,14 +141,12 @@ void PCF8523_SetDateTime(PCF8523_TypeDef* dest){
 /*  */
 uint8_t PCF8523_ReadRegister(uint8_t reg){
 
-
-    return 0;
+    return IIC_ReadByte(PCF8523_IIC_ADDRESS, reg);
 }
 
 /*  */
 void PCF8523_WriteRegister(uint8_t reg, uint8_t data){
 
-
-
+    IIC_WriteByte(PCF8523_IIC_ADDRESS, reg, data);
 }
 

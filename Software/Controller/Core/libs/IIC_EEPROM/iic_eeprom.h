@@ -7,7 +7,7 @@
 
 #ifdef EE24LC08
 /* 24LC08 EEPROM */
-#define     I2C_EEP_BASE_ADDRESS    0x50
+#define     I2C_EEP_IIC_ADDRESS     0xA0
 #define     I2C_MEMORY_SIZE         1024
 #define     PAGE_CALC_SHIFT_VAL     4
 #define     BLOCK_CALC_SHIFT_VAL    8
@@ -18,7 +18,7 @@
 
 #ifdef EE24LC16
 /* 24LC16 EEPROM */
-#define     I2C_EEP_BASE_ADDRESS    0x50
+#define     I2C_EEP_IIC_ADDRESS     0xA0
 #define     I2C_MEMORY_SIZE         2048
 #define     PAGE_CALC_SHIFT_VAL     4
 #define     BLOCK_CALC_SHIFT_VAL    8
