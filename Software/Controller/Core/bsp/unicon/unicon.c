@@ -3,7 +3,7 @@
 #include "unicon.h"
 #include "nextion.h"
 #include "pcf8574.h"
-#include "pcf8583.h"
+#include "pcf8523.h"
 
 
 SysData_TypeDef SysData;
@@ -12,7 +12,6 @@ struct _analogs AnalogInputs;
 uint8_t AutoBackupToEepromFlag = RESET;
 uint16_t TouchTimeoutCounter = 0;
 
-uint16_t flashsize;
 uint8_t UnitID[12];
 
 
@@ -70,7 +69,7 @@ void UNI_Start(void) {
 
     TouchTimeoutCounter = timestamp;
 
-    PCF8583_Init();
+    PCF8523_Init();
 
     NextionInit();
 
@@ -80,40 +79,6 @@ void UNI_Start(void) {
     LL_mDelay(2000);
 
     LCD_Clear(IIC_LCD.iic_addr);
-}
-
-
-/* in Kb */
-uint16_t UNI_GetFlashSize(void) {
-    return *(uint16_t *)(FLASHSIZE_BASE);
-}
-
-
-/*  */
-void UNI_GetID(uint8_t* bufid) {
-
-    uint8_t i = 0;
-
-    do {
-        *(bufid + i) = *(uint8_t*)(UID_BASE + i);
-    } while(++i < 12);
-
-}
-
-
-/*  */
-uint8_t UNI_CheckUID(uint8_t* bufid) {
-
-    uint8_t temp_buf[12];
-    uint8_t i = 0;
-
-    UNI_GetID(temp_buf);
-
-    do {
-        if( *(temp_buf + i) != *(bufid + i) ) return 1;
-    } while(++i < 12);
-
-    return 0;
 }
 
 
@@ -241,6 +206,40 @@ void UNI_Process(void) {
 #if defined(MODBUS_PORT)
     (void)eMBPoll();
 #endif
+}
+
+
+/* in Kb */
+uint16_t UNI_GetFlashSize(void) {
+    return *(uint16_t *)(FLASHSIZE_BASE);
+}
+
+
+/*  */
+void UNI_GetID(uint8_t* bufid) {
+
+    uint8_t i = 0;
+
+    do {
+        *(bufid + i) = *(uint8_t*)(UID_BASE + i);
+    } while(++i < 12);
+
+}
+
+
+/*  */
+uint8_t UNI_CheckUID(uint8_t* bufid) {
+
+    uint8_t temp_buf[12];
+    uint8_t i = 0;
+
+    UNI_GetID(temp_buf);
+
+    do {
+        if( *(temp_buf + i) != *(bufid + i) ) return 1;
+    } while(++i < 12);
+
+    return 0;
 }
 
 

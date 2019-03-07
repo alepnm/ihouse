@@ -211,15 +211,15 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Core\libs\nextion\nextion.h" />
+		<Unit filename="Core\libs\pcf8523\pcf8523.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\pcf8523\pcf8523.h" />
 		<Unit filename="Core\libs\pcf8574\pcf8574.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Core\libs\pcf8574\pcf8574.h" />
 		<Unit filename="Core\libs\pcf8574\pcf8574_lcd.h" />
-		<Unit filename="Core\libs\pcf8583\pcf8583.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Core\libs\pcf8583\pcf8583.h" />
 		<Unit filename="Core\Src\main.c">
 			<Option compilerVar="CC" />
 		</Unit>
