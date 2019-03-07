@@ -3,7 +3,8 @@
 #include "unicon.h"
 #include "nextion.h"
 #include "pcf8574.h"
-#include "pcf8523.h"
+//#include "pcf8523.h"
+//#include "mcp23017.h"
 
 
 SysData_TypeDef SysData;
@@ -69,14 +70,7 @@ void UNI_Start(void) {
 
     TouchTimeoutCounter = timestamp;
 
-    PCF8523_Init();
-
-    NextionInit();
-
-
-    //pcf8574_Config();
-
-    LL_mDelay(2000);
+    LL_mDelay(10);
 
     //LCD_Clear(IIC_LCD.iic_addr);
 }
@@ -88,14 +82,9 @@ void UNI_Process(void) {
     static uint32_t delay = 0;
     uint8_t i = 0;
 
-
-
     if(delay <= timestamp) {
 
         delay = timestamp + 300;
-
-
-        PCF8523_GetDateTime();
 
 
         UNI_ReadAnalogs();      // skaitom analoginius iejimus
@@ -108,50 +97,6 @@ void UNI_Process(void) {
         LED5_OFF();
         LED6_OFF();
         LED7_OFF();
-
-        switch(Nextion.CurrentPageID) {
-
-        case W_MAIN:
-
-            if(TxState == USART_STATE_IDLE){
-
-                //i = sprintf( ptrPrimaryTxBuffer, "t0.txt=\"%02d.%02d.%02d   %02d:%02d\"", DateTime.year, DateTime.month, DateTime.day, DateTime.hour, DateTime.minute );
-                i = sprintf( ptrSecondaryTxBuffer, "t0.txt=\"MCU:%02d IN0:%1.2fV\"", (int)ADC_InternalRegisters.McuTemp.ConvertedValue, (float)AnalogInputs.ch0.mvolts/1000 );
-
-                *(ptrSecondaryTxBuffer + i++) = 0xFF;
-                *(ptrSecondaryTxBuffer + i++) = 0xFF;
-                *(ptrSecondaryTxBuffer + i) = 0xFF;
-
-                //USART_Send( NEXTION_PORT, ptrPrimaryTxBuffer, i+1 );
-                USART_Send_DMA(i+1);
-
-                TxState = USART_STATE_BUSY;
-            }
-
-
-            break;
-        case W_VIRTUVE:
-
-            LED2_ON();
-
-            break;
-        case W_KORIDORIUS:
-
-            LED5_ON();
-
-            break;
-        case W_VONIAWC:
-
-            LED6_ON();
-
-            break;
-        case W_PAPILDOMAI:
-
-            LED7_ON();
-
-            break;
-        }
-
 
 
         if(TxState == USART_STATE_IDLE){

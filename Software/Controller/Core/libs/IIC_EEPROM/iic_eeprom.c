@@ -13,7 +13,7 @@ static uint8_t EEP24XX_Process( uint16_t mem_addr, void *txdata, uint16_t len, u
 /* rasymas i EEPROM pool rezime */
 uint8_t EEP24XX_Write(uint16_t mem_addr, void *data, size_t size_of_data) {
 
-    if( mem_addr > I2C_MEMORY_SIZE-1 || data == NULL || size_of_data == 0 ) return RES_BAD_PARAMS;    //error
+    if( mem_addr > EEP_MEMORY_SIZE-1 || data == NULL || size_of_data == 0 ) return RES_BAD_PARAMS;    //error
 
     return EEP24XX_Process( mem_addr, data, size_of_data, IIC_WRITE );
 }
@@ -21,7 +21,7 @@ uint8_t EEP24XX_Write(uint16_t mem_addr, void *data, size_t size_of_data) {
 /* skaitymas is EEPROM pool rezime */
 uint8_t EEP24XX_Read(uint16_t mem_addr, void *rxdata, size_t size_of_data) {
 
-    if( mem_addr > I2C_MEMORY_SIZE-1 || rxdata == NULL || size_of_data == 0 ) return RES_BAD_PARAMS;    //error
+    if( mem_addr > EEP_MEMORY_SIZE-1 || rxdata == NULL || size_of_data == 0 ) return RES_BAD_PARAMS;    //error
 
     return EEP24XX_Process( mem_addr, rxdata, size_of_data, IIC_READ );
 }
@@ -54,7 +54,7 @@ uint8_t EEP24XX_WriteByByte(uint16_t mem_addr, void *data, size_t size_of_data){
 
 /*   */
 uint8_t EEP24XX_ReadByte(uint16_t mem_addr){
-    return IIC_ReadByte(I2C_EEP_IIC_ADDRESS, mem_addr);
+    return IIC_ReadByte(EEP_IIC_ADDRESS, mem_addr);
 }
 
 /*  */
@@ -79,7 +79,7 @@ uint32_t EEP24XX_ReadDWord(uint16_t mem_addr){
 
 /*   */
 void EEP24XX_WriteByte(uint16_t mem_addr, uint8_t val){
-    IIC_WriteByte(I2C_EEP_IIC_ADDRESS, mem_addr, val);
+    IIC_WriteByte(EEP_IIC_ADDRESS, mem_addr, val);
 }
 
 /*  */
@@ -110,7 +110,7 @@ uint8_t EEP24XX_Clear(void) {
         *(data+i) = 0xFF;
     } while(++i < PAGE_SIZE);
 
-    while(addr < I2C_MEMORY_SIZE) {
+    while(addr < EEP_MEMORY_SIZE) {
         if( (result = EEP24XX_Process( addr, data, PAGE_SIZE, IIC_WRITE )) != RES_OK) break;
         addr += PAGE_SIZE;
     }
@@ -134,7 +134,7 @@ static uint8_t EEP24XX_Process( uint16_t mem_addr, void *data, uint16_t len, uin
     uint8_t page_in_block = page - (block<<PAGE_CALC_SHIFT_VAL);    // kuris peidzas bloke
     uint8_t offset_in_page = mem_addr & (PAGE_SIZE-1);              // baito offsetas peidze nuo peidzio pradzios
 
-    uint8_t eeaddr = (I2C_EEP_IIC_ADDRESS + block);
+    uint8_t eeaddr = (EEP_IIC_ADDRESS + block);
 
     if( ( result = IIC_Check(eeaddr) ) != RES_OK ) return result;
 
@@ -168,7 +168,7 @@ static uint8_t EEP24XX_Process( uint16_t mem_addr, void *data, uint16_t len, uin
         if(page_in_block == PAGES_IN_BLOCK-1) { // paskutinis peidzas bloke
             /* perjungiam bloka */
             block++;
-            eeaddr = (I2C_EEP_IIC_ADDRESS + block);
+            eeaddr = (EEP_IIC_ADDRESS + block);
             page_in_block = 0;
         } else {
             page_in_block++;        // pakeliam paidzo numeri bloke

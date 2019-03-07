@@ -76,6 +76,11 @@ extern "C" {
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 
+typedef struct{
+    uint8_t port;
+    uint8_t pin;
+}MCP_Output_TypeDef;
+
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -85,7 +90,22 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-
+extern MCP_Output_TypeDef OC1;
+extern MCP_Output_TypeDef OC2;
+extern MCP_Output_TypeDef OC3;
+extern MCP_Output_TypeDef OC4;
+extern MCP_Output_TypeDef OC5;
+extern MCP_Output_TypeDef OC6;
+extern MCP_Output_TypeDef OC7;
+extern MCP_Output_TypeDef OC8;
+extern MCP_Output_TypeDef OC9;
+extern MCP_Output_TypeDef ACON;
+extern MCP_Output_TypeDef MA;
+extern MCP_Output_TypeDef MB;
+extern MCP_Output_TypeDef M1ENA;
+extern MCP_Output_TypeDef M2ENA;
+extern MCP_Output_TypeDef M3ENA;
+extern MCP_Output_TypeDef M4ENA;
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
