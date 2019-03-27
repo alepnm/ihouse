@@ -1,0 +1,142 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# MCP23017-E_SO-dk_Interface-I-O-Expanders
+#
+DEF MCP23017-E_SO-dk_Interface-I-O-Expanders U 0 40 Y Y 1 F N
+F0 "U" -100 750 60 H V C CNN
+F1 "MCP23017-E_SO-dk_Interface-I-O-Expanders" 100 -1100 60 V V L CNN
+F2 "digikey-footprints:SOIC-28_W7.5mm" 200 200 60 H I L CNN
+F3 "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en023709" 200 300 60 H I L CNN
+F4 "MCP23017-E/SO-ND" 200 400 60 H I L CNN "Digi-Key_PN"
+F5 "MCP23017-E/SO" 200 500 60 H I L CNN "MPN"
+F6 "Integrated Circuits (ICs)" 200 600 60 H I L CNN "Category"
+F7 "Interface - I/O Expanders" 200 700 60 H I L CNN "Family"
+F8 "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en023709" 200 800 60 H I L CNN "DK_Datasheet_Link"
+F9 "/product-detail/en/microchip-technology/MCP23017-E-SO/MCP23017-E-SO-ND/894271" 200 900 60 H I L CNN "DK_Detail_Page"
+F10 "IC I/O EXPANDER I2C 16B 28SOIC" 200 1000 60 H I L CNN "Description"
+F11 "Microchip Technology" 200 1100 60 H I L CNN "Manufacturer"
+F12 "Active" 200 1200 60 H I L CNN "Status"
+DRAW
+S -200 700 400 -1500 0 1 0 f
+X GPB0 1 -300 600 100 R 50 50 1 1 B
+X VSS 10 100 -1600 100 U 50 50 1 1 W
+X NC 11 500 0 100 L 50 50 1 1 N
+X SCK 12 -300 -1100 100 R 50 50 1 1 I
+X SDA 13 -300 -1000 100 R 50 50 1 1 B
+X NC 14 500 -100 100 L 50 50 1 1 N
+X A0 15 -300 -1200 100 R 50 50 1 1 I
+X A1 16 -300 -1300 100 R 50 50 1 1 I
+X A2 17 -300 -1400 100 R 50 50 1 1 I
+X ~RESET 18 500 400 100 L 50 50 1 1 O
+X INTB 19 500 300 100 L 50 50 1 1 O
+X GPB1 2 -300 500 100 R 50 50 1 1 B
+X INTA 20 500 200 100 L 50 50 1 1 O
+X GPA0 21 -300 -200 100 R 50 50 1 1 B
+X GPA1 22 -300 -300 100 R 50 50 1 1 B
+X GPA2 23 -300 -400 100 R 50 50 1 1 B
+X GPA3 24 -300 -500 100 R 50 50 1 1 B
+X GPA4 25 -300 -600 100 R 50 50 1 1 B
+X GPA5 26 -300 -700 100 R 50 50 1 1 B
+X GPA6 27 -300 -800 100 R 50 50 1 1 B
+X GPA7 28 -300 -900 100 R 50 50 1 1 B
+X GPB2 3 -300 400 100 R 50 50 1 1 B
+X GPB3 4 -300 300 100 R 50 50 1 1 B
+X GPB4 5 -300 200 100 R 50 50 1 1 B
+X GPB5 6 -300 100 100 R 50 50 1 1 B
+X GPB6 7 -300 0 100 R 50 50 1 1 B
+X GPB7 8 -300 -100 100 R 50 50 1 1 B
+X VDD 9 100 800 100 D 50 50 1 1 W
+ENDDRAW
+ENDDEF
+#
+# MCP23017-E_SO-dk_Interface-I-O-Expanders-ihouse_new-rescue-ihouse_new-rescue
+#
+DEF MCP23017-E_SO-dk_Interface-I-O-Expanders-ihouse_new-rescue-ihouse_new-rescue U 0 40 Y Y 1 F N
+F0 "U" -100 750 60 H V C CNN
+F1 "MCP23017-E_SO-dk_Interface-I-O-Expanders-ihouse_new-rescue-ihouse_new-rescue" 100 -1100 60 V V L CNN
+F2 "digikey-footprints:SOIC-28_W7.5mm" 200 200 60 H I L CNN
+F3 "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en023709" 200 300 60 H I L CNN
+F4 "MCP23017-E/SO-ND" 200 400 60 H I L CNN "Digi-Key_PN"
+F5 "MCP23017-E/SO" 200 500 60 H I L CNN "MPN"
+F6 "Integrated Circuits (ICs)" 200 600 60 H I L CNN "Category"
+F7 "Interface - I/O Expanders" 200 700 60 H I L CNN "Family"
+F8 "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en023709" 200 800 60 H I L CNN "DK_Datasheet_Link"
+F9 "/product-detail/en/microchip-technology/MCP23017-E-SO/MCP23017-E-SO-ND/894271" 200 900 60 H I L CNN "DK_Detail_Page"
+F10 "IC I/O EXPANDER I2C 16B 28SOIC" 200 1000 60 H I L CNN "Description"
+F11 "Microchip Technology" 200 1100 60 H I L CNN "Manufacturer"
+F12 "Active" 200 1200 60 H I L CNN "Status"
+DRAW
+S -200 700 400 -1500 0 1 0 f
+X GPB0 1 -300 600 100 R 50 50 1 1 B
+X VSS 10 100 -1600 100 U 50 50 1 1 W
+X NC 11 500 0 100 L 50 50 1 1 N
+X SCK 12 -300 -1100 100 R 50 50 1 1 I
+X SDA 13 -300 -1000 100 R 50 50 1 1 B
+X NC 14 500 -100 100 L 50 50 1 1 N
+X A0 15 -300 -1200 100 R 50 50 1 1 I
+X A1 16 -300 -1300 100 R 50 50 1 1 I
+X A2 17 -300 -1400 100 R 50 50 1 1 I
+X ~RESET 18 500 400 100 L 50 50 1 1 O
+X INTB 19 500 300 100 L 50 50 1 1 O
+X GPB1 2 -300 500 100 R 50 50 1 1 B
+X INTA 20 500 200 100 L 50 50 1 1 O
+X GPA0 21 -300 -200 100 R 50 50 1 1 B
+X GPA1 22 -300 -300 100 R 50 50 1 1 B
+X GPA2 23 -300 -400 100 R 50 50 1 1 B
+X GPA3 24 -300 -500 100 R 50 50 1 1 B
+X GPA4 25 -300 -600 100 R 50 50 1 1 B
+X GPA5 26 -300 -700 100 R 50 50 1 1 B
+X GPA6 27 -300 -800 100 R 50 50 1 1 B
+X GPA7 28 -300 -900 100 R 50 50 1 1 B
+X GPB2 3 -300 400 100 R 50 50 1 1 B
+X GPB3 4 -300 300 100 R 50 50 1 1 B
+X GPB4 5 -300 200 100 R 50 50 1 1 B
+X GPB5 6 -300 100 100 R 50 50 1 1 B
+X GPB6 7 -300 0 100 R 50 50 1 1 B
+X GPB7 8 -300 -100 100 R 50 50 1 1 B
+X VDD 9 100 800 100 D 50 50 1 1 W
+ENDDRAW
+ENDDEF
+#
+# PCF8583T-mylibrary
+#
+DEF PCF8583T-mylibrary U 0 40 Y Y 1 F N
+F0 "U" -250 350 50 H V C CNN
+F1 "PCF8583T-mylibrary" 250 350 50 H V C CNN
+F2 "Package_SO:SO-8_5.3x6.2mm_P1.27mm" -100 -100 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+S -300 300 300 -300 0 1 10 f
+X OSCI 1 -400 200 100 R 50 50 1 1 I
+X OSCO 2 -400 0 100 R 50 50 1 1 O
+X A0 3 -400 -200 100 R 50 50 1 1 I
+X VSS 4 0 -400 100 U 50 50 1 1 W
+X SDA 5 400 100 100 L 50 50 1 1 B
+X SCL 6 400 200 100 L 50 50 1 1 I
+X ~INT~ 7 400 -200 100 L 50 50 1 1 O
+X VDD 8 0 400 100 D 50 50 1 1 W
+ENDDRAW
+ENDDEF
+#
+# PCF8583T-mylibrary-ihouse_new-rescue-ihouse_new-rescue
+#
+DEF PCF8583T-mylibrary-ihouse_new-rescue-ihouse_new-rescue U 0 40 Y Y 1 F N
+F0 "U" -250 350 50 H V C CNN
+F1 "PCF8583T-mylibrary-ihouse_new-rescue-ihouse_new-rescue" 250 350 50 H V C CNN
+F2 "Package_SO:SO-8_5.3x6.2mm_P1.27mm" -100 -100 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+S -300 300 300 -300 0 1 10 f
+X OSCI 1 -400 200 100 R 50 50 1 1 I
+X OSCO 2 -400 0 100 R 50 50 1 1 O
+X A0 3 -400 -200 100 R 50 50 1 1 I
+X VSS 4 0 -400 100 U 50 50 1 1 W
+X SDA 5 400 100 100 L 50 50 1 1 B
+X SCL 6 400 200 100 L 50 50 1 1 I
+X ~INT~ 7 400 -200 100 L 50 50 1 1 O
+X VDD 8 0 400 100 D 50 50 1 1 W
+ENDDRAW
+ENDDEF
+#
+#End Library

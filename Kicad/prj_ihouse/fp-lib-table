@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name unicon)(type KiCad)(uri D:/KiCad_Libs/User_KiCad-Libraries/BSP_Boards/UniCon/unicon.pretty)(options "")(descr ""))
+)
