@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -48,7 +48,7 @@ Wire Wire Line
 Wire Wire Line
 	4800 2850 5050 2850
 Wire Wire Line
-	4800 3650 5050 3650
+	4650 3650 4700 3650
 Wire Wire Line
 	6450 3650 6650 3650
 Wire Wire Line
@@ -147,7 +147,7 @@ Text HLabel 6650 4350 2    50   Output ~ 0
 GPA7
 Text HLabel 6650 4650 2    50   UnSpc ~ 0
 COM1
-Text HLabel 4800 3650 0    50   Input ~ 0
+Text HLabel 4650 3650 0    50   Input ~ 0
 ~RST
 Text HLabel 4800 2850 0    50   Input ~ 0
 SCK
@@ -212,7 +212,7 @@ Wire Wire Line
 	3500 2750 3500 3350
 Connection ~ 3500 3350
 Wire Wire Line
-	3500 3350 4350 3350
+	3500 3350 4050 3350
 $Comp
 L Device:CP C2
 U 1 1 5C97A053
@@ -233,7 +233,7 @@ Wire Wire Line
 	4350 3250 4350 3350
 Connection ~ 4350 3350
 Wire Wire Line
-	4350 2800 4200 2800
+	4350 2800 4050 2800
 Connection ~ 4350 2800
 Wire Wire Line
 	4350 2800 4350 2450
@@ -255,14 +255,48 @@ Wire Wire Line
 $Comp
 L Device:D D3
 U 1 1 5C997522
-P 4050 2800
-F 0 "D3" H 4050 2676 50  0000 C CNN
-F 1 "BAS32" H 4050 2675 50  0001 C CNN
-F 2 "Diode_SMD:D_MiniMELF" H 4050 2800 50  0001 C CNN
-F 3 "~" H 4050 2800 50  0001 C CNN
-	1    4050 2800
+P 3800 2800
+F 0 "D3" H 3800 2676 50  0000 C CNN
+F 1 "BAS32" H 3800 2675 50  0001 C CNN
+F 2 "Diode_SMD:D_MiniMELF" H 3800 2800 50  0001 C CNN
+F 3 "~" H 3800 2800 50  0001 C CNN
+	1    3800 2800
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	3900 2800 2950 2800
+	3650 2800 2950 2800
+$Comp
+L Device:R R34
+U 1 1 5CA60758
+P 4850 3650
+F 0 "R34" V 4850 3650 50  0000 C CNN
+F 1 "R" V 4734 3650 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4780 3650 50  0001 C CNN
+F 3 "~" H 4850 3650 50  0001 C CNN
+	1    4850 3650
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5000 3650 5050 3650
+$Comp
+L Device:C C22
+U 1 1 5CAE4084
+P 4050 3100
+F 0 "C22" H 3800 3150 50  0000 L CNN
+F 1 "C" H 3800 3050 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4088 2950 50  0001 C CNN
+F 3 "~" H 4050 3100 50  0001 C CNN
+	1    4050 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4050 2950 4050 2800
+Connection ~ 4050 2800
+Wire Wire Line
+	4050 2800 3950 2800
+Wire Wire Line
+	4050 3250 4050 3350
+Connection ~ 4050 3350
+Wire Wire Line
+	4050 3350 4350 3350
 $EndSCHEMATC

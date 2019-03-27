@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -1317,10 +1317,10 @@ Wire Wire Line
 Connection ~ 10400 1800
 Wire Wire Line
 	6400 4150 7900 4150
+Connection ~ 6400 4150
+Connection ~ 7900 4150
 Wire Bus Line
 	750  2100 10200 2100
 Wire Bus Line
 	3200 2350 3200 5050
-Connection ~ 6400 4150
-Connection ~ 7900 4150
 $EndSCHEMATC
