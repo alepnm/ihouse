@@ -3,6 +3,7 @@
 #include "board.h"
 
 
+BKP_TypeDef BackupRegisters;
 
 
 void BoardInit(void) {
@@ -21,6 +22,10 @@ void BoardInit(void) {
     LED_OFF();
 
 
+    /* 10 16-bit registru */
+    LL_RTC_BKP_SetRegister(&BackupRegisters, LL_RTC_BKP_DR10, 0x55);
+
+    uint32_t qqq = LL_RTC_BKP_GetRegister(&BackupRegisters, LL_RTC_BKP_DR10);
 
 
 

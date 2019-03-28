@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 29 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -802,32 +802,6 @@ Wire Wire Line
 Wire Wire Line
 	8750 5150 8750 5250
 Connection ~ 8750 5250
-$Comp
-L Connector_Generic:Conn_01x01 J?
-U 1 1 5D604662
-P 9200 2500
-AR Path="/5D604662" Ref="J?"  Part="1" 
-AR Path="/5D5ECDB6/5D604662" Ref="J3"  Part="1" 
-F 0 "J3" V 9200 2300 50  0001 L CNN
-F 1 "230L" V 9300 2400 50  0000 L CNN
-F 2 "mech:Faston_6.3x0.8x14" H 9200 2500 50  0001 C CNN
-F 3 "~" H 9200 2500 50  0001 C CNN
-	1    9200 2500
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x01 J?
-U 1 1 5D604668
-P 9600 2500
-AR Path="/5D604668" Ref="J?"  Part="1" 
-AR Path="/5D5ECDB6/5D604668" Ref="J4"  Part="1" 
-F 0 "J4" V 9600 2300 50  0001 L CNN
-F 1 "230N" V 9700 2400 50  0000 L CNN
-F 2 "mech:Faston_6.3x0.8x14" H 9600 2500 50  0001 C CNN
-F 3 "~" H 9600 2500 50  0001 C CNN
-	1    9600 2500
-	0    -1   -1   0   
-$EndComp
 Text Label 9000 5850 2    50   ~ 0
 230N
 $Comp
@@ -955,7 +929,7 @@ K11L
 Text Label 7900 4950 0    50   ~ 0
 K12L
 Wire Wire Line
-	9200 2700 9200 2950
+	9900 2950 9200 2950
 Wire Wire Line
 	9100 4050 9100 4400
 Connection ~ 9200 2950
@@ -992,7 +966,7 @@ Wire Wire Line
 Wire Wire Line
 	9200 3350 9200 3450
 Wire Wire Line
-	9600 2700 9600 2800
+	9900 2800 9600 2800
 Wire Wire Line
 	1150 7150 2000 7150
 Wire Wire Line
@@ -1081,13 +1055,9 @@ F 3 "" H 3450 5500 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	2850 5500 2600 5500
-Wire Wire Line
-	10350 6000 10550 6000
-Wire Wire Line
-	9850 6000 9650 6000
-Text Label 10550 6000 2    50   ~ 0
+Text Label 9650 5900 0    50   ~ 0
 K14N
-Text Label 9650 6000 0    50   ~ 0
+Text Label 10550 5900 2    50   ~ 0
 K14L
 Text Label 9500 4400 1    50   ~ 0
 K14N
@@ -1319,6 +1289,39 @@ Wire Wire Line
 	6400 4150 7900 4150
 Connection ~ 6400 4150
 Connection ~ 7900 4150
+Wire Wire Line
+	9850 5900 9650 5900
+Wire Wire Line
+	10350 5900 10550 5900
+Wire Wire Line
+	9650 6000 9850 6000
+Wire Wire Line
+	10550 6000 10350 6000
+Text Label 9650 6000 0    50   ~ 0
+VACN
+Text Label 10550 6000 2    50   ~ 0
+VACL
+Text Label 9900 2950 2    50   ~ 0
+VACL
+Text Label 9900 2800 2    50   ~ 0
+VACN
+NoConn ~ 9850 5800
+NoConn ~ 10350 5800
+NoConn ~ 9400 3450
+NoConn ~ 9000 3450
+NoConn ~ 8000 3450
+NoConn ~ 6300 3450
+NoConn ~ 5300 3450
+NoConn ~ 9300 1100
+NoConn ~ 10300 1100
+NoConn ~ 8300 1100
+NoConn ~ 7300 1100
+NoConn ~ 6300 1100
+NoConn ~ 5300 1100
+NoConn ~ 4300 1100
+NoConn ~ 3300 1100
+NoConn ~ 2300 1100
+NoConn ~ 1300 1100
 Wire Bus Line
 	750  2100 10200 2100
 Wire Bus Line

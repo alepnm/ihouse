@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1553674179 source:c:\working\git\ihouse\software\controller\f1\core\src\main.c
+1553762495 source:c:\working\git\ihouse\software\controller\f1\core\src\main.c
 	"main.h"
 	"board.h"
 
-1553673396 c:\working\git\ihouse\software\controller\f1\core\inc\main.h
+1553762603 c:\working\git\ihouse\software\controller\f1\core\inc\main.h
 	"stm32f1xx_ll_adc.h"
 	"stm32f1xx_ll_i2c.h"
 	"stm32f1xx_ll_rcc.h"
@@ -14,6 +14,7 @@
 	"stm32f1xx_ll_utils.h"
 	"stm32f1xx_ll_pwr.h"
 	"stm32f1xx_ll_dma.h"
+	"stm32f1xx_ll_rtc.h"
 	"stm32f1xx_ll_usart.h"
 	"stm32f1xx.h"
 	"stm32f1xx_ll_gpio.h"
@@ -147,13 +148,13 @@
 1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_ll_gpio.h
 	"stm32f1xx.h"
 
-1553673396 c:\working\git\ihouse\software\controller\f1\core\inc\stm32_assert.h
+1553762603 c:\working\git\ihouse\software\controller\f1\core\inc\stm32_assert.h
 
-1553673396 source:c:\working\git\ihouse\software\controller\f1\core\src\stm32f1xx_it.c
+1553762495 source:c:\working\git\ihouse\software\controller\f1\core\src\stm32f1xx_it.c
 	"main.h"
 	"stm32f1xx_it.h"
 
-1553673396 c:\working\git\ihouse\software\controller\f1\core\inc\stm32f1xx_it.h
+1553762495 c:\working\git\ihouse\software\controller\f1\core\inc\stm32f1xx_it.h
 	"stm32f1xx.h"
 	"stm32f1xx_ll_system.h"
 	"stm32f1xx_ll_gpio.h"
@@ -248,13 +249,13 @@
 	"stm32f1xx_ll_system.h"
 	"stm32_assert.h"
 
-1553499906 source:c:\working\git\ihouse\software\controller\f1\startup\startup_stm32f10x_md.s
+1553754645 source:c:\working\git\ihouse\software\controller\f1\startup\startup_stm32f10x_md.s
 
-1553673707 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\board.c
+1553762440 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\board.c
 	"main.h"
 	"board.h"
 
-1553674081 c:\working\git\ihouse\software\controller\f1\core\mcu_board\board.h
+1553754645 c:\working\git\ihouse\software\controller\f1\core\mcu_board\board.h
 
 1553674213 source:d:\projects\ihouse\software\controller\f1\core\mcu_board\board.c
 	"main.h"
@@ -512,4 +513,183 @@
 	"stm32_assert.h"
 
 1553499906 source:d:\projects\ihouse\software\controller\f1\startup\startup_stm32f10x_md.s
+
+1553761520 c:\working\git\ihouse\software\controller\f1\core\inc\stm32f1xx_hal_conf.h
+	"stm32f1xx_hal_rcc.h"
+	"stm32f1xx_hal_exti.h"
+	"stm32f1xx_hal_gpio.h"
+	"stm32f1xx_hal_dma.h"
+	"stm32f1xx_hal_eth.h"
+	"stm32f1xx_hal_can.h"
+	"stm32f1xx_hal_cec.h"
+	"stm32f1xx_hal_cortex.h"
+	"stm32f1xx_hal_adc.h"
+	"stm32f1xx_hal_crc.h"
+	"stm32f1xx_hal_dac.h"
+	"stm32f1xx_hal_flash.h"
+	"stm32f1xx_hal_sram.h"
+	"stm32f1xx_hal_nor.h"
+	"stm32f1xx_hal_i2c.h"
+	"stm32f1xx_hal_i2s.h"
+	"stm32f1xx_hal_iwdg.h"
+	"stm32f1xx_hal_pwr.h"
+	"stm32f1xx_hal_rtc.h"
+	"stm32f1xx_hal_pccard.h"
+	"stm32f1xx_hal_sd.h"
+	"stm32f1xx_hal_mmc.h"
+	"stm32f1xx_hal_nand.h"
+	"stm32f1xx_hal_spi.h"
+	"stm32f1xx_hal_tim.h"
+	"stm32f1xx_hal_uart.h"
+	"stm32f1xx_hal_usart.h"
+	"stm32f1xx_hal_irda.h"
+	"stm32f1xx_hal_smartcard.h"
+	"stm32f1xx_hal_wwdg.h"
+	"stm32f1xx_hal_pcd.h"
+	"stm32f1xx_hal_hcd.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_rcc.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_rcc_ex.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_def.h
+	"stm32f1xx.h"
+	"Legacy/stm32_hal_legacy.h"
+	<stdio.h>
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\legacy\stm32_hal_legacy.h
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_rcc_ex.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_gpio.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_gpio_ex.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_gpio_ex.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_dma.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_dma_ex.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_dma_ex.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_eth.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_can.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_cec.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_cortex.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_adc.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_adc_ex.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_adc_ex.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_crc.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_dac.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_dac_ex.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_dac_ex.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_flash.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_flash_ex.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_flash_ex.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_sram.h
+	"stm32f1xx_ll_fsmc.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_ll_fsmc.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_nor.h
+	"stm32f1xx_ll_fsmc.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_i2c.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_i2s.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_iwdg.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_pwr.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_rtc.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_rtc_ex.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_rtc_ex.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_pccard.h
+	"stm32f1xx_ll_fsmc.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_sd.h
+	"stm32f1xx_ll_sdmmc.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_ll_sdmmc.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_mmc.h
+	"stm32f1xx_ll_sdmmc.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_nand.h
+	"stm32f1xx_ll_fsmc.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_spi.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_tim.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_tim_ex.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_tim_ex.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_uart.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_usart.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_irda.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_smartcard.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_wwdg.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_pcd.h
+	"stm32f1xx_ll_usb.h"
+	"stm32f1xx_hal_pcd_ex.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_ll_usb.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_pcd_ex.h
+	"stm32f1xx_hal_def.h"
+
+1553499721 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_hcd.h
+	"stm32f1xx_ll_usb.h"
 

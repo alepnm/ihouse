@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 29 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -145,7 +145,7 @@ Text HLabel 6650 3450 2    50   Output ~ 0
 GPB7
 Text HLabel 6650 4350 2    50   Output ~ 0
 GPA7
-Text HLabel 6650 4650 2    50   UnSpc ~ 0
+Text HLabel 2950 3350 0    50   UnSpc ~ 0
 COM1
 Text HLabel 4650 3650 0    50   Input ~ 0
 ~RST
@@ -166,8 +166,6 @@ Wire Wire Line
 	3100 2200 6650 2200
 Text HLabel 6650 2450 2    50   Output ~ 0
 5VDC1
-Text HLabel 2950 3350 0    50   UnSpc ~ 0
-COM
 Text HLabel 4850 4900 0    50   Input ~ 0
 M1EN
 Text HLabel 6650 4900 2    50   Output ~ 0
@@ -299,4 +297,37 @@ Wire Wire Line
 Connection ~ 4050 3350
 Wire Wire Line
 	4050 3350 4350 3350
+$Comp
+L tb387:tb387_uart_expander M2
+U 1 1 5CB77400
+P 5350 5550
+F 0 "M2" H 5300 5850 60  0000 C CNN
+F 1 "tb387_uart_expander" H 6100 5400 60  0001 C CNN
+F 2 "uart_expander:TB387_UART_expander" H 5900 5100 60  0001 C CNN
+F 3 "" H 5400 5100 60  0001 C CNN
+	1    5350 5550
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 5750 6650 5750
+Wire Wire Line
+	5700 5650 6650 5650
+Wire Wire Line
+	5700 5550 6650 5550
+Wire Wire Line
+	5700 5450 6000 5450
+Wire Wire Line
+	5700 5350 6000 5350
+Text Label 6000 5450 2    50   ~ 0
+5VDC1
+Text Label 6000 5350 2    50   ~ 0
+COM
+Text HLabel 6650 5550 2    50   Output ~ 0
+TBTX
+Text HLabel 6650 5650 2    50   Input ~ 0
+TBRX
+Text HLabel 6650 5750 2    50   Input ~ 0
+TBCMD
+Text HLabel 6650 4650 2    50   UnSpc ~ 0
+COM2
 $EndSCHEMATC
