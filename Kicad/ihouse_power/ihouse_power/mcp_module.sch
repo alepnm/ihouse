@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -48,7 +48,7 @@ Wire Wire Line
 Wire Wire Line
 	4800 2850 5050 2850
 Wire Wire Line
-	4650 3650 4700 3650
+	4100 3650 4700 3650
 Wire Wire Line
 	6450 3650 6650 3650
 Wire Wire Line
@@ -147,8 +147,8 @@ Text HLabel 6650 4350 2    50   Output ~ 0
 GPA7
 Text HLabel 2950 3350 0    50   UnSpc ~ 0
 COM1
-Text HLabel 4650 3650 0    50   Input ~ 0
-~RST
+Text HLabel 4100 3650 0    50   Input ~ 0
+~MCPRST
 Text HLabel 4800 2850 0    50   Input ~ 0
 SCK
 Text HLabel 4800 2750 0    50   BiDi ~ 0
