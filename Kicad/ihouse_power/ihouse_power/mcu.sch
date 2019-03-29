@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 29 0
+EELAYER 26 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -213,10 +213,6 @@ Wire Wire Line
 	3800 4400 3900 4400
 Wire Wire Line
 	3800 4700 3900 4700
-Text Label 4500 4400 2    50   ~ 0
-D1TX
-Text Label 4500 4700 2    50   ~ 0
-D1RX
 Text Label 2300 4400 0    50   ~ 0
 RSTX
 Text Label 2300 4700 0    50   ~ 0
@@ -1147,14 +1143,6 @@ Wire Wire Line
 Connection ~ 2300 10200
 Wire Wire Line
 	2300 10200 2700 10200
-Text Label 2700 8150 2    50   ~ 0
-OPTIC
-Text Label 2700 8700 2    50   ~ 0
-HUM1
-Text Label 2700 9250 2    50   ~ 0
-HUM2
-Text Label 2700 9800 2    50   ~ 0
-HUM3
 Text HLabel 1350 7450 0    50   Output ~ 0
 VDDA
 $Comp
@@ -1349,8 +1337,6 @@ Wire Wire Line
 Connection ~ 2300 10750
 Wire Wire Line
 	2300 10750 2700 10750
-Text Label 2700 10350 2    50   ~ 0
-TEMP
 Text HLabel 14700 2450 2    50   Output ~ 0
 M1EN
 Text HLabel 14700 2550 2    50   Output ~ 0
@@ -1704,10 +1690,8 @@ Wire Wire Line
 	5150 1950 5150 1850
 Connection ~ 4500 1950
 Wire Wire Line
-	5150 1450 5450 1450
+	5150 1450 5400 1450
 Connection ~ 5150 1450
-Text Label 5450 1450 2    50   ~ 0
-VLINE
 Wire Wire Line
 	950  1750 1600 1750
 Wire Wire Line
@@ -1841,26 +1825,169 @@ Wire Wire Line
 	4200 4700 4500 4700
 Text Label 7300 5050 0    50   ~ 0
 ~RST
-Text Label 7150 5200 0    50   ~ 0
-OPTIC
-Text Label 7150 5300 0    50   ~ 0
-HUM1
-Text Label 7150 5600 0    50   ~ 0
-HUM2
-Text Label 7150 5700 0    50   ~ 0
-HUM3
-Text Label 7150 5800 0    50   ~ 0
-TEMP
 Text Label 12350 5000 0    50   ~ 0
 A0
-Text Label 7500 5200 0    50   ~ 0
+Text Label 7150 5200 0    50   ~ 0
 A0
-Text Label 7500 5300 0    50   ~ 0
+Text Label 7150 5300 0    50   ~ 0
 A1
-Text Label 7500 5600 0    50   ~ 0
+Text Label 7150 5600 0    50   ~ 0
 A4
-Text Label 7500 5700 0    50   ~ 0
+Text Label 7150 5700 0    50   ~ 0
 A5
-Text Label 7500 5800 0    50   ~ 0
+Text Label 7150 5800 0    50   ~ 0
 A6
+$Comp
+L Regulator_Linear:L7805 U11
+U 1 1 5CA0D926
+P 2600 2350
+F 0 "U11" H 2600 2592 50  0000 C CNN
+F 1 "L7805" H 2600 2501 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 2625 2200 50  0001 L CIN
+F 3 "http://www.st.com/content/ccc/resource/technical/document/datasheet/41/4f/b3/b0/12/d4/47/88/CD00000444.pdf/files/CD00000444.pdf/jcr:content/translations/en.CD00000444.pdf" H 2600 2300 50  0001 C CNN
+	1    2600 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2300 2350 2100 2350
+Text Label 1700 2350 0    50   ~ 0
+12VDC
+Wire Wire Line
+	1700 2750 2100 2750
+Wire Wire Line
+	2600 2750 2600 2650
+Wire Wire Line
+	2900 2350 3050 2350
+Wire Wire Line
+	2600 2750 3050 2750
+Connection ~ 2600 2750
+Text Label 1700 2750 0    50   ~ 0
+COM
+Text Label 4150 2750 2    50   ~ 0
+COM
+Text Label 4150 2350 2    50   ~ 0
+5VDC
+$Comp
+L Device:CP C26
+U 1 1 5CAA6900
+P 3850 2550
+F 0 "C26" H 4050 2600 50  0000 L CNN
+F 1 "CP" H 4050 2500 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 3888 2400 50  0001 C CNN
+F 3 "~" H 3850 2550 50  0001 C CNN
+	1    3850 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 2400 3850 2350
+Connection ~ 3850 2350
+Wire Wire Line
+	3850 2350 4150 2350
+Wire Wire Line
+	3850 2700 3850 2750
+Connection ~ 3850 2750
+Wire Wire Line
+	3850 2750 4150 2750
+$Comp
+L Device:C C24
+U 1 1 5CB232AD
+P 3050 2550
+F 0 "C24" H 3165 2596 50  0000 L CNN
+F 1 "C" H 3165 2505 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3088 2400 50  0001 C CNN
+F 3 "~" H 3050 2550 50  0001 C CNN
+	1    3050 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C25
+U 1 1 5CB233A4
+P 3450 2550
+F 0 "C25" H 3565 2596 50  0000 L CNN
+F 1 "C" H 3565 2505 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3488 2400 50  0001 C CNN
+F 3 "~" H 3450 2550 50  0001 C CNN
+	1    3450 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3050 2400 3050 2350
+Connection ~ 3050 2350
+Wire Wire Line
+	3050 2350 3450 2350
+Wire Wire Line
+	3050 2700 3050 2750
+Connection ~ 3050 2750
+Wire Wire Line
+	3050 2750 3450 2750
+Wire Wire Line
+	3450 2400 3450 2350
+Connection ~ 3450 2350
+Wire Wire Line
+	3450 2350 3850 2350
+Wire Wire Line
+	3450 2700 3450 2750
+Connection ~ 3450 2750
+Wire Wire Line
+	3450 2750 3850 2750
+$Comp
+L Device:C C23
+U 1 1 5CC22128
+P 2100 2550
+F 0 "C23" H 2215 2596 50  0000 L CNN
+F 1 "C" H 2215 2505 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2138 2400 50  0001 C CNN
+F 3 "~" H 2100 2550 50  0001 C CNN
+	1    2100 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2100 2400 2100 2350
+Connection ~ 2100 2350
+Wire Wire Line
+	2100 2350 1700 2350
+Wire Wire Line
+	2100 2700 2100 2750
+Connection ~ 2100 2750
+Wire Wire Line
+	2100 2750 2600 2750
+$Comp
+L Device:C C27
+U 1 1 5CC65F8C
+P 5400 1700
+F 0 "C27" H 5515 1746 50  0000 L CNN
+F 1 "C" H 5515 1655 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 5438 1550 50  0001 C CNN
+F 3 "~" H 5400 1700 50  0001 C CNN
+	1    5400 1700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5150 1950 5400 1950
+Wire Wire Line
+	5400 1950 5400 1850
+Connection ~ 5150 1950
+Wire Wire Line
+	5400 1550 5400 1450
+Connection ~ 5400 1450
+Wire Wire Line
+	5400 1450 6000 1450
+Text Label 4500 4400 2    50   ~ 0
+A9
+Text Label 4500 4700 2    50   ~ 0
+A10
+Text Label 2700 8150 2    50   ~ 0
+A0
+Text Label 2700 8700 2    50   ~ 0
+A1
+Text Label 2700 9250 2    50   ~ 0
+A4
+Text Label 2700 9800 2    50   ~ 0
+A5
+Text Label 2700 10350 2    50   ~ 0
+A6
+Text Label 6000 1450 2    50   ~ 0
+A7
+Text Label 5550 1450 0    50   ~ 0
+VLINE
 $EndSCHEMATC

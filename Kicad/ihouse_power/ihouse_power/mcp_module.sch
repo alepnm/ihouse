@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 29 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -298,7 +298,7 @@ Connection ~ 4050 3350
 Wire Wire Line
 	4050 3350 4350 3350
 $Comp
-L tb387:tb387_uart_expander M2
+L ihouse_power-rescue:tb387_uart_expander-tb387 M2
 U 1 1 5CB77400
 P 5350 5550
 F 0 "M2" H 5300 5850 60  0000 C CNN
