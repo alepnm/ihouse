@@ -2,4 +2,6 @@
   (lib (name "1220 Battery Holder")(type KiCad)(uri "D:/VentLib/alex_libs/Components/1220 Battery Holder")(options "")(descr ""))
   (lib (name stm32f1_module)(type KiCad)(uri D:/VentLib/alex_libs/STM32F1_China_module/stm32f1_module.pretty)(options "")(descr ""))
   (lib (name uart_expander)(type KiCad)(uri D:/VentLib/alex_libs/TB387_UART_expander/uart_expander.pretty)(options "")(descr ""))
+  (lib (name rj45_vertical_shelded)(type KiCad)(uri "D:/VentLib/alex_libs/Components/RJ45 Vertical Shelded/rj45_vertical_shelded.pretty")(options "")(descr ""))
+  (lib (name ihouse_power)(type KiCad)(uri "D:/VentLib/alex_libs/Components/RJ45 Vertical Shelded/rj45_vertical_shelded.pretty/ihouse_power.pretty")(options "")(descr ""))
 )

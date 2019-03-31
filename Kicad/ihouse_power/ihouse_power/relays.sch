@@ -1,10 +1,10 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 4
+Sheet 3 5
 Title ""
 Date ""
 Rev ""
@@ -577,32 +577,6 @@ $EndComp
 Wire Wire Line
 	8700 3400 8700 3450
 $Comp
-L power:GND #PWR?
-U 1 1 5D6045DC
-P 2400 3750
-AR Path="/5D6045DC" Ref="#PWR?"  Part="1" 
-AR Path="/5D5ECDB6/5D6045DC" Ref="#PWR0112"  Part="1" 
-F 0 "#PWR0112" H 2400 3500 50  0001 C CNN
-F 1 "GND" H 2405 3577 50  0000 C CNN
-F 2 "" H 2400 3750 50  0001 C CNN
-F 3 "" H 2400 3750 50  0001 C CNN
-	1    2400 3750
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5D6045E2
-P 2400 5150
-AR Path="/5D6045E2" Ref="#PWR?"  Part="1" 
-AR Path="/5D5ECDB6/5D6045E2" Ref="#PWR0113"  Part="1" 
-F 0 "#PWR0113" H 2400 4900 50  0001 C CNN
-F 1 "GND" H 2405 4977 50  0000 C CNN
-F 2 "" H 2400 5150 50  0001 C CNN
-F 3 "" H 2400 5150 50  0001 C CNN
-	1    2400 5150
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:Fuse F?
 U 1 1 5D6045E8
 P 8500 2950
@@ -635,58 +609,6 @@ Wire Wire Line
 Wire Wire Line
 	1900 6950 1900 6150
 Connection ~ 1900 6150
-$Comp
-L power:GND #PWR?
-U 1 1 5D6045FC
-P 2300 7550
-AR Path="/5D6045FC" Ref="#PWR?"  Part="1" 
-AR Path="/5D5ECDB6/5D6045FC" Ref="#PWR0114"  Part="1" 
-F 0 "#PWR0114" H 2300 7300 50  0001 C CNN
-F 1 "GND" H 2305 7377 50  0000 C CNN
-F 2 "" H 2300 7550 50  0001 C CNN
-F 3 "" H 2300 7550 50  0001 C CNN
-	1    2300 7550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5D604602
-P 2400 7550
-AR Path="/5D604602" Ref="#PWR?"  Part="1" 
-AR Path="/5D5ECDB6/5D604602" Ref="#PWR0115"  Part="1" 
-F 0 "#PWR0115" H 2400 7300 50  0001 C CNN
-F 1 "GND" H 2405 7377 50  0000 C CNN
-F 2 "" H 2400 7550 50  0001 C CNN
-F 3 "" H 2400 7550 50  0001 C CNN
-	1    2400 7550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5D604608
-P 2600 7550
-AR Path="/5D604608" Ref="#PWR?"  Part="1" 
-AR Path="/5D5ECDB6/5D604608" Ref="#PWR0116"  Part="1" 
-F 0 "#PWR0116" H 2600 7300 50  0001 C CNN
-F 1 "GND" H 2605 7377 50  0000 C CNN
-F 2 "" H 2600 7550 50  0001 C CNN
-F 3 "" H 2600 7550 50  0001 C CNN
-	1    2600 7550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5D60460E
-P 2700 7550
-AR Path="/5D60460E" Ref="#PWR?"  Part="1" 
-AR Path="/5D5ECDB6/5D60460E" Ref="#PWR0117"  Part="1" 
-F 0 "#PWR0117" H 2700 7300 50  0001 C CNN
-F 1 "GND" H 2705 7377 50  0000 C CNN
-F 2 "" H 2700 7550 50  0001 C CNN
-F 3 "" H 2700 7550 50  0001 C CNN
-	1    2700 7550
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2800 4150 2900 4150
 Wire Wire Line
@@ -1040,19 +962,6 @@ F 3 "~" H 3300 5500 50  0001 C CNN
 	1    3300 5500
 	-1   0    0    1   
 $EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5D6046FD
-P 3450 5500
-AR Path="/5D6046FD" Ref="#PWR?"  Part="1" 
-AR Path="/5D5ECDB6/5D6046FD" Ref="#PWR0124"  Part="1" 
-F 0 "#PWR0124" H 3450 5250 50  0001 C CNN
-F 1 "GND" V 3455 5372 50  0000 R CNN
-F 2 "" H 3450 5500 50  0001 C CNN
-F 3 "" H 3450 5500 50  0001 C CNN
-	1    3450 5500
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	2850 5500 2600 5500
 Text Label 9650 5900 0    50   ~ 0
@@ -1078,19 +987,6 @@ F 3 "~" H 1400 6750 50  0001 C CNN
 	1    1400 6750
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5D604713
-P 1400 6900
-AR Path="/5D604713" Ref="#PWR?"  Part="1" 
-AR Path="/5D5ECDB6/5D604713" Ref="#PWR0125"  Part="1" 
-F 0 "#PWR0125" H 1400 6650 50  0001 C CNN
-F 1 "GND" H 1405 6727 50  0000 C CNN
-F 2 "" H 1400 6900 50  0001 C CNN
-F 3 "" H 1400 6900 50  0001 C CNN
-	1    1400 6900
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	1750 6350 1750 6750
 Connection ~ 1750 6350
@@ -1102,32 +998,6 @@ Wire Wire Line
 	950  6350 1750 6350
 Wire Wire Line
 	950  6150 1900 6150
-$Comp
-L power:GND #PWR?
-U 1 1 5D60472D
-P 1050 5800
-AR Path="/5D60472D" Ref="#PWR?"  Part="1" 
-AR Path="/5D5ECDB6/5D60472D" Ref="#PWR0126"  Part="1" 
-F 0 "#PWR0126" H 1050 5550 50  0001 C CNN
-F 1 "GND" V 1055 5672 50  0000 R CNN
-F 2 "" H 1050 5800 50  0001 C CNN
-F 3 "" H 1050 5800 50  0001 C CNN
-	1    1050 5800
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5D604733
-P 1050 5600
-AR Path="/5D604733" Ref="#PWR?"  Part="1" 
-AR Path="/5D5ECDB6/5D604733" Ref="#PWR0127"  Part="1" 
-F 0 "#PWR0127" H 1050 5350 50  0001 C CNN
-F 1 "GND" V 1055 5472 50  0000 R CNN
-F 2 "" H 1050 5600 50  0001 C CNN
-F 3 "" H 1050 5600 50  0001 C CNN
-	1    1050 5600
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	950  5700 1400 5700
 Connection ~ 1400 5700
@@ -1173,18 +1043,14 @@ Text HLabel 1050 4950 0    50   Input ~ 0
 REL14
 Text HLabel 1050 4850 0    50   Input ~ 0
 REL13
-Wire Wire Line
-	1050 5600 950  5600
-Wire Wire Line
-	1050 5800 950  5800
 Text HLabel 950  5500 0    50   Input ~ 0
 12VDC
 Text HLabel 950  5600 0    50   UnSpc ~ 0
-COM
+COM1
 Text HLabel 950  5700 0    50   Input ~ 0
 5VDC
 Text HLabel 950  5800 0    50   UnSpc ~ 0
-COM
+COM2
 Text HLabel 950  5900 0    50   Input ~ 0
 M1ENA
 Text HLabel 950  6000 0    50   Input ~ 0
@@ -1322,6 +1188,56 @@ NoConn ~ 4300 1100
 NoConn ~ 3300 1100
 NoConn ~ 2300 1100
 NoConn ~ 1300 1100
+Wire Wire Line
+	1400 6900 1400 7650
+Wire Wire Line
+	1400 7650 2300 7650
+Wire Wire Line
+	2700 7650 2700 7550
+Wire Wire Line
+	2600 7550 2600 7650
+Connection ~ 2600 7650
+Wire Wire Line
+	2600 7650 2700 7650
+Wire Wire Line
+	2400 7550 2400 7650
+Connection ~ 2400 7650
+Wire Wire Line
+	2400 7650 2600 7650
+Wire Wire Line
+	2300 7550 2300 7650
+Connection ~ 2300 7650
+Wire Wire Line
+	2300 7650 2400 7650
+Wire Wire Line
+	1150 5800 1150 5600
+Wire Wire Line
+	950  5600 1150 5600
+Wire Wire Line
+	950  5800 1150 5800
+Wire Wire Line
+	1150 5600 1450 5600
+Connection ~ 1150 5600
+Text Label 1600 7650 0    50   ~ 0
+COM
+Text Label 1450 5600 2    50   ~ 0
+COM
+Wire Wire Line
+	3450 5500 3700 5500
+Text Label 3700 5500 2    50   ~ 0
+COM
+Wire Wire Line
+	2400 5150 2400 5200
+Wire Wire Line
+	2400 5200 2100 5200
+Wire Wire Line
+	2400 3750 2400 3800
+Wire Wire Line
+	2400 3800 2100 3800
+Text Label 2100 5200 0    50   ~ 0
+COM
+Text Label 2100 3800 0    50   ~ 0
+COM
 Wire Bus Line
 	750  2100 10200 2100
 Wire Bus Line

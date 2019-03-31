@@ -1,10 +1,10 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 4
+Sheet 2 5
 Title ""
 Date ""
 Rev ""
@@ -47,8 +47,6 @@ Wire Wire Line
 	4800 2750 5050 2750
 Wire Wire Line
 	4800 2850 5050 2850
-Wire Wire Line
-	4100 3650 4700 3650
 Wire Wire Line
 	6450 3650 6650 3650
 Wire Wire Line
@@ -109,10 +107,6 @@ Text Label 6650 2850 2    50   ~ 0
 GPB1
 Text Label 6650 2750 2    50   ~ 0
 GPB0
-Text Label 6650 4350 2    50   ~ 0
-MA
-Text Label 6650 3450 2    50   ~ 0
-MB
 Text HLabel 6650 2750 2    50   Output ~ 0
 GPB0
 Text HLabel 6650 2850 2    50   Output ~ 0
@@ -142,12 +136,12 @@ GPA5
 Text HLabel 6650 4250 2    50   Output ~ 0
 GPA6
 Text HLabel 6650 3450 2    50   Output ~ 0
-GPB7
+M2ENA
 Text HLabel 6650 4350 2    50   Output ~ 0
-GPA7
+M1ENA
 Text HLabel 2950 3350 0    50   UnSpc ~ 0
 COM1
-Text HLabel 4100 3650 0    50   Input ~ 0
+Text HLabel 4800 3650 0    50   Input ~ 0
 ~MCPRST
 Text HLabel 4800 2850 0    50   Input ~ 0
 SCK
@@ -167,13 +161,13 @@ Wire Wire Line
 Text HLabel 6650 2450 2    50   Output ~ 0
 5VDC1
 Text HLabel 4850 4900 0    50   Input ~ 0
-M1EN
+MA1
 Text HLabel 6650 4900 2    50   Output ~ 0
-M1ENA
+MA2
 Text HLabel 6650 5000 2    50   Output ~ 0
-M2ENA
+MB2
 Text HLabel 4850 5000 0    50   Input ~ 0
-M2EN
+MB1
 Wire Wire Line
 	4850 4900 6650 4900
 Wire Wire Line
@@ -264,19 +258,6 @@ $EndComp
 Wire Wire Line
 	3650 2800 2950 2800
 $Comp
-L Device:R R34
-U 1 1 5CA60758
-P 4850 3650
-F 0 "R34" V 4850 3650 50  0000 C CNN
-F 1 "R" V 4734 3650 50  0001 C CNN
-F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4780 3650 50  0001 C CNN
-F 3 "~" H 4850 3650 50  0001 C CNN
-	1    4850 3650
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	5000 3650 5050 3650
-$Comp
 L Device:C C22
 U 1 1 5CAE4084
 P 4050 3100
@@ -330,4 +311,8 @@ Text HLabel 6650 5750 2    50   Input ~ 0
 TBCMD
 Text HLabel 6650 4650 2    50   UnSpc ~ 0
 COM2
+Text Label 5400 4650 2    50   ~ 0
+COM
+Wire Wire Line
+	4800 3650 5050 3650
 $EndSCHEMATC

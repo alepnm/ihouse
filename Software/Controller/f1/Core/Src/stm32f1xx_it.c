@@ -71,6 +71,7 @@ extern uint32_t timestamp;
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -198,7 +199,7 @@ void SysTick_Handler(void)
   /* USER CODE BEGIN SysTick_IRQn 0 */
     timestamp++;
   /* USER CODE END SysTick_IRQn 0 */
-  
+  HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
 
   /* USER CODE END SysTick_IRQn 1 */
