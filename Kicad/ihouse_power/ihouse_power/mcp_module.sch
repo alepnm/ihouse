@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -136,9 +136,9 @@ GPA5
 Text HLabel 6650 4250 2    50   Output ~ 0
 GPA6
 Text HLabel 6650 3450 2    50   Output ~ 0
-M2ENA
+MB
 Text HLabel 6650 4350 2    50   Output ~ 0
-M1ENA
+MA
 Text HLabel 2950 3350 0    50   UnSpc ~ 0
 COM1
 Text HLabel 4800 3650 0    50   Input ~ 0
@@ -161,13 +161,13 @@ Wire Wire Line
 Text HLabel 6650 2450 2    50   Output ~ 0
 5VDC1
 Text HLabel 4850 4900 0    50   Input ~ 0
-MA1
+M1ENA
 Text HLabel 6650 4900 2    50   Output ~ 0
-MA2
+M1EN
 Text HLabel 6650 5000 2    50   Output ~ 0
-MB2
+M2EN
 Text HLabel 4850 5000 0    50   Input ~ 0
-MB1
+M2ENA
 Wire Wire Line
 	4850 4900 6650 4900
 Wire Wire Line

@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -1279,9 +1279,9 @@ Connection ~ 2700 10300
 Wire Wire Line
 	2700 10300 3100 10300
 Text HLabel 9000 5800 2    50   Output ~ 0
-MA
+M1ENA
 Text HLabel 9000 5900 2    50   Output ~ 0
-MB
+M2ENA
 Wire Wire Line
 	7150 5500 7600 5500
 Wire Wire Line

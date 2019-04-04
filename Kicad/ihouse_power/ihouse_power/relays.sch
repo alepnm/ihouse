@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -603,12 +603,12 @@ F 3 "http://www.ti.com/lit/ds/symlink/l293.pdf" H 2200 7450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2000 6150 1900 6150
+	2000 6150 1750 6150
 Wire Wire Line
-	2000 6350 1750 6350
+	2000 6350 1900 6350
 Wire Wire Line
-	1900 6950 1900 6150
-Connection ~ 1900 6150
+	1750 6950 1750 6150
+Connection ~ 1750 6150
 Wire Wire Line
 	2800 4150 2900 4150
 Wire Wire Line
@@ -919,23 +919,23 @@ Wire Wire Line
 Text Label 9650 5600 0    50   ~ 0
 M1A
 Text Label 9650 5700 0    50   ~ 0
-M2A
+M23A
 Text Label 10550 5600 2    50   ~ 0
 M1B
 Text Label 10550 5700 2    50   ~ 0
-M2B
+M23B
 Text Label 3450 6150 2    50   ~ 0
 M1A
 Text Label 3450 6350 2    50   ~ 0
 M1B
 Text Label 3450 6950 2    50   ~ 0
-M2A
+M23A
 Text Label 3450 6750 2    50   ~ 0
-M2B
+M23B
 Wire Wire Line
-	2000 6750 1750 6750
+	2000 6750 1900 6750
 Wire Wire Line
-	1900 6950 2000 6950
+	1750 6950 2000 6950
 $Comp
 L Device:R R?
 U 1 1 5D6046EF
@@ -988,16 +988,16 @@ F 3 "~" H 1400 6750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1750 6350 1750 6750
-Connection ~ 1750 6350
+	1900 6350 1900 6750
+Connection ~ 1900 6350
 Wire Wire Line
 	1400 6600 1400 5700
 Wire Wire Line
 	1400 5700 2400 5700
 Wire Wire Line
-	950  6350 1750 6350
+	950  6350 1900 6350
 Wire Wire Line
-	950  6150 1900 6150
+	950  6150 1750 6150
 Wire Wire Line
 	950  5700 1400 5700
 Connection ~ 1400 5700
@@ -1238,6 +1238,171 @@ Text Label 2100 5200 0    50   ~ 0
 COM
 Text Label 2100 3800 0    50   ~ 0
 COM
+Text Notes 5000 7550 0    50   ~ 0
+K1 - vonios jungiklis\nK2 - WC jungiklis\nK3 - karsto/salto vandens sklende\n\n\n \nK7 - ventiliatorius vonios\nK8 - virtuves darb. zonos mazas apsvietimas\nK9 - virtuves darb. zonos pilnas apsvietimas\nK10 - koridorius\nK11 - koridorius naktinis apsvietimas\nK12 - garnikas\nK13 - bendras rele (NC)\nK14 - virtuves rozete
+$Comp
+L Relay:FINDER-41.52 K?
+U 1 1 5CB5537E
+P 16250 5250
+AR Path="/5CB5537E" Ref="K?"  Part="1" 
+AR Path="/5D5ECDB6/5CB5537E" Ref="K?"  Part="1" 
+F 0 "K?" V 15600 5150 50  0000 L CNN
+F 1 "FINDER-41.52" H 16880 5205 50  0001 L CNN
+F 2 "" H 17600 5220 50  0001 C CNN
+F 3 "http://gfinder.findernet.com/assets/Series/357/S41EN.pdf" H 16050 5250 50  0001 C CNN
+	1    16250 5250
+	0    1    1    0   
+$EndComp
+Text Label 15500 5250 0    50   ~ 0
+M23B
+Text Label 15500 5650 0    50   ~ 0
+M23A
+Wire Wire Line
+	16550 4850 16950 4850
+Text Label 16950 4850 2    50   ~ 0
+K3
+Wire Wire Line
+	16550 5150 16950 5150
+Wire Wire Line
+	16550 5550 16750 5550
+Wire Wire Line
+	16750 5550 16750 5250
+Wire Wire Line
+	16750 5250 16950 5250
+Wire Wire Line
+	16550 5750 16950 5750
+Wire Wire Line
+	16550 5350 16650 5350
+Wire Wire Line
+	16650 5350 16650 5650
+Wire Wire Line
+	16650 5650 16950 5650
+Text Label 16950 5150 2    50   ~ 0
+M2A
+Text Label 16950 5250 2    50   ~ 0
+M2B
+Text Label 16950 5650 2    50   ~ 0
+M3A
+Text Label 16950 5750 2    50   ~ 0
+M3B
+$Comp
+L Relay:FINDER-41.52 K?
+U 1 1 5CBEF7DF
+P 14950 5250
+AR Path="/5CBEF7DF" Ref="K?"  Part="1" 
+AR Path="/5D5ECDB6/5CBEF7DF" Ref="K?"  Part="1" 
+F 0 "K?" V 14300 5150 50  0000 L CNN
+F 1 "FINDER-41.52" H 15580 5205 50  0001 L CNN
+F 2 "" H 16300 5220 50  0001 C CNN
+F 3 "http://gfinder.findernet.com/assets/Series/357/S41EN.pdf" H 14750 5250 50  0001 C CNN
+	1    14950 5250
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	15250 5250 15950 5250
+Wire Wire Line
+	15250 5650 15950 5650
+Wire Wire Line
+	14650 5150 14450 5150
+Text Label 13800 5750 0    50   ~ 0
+COM
+$Comp
+L power:+12V #PWR?
+U 1 1 5CC5031D
+P 14550 3700
+AR Path="/5CC5031D" Ref="#PWR?"  Part="1" 
+AR Path="/5D5ECDB6/5CC5031D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 14550 3550 50  0001 C CNN
+F 1 "+12V" H 14565 3873 50  0000 C CNN
+F 2 "" H 14550 3700 50  0001 C CNN
+F 3 "" H 14550 3700 50  0001 C CNN
+	1    14550 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14650 4850 14550 4850
+Wire Wire Line
+	15250 4850 15600 4850
+Text Label 15600 4850 2    50   ~ 0
+K4
+Wire Wire Line
+	14650 5550 14550 5550
+Wire Wire Line
+	14650 5750 14450 5750
+Wire Wire Line
+	14450 5750 14450 5550
+Wire Wire Line
+	14650 5350 14550 5350
+Wire Wire Line
+	14550 5350 14550 5550
+$Comp
+L Relay:FINDER-34.51 K?
+U 1 1 5CCD8501
+P 14950 4000
+AR Path="/5CCD8501" Ref="K?"  Part="1" 
+AR Path="/5D5ECDB6/5CCD8501" Ref="K?"  Part="1" 
+F 0 "K?" V 14500 3950 50  0000 L CNN
+F 1 "FINDER-34.51" H 15380 3955 50  0001 L CNN
+F 2 "" H 16090 3960 50  0001 C CNN
+F 3 "https://gfinder.findernet.com/public/attachments/34/EN/S34USAEN.pdf" H 14950 4000 50  0001 C CNN
+	1    14950 4000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	14650 4200 14550 4200
+Wire Wire Line
+	14550 4200 14550 3800
+Wire Wire Line
+	14650 3800 14550 3800
+Connection ~ 14550 3800
+Wire Wire Line
+	14550 3800 14550 3700
+Wire Wire Line
+	15250 4300 15350 4300
+Wire Wire Line
+	15350 4300 15350 4500
+Wire Wire Line
+	15350 4500 14550 4500
+Wire Wire Line
+	14550 4500 14550 4850
+Wire Wire Line
+	15250 3800 15600 3800
+Text Label 15600 3800 2    50   ~ 0
+K5
+Wire Wire Line
+	15950 4850 15850 4850
+Wire Wire Line
+	15850 4850 15850 4500
+Wire Wire Line
+	15850 4500 15350 4500
+Connection ~ 15350 4500
+Wire Wire Line
+	14450 5750 14350 5750
+Connection ~ 14450 5750
+Wire Wire Line
+	14550 4850 14550 5350
+Connection ~ 14550 4850
+Connection ~ 14550 5350
+$Comp
+L Device:R R?
+U 1 1 5CFEF408
+P 14200 5750
+F 0 "R?" V 14200 5750 50  0000 C CNN
+F 1 "4R7" V 14300 5750 50  0000 C CNN
+F 2 "" V 14130 5750 50  0001 C CNN
+F 3 "~" H 14200 5750 50  0001 C CNN
+	1    14200 5750
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	14050 5750 13800 5750
+Wire Wire Line
+	14450 5550 13800 5550
+Connection ~ 14450 5550
+Wire Wire Line
+	14450 5550 14450 5150
+Text Label 13800 5550 0    50   ~ 0
+OUT
 Wire Bus Line
 	750  2100 10200 2100
 Wire Bus Line
