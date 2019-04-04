@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 29 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -150,14 +150,6 @@ Wire Wire Line
 	7650 3600 7650 2800
 Connection ~ 7650 2800
 Wire Wire Line
-	8750 3000 8900 3000
-Wire Wire Line
-	8750 3400 8900 3400
-Wire Wire Line
-	8750 3600 8900 3600
-Wire Wire Line
-	8750 2800 8900 2800
-Wire Wire Line
 	3700 1700 7800 1700
 Wire Wire Line
 	7750 3400 7550 3400
@@ -212,7 +204,7 @@ AR Path="/5D5ECDB6/5CB3DAF8" Ref="TH?"  Part="1"
 AR Path="/5CA6F474/5CB3DAF8" Ref="TH3"  Part="1" 
 F 0 "TH3" V 7800 1700 50  0000 C CNN
 F 1 "Thermistor_PTC" V 7751 1700 50  0001 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal" H 8000 1500 50  0001 L CNN
+F 2 "Resistor_SMD:R_2816_7142Metric" H 8000 1500 50  0001 L CNN
 F 3 "~" H 7950 1700 50  0001 C CNN
 	1    7950 1700
 	0    1    1    0   
@@ -258,14 +250,6 @@ Text Label 8150 2200 2    50   ~ 0
 5VDC
 Connection ~ 5850 2200
 Connection ~ 5850 4400
-Text HLabel 8900 3600 2    50   Output ~ 0
-M3A
-Text HLabel 8900 3400 2    50   Output ~ 0
-M3B
-Text HLabel 8900 2800 2    50   Output ~ 0
-M4A
-Text HLabel 8900 3000 2    50   Output ~ 0
-M4B
 Wire Wire Line
 	3700 1950 7650 1950
 Wire Wire Line
@@ -364,4 +348,47 @@ Wire Wire Line
 Connection ~ 4650 3200
 Wire Wire Line
 	4650 3200 3700 3200
+$Comp
+L Connector_Generic:Conn_02x02_Top_Bottom J21
+U 1 1 5CE640C4
+P 9600 3150
+F 0 "J21" H 9650 3275 50  0000 C CNN
+F 1 "Conn_02x02_Top_Bottom" H 9650 3276 50  0001 C CNN
+F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-04A_2x02_P4.20mm_Vertical" H 9600 3150 50  0001 C CNN
+F 3 "~" H 9600 3150 50  0001 C CNN
+	1    9600 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9300 3000 9300 3150
+Wire Wire Line
+	9300 3150 9400 3150
+Wire Wire Line
+	8750 3000 9300 3000
+Wire Wire Line
+	10000 2800 10000 3150
+Wire Wire Line
+	10000 3150 9900 3150
+Wire Wire Line
+	8750 2800 10000 2800
+Wire Wire Line
+	9300 3400 9300 3250
+Wire Wire Line
+	9300 3250 9400 3250
+Wire Wire Line
+	8750 3400 9300 3400
+Wire Wire Line
+	10000 3600 10000 3250
+Wire Wire Line
+	10000 3250 9900 3250
+Wire Wire Line
+	8750 3600 10000 3600
+Text Label 8900 2800 0    50   ~ 0
+M3A
+Text Label 8900 3000 0    50   ~ 0
+M3B
+Text Label 8900 3600 0    50   ~ 0
+M4A
+Text Label 8900 3400 0    50   ~ 0
+M4B
 $EndSCHEMATC
