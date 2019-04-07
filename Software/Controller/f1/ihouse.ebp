@@ -12,6 +12,7 @@
 				<Option output="output\bin\Debug\ihome.elf" />
 				<Option object_output="output\obj\Debug\" />
 				<Option type="0" />
+				<Option create_hex="1" />
 				<Option compiler="armgcc_eb" />
 				<Option projectDeviceOptionsRelation="0" />
 				<Compiler>
@@ -78,24 +79,41 @@
 			<Add option="-eb_lib=n" />
 			<Add option="-eb_start_files" />
 		</Linker>
+		<Unit filename="Core\Inc\defs.h" />
 		<Unit filename="Core\Inc\main.h" />
 		<Unit filename="Core\Inc\stm32_assert.h" />
 		<Unit filename="Core\Inc\stm32f1xx_it.h" />
+		<Unit filename="Core\libs\IIC_EEPROM\iic_eeprom.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\IIC_EEPROM\iic_eeprom.h" />
+		<Unit filename="Core\libs\mcp23017\mcp23017.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\mcp23017\mcp23017.h" />
 		<Unit filename="Core\mcu_board\board.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Core\mcu_board\board.h" />
+		<Unit filename="Core\mcu_board\dc_motor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\mcu_board\dc_motor.h" />
+		<Unit filename="Core\mcu_board\drivers\iic.h" />
+		<Unit filename="Core\mcu_board\drivers\iic_f1.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="Core\Src\main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Core\Src\stm32f1xx_it.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h" />
-		<Unit filename="Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h" />
-		<Unit filename="Drivers\CMSIS\Device\ST\STM32F1xx\Source\Templates\system_stm32f1xx.c">
+		<Unit filename="Core\Src\system_stm32f1xx.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h" />
+		<Unit filename="Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h" />
 		<Unit filename="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_adc.h" />
 		<Unit filename="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_bus.h" />
 		<Unit filename="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_cortex.h" />

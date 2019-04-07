@@ -3,14 +3,13 @@
 #include "board.h"
 
 
+
 BKP_TypeDef BackupRegisters;
 
 
 void BoardInit(void) {
 
     LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
-
-    LL_GPIO_ResetOutputPin(GPIOC, LL_GPIO_PIN_13);
 
     GPIO_InitStruct.Pin = LL_GPIO_PIN_13;
     GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
@@ -21,6 +20,8 @@ void BoardInit(void) {
 
     LED_OFF();
 
+
+    LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_15);
 
     /* 10 16-bit registru */
     LL_RTC_BKP_SetRegister(&BackupRegisters, LL_RTC_BKP_DR10, 0x55);

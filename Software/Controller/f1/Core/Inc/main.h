@@ -48,7 +48,6 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f1xx_hal.h"
 #include "stm32f1xx_ll_adc.h"
 #include "stm32f1xx_ll_i2c.h"
 #include "stm32f1xx_ll_rcc.h"
@@ -60,9 +59,14 @@ extern "C" {
 #include "stm32f1xx_ll_pwr.h"
 #include "stm32f1xx_ll_dma.h"
 #include "stm32f1xx_ll_rtc.h"
+#include "stm32f1xx_ll_tim.h"
 #include "stm32f1xx_ll_usart.h"
 #include "stm32f1xx.h"
 #include "stm32f1xx_ll_gpio.h"
+
+#if defined(USE_FULL_ASSERT)
+#include "stm32_assert.h"
+#endif /* USE_FULL_ASSERT */
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -84,8 +88,6 @@ extern "C" {
 
 /* USER CODE END EM */
 
-void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
-
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -94,6 +96,42 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define PWM1_Pin LL_GPIO_PIN_0
+#define PWM1_GPIO_Port GPIOB
+#define PWM2_Pin LL_GPIO_PIN_1
+#define PWM2_GPIO_Port GPIOB
+#define MCPRST_Pin LL_GPIO_PIN_12
+#define MCPRST_GPIO_Port GPIOB
+#define M1ENA_Pin LL_GPIO_PIN_13
+#define M1ENA_GPIO_Port GPIOB
+#define M23ENA_Pin LL_GPIO_PIN_14
+#define M23ENA_GPIO_Port GPIOB
+#define TBCMD_Pin LL_GPIO_PIN_15
+#define TBCMD_GPIO_Port GPIOB
+#define QCH_D3_Pin LL_GPIO_PIN_11
+#define QCH_D3_GPIO_Port GPIOA
+#define QCH_D2_Pin LL_GPIO_PIN_12
+#define QCH_D2_GPIO_Port GPIOA
+#define PWM3_Pin LL_GPIO_PIN_4
+#define PWM3_GPIO_Port GPIOB
+#define PWM4_Pin LL_GPIO_PIN_5
+#define PWM4_GPIO_Port GPIOB
+#define QCH_D0_Pin LL_GPIO_PIN_8
+#define QCH_D0_GPIO_Port GPIOB
+#define QCH_D1_Pin LL_GPIO_PIN_9
+#define QCH_D1_GPIO_Port GPIOB
+#ifndef NVIC_PRIORITYGROUP_0
+#define NVIC_PRIORITYGROUP_0         ((uint32_t)0x00000007) /*!< 0 bit  for pre-emption priority,
+                                                                 4 bits for subpriority */
+#define NVIC_PRIORITYGROUP_1         ((uint32_t)0x00000006) /*!< 1 bit  for pre-emption priority,
+                                                                 3 bits for subpriority */
+#define NVIC_PRIORITYGROUP_2         ((uint32_t)0x00000005) /*!< 2 bits for pre-emption priority,
+                                                                 2 bits for subpriority */
+#define NVIC_PRIORITYGROUP_3         ((uint32_t)0x00000004) /*!< 3 bits for pre-emption priority,
+                                                                 1 bit  for subpriority */
+#define NVIC_PRIORITYGROUP_4         ((uint32_t)0x00000003) /*!< 4 bits for pre-emption priority,
+                                                                 0 bit  for subpriority */
+#endif
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
-Sheet 4 5
+Sheet 4 4
 Title ""
 Date ""
 Rev ""
@@ -333,8 +333,6 @@ Wire Wire Line
 Connection ~ 3200 1950
 Wire Wire Line
 	3200 1950 3850 1950
-Wire Wire Line
-	6550 4950 6450 4950
 Text HLabel 10300 2700 2    50   Input ~ 0
 230L
 Text HLabel 10300 2400 2    50   Input ~ 0
@@ -1281,17 +1279,17 @@ Wire Wire Line
 Text HLabel 9000 5800 2    50   Output ~ 0
 M1ENA
 Text HLabel 9000 5900 2    50   Output ~ 0
-M2ENA
+M23ENA
 Wire Wire Line
 	7150 5500 7600 5500
 Wire Wire Line
 	7150 5400 7600 5400
-Text HLabel 7150 5400 0    50   Output ~ 0
+Text HLabel 7150 6100 0    50   Input ~ 0
 TBTX
-Text HLabel 7150 5500 0    50   Input ~ 0
+Text HLabel 7150 6200 0    50   Output ~ 0
 TBRX
 Text HLabel 9000 6000 2    50   Output ~ 0
-TBCMD
+~TBCMD
 Wire Wire Line
 	7600 4800 7150 4800
 Wire Wire Line
@@ -1420,13 +1418,13 @@ Text Label 8850 6000 2    50   ~ 0
 B15
 Text Label 7150 6000 0    50   ~ 0
 A8
-Text Label 7150 6300 0    50   ~ 0
+Text Label 7400 6300 0    50   ~ 0
 A11
-Text Label 7150 6100 0    50   ~ 0
+Text Label 7400 6100 0    50   ~ 0
 A9
-Text Label 7150 6200 0    50   ~ 0
+Text Label 7400 6200 0    50   ~ 0
 A10
-Text Label 7150 6400 0    50   ~ 0
+Text Label 7400 6400 0    50   ~ 0
 A12
 Text Label 7150 6500 0    50   ~ 0
 A15
@@ -1436,9 +1434,9 @@ Text Label 9000 5100 2    50   ~ 0
 B6
 Text Label 9000 5200 2    50   ~ 0
 B7
-Text Label 9000 5300 2    50   ~ 0
+Text Label 8850 5300 2    50   ~ 0
 B8
-Text Label 9000 5400 2    50   ~ 0
+Text Label 8850 5400 2    50   ~ 0
 B9
 Text Label 3500 3350 2    50   ~ 0
 5VDC
@@ -1488,9 +1486,9 @@ Text Label 9000 6400 2    50   ~ 0
 C14
 Text Label 9000 6500 2    50   ~ 0
 C15
-Text Label 7400 5400 0    50   ~ 0
+Text Label 7150 5400 0    50   ~ 0
 A2
-Text Label 7400 5500 0    50   ~ 0
+Text Label 7150 5500 0    50   ~ 0
 A3
 Text Label 7150 5900 0    50   ~ 0
 A7
@@ -1728,7 +1726,7 @@ Wire Wire Line
 	9950 4600 10150 4600
 Text Label 9950 4600 0    50   ~ 0
 3VDC
-Text Label 7300 5050 0    50   ~ 0
+Text Label 7150 5050 0    50   ~ 0
 ~RST
 Text Label 12350 5000 0    50   ~ 0
 A0
@@ -1876,9 +1874,9 @@ Connection ~ 5400 1450
 Wire Wire Line
 	5400 1450 6000 1450
 Text Label 4100 4400 2    50   ~ 0
-A9
+A2
 Text Label 4100 4700 2    50   ~ 0
-A10
+A3
 Text Label 3100 7700 2    50   ~ 0
 A0
 Text Label 3100 8250 2    50   ~ 0
@@ -1909,35 +1907,13 @@ Wire Wire Line
 Wire Wire Line
 	3800 4700 4100 4700
 Wire Wire Line
-	7100 5150 7100 5050
-Wire Wire Line
-	7100 5050 7600 5050
-Wire Wire Line
-	6450 5150 6450 4950
-Connection ~ 6450 4950
-Wire Wire Line
-	6450 4950 6150 4950
+	7150 5050 7600 5050
 Text Label 8850 4700 2    50   ~ 0
 B1
 Text Label 8850 4600 2    50   ~ 0
 B0
 Text Label 8850 5000 2    50   ~ 0
 B5
-Wire Wire Line
-	6600 5150 6450 5150
-Wire Wire Line
-	7000 5150 7100 5150
-$Comp
-L Switch:SW_SPST SW1
-U 1 1 5CA31C9D
-P 6800 5150
-F 0 "SW1" H 6800 5050 50  0000 C CNN
-F 1 "SW_SPST" H 6800 5294 50  0001 C CNN
-F 2 "Button_Switch_THT:SW_PUSH_6mm" H 6800 5150 50  0001 C CNN
-F 3 "" H 6800 5150 50  0001 C CNN
-	1    6800 5150
-	1    0    0    -1  
-$EndComp
 Text Label 8850 4900 2    50   ~ 0
 B4
 Wire Wire Line
@@ -1947,13 +1923,13 @@ Wire Wire Line
 Wire Wire Line
 	3800 4800 4100 4800
 Text HLabel 9000 4900 2    50   Output ~ 0
-PWM1
-Text HLabel 9000 5000 2    50   Output ~ 0
-PWM2
-Text HLabel 9000 4600 2    50   Output ~ 0
 PWM3
-Text HLabel 9000 4700 2    50   Output ~ 0
+Text HLabel 9000 5000 2    50   Output ~ 0
 PWM4
+Text HLabel 9000 4600 2    50   Output ~ 0
+PWM1
+Text HLabel 9000 4700 2    50   Output ~ 0
+PWM2
 $Comp
 L Device:Thermistor_PTC TH4
 U 1 1 5CAF42DC
@@ -1969,4 +1945,14 @@ Wire Wire Line
 	1750 7000 1950 7000
 Wire Wire Line
 	4000 7000 3800 7000
+Text HLabel 9000 5300 2    50   Output ~ 0
+QCH_D0
+Text HLabel 9000 5400 2    50   Output ~ 0
+QCH_D1
+Text HLabel 7150 6400 0    50   Output ~ 0
+QCH_D2
+Text HLabel 7150 6300 0    50   Output ~ 0
+QCH_D3
+Wire Wire Line
+	6150 4950 6550 4950
 $EndSCHEMATC

@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 5
+Sheet 2 4
 Title ""
 Date ""
 Rev ""
@@ -165,9 +165,9 @@ M1ENA
 Text HLabel 6650 4900 2    50   Output ~ 0
 M1EN
 Text HLabel 6650 5000 2    50   Output ~ 0
-M2EN
+M23EN
 Text HLabel 4850 5000 0    50   Input ~ 0
-M2ENA
+M23ENA
 Wire Wire Line
 	4850 4900 6650 4900
 Wire Wire Line
@@ -283,7 +283,7 @@ L ihouse_power-rescue:tb387_uart_expander-tb387 M2
 U 1 1 5CB77400
 P 5350 5550
 F 0 "M2" H 5300 5850 60  0000 C CNN
-F 1 "tb387_uart_expander" H 6100 5400 60  0001 C CNN
+F 1 "tb387_uart_expander" H 5300 5200 60  0000 C CNN
 F 2 "uart_expander:TB387_UART_expander" H 5900 5100 60  0001 C CNN
 F 3 "" H 5400 5100 60  0001 C CNN
 	1    5350 5550
@@ -308,7 +308,7 @@ TBTX
 Text HLabel 6650 5650 2    50   Input ~ 0
 TBRX
 Text HLabel 6650 5750 2    50   Input ~ 0
-TBCMD
+~TBCMD
 Text HLabel 6650 4650 2    50   UnSpc ~ 0
 COM2
 Text Label 5400 4650 2    50   ~ 0

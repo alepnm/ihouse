@@ -1,44 +1,119 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <EmBitz_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="Core\Inc\main.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\Inc\defs.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4981" topLine="64" />
+			<Cursor1 position="1561" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\board.c" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\Inc\main.h" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="633" topLine="0" />
+			<Cursor1 position="997" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\board.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\Inc\stm32f1xx_it.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="0" />
+			<Cursor1 position="2139" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\Src\main.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\libs\IIC_EEPROM\iic_eeprom.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3648" topLine="40" />
+			<Cursor1 position="1627" topLine="15" />
 		</Cursor>
 	</File>
-	<File name="Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\libs\IIC_EEPROM\iic_eeprom.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="8486" topLine="190" />
+			<Cursor1 position="1456" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_gpio.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\libs\mcp23017\mcp23017.c" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3533" topLine="75" />
+			<Cursor1 position="2840" topLine="38" />
 		</Cursor>
 	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_rtc.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\libs\mcp23017\mcp23017.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="711" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Core\mcu_board\board.c" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="578" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Core\mcu_board\board.h" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="137" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Core\mcu_board\dc_motor.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="195" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Core\mcu_board\dc_motor.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="217" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Core\mcu_board\drivers\iic.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="50" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Core\mcu_board\drivers\iic_f1.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1553" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="Core\Src\main.c" open="1" top="1" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5611" topLine="109" />
+		</Cursor>
+	</File>
+	<File name="Core\Src\stm32f1xx_it.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3066" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="Core\Src\system_stm32f1xx.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10153" topLine="225" />
+		</Cursor>
+	</File>
+	<File name="Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8486" topLine="159" />
+		</Cursor>
+	</File>
+	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_gpio.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="31732" topLine="691" />
+		</Cursor>
+	</File>
+	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_i2c.h" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="46346" topLine="1199" />
+		</Cursor>
+	</File>
+	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_rtc.h" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="6115" topLine="122" />
 		</Cursor>
 	</File>
-	<File name="startup\startup_stm32f10x_md.S" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_i2c.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6517" topLine="100" />
+			<Cursor1 position="2058" topLine="129" />
+		</Cursor>
+	</File>
+	<File name="Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_utils.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8409" topLine="127" />
+		</Cursor>
+	</File>
+	<File name="startup\startup_stm32f10x_md.S" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7153" topLine="112" />
 		</Cursor>
 	</File>
 </EmBitz_layout_file>
