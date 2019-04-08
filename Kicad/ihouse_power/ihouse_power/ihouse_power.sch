@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -291,6 +291,7 @@ F30 "QCH_D0" O L 2750 1550 50
 F31 "QCH_D1" O L 2750 1450 50 
 F32 "QCH_D2" O L 2750 1350 50 
 F33 "QCH_D3" O L 2750 1250 50 
+F34 "3VDC" O L 2750 1650 50 
 $EndSheet
 Wire Wire Line
 	3650 3300 4000 3300
@@ -674,7 +675,7 @@ Connection ~ 4100 3400
 Wire Wire Line
 	4100 3400 4450 3400
 $Comp
-L ev1527_receiver_module:ev1527receiver_module M3
+L ihouse_power-rescue:ev1527receiver_module-ev1527_receiver_module M3
 U 1 1 5CAFFFFB
 P 1350 1450
 F 0 "M3" H 1294 2037 60  0000 C CNN
@@ -698,9 +699,7 @@ Wire Wire Line
 	2300 1750 2300 2100
 Connection ~ 2300 2100
 Wire Wire Line
-	2400 1650 2400 1900
-Wire Wire Line
-	1650 1650 2400 1650
+	1650 1650 2750 1650
 Wire Bus Line
 	5550 950  5550 2050
 Wire Bus Line

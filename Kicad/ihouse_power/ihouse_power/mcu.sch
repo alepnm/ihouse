@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -166,9 +166,9 @@ Wire Wire Line
 Wire Wire Line
 	2500 4050 2550 4050
 Wire Wire Line
-	3150 3350 1650 3350
+	3150 3350 1950 3350
 Wire Wire Line
-	1650 3350 1650 4050
+	1950 3350 1950 4050
 Wire Wire Line
 	3150 3350 3150 3400
 Text Label 2300 4400 0    50   ~ 0
@@ -176,7 +176,7 @@ RSTX
 Text Label 2300 4700 0    50   ~ 0
 RSRX
 Wire Wire Line
-	1650 4050 2200 4050
+	1950 4050 2200 4050
 Wire Wire Line
 	2100 4200 2100 4950
 Wire Wire Line
@@ -304,8 +304,6 @@ F 3 "~" H 2350 1650 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7600 4700 7150 4700
-Text Label 7150 4700 0    50   ~ 0
-3VDC
 $Comp
 L Device:CP C11
 U 1 1 5D160E36
@@ -333,9 +331,9 @@ Wire Wire Line
 Connection ~ 3200 1950
 Wire Wire Line
 	3200 1950 3850 1950
-Text HLabel 10300 2700 2    50   Input ~ 0
+Text HLabel 10650 2700 2    50   Input ~ 0
 230L
-Text HLabel 10300 2400 2    50   Input ~ 0
+Text HLabel 10650 2400 2    50   Input ~ 0
 230N
 $Comp
 L Isolator:EL814 U?
@@ -492,13 +490,13 @@ Text Label 7350 1900 0    50   ~ 0
 LPULSE2
 Text Label 8250 2900 0    50   ~ 0
 COM
-Text HLabel 10300 1300 2    50   Input ~ 0
+Text HLabel 10650 1300 2    50   Input ~ 0
 K1.14
-Text HLabel 10300 1600 2    50   Input ~ 0
+Text HLabel 10650 1600 2    50   Input ~ 0
 K1.11
-Text HLabel 10300 1850 2    50   Input ~ 0
+Text HLabel 10650 1850 2    50   Input ~ 0
 K2.14
-Text HLabel 10300 2150 2    50   Input ~ 0
+Text HLabel 10650 2150 2    50   Input ~ 0
 K2.11
 $Comp
 L Device:R R?
@@ -540,9 +538,9 @@ F 3 "~" H 10050 1300 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	10200 1300 10300 1300
+	10200 1300 10250 1300
 Wire Wire Line
-	10200 1600 10300 1600
+	10200 1600 10250 1600
 $Comp
 L Device:R R?
 U 1 1 5D38F1F3
@@ -570,7 +568,7 @@ F 3 "~" H 10050 2150 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	10200 2150 10300 2150
+	10200 2150 10250 2150
 $Comp
 L Device:R R?
 U 1 1 5D39A4BE
@@ -585,7 +583,7 @@ F 3 "~" H 10050 1850 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	10200 1850 10300 1850
+	10200 1850 10250 1850
 $Comp
 L Device:R R?
 U 1 1 5D3AB811
@@ -613,7 +611,7 @@ F 3 "~" H 10050 2400 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	10200 2400 10300 2400
+	10200 2400 10250 2400
 $Comp
 L Device:R R?
 U 1 1 5D3B1421
@@ -628,7 +626,7 @@ F 3 "~" H 10050 2700 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	10200 2700 10300 2700
+	10200 2700 10250 2700
 $Comp
 L Device:R R?
 U 1 1 5D27415C
@@ -810,10 +808,10 @@ Wire Wire Line
 	7850 2900 8000 2900
 Connection ~ 8000 2900
 Wire Wire Line
-	1550 4300 1650 4300
+	1550 4300 1950 4300
 Wire Wire Line
-	1650 4300 1650 4050
-Connection ~ 1650 4050
+	1950 4300 1950 4050
+Connection ~ 1950 4050
 Wire Wire Line
 	1550 4400 2550 4400
 Wire Wire Line
@@ -844,17 +842,6 @@ Connection ~ 2100 5350
 Connection ~ 1650 5000
 Text Label 4100 4800 2    50   ~ 0
 RCEN
-$Comp
-L Connector:8P8C J13
-U 1 1 5D679248
-P 1150 4600
-F 0 "J13" H 1000 4150 50  0000 R CNN
-F 1 "RC" H 1350 4150 50  0000 R CNN
-F 2 "rj45_vertical_shelded:RJ45_Vertical" V 1150 4625 50  0001 C CNN
-F 3 "~" V 1150 4625 50  0001 C CNN
-	1    1150 4600
-	1    0    0    1   
-$EndComp
 Text HLabel 1750 7700 0    50   Input ~ 0
 Optic
 Text HLabel 1750 8250 0    50   Input ~ 0
@@ -1769,7 +1756,7 @@ Wire Wire Line
 	3850 2400 3850 2350
 Connection ~ 3850 2350
 Wire Wire Line
-	3850 2350 4350 2350
+	3850 2350 4250 2350
 Wire Wire Line
 	3850 2700 3850 2750
 Connection ~ 3850 2750
@@ -1957,4 +1944,355 @@ Text Label 7150 5400 0    50   ~ 0
 NEXRX
 Text Label 2200 4800 0    50   ~ 0
 RSRCEN
+Text HLabel 4350 2250 2    50   Output ~ 0
+5VDC1
+Wire Wire Line
+	4350 2250 4250 2250
+Wire Wire Line
+	4250 2250 4250 2350
+Connection ~ 4250 2350
+Wire Wire Line
+	4250 2350 4350 2350
+Text HLabel 7150 4700 0    50   Output ~ 0
+3VDC
+$Comp
+L Connector:RJ33_Shielded J13
+U 1 1 5CB40FB2
+P 1150 4600
+F 0 "J13" H 1000 4150 50  0000 R CNN
+F 1 "RJ33_Shielded" H 1400 5150 50  0000 R CNN
+F 2 "rj45_vertical_shelded:RJ45_Vertical" V 1150 4625 50  0001 C CNN
+F 3 "~" V 1150 4625 50  0001 C CNN
+	1    1150 4600
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	1150 4100 1150 4000
+Wire Wire Line
+	1150 4000 1650 4000
+Wire Wire Line
+	1650 4000 1650 4500
+Connection ~ 1650 4500
+$Comp
+L Device:R R?
+U 1 1 5CCF3EFE
+P 10400 1300
+AR Path="/5D5ECDB6/5CCF3EFE" Ref="R?"  Part="1" 
+AR Path="/5D803411/5CCF3EFE" Ref="R12"  Part="1" 
+F 0 "R12" V 10400 1300 50  0000 C CNN
+F 1 "47k" V 10500 1300 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 10330 1300 50  0001 C CNN
+F 3 "~" H 10400 1300 50  0001 C CNN
+	1    10400 1300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	10550 1300 10650 1300
+$Comp
+L Device:R R?
+U 1 1 5CCF445D
+P 10400 1600
+AR Path="/5D5ECDB6/5CCF445D" Ref="R?"  Part="1" 
+AR Path="/5D803411/5CCF445D" Ref="R13"  Part="1" 
+F 0 "R13" V 10400 1600 50  0000 C CNN
+F 1 "47k" V 10500 1600 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 10330 1600 50  0001 C CNN
+F 3 "~" H 10400 1600 50  0001 C CNN
+	1    10400 1600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	10550 1600 10650 1600
+$Comp
+L Device:R R?
+U 1 1 5CCF4801
+P 10400 1850
+AR Path="/5D5ECDB6/5CCF4801" Ref="R?"  Part="1" 
+AR Path="/5D803411/5CCF4801" Ref="R34"  Part="1" 
+F 0 "R34" V 10400 1850 50  0000 C CNN
+F 1 "47k" V 10500 1850 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 10330 1850 50  0001 C CNN
+F 3 "~" H 10400 1850 50  0001 C CNN
+	1    10400 1850
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	10550 1850 10650 1850
+$Comp
+L Device:R R?
+U 1 1 5CCF4AE3
+P 10400 2150
+AR Path="/5D5ECDB6/5CCF4AE3" Ref="R?"  Part="1" 
+AR Path="/5D803411/5CCF4AE3" Ref="R35"  Part="1" 
+F 0 "R35" V 10400 2150 50  0000 C CNN
+F 1 "47k" V 10500 2150 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 10330 2150 50  0001 C CNN
+F 3 "~" H 10400 2150 50  0001 C CNN
+	1    10400 2150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	10550 2150 10650 2150
+$Comp
+L Device:R R?
+U 1 1 5CCF4D6A
+P 10400 2400
+AR Path="/5D5ECDB6/5CCF4D6A" Ref="R?"  Part="1" 
+AR Path="/5D803411/5CCF4D6A" Ref="R36"  Part="1" 
+F 0 "R36" V 10400 2400 50  0000 C CNN
+F 1 "47k" V 10500 2400 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 10330 2400 50  0001 C CNN
+F 3 "~" H 10400 2400 50  0001 C CNN
+	1    10400 2400
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	10550 2400 10650 2400
+$Comp
+L Device:R R?
+U 1 1 5CCF5121
+P 10400 2700
+AR Path="/5D5ECDB6/5CCF5121" Ref="R?"  Part="1" 
+AR Path="/5D803411/5CCF5121" Ref="R37"  Part="1" 
+F 0 "R37" V 10400 2700 50  0000 C CNN
+F 1 "47k" V 10500 2700 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 10330 2700 50  0001 C CNN
+F 3 "~" H 10400 2700 50  0001 C CNN
+	1    10400 2700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	10550 2700 10650 2700
+$Comp
+L Driver_FET:IR2101 U12
+U 1 1 5CD08931
+P 7750 8200
+F 0 "U12" H 7750 8767 50  0000 C CNN
+F 1 "IR2101" H 7750 8676 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 7750 7750 50  0001 C CIN
+F 3 "https://www.infineon.com/dgdl/ir2101.pdf?fileId=5546d462533600a4015355c7a755166c" H 7550 7650 50  0001 C CNN
+	1    7750 8200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8050 7900 8300 7900
+Text Label 8300 7900 2    50   ~ 0
+VB
+Wire Wire Line
+	7450 7900 7050 7900
+Text Label 6800 7900 0    50   ~ 0
+5VDC
+Wire Wire Line
+	7450 8500 7350 8500
+Wire Wire Line
+	7350 8500 7350 9050
+Wire Wire Line
+	7350 9050 8150 9050
+Wire Wire Line
+	8150 9050 8150 8400
+Wire Wire Line
+	8150 8400 8050 8400
+Text Label 7650 9050 0    50   ~ 0
+COM
+Wire Wire Line
+	7200 8300 7450 8300
+Wire Wire Line
+	7450 8400 7200 8400
+$Comp
+L Device:Q_NMOS_DGS Q1
+U 1 1 5CE2214A
+P 8550 8050
+F 0 "Q1" H 8756 8096 50  0000 L CNN
+F 1 "Q_NMOS_DGS" H 8756 8005 50  0000 L CNN
+F 2 "" H 8750 8150 50  0001 C CNN
+F 3 "~" H 8550 8050 50  0001 C CNN
+	1    8550 8050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Q_NMOS_DGS Q2
+U 1 1 5CE23732
+P 8550 8750
+F 0 "Q2" H 8756 8796 50  0000 L CNN
+F 1 "Q_NMOS_DGS" H 8756 8705 50  0000 L CNN
+F 2 "" H 8750 8850 50  0001 C CNN
+F 3 "~" H 8550 8750 50  0001 C CNN
+	1    8550 8750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8650 8250 8650 8350
+Wire Wire Line
+	8650 8350 8900 8350
+Wire Wire Line
+	8900 8350 8900 9050
+Wire Wire Line
+	8900 9050 8650 9050
+Wire Wire Line
+	8650 9050 8650 8950
+Wire Wire Line
+	8350 8050 8250 8050
+Wire Wire Line
+	8250 8050 8250 8300
+Wire Wire Line
+	8250 8300 8050 8300
+Wire Wire Line
+	8050 8500 8250 8500
+Wire Wire Line
+	8250 8500 8250 8750
+Wire Wire Line
+	8250 8750 8350 8750
+Wire Wire Line
+	8650 8550 8650 8450
+Wire Wire Line
+	8650 8450 9450 8450
+Wire Wire Line
+	8650 7850 8650 7750
+Wire Wire Line
+	8650 7750 9450 7750
+Text Label 7200 8300 0    50   ~ 0
+PWM1
+Text Label 7200 8400 0    50   ~ 0
+PWM2
+$Comp
+L Driver_FET:IR2101 U13
+U 1 1 5CFF39BE
+P 7750 9900
+F 0 "U13" H 7750 10467 50  0000 C CNN
+F 1 "IR2101" H 7750 10376 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 7750 9450 50  0001 C CIN
+F 3 "https://www.infineon.com/dgdl/ir2101.pdf?fileId=5546d462533600a4015355c7a755166c" H 7550 9350 50  0001 C CNN
+	1    7750 9900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8050 9600 8300 9600
+Text Label 8300 9600 2    50   ~ 0
+VB
+Wire Wire Line
+	7450 9600 7050 9600
+Text Label 6800 9600 0    50   ~ 0
+5VDC
+Wire Wire Line
+	7450 10200 7350 10200
+Wire Wire Line
+	7350 10200 7350 10750
+Wire Wire Line
+	7350 10750 8150 10750
+Wire Wire Line
+	8150 10750 8150 10100
+Wire Wire Line
+	8150 10100 8050 10100
+Text Label 7650 10750 0    50   ~ 0
+COM
+Wire Wire Line
+	7200 10000 7450 10000
+Wire Wire Line
+	7450 10100 7200 10100
+$Comp
+L Device:Q_NMOS_DGS Q3
+U 1 1 5CFF39D4
+P 8550 9750
+F 0 "Q3" H 8756 9796 50  0000 L CNN
+F 1 "Q_NMOS_DGS" H 8756 9705 50  0000 L CNN
+F 2 "" H 8750 9850 50  0001 C CNN
+F 3 "~" H 8550 9750 50  0001 C CNN
+	1    8550 9750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Q_NMOS_DGS Q4
+U 1 1 5CFF39DE
+P 8550 10450
+F 0 "Q4" H 8756 10496 50  0000 L CNN
+F 1 "Q_NMOS_DGS" H 8756 10405 50  0000 L CNN
+F 2 "" H 8750 10550 50  0001 C CNN
+F 3 "~" H 8550 10450 50  0001 C CNN
+	1    8550 10450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8650 9950 8650 10050
+Wire Wire Line
+	8650 10050 8900 10050
+Wire Wire Line
+	8900 10050 8900 10750
+Wire Wire Line
+	8900 10750 8650 10750
+Wire Wire Line
+	8650 10750 8650 10650
+Wire Wire Line
+	8350 9750 8250 9750
+Wire Wire Line
+	8250 9750 8250 10000
+Wire Wire Line
+	8250 10000 8050 10000
+Wire Wire Line
+	8050 10200 8250 10200
+Wire Wire Line
+	8250 10200 8250 10450
+Wire Wire Line
+	8250 10450 8350 10450
+Wire Wire Line
+	8650 10250 8650 10150
+Wire Wire Line
+	8650 10150 9450 10150
+Wire Wire Line
+	8650 9550 8650 9450
+Wire Wire Line
+	8650 9450 9450 9450
+Text Label 7200 10000 0    50   ~ 0
+PWM3
+Text Label 7200 10100 0    50   ~ 0
+PWM4
+Wire Wire Line
+	8150 9050 8650 9050
+Connection ~ 8150 9050
+Connection ~ 8650 9050
+Wire Wire Line
+	8150 10750 8650 10750
+Connection ~ 8150 10750
+Connection ~ 8650 10750
+$Comp
+L Device:C C28
+U 1 1 5D746003
+P 7050 8750
+F 0 "C28" H 7165 8796 50  0000 L CNN
+F 1 "C" H 7165 8705 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 7088 8600 50  0001 C CNN
+F 3 "~" H 7050 8750 50  0001 C CNN
+	1    7050 8750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C29
+U 1 1 5D747274
+P 7050 10500
+F 0 "C29" H 7165 10546 50  0000 L CNN
+F 1 "C" H 7165 10455 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 7088 10350 50  0001 C CNN
+F 3 "~" H 7050 10500 50  0001 C CNN
+	1    7050 10500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7050 8600 7050 7900
+Connection ~ 7050 7900
+Wire Wire Line
+	7050 7900 6800 7900
+Wire Wire Line
+	7050 8900 7050 9050
+Wire Wire Line
+	7050 9050 7350 9050
+Connection ~ 7350 9050
+Wire Wire Line
+	7050 10350 7050 9600
+Connection ~ 7050 9600
+Wire Wire Line
+	7050 9600 6800 9600
+Wire Wire Line
+	7050 10650 7050 10750
+Wire Wire Line
+	7050 10750 7350 10750
+Connection ~ 7350 10750
 $EndSCHEMATC

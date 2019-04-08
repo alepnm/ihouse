@@ -172,6 +172,25 @@ X SA 7 400 -200 300 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
+# ev1527receiver_module-ev1527_receiver_module
+#
+DEF ev1527receiver_module-ev1527_receiver_module M 0 40 Y Y 1 F N
+F0 "M" -100 450 60 H V C CNN
+F1 "ev1527receiver_module-ev1527_receiver_module" 350 -450 60 H V C CNN
+F2 "ev1527:EV1527_Receiver" 350 -550 60 H I C CNN
+F3 "" 0 0 60 H I C CNN
+DRAW
+S -200 400 200 -400 1 1 0 N
+X ANT 1 -300 300 100 R 50 50 1 1 U
+X CH4 2 -300 200 100 R 50 50 1 1 I
+X CH3 3 -300 100 100 R 50 50 1 1 I
+X CH2 4 -300 0 100 R 50 50 1 1 I
+X CH1 5 -300 -100 100 R 50 50 1 1 I
+X VCC 6 -300 -200 100 R 50 50 1 1 W
+X COM 7 -300 -300 100 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # stm32f1_module-stm32f1_module
 #
 DEF stm32f1_module-stm32f1_module M 0 40 Y Y 1 F N
