@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 29 0
+EELAYER 26 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -1285,9 +1285,9 @@ Wire Wire Line
 Wire Wire Line
 	7150 5400 7600 5400
 Text HLabel 7150 6100 0    50   Input ~ 0
-TBTX
-Text HLabel 7150 6200 0    50   Output ~ 0
 TBRX
+Text HLabel 7150 6200 0    50   Output ~ 0
+TBTX
 Text HLabel 9000 6000 2    50   Output ~ 0
 ~TBCMD
 Wire Wire Line
@@ -1486,12 +1486,6 @@ Text Label 9000 6400 2    50   ~ 0
 C14
 Text Label 9000 6500 2    50   ~ 0
 C15
-Text Label 7150 5400 0    50   ~ 0
-A2
-Text Label 7150 5500 0    50   ~ 0
-A3
-Text Label 7150 5900 0    50   ~ 0
-A7
 Text Label 9000 5500 2    50   ~ 0
 B10
 Text Label 9000 5600 2    50   ~ 0
@@ -1731,15 +1725,7 @@ Text Label 7150 5050 0    50   ~ 0
 Text Label 12350 5000 0    50   ~ 0
 A0
 Text Label 7150 5200 0    50   ~ 0
-A0
-Text Label 7150 5300 0    50   ~ 0
-A1
-Text Label 7150 5600 0    50   ~ 0
-A4
-Text Label 7150 5700 0    50   ~ 0
-A5
-Text Label 7150 5800 0    50   ~ 0
-A6
+OPTIC_AI
 $Comp
 L Regulator_Linear:L7805 U11
 U 1 1 5CA0D926
@@ -1874,19 +1860,17 @@ Connection ~ 5400 1450
 Wire Wire Line
 	5400 1450 6000 1450
 Text Label 4100 4400 2    50   ~ 0
-A2
+NEXRX
 Text Label 4100 4700 2    50   ~ 0
-A3
-Text Label 3100 7700 2    50   ~ 0
-A0
+NEXTX
 Text Label 3100 8250 2    50   ~ 0
-A1
+HUM1_AI
 Text Label 3100 8800 2    50   ~ 0
-A4
+HUM2_AI
 Text Label 3100 9350 2    50   ~ 0
-A5
+HUM3_AI
 Text Label 3100 9900 2    50   ~ 0
-A6
+TEMP_AI
 Text Label 6000 1450 2    50   ~ 0
 A7
 Text Label 5550 1450 0    50   ~ 0
@@ -1955,4 +1939,22 @@ Text HLabel 7150 6300 0    50   Output ~ 0
 QCH_D3
 Wire Wire Line
 	6150 4950 6550 4950
+Text Label 3100 7700 2    50   ~ 0
+OPTIC_AI
+Text Label 7150 5300 0    50   ~ 0
+HUM1_AI
+Text Label 7150 5600 0    50   ~ 0
+HUM2_AI
+Text Label 7150 5700 0    50   ~ 0
+HUM3_AI
+Text Label 7150 5800 0    50   ~ 0
+TEMP_AI
+Text Label 7150 5900 0    50   ~ 0
+VLINE
+Text Label 7150 5500 0    50   ~ 0
+NEXTX
+Text Label 7150 5400 0    50   ~ 0
+NEXRX
+Text Label 2200 4800 0    50   ~ 0
+RSRCEN
 $EndSCHEMATC

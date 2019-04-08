@@ -36,9 +36,9 @@
 			<Cursor1 position="711" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\board.c" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\mcu_board\board.c" open="1" top="1" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="578" topLine="0" />
+			<Cursor1 position="507" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Core\mcu_board\board.h" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -66,9 +66,9 @@
 			<Cursor1 position="1553" topLine="3" />
 		</Cursor>
 	</File>
-	<File name="Core\Src\main.c" open="1" top="1" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\Src\main.c" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5611" topLine="109" />
+			<Cursor1 position="4882" topLine="180" />
 		</Cursor>
 	</File>
 	<File name="Core\Src\stm32f1xx_it.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">

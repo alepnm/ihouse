@@ -21,7 +21,10 @@ void BoardInit(void) {
     LED_OFF();
 
 
-    LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_15);
+    LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_15);    //  /TBCMD linija - HIGH
+
+
+
 
     /* 10 16-bit registru */
     LL_RTC_BKP_SetRegister(&BackupRegisters, LL_RTC_BKP_DR10, 0x55);
