@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -2584,8 +2584,6 @@ BUZPL
 Text Label 13550 1900 0    50   ~ 0
 BUZMN
 Wire Wire Line
-	9300 10750 8900 10750
-Wire Wire Line
 	8900 8650 8900 9350
 Wire Wire Line
 	9400 9950 9400 9450
@@ -2611,5 +2609,5 @@ Connection ~ 9700 10750
 Wire Wire Line
 	9700 10750 10050 10750
 Wire Wire Line
-	9300 10750 9700 10750
+	8900 10750 9700 10750
 $EndSCHEMATC

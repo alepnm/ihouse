@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ihouse_power-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -545,48 +545,48 @@ K14
 $Comp
 L Relay:FINDER-41.52 K?
 U 1 1 5D6045CB
-P 9100 3750
+P 9100 3300
 AR Path="/5D6045CB" Ref="K?"  Part="1" 
 AR Path="/5D5ECDB6/5D6045CB" Ref="K14"  Part="1" 
-F 0 "K14" V 8450 3650 50  0000 L CNN
-F 1 "FINDER-41.52" H 9730 3705 50  0001 L CNN
-F 2 "Relay_THT:Relay_DPDT_Finder_40.52" H 10450 3720 50  0001 C CNN
-F 3 "http://gfinder.findernet.com/assets/Series/357/S41EN.pdf" H 8900 3750 50  0001 C CNN
-	1    9100 3750
+F 0 "K14" V 8450 3200 50  0000 L CNN
+F 1 "FINDER-41.52" H 9730 3255 50  0001 L CNN
+F 2 "Relay_THT:Relay_DPDT_Finder_40.52" H 10450 3270 50  0001 C CNN
+F 3 "http://gfinder.findernet.com/assets/Series/357/S41EN.pdf" H 8900 3300 50  0001 C CNN
+	1    9100 3300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9500 4050 9500 4400
+	9500 3600 9500 3950
 Wire Wire Line
-	8700 4050 8700 4400
-Text Label 8700 4400 1    50   ~ 0
+	8700 3600 8700 3950
+Text Label 8700 3950 1    50   ~ 0
 K14
 $Comp
 L power:+12V #PWR?
 U 1 1 5D6045D5
-P 8700 3400
+P 8700 2950
 AR Path="/5D6045D5" Ref="#PWR?"  Part="1" 
 AR Path="/5D5ECDB6/5D6045D5" Ref="#PWR0111"  Part="1" 
-F 0 "#PWR0111" H 8700 3250 50  0001 C CNN
-F 1 "+12V" H 8715 3573 50  0000 C CNN
-F 2 "" H 8700 3400 50  0001 C CNN
-F 3 "" H 8700 3400 50  0001 C CNN
-	1    8700 3400
+F 0 "#PWR0111" H 8700 2800 50  0001 C CNN
+F 1 "+12V" H 8715 3123 50  0000 C CNN
+F 2 "" H 8700 2950 50  0001 C CNN
+F 3 "" H 8700 2950 50  0001 C CNN
+	1    8700 2950
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8700 3400 8700 3450
+	8700 2950 8700 3000
 $Comp
 L Device:Fuse F?
 U 1 1 5D6045E8
-P 8500 2950
+P 8500 2500
 AR Path="/5D6045E8" Ref="F?"  Part="1" 
 AR Path="/5D5ECDB6/5D6045E8" Ref="F1"  Part="1" 
-F 0 "F1" V 8400 2950 50  0000 C CNN
-F 1 "Fuse" V 8600 2950 50  0000 C CNN
-F 2 "Fuse:Fuseholder_TR5_Littelfuse_No560_No460" V 8430 2950 50  0001 C CNN
-F 3 "~" H 8500 2950 50  0001 C CNN
-	1    8500 2950
+F 0 "F1" V 8400 2500 50  0000 C CNN
+F 1 "Fuse" V 8600 2500 50  0000 C CNN
+F 2 "Fuse:Fuseholder_TR5_Littelfuse_No560_No460" V 8430 2500 50  0001 C CNN
+F 3 "~" H 8500 2500 50  0001 C CNN
+	1    8500 2500
 	0    1    1    0   
 $EndComp
 $Comp
@@ -725,69 +725,69 @@ Text Label 10550 6000 2    50   ~ 0
 $Comp
 L Relay:FINDER-34.51 K?
 U 1 1 5D604671
-P 5200 3750
+P 6600 3300
 AR Path="/5D604671" Ref="K?"  Part="1" 
 AR Path="/5D5ECDB6/5D604671" Ref="K11"  Part="1" 
-F 0 "K11" V 4750 3700 50  0000 L CNN
-F 1 "FINDER-34.51" H 5630 3705 50  0001 L CNN
-F 2 "Relay_THT:Relay_SPDT_Finder_34.51_Vertical" H 6340 3710 50  0001 C CNN
-F 3 "https://gfinder.findernet.com/public/attachments/34/EN/S34USAEN.pdf" H 5200 3750 50  0001 C CNN
-	1    5200 3750
+F 0 "K11" V 6150 3250 50  0000 L CNN
+F 1 "FINDER-34.51" H 7030 3255 50  0001 L CNN
+F 2 "Relay_THT:Relay_SPDT_Finder_34.51_Vertical" H 7740 3260 50  0001 C CNN
+F 3 "https://gfinder.findernet.com/public/attachments/34/EN/S34USAEN.pdf" H 6600 3300 50  0001 C CNN
+	1    6600 3300
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+12V #PWR?
 U 1 1 5D604678
-P 5000 3400
+P 6400 2950
 AR Path="/5D604678" Ref="#PWR?"  Part="1" 
 AR Path="/5D5ECDB6/5D604678" Ref="#PWR0120"  Part="1" 
-F 0 "#PWR0120" H 5000 3250 50  0001 C CNN
-F 1 "+12V" H 5015 3573 50  0000 C CNN
-F 2 "" H 5000 3400 50  0001 C CNN
-F 3 "" H 5000 3400 50  0001 C CNN
-	1    5000 3400
+F 0 "#PWR0120" H 6400 2800 50  0001 C CNN
+F 1 "+12V" H 6415 3123 50  0000 C CNN
+F 2 "" H 6400 2950 50  0001 C CNN
+F 3 "" H 6400 2950 50  0001 C CNN
+	1    6400 2950
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5000 3400 5000 3450
+	6400 2950 6400 3000
 Wire Wire Line
-	5500 3450 5500 3200
+	6900 3000 6900 2750
 $Comp
 L Relay:FINDER-34.51 K?
 U 1 1 5D604680
-P 6200 3750
+P 7600 3300
 AR Path="/5D604680" Ref="K?"  Part="1" 
 AR Path="/5D5ECDB6/5D604680" Ref="K12"  Part="1" 
-F 0 "K12" V 5750 3700 50  0000 L CNN
-F 1 "FINDER-34.51" H 6630 3705 50  0001 L CNN
-F 2 "Relay_THT:Relay_SPDT_Finder_34.51_Vertical" H 7340 3710 50  0001 C CNN
-F 3 "https://gfinder.findernet.com/public/attachments/34/EN/S34USAEN.pdf" H 6200 3750 50  0001 C CNN
-	1    6200 3750
+F 0 "K12" V 7150 3250 50  0000 L CNN
+F 1 "FINDER-34.51" H 8030 3255 50  0001 L CNN
+F 2 "Relay_THT:Relay_SPDT_Finder_34.51_Vertical" H 8740 3260 50  0001 C CNN
+F 3 "https://gfinder.findernet.com/public/attachments/34/EN/S34USAEN.pdf" H 7600 3300 50  0001 C CNN
+	1    7600 3300
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+12V #PWR?
 U 1 1 5D604687
-P 6000 3400
+P 7400 2950
 AR Path="/5D604687" Ref="#PWR?"  Part="1" 
 AR Path="/5D5ECDB6/5D604687" Ref="#PWR0121"  Part="1" 
-F 0 "#PWR0121" H 6000 3250 50  0001 C CNN
-F 1 "+12V" H 6015 3573 50  0000 C CNN
-F 2 "" H 6000 3400 50  0001 C CNN
-F 3 "" H 6000 3400 50  0001 C CNN
-	1    6000 3400
+F 0 "#PWR0121" H 7400 2800 50  0001 C CNN
+F 1 "+12V" H 7415 3123 50  0000 C CNN
+F 2 "" H 7400 2950 50  0001 C CNN
+F 3 "" H 7400 2950 50  0001 C CNN
+	1    7400 2950
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6000 3400 6000 3450
+	7400 2950 7400 3000
 Wire Wire Line
-	6500 3450 6500 3200
+	7900 3000 7900 2750
 Wire Wire Line
-	5400 4050 5400 4150
+	6800 3600 6800 3700
 Wire Wire Line
-	5400 4150 6400 4150
+	6800 3700 7800 3700
 Wire Wire Line
-	6400 4050 6400 4150
+	7800 3600 7800 3700
 Wire Wire Line
 	10200 5100 10300 5100
 Wire Wire Line
@@ -799,28 +799,28 @@ Connection ~ 10300 5200
 Wire Wire Line
 	10300 5200 10300 5300
 Wire Wire Line
-	5000 4050 5000 4400
+	6400 3600 6400 3950
 Wire Wire Line
-	6000 4050 6000 4400
-Text Label 5000 4400 1    50   ~ 0
+	7400 3600 7400 3950
+Text Label 6400 3950 1    50   ~ 0
 K11
-Text Label 6000 4400 1    50   ~ 0
+Text Label 7400 3950 1    50   ~ 0
 K12
-Text Label 5500 3200 3    50   ~ 0
+Text Label 6900 2750 3    50   ~ 0
 K11L
-Text Label 6500 3200 3    50   ~ 0
+Text Label 7900 2750 3    50   ~ 0
 K12L
 Text Label 9450 5200 0    50   ~ 0
 K11L
 Text Label 9450 5100 0    50   ~ 0
 K12L
 Wire Wire Line
-	9900 2950 9200 2950
+	9900 2500 9200 2500
 Wire Wire Line
-	9100 4050 9100 4400
-Connection ~ 9200 2950
+	9100 3600 9100 3950
+Connection ~ 9200 2500
 Wire Wire Line
-	9200 2950 9200 3050
+	9200 2500 9200 2600
 $Comp
 L Connector_Generic:Conn_02x05_Top_Bottom J?
 U 1 1 5D6046B8
@@ -837,22 +837,22 @@ $EndComp
 $Comp
 L Device:Fuse F?
 U 1 1 5D6046BF
-P 9200 3200
+P 9200 2750
 AR Path="/5D6046BF" Ref="F?"  Part="1" 
 AR Path="/5D5ECDB6/5D6046BF" Ref="F2"  Part="1" 
-F 0 "F2" H 9260 3246 50  0000 L CNN
-F 1 "Fuse" H 9260 3155 50  0000 L CNN
-F 2 "mech:Fuseholder5x20_horiz_SemiClosed_Casing10x25mm" V 9130 3200 50  0001 C CNN
-F 3 "~" H 9200 3200 50  0001 C CNN
-	1    9200 3200
+F 0 "F2" H 9260 2796 50  0000 L CNN
+F 1 "Fuse" H 9260 2705 50  0000 L CNN
+F 2 "mech:Fuseholder5x20_horiz_SemiClosed_Casing10x25mm" V 9130 2750 50  0001 C CNN
+F 3 "~" H 9200 2750 50  0001 C CNN
+	1    9200 2750
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8650 2950 9200 2950
+	8650 2500 9200 2500
 Wire Wire Line
-	9200 3350 9200 3450
+	9200 2900 9200 3000
 Wire Wire Line
-	9900 2800 9600 2800
+	9900 2350 9600 2350
 Wire Wire Line
 	1150 7150 2000 7150
 Wire Wire Line
@@ -928,9 +928,9 @@ Text Label 7750 5750 0    50   ~ 0
 K14N
 Text Label 8650 5750 2    50   ~ 0
 K14L
-Text Label 9500 4400 1    50   ~ 0
+Text Label 9500 3950 1    50   ~ 0
 K14N
-Text Label 9100 4400 1    50   ~ 0
+Text Label 9100 3950 1    50   ~ 0
 K14L
 Wire Wire Line
 	2400 5700 2400 5750
@@ -1066,7 +1066,7 @@ K9L
 Text Label 10500 900  3    50   ~ 0
 K10L
 Wire Wire Line
-	8250 2950 8350 2950
+	8250 2500 8350 2500
 Wire Wire Line
 	10300 6000 10550 6000
 Connection ~ 10300 6000
@@ -1074,18 +1074,18 @@ Text Label 1400 2000 1    50   ~ 0
 K1.11
 Text Label 2400 2000 1    50   ~ 0
 K2.11
-Connection ~ 8250 2950
-Connection ~ 9600 2800
+Connection ~ 8250 2500
+Connection ~ 9600 2350
 Wire Wire Line
-	9600 2800 9600 3450
-Text HLabel 8100 2800 0    50   Output ~ 0
+	9600 2350 9600 3000
+Text HLabel 8100 2350 0    50   Output ~ 0
 230N
-Text HLabel 8100 2950 0    50   Output ~ 0
+Text HLabel 8100 2500 0    50   Output ~ 0
 230L
 Wire Wire Line
-	8250 2950 8100 2950
+	8250 2500 8100 2500
 Wire Wire Line
-	8100 2800 9600 2800
+	8100 2350 9600 2350
 Wire Wire Line
 	9600 6100 9700 6100
 Wire Wire Line
@@ -1102,15 +1102,10 @@ Text HLabel 10300 6100 2    50   Output ~ 0
 K2.14
 Text HLabel 10300 6200 2    50   Output ~ 0
 K1.14
-Wire Wire Line
-	8250 4150 10400 4150
-Wire Wire Line
-	10400 4150 10400 1800
 Connection ~ 10400 1800
 Wire Wire Line
-	6400 4150 8250 4150
-Connection ~ 6400 4150
-Connection ~ 8250 4150
+	7800 3700 8250 3700
+Connection ~ 7800 3700
 Wire Wire Line
 	7950 5750 7750 5750
 Wire Wire Line
@@ -1123,14 +1118,14 @@ Text Label 7750 5850 0    50   ~ 0
 VACN
 Text Label 8650 5850 2    50   ~ 0
 VACL
-Text Label 9900 2950 2    50   ~ 0
+Text Label 9900 2500 2    50   ~ 0
 VACL
-Text Label 9900 2800 2    50   ~ 0
+Text Label 9900 2350 2    50   ~ 0
 VACN
-NoConn ~ 9400 3450
-NoConn ~ 9000 3450
-NoConn ~ 6300 3450
-NoConn ~ 5300 3450
+NoConn ~ 9400 3000
+NoConn ~ 9000 3000
+NoConn ~ 7700 3000
+NoConn ~ 6700 3000
 NoConn ~ 9300 1100
 NoConn ~ 10300 1100
 NoConn ~ 8300 1100
@@ -1191,7 +1186,7 @@ Text Label 2100 5200 0    50   ~ 0
 COM
 Text Label 2100 3800 0    50   ~ 0
 COM
-Text Notes 5350 5750 0    50   ~ 0
+Text Notes 3800 3850 0    50   ~ 0
 K1 - vonios jungiklis\nK2 - WC jungiklis\n\n\n\n \nK7 - ventiliatorius vonios\nK8 - virtuves darb. zonos mazas apsvietimas\nK9 - virtuves darb. zonos pilnas apsvietimas\nK10 - koridorius\nK11 - koridorius naktinis apsvietimas\nK12 - garnikas\nK13 - karsto/salto vandens sklende\nK14 - virtuves rozete
 Text Label 5300 7250 2    50   ~ 0
 M3B
@@ -1251,7 +1246,7 @@ F 3 "https://gfinder.findernet.com/public/attachments/34/EN/S34USAEN.pdf" H 4450
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	8250 2950 8250 4150
+	8250 2500 8250 3700
 Wire Wire Line
 	7950 5650 7750 5650
 Wire Wire Line
@@ -1273,13 +1268,18 @@ Wire Wire Line
 Wire Wire Line
 	3900 6750 4150 6750
 Wire Notes Line
-	5300 4600 7200 4600
+	3750 2700 5650 2700
 Wire Notes Line
-	7200 4600 7200 5800
+	5650 2700 5650 3900
 Wire Notes Line
-	7200 5800 5300 5800
+	5650 3900 3750 3900
 Wire Notes Line
-	5300 4600 5300 5800
+	3750 2700 3750 3900
+Wire Wire Line
+	10400 3700 10400 1800
+Connection ~ 8250 3700
+Wire Wire Line
+	8250 3700 10400 3700
 Wire Bus Line
 	750  2100 10200 2100
 Wire Bus Line
