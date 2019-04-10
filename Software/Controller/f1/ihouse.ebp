@@ -99,10 +99,23 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Core\mcu_board\dc_motor.h" />
-		<Unit filename="Core\mcu_board\drivers\iic.h" />
-		<Unit filename="Core\mcu_board\drivers\iic_f1.c">
+		<Unit filename="Core\mcu_board\drivers\bkp.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="Core\mcu_board\drivers\bkp.h" />
+		<Unit filename="Core\mcu_board\drivers\common\datetime.h" />
+		<Unit filename="Core\mcu_board\drivers\iic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\mcu_board\drivers\iic.h" />
+		<Unit filename="Core\mcu_board\drivers\io.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\mcu_board\drivers\io.h" />
+		<Unit filename="Core\mcu_board\drivers\rtc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\mcu_board\drivers\rtc.h" />
 		<Unit filename="Core\Src\main.c">
 			<Option compilerVar="CC" />
 		</Unit>
