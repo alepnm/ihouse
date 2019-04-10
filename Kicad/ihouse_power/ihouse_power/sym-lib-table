@@ -1,6 +1,6 @@
 (sym_lib_table
-  (lib (name stm32f1_module)(type Legacy)(uri D:/VentLib/alex_libs/STM32F1_China_module/stm32f1_module.lib)(options "")(descr ""))
   (lib (name ihouse_power-rescue)(type Legacy)(uri ${KIPRJMOD}/ihouse_power-rescue.lib)(options "")(descr ""))
   (lib (name tb387)(type Legacy)(uri D:/VentLib/alex_libs/TB387_UART_expander/tb387.lib)(options "")(descr ""))
   (lib (name ev1527_receiver_module)(type Legacy)(uri D:/VentLib/alex_libs/EV1527/ev1527_receiver_module.lib)(options "")(descr ""))
+  (lib (name stm32f1_module)(type Legacy)(uri C:/Working/Git/VentLib/alex_libs/STM32F1_China_module/stm32f1_module.lib)(options "")(descr ""))
 )

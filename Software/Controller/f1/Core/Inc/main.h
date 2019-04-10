@@ -114,6 +114,10 @@ void Error_Handler(void);
 #define PWM1_GPIO_Port GPIOB
 #define PWM2_Pin LL_GPIO_PIN_1
 #define PWM2_GPIO_Port GPIOB
+#define LPULSE1_Pin LL_GPIO_PIN_10
+#define LPULSE1_GPIO_Port GPIOB
+#define LPULSE2_Pin LL_GPIO_PIN_11
+#define LPULSE2_GPIO_Port GPIOB
 #define MCPRST_Pin LL_GPIO_PIN_12
 #define MCPRST_GPIO_Port GPIOB
 #define M1ENA_Pin LL_GPIO_PIN_13
@@ -130,6 +134,8 @@ void Error_Handler(void);
 #define QCH_D3_GPIO_Port GPIOA
 #define QCH_D2_Pin LL_GPIO_PIN_12
 #define QCH_D2_GPIO_Port GPIOA
+#define LPULSE_Pin LL_GPIO_PIN_3
+#define LPULSE_GPIO_Port GPIOB
 #define PWM3_Pin LL_GPIO_PIN_4
 #define PWM3_GPIO_Port GPIOB
 #define PWM4_Pin LL_GPIO_PIN_5
