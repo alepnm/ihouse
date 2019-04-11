@@ -91,10 +91,14 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Core\libs\mcp23017\mcp23017.h" />
-		<Unit filename="Core\mcu_board\board.c">
+		<Unit filename="Core\libs\TB387\tb387.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Core\mcu_board\board.h" />
+		<Unit filename="Core\libs\TB387\tb387.h" />
+		<Unit filename="Core\mcu_board\bsp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\mcu_board\bsp.h" />
 		<Unit filename="Core\mcu_board\dc_motor.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -103,6 +107,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Core\mcu_board\drivers\bkp.h" />
+		<Unit filename="Core\mcu_board\drivers\bluepill.h" />
 		<Unit filename="Core\mcu_board\drivers\common\datetime.h" />
 		<Unit filename="Core\mcu_board\drivers\iic.c">
 			<Option compilerVar="CC" />
@@ -116,6 +121,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Core\mcu_board\drivers\rtc.h" />
+		<Unit filename="Core\mcu_board\drivers\usart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\mcu_board\drivers\usart.h" />
 		<Unit filename="Core\Src\main.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1553762495 source:c:\working\git\ihouse\software\controller\f1\core\src\main.c
+1554982811 source:c:\working\git\ihouse\software\controller\f1\core\src\main.c
 	"main.h"
-	"board.h"
+	"bsp.h"
 
-1554713336 c:\working\git\ihouse\software\controller\f1\core\inc\main.h
+1554982593 c:\working\git\ihouse\software\controller\f1\core\inc\main.h
 	"stm32f1xx_ll_adc.h"
 	"stm32f1xx_ll_i2c.h"
 	"stm32f1xx_ll_rcc.h"
@@ -149,17 +149,14 @@
 1553503321 c:\working\git\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_ll_gpio.h
 	"stm32f1xx.h"
 
-1554713336 c:\working\git\ihouse\software\controller\f1\core\inc\stm32_assert.h
+1554982593 c:\working\git\ihouse\software\controller\f1\core\inc\stm32_assert.h
 
-1553762495 source:c:\working\git\ihouse\software\controller\f1\core\src\stm32f1xx_it.c
+1554982593 source:c:\working\git\ihouse\software\controller\f1\core\src\stm32f1xx_it.c
 	"main.h"
 	"stm32f1xx_it.h"
+	"usart.h"
 
-1553762495 c:\working\git\ihouse\software\controller\f1\core\inc\stm32f1xx_it.h
-	"stm32f1xx.h"
-	"stm32f1xx_ll_system.h"
-	"stm32f1xx_ll_gpio.h"
-	"stm32f1xx_ll_exti.h"
+1554982593 c:\working\git\ihouse\software\controller\f1\core\inc\stm32f1xx_it.h
 
 1553499720 source:c:\working\git\ihouse\software\controller\f1\drivers\cmsis\device\st\stm32f1xx\source\templates\system_stm32f1xx.c
 	"stm32f1xx.h"
@@ -252,11 +249,13 @@
 
 1553758245 source:c:\working\git\ihouse\software\controller\f1\startup\startup_stm32f10x_md.s
 
-1554703112 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\board.c
+1554961531 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\board.c
 	"main.h"
 	"board.h"
 
-1554703112 c:\working\git\ihouse\software\controller\f1\core\mcu_board\board.h
+1554964363 c:\working\git\ihouse\software\controller\f1\core\mcu_board\board.h
+	"bluepill.h"
+	"iic_eeprom.h"
 	"mcp23017.h"
 	"dc_motor.h"
 
@@ -964,16 +963,16 @@
 1554703112 source:c:\working\git\ihouse\software\controller\f1\core\libs\mcp23017\mcp23017.c
 	"mcp23017.h"
 
-1554703112 c:\working\git\ihouse\software\controller\f1\core\libs\mcp23017\mcp23017.h
+1554962018 c:\working\git\ihouse\software\controller\f1\core\libs\mcp23017\mcp23017.h
 	"iic.h"
 
 1554703112 c:\working\git\ihouse\software\controller\f1\core\mcu_board\dc_motor.h
 	"defs.h"
 
-1554703112 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\dc_motor.c
+1554964473 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\dc_motor.c
 	"dc_motor.h"
 	"mcp23017.h"
-	"board.h"
+	"io.h"
 
 1554703112 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\iic_f1.c
 	"iic.h"
@@ -1001,4 +1000,63 @@
 1554932010 source:d:\projects\ihouse\software\controller\f1\core\mcu_board\drivers\rtc.c
 	"defs.h"
 	"rtc.h"
+
+1554974591 c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\bluepill.h
+	"defs.h"
+	"io.h"
+	"rtc.h"
+	"iic.h"
+
+1554966969 c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\common\datetime.h
+
+1554962055 c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\rtc.h
+	"datetime.h"
+	"bkp.h"
+
+1554984055 c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\bkp.h
+
+1554961531 c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\io.h
+
+1554971990 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\bkp.c
+	"defs.h"
+	"bkp.h"
+
+1554961531 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\iic.c
+	"iic.h"
+
+1554961531 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\io.c
+	"defs.h"
+	"io.h"
+
+1554982599 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\rtc.c
+	"defs.h"
+	"rtc.h"
+
+1554976795 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\usart.c
+	"defs.h"
+	"usart.h"
+	"io.h"
+	"mbport.h"
+
+1554975831 c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\usart.h
+	"defs.h"
+
+1554984285 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\bsp.c
+	"main.h"
+	"bsp.h"
+
+1554983977 c:\working\git\ihouse\software\controller\f1\core\mcu_board\bsp.h
+	"bluepill.h"
+	"iic_eeprom.h"
+	"usart.h"
+	"mcp23017.h"
+	"dc_motor.h"
+	"tb387.h"
+
+1554984309 c:\working\git\ihouse\software\controller\f1\core\libs\tb387\tb387.h
+	"defs.h"
+	"usart.h"
+
+1554984285 source:c:\working\git\ihouse\software\controller\f1\core\libs\tb387\tb387.c
+	"tb387.h"
 

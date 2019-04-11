@@ -1,11 +1,12 @@
 
 #include "main.h"
-#include "board.h"
+#include "bsp.h"
 
 
+uint32_t now = 0;
 
 
-void BoardInit(void) {
+void BSP_SystemInit(void) {
 
     LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
 
@@ -19,17 +20,23 @@ void BoardInit(void) {
     LED_OFF();
 
 
-    LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_15);    //  /TBCMD linija - HIGH
+    RTC_Init();
+
+    now = LL_RTC_TIME_Get(RTC);
 
 
+    TB387_Init();
 
 
-    LL_RTC_BKP_SetRegister(&BackupRegisters, LL_RTC_BKP_DR10, 0x55);
+    USART_Config(NEXTION_PORT, 19200, 8,  USART_PAR_NONE);
 
-    uint32_t qqq = LL_RTC_BKP_GetRegister(&BackupRegisters, LL_RTC_BKP_DR10);
+}
 
 
+/*  */
+void BSP_SystemHandler(void){
 
-    RTC_GetTime();
+    now = LL_RTC_TIME_Get(RTC);
+
 
 }

@@ -43,7 +43,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "board.h"
+#include "bsp.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -99,7 +99,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  
+
 
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_AFIO);
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
@@ -108,7 +108,7 @@ int main(void)
 
   /* System interrupt init*/
 
-  /** NOJTAG: JTAG-DP Disabled and SW-DP Enabled 
+  /** NOJTAG: JTAG-DP Disabled and SW-DP Enabled
   */
   LL_GPIO_AF_Remap_SWJ_NOJTAG();
 
@@ -120,7 +120,7 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-    SysTick_Config(SystemCoreClock/1100);
+    SysTick_Config(SystemCoreClock/1000);
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -133,11 +133,11 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
-    BoardInit();
+    BSP_SystemInit();
 
-    MCP23017_Init();
+    //MCP23017_Init();
 
-    DCMOT_Init();
+    //DCMOT_Init();
 
   /* USER CODE END 2 */
 
@@ -148,55 +148,63 @@ int main(void)
 
             delay = timestamp + 100;
 
+            BSP_SystemHandler();
+
+
+            USART_SendString(NEXTION_PORT, "0123456789");
+            USART_SendString(TB387_PORT, "0123456789");
+
+            LED_TOGGLE();
+
             /* button A - duju sklende*/
             if( LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_9) ) {
 
-                LED_OFF();
+                //LED_OFF();
 
                 dir = !dir;
 
-                while( LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_9) );
+                //while( LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_9) );
 
                 if(dir) {
-                    DCMOT_ValveOpen(DCMOTOR_GAS);
+                   // DCMOT_ValveOpen(DCMOTOR_GAS);
                     //DCMOT_ValveOpen(DCMOTOR_HOTWATER);
                 } else {
-                    DCMOT_ValveClose(DCMOTOR_GAS);
+                    //DCMOT_ValveClose(DCMOTOR_GAS);
                     //DCMOT_ValveClose(DCMOTOR_HOTWATER);
                 }
 
             }
 
 
+
+
+
             /* button B - virtuves darbines zonos apsvietimas pilnas/dalinis */
             if( LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_8) ) {
 
-                MCP23017_TogglePin(&REL10);
+                //MCP23017_TogglePin(&REL10);
 
-                while( LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_8) );
+                //while( LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_8) );
             }
 
 
             /* button C -  */
             if( LL_GPIO_IsInputPinSet(GPIOA, LL_GPIO_PIN_12) ) {
 
-                MCP23017_TogglePin(&REL11);
+                //MCP23017_TogglePin(&REL11);
 
-                while( LL_GPIO_IsInputPinSet(GPIOA, LL_GPIO_PIN_12) );
+                //while( LL_GPIO_IsInputPinSet(GPIOA, LL_GPIO_PIN_12) );
             }
 
 
             /* button D -  */
             if( LL_GPIO_IsInputPinSet(GPIOA, LL_GPIO_PIN_11) ) {
 
-                MCP23017_TogglePin(&REL12);
+                //MCP23017_TogglePin(&REL12);
 
-                while( LL_GPIO_IsInputPinSet(GPIOA, LL_GPIO_PIN_11) );
+                //while( LL_GPIO_IsInputPinSet(GPIOA, LL_GPIO_PIN_11) );
             }
-
-
-
-            DCMOT_Handler();
+            //DCMOT_Handler();
 
         }
 
@@ -214,19 +222,18 @@ int main(void)
   */
 void SystemClock_Config(void)
 {
-  LL_FLASH_SetLatency(LL_FLASH_LATENCY_1);
+  LL_FLASH_SetLatency(LL_FLASH_LATENCY_0);
 
-  if(LL_FLASH_GetLatency() != LL_FLASH_LATENCY_1)
+  if(LL_FLASH_GetLatency() != LL_FLASH_LATENCY_0)
   {
-    Error_Handler();  
+    Error_Handler();
   }
-  LL_RCC_HSI_SetCalibTrimming(16);
-  LL_RCC_HSI_Enable();
+  LL_RCC_HSE_Enable();
 
-   /* Wait till HSI is ready */
-  while(LL_RCC_HSI_IsReady() != 1)
+   /* Wait till HSE is ready */
+  while(LL_RCC_HSE_IsReady() != 1)
   {
-    
+
   }
   LL_PWR_EnableBkUpAccess();
   LL_RCC_ForceBackupDomainReset();
@@ -236,31 +243,23 @@ void SystemClock_Config(void)
    /* Wait till LSE is ready */
   while(LL_RCC_LSE_IsReady() != 1)
   {
-    
+
   }
   LL_RCC_SetRTCClockSource(LL_RCC_RTC_CLKSOURCE_LSE);
   LL_RCC_EnableRTC();
-  LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSI_DIV_2, LL_RCC_PLL_MUL_8);
-  LL_RCC_PLL_Enable();
-
-   /* Wait till PLL is ready */
-  while(LL_RCC_PLL_IsReady() != 1)
-  {
-    
-  }
   LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
   LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_1);
   LL_RCC_SetAPB2Prescaler(LL_RCC_APB2_DIV_1);
-  LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
+  LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_HSE);
 
    /* Wait till System clock is ready */
-  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL)
+  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_HSE)
   {
-  
+
   }
-  LL_Init1msTick(32000000);
+  LL_Init1msTick(8000000);
   LL_SYSTICK_SetClkSource(LL_SYSTICK_CLKSOURCE_HCLK);
-  LL_SetSystemCoreClock(32000000);
+  LL_SetSystemCoreClock(8000000);
   LL_RCC_SetADCClockSource(LL_RCC_ADC_CLKSRC_PCLK2_DIV_8);
 }
 
@@ -284,17 +283,17 @@ static void MX_ADC1_Init(void)
 
   /* Peripheral clock enable */
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_ADC1);
-  
+
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOA);
-  /**ADC1 GPIO Configuration  
+  /**ADC1 GPIO Configuration
   PA0-WKUP   ------> ADC1_IN0
   PA1   ------> ADC1_IN1
   PA4   ------> ADC1_IN4
   PA5   ------> ADC1_IN5
   PA6   ------> ADC1_IN6
-  PA7   ------> ADC1_IN7 
+  PA7   ------> ADC1_IN7
   */
-  GPIO_InitStruct.Pin = OPTIC_Pin|HUM1_Pin|HUM2_Pin|HUM3_Pin 
+  GPIO_InitStruct.Pin = OPTIC_Pin|HUM1_Pin|HUM2_Pin|HUM3_Pin
                           |TEMP_Pin|VLINE_Pin;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_ANALOG;
   LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -302,7 +301,7 @@ static void MX_ADC1_Init(void)
   /* USER CODE BEGIN ADC1_Init 1 */
 
   /* USER CODE END ADC1_Init 1 */
-  /** Common config 
+  /** Common config
   */
   ADC_InitStruct.DataAlignment = LL_ADC_DATA_ALIGN_RIGHT;
   ADC_InitStruct.SequencersScanMode = LL_ADC_SEQ_SCAN_DISABLE;
@@ -315,7 +314,7 @@ static void MX_ADC1_Init(void)
   ADC_REG_InitStruct.ContinuousMode = LL_ADC_REG_CONV_SINGLE;
   ADC_REG_InitStruct.DMATransfer = LL_ADC_REG_DMA_TRANSFER_NONE;
   LL_ADC_REG_Init(ADC1, &ADC_REG_InitStruct);
-  /** Configure Regular Channel 
+  /** Configure Regular Channel
   */
   LL_ADC_REG_SetSequencerRanks(ADC1, LL_ADC_REG_RANK_1, LL_ADC_CHANNEL_0);
   LL_ADC_SetChannelSamplingTime(ADC1, LL_ADC_CHANNEL_0, LL_ADC_SAMPLINGTIME_1CYCLE_5);
@@ -342,9 +341,9 @@ static void MX_I2C1_Init(void)
   LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOB);
-  /**I2C1 GPIO Configuration  
+  /**I2C1 GPIO Configuration
   PB6   ------> I2C1_SCL
-  PB7   ------> I2C1_SDA 
+  PB7   ------> I2C1_SDA
   */
   GPIO_InitStruct.Pin = LL_GPIO_PIN_6|LL_GPIO_PIN_7;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
@@ -358,7 +357,7 @@ static void MX_I2C1_Init(void)
   /* USER CODE BEGIN I2C1_Init 1 */
 
   /* USER CODE END I2C1_Init 1 */
-  /** I2C Initialization 
+  /** I2C Initialization
   */
   LL_I2C_DisableOwnAddress2(I2C1);
   LL_I2C_DisableGeneralCall(I2C1);
@@ -390,7 +389,6 @@ static void MX_RTC_Init(void)
   /* USER CODE END RTC_Init 0 */
 
   LL_RTC_InitTypeDef RTC_InitStruct = {0};
-  LL_RTC_TimeTypeDef RTC_TimeStruct = {0};
 
     LL_PWR_EnableBkUpAccess();
     /* Enable BKP CLK enable for backup registers */
@@ -401,17 +399,11 @@ static void MX_RTC_Init(void)
   /* USER CODE BEGIN RTC_Init 1 */
 
   /* USER CODE END RTC_Init 1 */
-  /** Initialize RTC and set the Time and Date 
+  /** Initialize RTC and set the Time and Date
   */
-  RTC_InitStruct.AsynchPrescaler = 0xFFFFFFFFU;
+  RTC_InitStruct.AsynchPrescaler = 32768;
   LL_RTC_Init(RTC, &RTC_InitStruct);
-  LL_RTC_SetAsynchPrescaler(RTC, 0xFFFFFFFFU);
-  /** Initialize RTC and set the Time and Date 
-  */
-  RTC_TimeStruct.Hours = 0;
-  RTC_TimeStruct.Minutes = 0;
-  RTC_TimeStruct.Seconds = 0;
-  LL_RTC_TIME_Init(RTC, LL_RTC_FORMAT_BCD, &RTC_TimeStruct);
+  LL_RTC_SetAsynchPrescaler(RTC, 32768);
   /* USER CODE BEGIN RTC_Init 2 */
 
   /* USER CODE END RTC_Init 2 */
@@ -476,11 +468,11 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 2 */
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOB);
-  /**TIM3 GPIO Configuration  
+  /**TIM3 GPIO Configuration
   PB0   ------> TIM3_CH3
   PB1   ------> TIM3_CH4
   PB4   ------> TIM3_CH1
-  PB5   ------> TIM3_CH2 
+  PB5   ------> TIM3_CH2
   */
   GPIO_InitStruct.Pin = PWM1_Pin|PWM2_Pin|PWM3_Pin|PWM4_Pin;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
@@ -510,11 +502,11 @@ static void MX_USART1_UART_Init(void)
 
   /* Peripheral clock enable */
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_USART1);
-  
+
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOA);
-  /**USART1 GPIO Configuration  
+  /**USART1 GPIO Configuration
   PA9   ------> USART1_TX
-  PA10   ------> USART1_RX 
+  PA10   ------> USART1_RX
   */
   GPIO_InitStruct.Pin = TBRX_Pin;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
@@ -566,11 +558,11 @@ static void MX_USART2_UART_Init(void)
 
   /* Peripheral clock enable */
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_USART2);
-  
+
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOA);
-  /**USART2 GPIO Configuration  
+  /**USART2 GPIO Configuration
   PA2   ------> USART2_TX
-  PA3   ------> USART2_RX 
+  PA3   ------> USART2_RX
   */
   GPIO_InitStruct.Pin = LL_GPIO_PIN_2;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
@@ -633,7 +625,7 @@ static void MX_GPIO_Init(void)
   LL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
 
   /**/
-  GPIO_InitStruct.Pin = LPULSE1_Pin|LPULSE2_Pin|LPULSE_Pin|QCH_D0_Pin 
+  GPIO_InitStruct.Pin = LPULSE1_Pin|LPULSE2_Pin|LPULSE_Pin|QCH_D0_Pin
                           |QCH_D1_Pin;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_FLOATING;
   LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -684,7 +676,7 @@ void Error_Handler(void)
   * @retval None
   */
 void assert_failed(uint8_t *file, uint32_t line)
-{ 
+{
   /* USER CODE BEGIN 6 */
     /* User can add his own implementation to report the file name and line number,
        tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */

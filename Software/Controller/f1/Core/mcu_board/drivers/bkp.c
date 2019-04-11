@@ -2,4 +2,3 @@
 #include "bkp.h"
 
 
-BKP_TypeDef BackupRegisters;

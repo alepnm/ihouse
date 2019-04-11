@@ -5,16 +5,9 @@
 /*  Backup Registers API
 
 STM32F103C8 turi 10 16-bit backup registru
-
-
 */
 
 
-
-
-
-
-extern BKP_TypeDef BackupRegisters;
 
 
 

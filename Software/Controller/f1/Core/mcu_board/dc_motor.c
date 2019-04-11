@@ -1,6 +1,6 @@
 #include "dc_motor.h"
 #include "mcp23017.h"
-#include "board.h"
+#include "io.h"
 
 
 #define DCMOTOR_GASVALVE_ENABLE()       LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_13)

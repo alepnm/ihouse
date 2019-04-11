@@ -7,15 +7,30 @@ LL_RTC_TimeTypeDef RTC_Time;
 /*  */
 void RTC_Init(void) {
 
-    if(LL_RTC_BKP_GetRegister(BKP, LL_RTC_BKP_DR1) != 0x32F2) {
+
+    LL_RTC_BKP_SetRegister(BKP, LL_RTC_BKP_DR10, 0x55);
+
+    uint32_t qqq = LL_RTC_BKP_GetRegister(BKP, LL_RTC_BKP_DR10);
+
+
+
+
+
+    if(LL_RTC_BKP_GetRegister(BKP, LL_RTC_BKP_DR1) != 0x3232) {
 
         RTC_Time.Hours = 0;
         RTC_Time.Minutes = 0;
         RTC_Time.Seconds = 0;
         LL_RTC_TIME_Init(RTC, LL_RTC_FORMAT_BCD, &RTC_Time);
 
-        LL_RTC_BKP_SetRegister(BKP,LL_RTC_BKP_DR1,0x32F2);
+        LL_RTC_BKP_SetRegister(BKP, LL_RTC_BKP_DR1, 0x3232);
+
+
+
+
+        qqq = LL_RTC_BKP_GetRegister(BKP, LL_RTC_BKP_DR1);
     }
+
 }
 
 
@@ -31,7 +46,7 @@ void RTC_Reset(void) {
 /*  */
 void RTC_GetTime(void) {
 
-    uint32_t time = LL_RTC_TIME_Get(RTC);
+    uint32_t timestamp = LL_RTC_TIME_Get(RTC);
 
     //RTC_Time.Hours =
 
@@ -51,3 +66,4 @@ void RTC_SetTime(uint8_t hour, uint8_t minute, uint8_t second) {
 //
 //    LL_RTC_TIME_Init(RTC, LL_RTC_FORMAT_BIN, &RTC_Time);
 }
+
