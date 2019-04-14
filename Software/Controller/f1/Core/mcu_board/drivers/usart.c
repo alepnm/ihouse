@@ -7,11 +7,12 @@
 #endif
 
 
-USART_TypeDef * usart_handle[2u] = {USART1, USART2};
-PortConfig_TypeDef port_config[2u];
-PortRegister_TypeDef port_register[2u];
+USART_TypeDef * usart_handle[2] = {USART1, USART2};
+PortConfig_TypeDef port_config[2];
+PortRegister_TypeDef port_register[2];
 
 uint8_t TxState = USART_STATE_IDLE;
+uint8_t RespondWaitingFlag = false;
 
 
 char* ptrPrimaryRxBuffer = port_register[PRIMARY_PORT].RxBuffer;
@@ -19,7 +20,7 @@ char* ptrPrimaryTxBuffer = port_register[PRIMARY_PORT].TxBuffer;
 char* ptrSecondaryRxBuffer = port_register[SECONDARY_PORT].RxBuffer;
 char* ptrSecondaryTxBuffer = port_register[SECONDARY_PORT].TxBuffer;
 
-const uint32_t baudrates[6u] = { 2400u, 4800u, 9600u, 19200u, 38400u, 57600u };
+const uint32_t baudrates[7] = { 2400u, 4800u, 9600u, 14400u, 19200u, 38400u, 57600u };
 
 
 /*  */
@@ -72,6 +73,7 @@ void USART_Send( uint8_t ucPORT, void* data, size_t len ) {
     while(len--) {
         while(!LL_USART_IsActiveFlag_TC(usart_handle[ucPORT]));
         LL_USART_TransmitData8(usart_handle[ucPORT], *((uint8_t*)data++));
+        RespondWaitingFlag = true;
     }
 }
 
@@ -86,6 +88,7 @@ void USART_Send_DMA(size_t len){
 /*  */
 void USART_SendByte(uint8_t ucPORT, char data) {
     LL_USART_TransmitData8(usart_handle[ucPORT], data);
+    RespondWaitingFlag = true;
 }
 
 /*  */
@@ -97,6 +100,7 @@ void USART_SendString( uint8_t ucPORT, const char* str ) {
         while(!LL_USART_IsActiveFlag_TC(usart_handle[ucPORT]));
         LL_USART_TransmitData8(usart_handle[ucPORT], *(str+i));
         i++;
+        RespondWaitingFlag = true;
     }
 }
 
@@ -119,7 +123,6 @@ void USART_ClearRxBuffer(uint8_t ucPORT) {
 uint8_t CheckBaudrate( uint32_t baudrate) {
 
     uint8_t i = 0;
-
 
     while( i < sizeof(baudrates)/sizeof(baudrate) ) {
 
@@ -189,9 +192,29 @@ void USART_IRQ_Handler(void) {
 
     }
 
-
 #endif
+
 }
 
 
+/*  */
+void USART_TimerHandler(void){
+
+    if(port_register[PRIMARY_PORT].PortTimer > 0) port_register[PRIMARY_PORT].PortTimer--;
+    else {
+        if(port_register[PRIMARY_PORT].PortState == USART_STATE_ANSWER_WAITING) {
+            port_register[PRIMARY_PORT].PortState = USART_STATE_IDLE;
+            port_register[PRIMARY_PORT].RxBufferIndex = 0;
+
+            RespondWaitingFlag = false;
+
+            //LL_USART_DisableIT_RXNE(usart_handle[PRIMARY_PORT]);
+        }
+    }
+
+
+
+
+
+}
 

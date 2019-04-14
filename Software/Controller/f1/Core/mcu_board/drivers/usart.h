@@ -19,7 +19,7 @@ enum { USART_STATE_IDLE = 0, USART_STATE_BUSY, USART_STATE_ANSWER_WAITING, USART
 #define USART_PAR_ODD   1   //MB_PAR_ODD
 #define USART_PAR_EVEN  2   //MB_PAR_EVEN
 
-#define RX_BUFFER_SIZE  32
+#define RX_BUFFER_SIZE  64
 #define TX_BUFFER_SIZE  32
 
 typedef struct{
@@ -43,10 +43,10 @@ typedef struct{
     char*               ptrTxBuffer;
 }PortRegister_TypeDef;
 
-extern USART_TypeDef * usart_handle[2u];
-extern PortConfig_TypeDef port_config[2u];
-extern PortRegister_TypeDef port_register[2u];
-extern const uint32_t baudrates[6u];
+extern USART_TypeDef * usart_handle[2];
+extern PortConfig_TypeDef port_config[2];
+extern PortRegister_TypeDef port_register[2];
+extern const uint32_t baudrates[7];
 
 extern uint8_t TxState;
 
@@ -54,6 +54,7 @@ extern char* ptrPrimaryRxBuffer;
 extern char* ptrPrimaryTxBuffer;
 extern char* ptrSecondaryRxBuffer;
 extern char* ptrSecondaryTxBuffer;
+extern uint8_t RespondWaitingFlag;
 
 
 void    USART_Config(uint8_t ucPORT, uint32_t ulBaudRate, uint32_t ulDataBits,  uint8_t ulParity);
@@ -65,6 +66,8 @@ void    USART_IRQ_Handler(void);
 
 void    USART_ClearRxBuffer(uint8_t ucPORT);
 uint8_t CheckBaudrate( uint32_t baudrate);
+
+void USART_TimerHandler(void);
 
 #endif /* USART_H_INCLUDED */
 

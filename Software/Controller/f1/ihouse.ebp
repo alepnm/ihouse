@@ -83,6 +83,70 @@
 		<Unit filename="Core\Inc\main.h" />
 		<Unit filename="Core\Inc\stm32_assert.h" />
 		<Unit filename="Core\Inc\stm32f1xx_it.h" />
+		<Unit filename="Core\libs\freemodbus\modbus\ascii\mbascii.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\modbus\ascii\mbascii.h" />
+		<Unit filename="Core\libs\freemodbus\modbus\functions\mbfunccoils.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\modbus\functions\mbfuncdiag.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\modbus\functions\mbfuncdisc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\modbus\functions\mbfuncholding.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\modbus\functions\mbfuncinput.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\modbus\functions\mbfuncother.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\modbus\functions\mbutils.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\modbus\include\mb.h" />
+		<Unit filename="Core\libs\freemodbus\modbus\include\mbconfig.h" />
+		<Unit filename="Core\libs\freemodbus\modbus\include\mbframe.h" />
+		<Unit filename="Core\libs\freemodbus\modbus\include\mbfunc.h" />
+		<Unit filename="Core\libs\freemodbus\modbus\include\mbport.h" />
+		<Unit filename="Core\libs\freemodbus\modbus\include\mbproto.h" />
+		<Unit filename="Core\libs\freemodbus\modbus\include\mbutils.h" />
+		<Unit filename="Core\libs\freemodbus\modbus\mb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\modbus\rtu\mbcrc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\modbus\rtu\mbcrc.h" />
+		<Unit filename="Core\libs\freemodbus\modbus\rtu\mbrtu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\modbus\rtu\mbrtu.h" />
+		<Unit filename="Core\libs\freemodbus\modbus\tcp\mbtcp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\modbus\tcp\mbtcp.h" />
+		<Unit filename="Core\libs\freemodbus\port\port.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\port\port.h" />
+		<Unit filename="Core\libs\freemodbus\port\portevent.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\port\portserial.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\port\porttimer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\user_mb_app.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\freemodbus\user_mb_app.h" />
 		<Unit filename="Core\libs\IIC_EEPROM\iic_eeprom.c">
 			<Option compilerVar="CC" />
 		</Unit>

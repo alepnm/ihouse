@@ -5,6 +5,7 @@
 #include "usart.h"
 
 
-void TB387_Init(void);
+uint8_t TB387_Init(void);
 
+uint32_t hex2int(char *hex);
 #endif /* TB387_H_INCLUDED */
