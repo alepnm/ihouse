@@ -59,6 +59,12 @@ uint8_t TB387_Init(void) {
         return 1;
     }
 
+
+    /* nustatymai pagal nutilejima */
+    //sprintf(ptrPrimaryTxBuffer, "%s", "AT+RESET");
+    //USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
+    //while(RespondWaitingFlag);
+
     sprintf(ptrPrimaryTxBuffer, "%s", "AT+ID?");
     USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
     while(RespondWaitingFlag);
