@@ -1,11 +1,4 @@
-16781706551069949
-1220 Battery Holder
-Battery_holder_1220
-
-
-0
-2
-2
+16775493095476761
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (http://www.bulgin.com/media/bulgin/data/Battery_holders.pdf)
@@ -43448,20 +43441,13 @@ single digit 7 segemnt red/green LED
 0
 10
 10
-ev1527
-EV1527_Receiver
+dth11
+DHT11
 
 
 0
-7
-7
-ev1527
-EV1527_Transmitter
-
-
-0
-7
-7
+4
+4
 Fiducial
 Fiducial_0.5mm_Dia_1mm_Outer
 Circular Fiducial, 0.5mm bare copper top; 1mm keepout (Level C)
@@ -63125,13 +63111,6 @@ Shielding Cabinet
 0
 48
 1
-rj45_vertical_shelded
-RJ45_Vertical
-
-
-0
-10
-9
 Rotary_Encoder
 RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm
 Alps rotary encoder, EC12E... with switch, vertical shaft, http://www.alps.com/prod/info/E/HTML/Encoder/Incremental/EC11/EC11E15204A3.html
@@ -63714,16 +63693,16 @@ SPARKFUN FLAME LOGO - 0.4" HEIGHT - SILKSCREEN
 0
 0
 SparkFun_Aesthetics
-SFE_LOGO_FLAME_.5
-SPARKFUN FLAME LOGO - 0.5" HEIGHT - SILKSCREEN
-SPARKFUN FLAME LOGO - 0.5" HEIGHT - SILKSCREEN
+SFE_LOGO_FLAME_.05
+SPARKFUN FLAME LOGO - 0.05" HEIGHT - SILKSCREEN
+SPARKFUN FLAME LOGO - 0.05" HEIGHT - SILKSCREEN
 0
 0
 0
 SparkFun_Aesthetics
-SFE_LOGO_FLAME_.05
-SPARKFUN FLAME LOGO - 0.05" HEIGHT - SILKSCREEN
-SPARKFUN FLAME LOGO - 0.05" HEIGHT - SILKSCREEN
+SFE_LOGO_FLAME_.5
+SPARKFUN FLAME LOGO - 0.5" HEIGHT - SILKSCREEN
+SPARKFUN FLAME LOGO - 0.5" HEIGHT - SILKSCREEN
 0
 0
 0
@@ -70111,13 +70090,6 @@ TRACKBALL - MECHANICAL
 0
 0
 0
-stm32f1_module
-stm32f1_module
-
-
-0
-40
-40
 Symbol
 CE-Logo_8.5x6mm_SilkScreen
 CE marking
@@ -75088,13 +75060,13 @@ Transformer Toroid tapped horizontal laying Diameter 14mm Amidon T50
 0
 6
 6
-uart_expander
-TB387_UART_expander
+unicon
+unicon
 
 
 0
-5
-5
+46
+46
 Valve
 Valve_ECC-83-1
 Valve ECC-83-1 round pins

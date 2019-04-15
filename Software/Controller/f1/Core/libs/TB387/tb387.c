@@ -14,7 +14,7 @@ static struct _tb378 {
     uint8_t     baudrate;
     uint8_t     channel;
     uint8_t     retries;
-} TB387;;
+} TB387;
 
 
 const char AT_CMD[] = "AT+";
@@ -59,11 +59,8 @@ uint8_t TB387_Init(void) {
         return 1;
     }
 
-
     /* nustatymai pagal nutilejima */
-    //sprintf(ptrPrimaryTxBuffer, "%s", "AT+RESET");
-    //USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
-    //while(RespondWaitingFlag);
+    //TB387_SetDefaults();
 
     sprintf(ptrPrimaryTxBuffer, "%s", "AT+ID?");
     USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
@@ -99,6 +96,23 @@ uint8_t TB387_Init(void) {
 
     return 0;
 }
+
+
+/*  */
+void TB387_SetDefaults(void){
+
+    USART_Config(TB387_PORT, 9600, 8,  USART_PAR_NONE);
+
+    TB387_CMD_LOW();
+
+    sprintf(ptrPrimaryTxBuffer, "%s", "AT+RESET");
+    USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
+    while(RespondWaitingFlag);
+
+    TB387_CMD_HIGH();
+}
+
+
 
 
 /**

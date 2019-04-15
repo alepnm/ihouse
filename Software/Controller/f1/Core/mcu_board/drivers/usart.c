@@ -73,8 +73,9 @@ void USART_Send( uint8_t ucPORT, void* data, size_t len ) {
     while(len--) {
         while(!LL_USART_IsActiveFlag_TC(usart_handle[ucPORT]));
         LL_USART_TransmitData8(usart_handle[ucPORT], *((uint8_t*)data++));
-        RespondWaitingFlag = true;
     }
+
+    RespondWaitingFlag = true;
 }
 
 
@@ -100,8 +101,9 @@ void USART_SendString( uint8_t ucPORT, const char* str ) {
         while(!LL_USART_IsActiveFlag_TC(usart_handle[ucPORT]));
         LL_USART_TransmitData8(usart_handle[ucPORT], *(str+i));
         i++;
-        RespondWaitingFlag = true;
     }
+
+    RespondWaitingFlag = true;
 }
 
 
