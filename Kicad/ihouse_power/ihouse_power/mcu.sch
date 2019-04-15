@@ -161,9 +161,9 @@ Wire Wire Line
 Wire Wire Line
 	3150 3350 3150 3400
 Text Label 2300 4400 0    50   ~ 0
-RSTX
+RS1
 Text Label 2300 4700 0    50   ~ 0
-RSRX
+RS2
 Wire Wire Line
 	1950 4050 2200 4050
 Wire Wire Line
@@ -1922,7 +1922,7 @@ NEXTX
 Text Label 6650 5050 0    50   ~ 0
 NEXRX
 Text Label 2200 4800 0    50   ~ 0
-RSRCEN
+RCEN
 Text HLabel 4350 2250 2    50   Output ~ 0
 5VDC1
 Wire Wire Line

@@ -700,6 +700,244 @@ Wire Wire Line
 Connection ~ 2300 2100
 Wire Wire Line
 	1650 1650 2750 1650
+$Comp
+L ihouse_power-rescue:MAX232-ics U?
+U 1 1 5CF1CE1C
+P 3500 5900
+AR Path="/5D803411/5CF1CE1C" Ref="U?"  Part="1" 
+AR Path="/5CF1CE1C" Ref="U12"  Part="1" 
+F 0 "U12" H 3800 6700 50  0000 C CNN
+F 1 "MAX232" H 3200 6700 50  0000 C CNN
+F 2 "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" H 3550 4850 50  0001 L CNN
+F 3 "http://www.ti.com/lit/ds/symlink/max232.pdf" H 3500 5650 50  0001 C CNN
+	1    3500 5900
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3500 6800 3500 6900
+Text Label 4200 6900 2    50   ~ 0
+COM
+Wire Wire Line
+	2900 5250 2850 5250
+Wire Wire Line
+	2900 5400 2450 5400
+Wire Wire Line
+	2450 5400 2450 5250
+Wire Wire Line
+	2450 5250 2550 5250
+Wire Wire Line
+	4150 5250 4300 5250
+Wire Wire Line
+	4600 5250 4700 5250
+Wire Wire Line
+	4700 5250 4700 5400
+Wire Wire Line
+	4700 5400 4150 5400
+Wire Wire Line
+	2850 5600 2900 5600
+Wire Wire Line
+	3500 4900 2300 4900
+Wire Wire Line
+	2300 4900 2300 5600
+Wire Wire Line
+	3500 4900 3500 4950
+Wire Wire Line
+	2300 5600 2550 5600
+Wire Wire Line
+	2450 5750 2450 6500
+Wire Wire Line
+	2450 6800 2450 6900
+Wire Wire Line
+	2450 6900 3500 6900
+Connection ~ 3500 6900
+$Comp
+L Device:CP C?
+U 1 1 5CF1CE39
+P 2700 5250
+AR Path="/5D803411/5CF1CE39" Ref="C?"  Part="1" 
+AR Path="/5CF1CE39" Ref="C32"  Part="1" 
+F 0 "C32" V 2550 5150 50  0000 C CNN
+F 1 "10,0" V 2550 5350 50  0000 C CNN
+F 2 "Capacitor_SMD:CP_Elec_3x5.4" H 2738 5100 50  0001 C CNN
+F 3 "~" H 2700 5250 50  0001 C CNN
+	1    2700 5250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 5CF1CE40
+P 4450 5250
+AR Path="/5D803411/5CF1CE40" Ref="C?"  Part="1" 
+AR Path="/5CF1CE40" Ref="C34"  Part="1" 
+F 0 "C34" V 4600 5350 50  0000 C CNN
+F 1 "10,0" V 4600 5150 50  0000 C CNN
+F 2 "Capacitor_SMD:CP_Elec_3x5.4" H 4488 5100 50  0001 C CNN
+F 3 "~" H 4450 5250 50  0001 C CNN
+	1    4450 5250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 5CF1CE47
+P 2700 5600
+AR Path="/5D803411/5CF1CE47" Ref="C?"  Part="1" 
+AR Path="/5CF1CE47" Ref="C33"  Part="1" 
+F 0 "C33" V 2600 5500 50  0000 C CNN
+F 1 "10,0" V 2600 5800 50  0000 C CNN
+F 2 "Capacitor_SMD:CP_Elec_3x5.4" H 2738 5450 50  0001 C CNN
+F 3 "~" H 2700 5600 50  0001 C CNN
+	1    2700 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 5CF1CE4E
+P 2450 6650
+AR Path="/5D803411/5CF1CE4E" Ref="C?"  Part="1" 
+AR Path="/5CF1CE4E" Ref="C31"  Part="1" 
+F 0 "C31" H 2250 6600 50  0000 C CNN
+F 1 "10,0" H 2200 6700 50  0000 C CNN
+F 2 "Capacitor_SMD:CP_Elec_3x5.4" H 2488 6500 50  0001 C CNN
+F 3 "~" H 2450 6650 50  0001 C CNN
+	1    2450 6650
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2450 5750 2900 5750
+Wire Wire Line
+	1900 5850 2300 5850
+Wire Wire Line
+	2300 5850 2300 5600
+Connection ~ 2300 5600
+Wire Wire Line
+	1900 6350 2150 6350
+Wire Wire Line
+	2150 6350 2150 6450
+Wire Wire Line
+	2150 6550 1900 6550
+Wire Wire Line
+	1900 6450 2150 6450
+Connection ~ 2150 6450
+Wire Wire Line
+	2150 6450 2150 6550
+Wire Wire Line
+	1900 6250 2550 6250
+Wire Wire Line
+	1900 6050 2150 6050
+Wire Wire Line
+	2150 6050 2150 6350
+Connection ~ 2150 6350
+Wire Wire Line
+	1900 6150 2300 6150
+Wire Wire Line
+	2450 6900 2150 6900
+Wire Wire Line
+	2150 6900 2150 6550
+Connection ~ 2450 6900
+Connection ~ 2150 6550
+Text Label 4650 4900 2    50   ~ 0
+5VDC
+Wire Wire Line
+	3500 4900 4250 4900
+Connection ~ 3500 4900
+Wire Notes Line
+	1400 4600 1400 7000
+Wire Notes Line
+	1400 7000 5400 7000
+Wire Notes Line
+	5400 7000 5400 4600
+Wire Notes Line
+	5400 4600 1400 4600
+Text Notes 1750 4800 0    98   ~ 0
+Nextion RS232 driver
+Wire Wire Line
+	2550 6250 2850 5950
+Wire Wire Line
+	2850 5950 2900 5950
+Wire Wire Line
+	1900 5950 2550 5950
+Wire Wire Line
+	2550 5950 2850 6250
+Wire Wire Line
+	2850 6250 2900 6250
+Wire Wire Line
+	2900 6050 2300 6050
+Wire Wire Line
+	2300 6050 2300 6150
+$Comp
+L Device:R R49
+U 1 1 5D0DFE3F
+P 4250 5700
+F 0 "R49" H 4320 5746 50  0000 L CNN
+F 1 "10k" H 4320 5655 50  0000 L CNN
+F 2 "" V 4180 5700 50  0001 C CNN
+F 3 "~" H 4250 5700 50  0001 C CNN
+	1    4250 5700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4150 6050 4250 6050
+Wire Wire Line
+	4250 6050 4250 5850
+Wire Wire Line
+	4250 5550 4250 4900
+Connection ~ 4250 4900
+Text Label 4600 5950 2    50   ~ 0
+NEXTX
+Text Label 4600 6250 2    50   ~ 0
+NEXRX
+Text Label 1900 5950 0    50   ~ 0
+RS1
+Text Label 1900 6250 0    50   ~ 0
+RS2
+$Comp
+L Connector_Generic:Conn_01x08 J21
+U 1 1 5D1D3B9A
+P 1700 6150
+F 0 "J21" H 1700 6550 50  0000 C CNN
+F 1 "RS232" H 1700 5600 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Horizontal" H 1700 6150 50  0001 C CNN
+F 3 "~" H 1700 6150 50  0001 C CNN
+	1    1700 6150
+	-1   0    0    -1  
+$EndComp
+Text Label 1900 6150 0    50   ~ 0
+RCEN
+$Comp
+L Connector_Generic:Conn_01x04 J22
+U 1 1 5D21FC01
+P 5200 6000
+F 0 "J22" H 5150 6200 50  0000 L CNN
+F 1 "Nextion" H 5050 5700 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 5200 6000 50  0001 C CNN
+F 3 "~" H 5200 6000 50  0001 C CNN
+	1    5200 6000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4800 4900 4800 5900
+Wire Wire Line
+	4800 5900 5000 5900
+Wire Wire Line
+	4250 4900 4800 4900
+Wire Wire Line
+	4800 6900 4800 6200
+Wire Wire Line
+	4800 6200 5000 6200
+Wire Wire Line
+	3500 6900 4800 6900
+Wire Wire Line
+	4700 6250 4700 6100
+Wire Wire Line
+	4700 6100 5000 6100
+Wire Wire Line
+	4150 6250 4700 6250
+Wire Wire Line
+	4700 5950 4700 6000
+Wire Wire Line
+	4700 6000 5000 6000
+Wire Wire Line
+	4150 5950 4700 5950
 Wire Bus Line
 	5550 950  5550 2050
 Wire Bus Line
