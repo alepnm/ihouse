@@ -43,7 +43,7 @@ uint8_t TB387_Init(void) {
 
     uint32_t wait_to = timestamp + 5000;
 
-    TB387_Port = usart_handle[TB387_PORT];
+    TB387_Port = Ports[TB387_PORT].handle;
 
     TB387_CMD_LOW();
 

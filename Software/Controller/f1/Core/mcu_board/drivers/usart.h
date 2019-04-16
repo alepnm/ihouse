@@ -8,7 +8,7 @@
 
 #define NEXTION_PORT    SECONDARY_PORT
 #define TB387_PORT      PRIMARY_PORT
-//#define MODBUS_PORT     PRIMARY_PORT
+#define MODBUS_PORT     PRIMARY_PORT
 
 
 enum { BR2400 = 0, BR4800, BR9600, BR19200, BR38400, BR57600 };
@@ -22,13 +22,20 @@ enum { USART_STATE_IDLE = 0, USART_STATE_BUSY, USART_STATE_ANSWER_WAITING, USART
 #define RX_BUFFER_SIZE  64
 #define TX_BUFFER_SIZE  32
 
-typedef struct{
-    uint8_t             MbAddr;
-    uint16_t            Baudrate;
-    uint8_t             Parity;
-    uint8_t             StopBits;
-    uint8_t             DataBits;
-}PortConfig_TypeDef;
+
+typedef struct _port{
+
+    USART_TypeDef   *handle;
+
+    struct{
+        uint8_t     MbAddr;
+        uint16_t    Baudrate;
+        uint8_t     Parity;
+        uint8_t     StopBits;
+        uint8_t     DataBits;
+    }Conf;
+
+}Port_TypeDef;
 
 typedef struct{
     uint8_t             PortState;                  // porto busena
@@ -43,8 +50,8 @@ typedef struct{
     char*               ptrTxBuffer;
 }PortRegister_TypeDef;
 
-extern USART_TypeDef * usart_handle[2];
-extern PortConfig_TypeDef port_config[2];
+
+extern Port_TypeDef Ports[2];
 extern PortRegister_TypeDef port_register[2];
 extern const uint32_t baudrates[7];
 
@@ -62,7 +69,7 @@ void    USART_Send( uint8_t ucPORT, void* buf, size_t size_of_data );
 void    USART_Send_DMA(size_t len);
 void    USART_SendByte(uint8_t ucPORT, char data);
 void    USART_SendString( uint8_t ucPORT, const char* str );
-void    USART_IRQ_Handler(void);
+void    USART_IRQ_Handler(uint8_t port);
 
 void    USART_ClearRxBuffer(uint8_t ucPORT);
 uint8_t CheckBaudrate( uint32_t baudrate);

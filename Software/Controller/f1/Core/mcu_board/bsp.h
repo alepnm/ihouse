@@ -10,6 +10,12 @@
 #include "tb387.h"
 
 
+#if defined(MODBUS_PORT)
+    #include "mb.h"
+    #include "user_mb_app.h"
+#endif
+
+
 
 void BSP_SystemInit(void);
 void BSP_SystemHandler(void);
