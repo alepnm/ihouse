@@ -1,6 +1,7 @@
 #include "defs.h"
 #include "usart.h"
 #include "io.h"
+#include "tb387.h"
 
 #if defined(MODBUS_PORT)
     #include "mbport.h"
@@ -33,7 +34,7 @@ const uint32_t baudrates[7] = { 2400u, 4800u, 9600u, 14400u, 19200u, 38400u, 576
 /*  */
 void USART_Config(uint8_t ucPORT, uint32_t ulBaudRate, uint32_t ulDataBits,  uint8_t ulParity ) {
 
-    USART_TypeDef   *port = Ports[ucPORT].handle;
+    USART_TypeDef *port = Ports[ucPORT].handle;
 
     LL_USART_InitTypeDef USART_InitStruct = {
         .BaudRate = 19200,
@@ -148,16 +149,22 @@ uint8_t CheckBaudrate( uint32_t baudrate) {
 /*  */
 void USART_IRQ_Handler(uint8_t port) {
 
-
 #if defined(MODBUS_PORT)
-    if( LL_USART_IsActiveFlag_RXNE(Ports[MODBUS_PORT].handle) && LL_USART_IsEnabledIT_RXNE(Ports[MODBUS_PORT].handle) ) {
-        (void)pxMBFrameCBByteReceived();
+
+    if(port == MODBUS_PORT && TB387.ConfigModeIsActive == false){
+
+        if( LL_USART_IsActiveFlag_RXNE(Ports[MODBUS_PORT].handle) && LL_USART_IsEnabledIT_RXNE(Ports[MODBUS_PORT].handle) ) {
+            (void)pxMBFrameCBByteReceived();
+        }
+
+        if( LL_USART_IsActiveFlag_TC(Ports[MODBUS_PORT].handle) && LL_USART_IsEnabledIT_TC(Ports[MODBUS_PORT].handle) ) {
+            (void)pxMBFrameCBTransmitterEmpty();
+        }
+
+        return;
     }
 
-    if( LL_USART_IsActiveFlag_TC(Ports[MODBUS_PORT].handle) && LL_USART_IsEnabledIT_TC(Ports[MODBUS_PORT].handle) ) {
-        (void)pxMBFrameCBTransmitterEmpty();
-    }
-#else
+#endif
 
     if( LL_USART_IsActiveFlag_RXNE(Ports[port].handle) && LL_USART_IsEnabledIT_RXNE(Ports[port].handle) ) {
 
@@ -172,7 +179,6 @@ void USART_IRQ_Handler(uint8_t port) {
         port_register[port].PortTimer = 10;
     }
 
-#endif
 
 }
 

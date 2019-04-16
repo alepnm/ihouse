@@ -25,7 +25,7 @@ void BSP_SystemInit(void) {
     now = LL_RTC_TIME_Get(RTC);
 
 
-    TB387_Init();
+    TB387_Init(&TB387);
 
 
     USART_Config(NEXTION_PORT, 19200, 8,  USART_PAR_NONE);

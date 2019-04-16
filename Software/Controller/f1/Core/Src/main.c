@@ -141,9 +141,8 @@ int main(void)
 
     //DCMOT_Init();
 
-
-#if defined(MODBUS_ENABLE)
-    eMBInit( MB_RTU, port_config[SECONDARY_PORT].MbAddr, SECONDARY_PORT, port_config[SECONDARY_PORT].Baudrate, port_config[SECONDARY_PORT].Parity );
+#if defined(MODBUS_PORT)
+    eMBInit( MB_RTU, Ports[MODBUS_PORT].Conf.MbAddr, MODBUS_PORT, Ports[MODBUS_PORT].Conf.Baudrate, Ports[MODBUS_PORT].Conf.Parity );
     eMBSetSlaveID( 123, TRUE, ucSlaveIdBuf, (MB_FUNC_OTHER_REP_SLAVEID_BUF - 4) );
     eMBEnable();
 #endif
@@ -162,7 +161,7 @@ int main(void)
 
 
             //USART_SendString(NEXTION_PORT, "0123456789");
-            //USART_SendString(TB387_PORT, "0123456789");
+            USART_SendString(TB387_PORT, "0123456789");
 
             LED_TOGGLE();
 
@@ -669,7 +668,10 @@ static void MX_GPIO_Init(void)
   LL_GPIO_ResetOutputPin(LED_GPIO_Port, LED_Pin);
 
   /**/
-  LL_GPIO_ResetOutputPin(GPIOB, MCPRST_Pin|M1ENA_Pin|M23ENA_Pin|TBCMD_Pin);
+  LL_GPIO_ResetOutputPin(GPIOB, M1ENA_Pin|M23ENA_Pin);
+
+  /**/
+  LL_GPIO_SetOutputPin(GPIOB, MCPRST_Pin|TBCMD_Pin);
 
   /**/
   GPIO_InitStruct.Pin = LED_Pin;
@@ -685,14 +687,7 @@ static void MX_GPIO_Init(void)
   LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /**/
-  GPIO_InitStruct.Pin = MCPRST_Pin|TBCMD_Pin;
-  GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
-  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_OPENDRAIN;
-  LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /**/
-  GPIO_InitStruct.Pin = M1ENA_Pin|M23ENA_Pin;
+  GPIO_InitStruct.Pin = MCPRST_Pin|M1ENA_Pin|M23ENA_Pin|TBCMD_Pin;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
   GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
   GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;

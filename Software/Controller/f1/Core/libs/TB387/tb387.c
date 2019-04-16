@@ -1,5 +1,5 @@
 
-#include <string.h>
+//#include <string.h>
 #include <stdio.h>
 #include "tb387.h"
 
@@ -7,47 +7,22 @@
 #define TB387_CMD_LOW()     LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_15)
 #define TB387_CMD_HIGH()    LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_15)
 
-
-static struct _tb378 {
-
-    uint16_t    id;
-    uint8_t     baudrate;
-    uint8_t     channel;
-    uint8_t     retries;
-} TB387;
-
-
-const char AT_CMD[] = "AT+";
-const char AT_CMD_ID[] = "ID=";          // modulio ID (1-65535). Default = 1234
-const char AT_CMD_BAUD[] = "BAUD=";      // bodreitas ( 0-9: 2400/4800/9600/19200/38400/57600/115200/128000/256000 ). Default = 2
-const char AT_CMD_FREQ[] = "FREQ=";      // kanalo numeris (2402MHz + (1-78) ).
-const char AT_CMD_RETRY[] = "RETRY=";    // kiek bandymu (1-100). Default = 100
-const char AT_CMD_INF[] = "INF";         // versijos uzklausa
-const char AT_CMD_RESET[] = "RESET";     // gamykliniu nustatymu atstatymas
-
-const char AT_REQ_FREQ[] = "FREQ?";      // daznio uzklausa
-const char AT_REQ_ID[] = "ID?";          // ID uzklausa
-const char AT_REQ_RETRY[] = "RETRY?";    // bandymu kiekio uzklausa
-
-
-USART_TypeDef *TB387_Port;
-uint8_t TB378_NeedUpdateFlag = false;
-
-
 /* extern variables */
 extern uint32_t timestamp;
 
 
-/*  */
-uint8_t TB387_Init(void) {
+/* nuskaitom konfiga is TB387 ir inicializuojam UART'a */
+uint8_t TB387_Init(struct _tb387 *tb) {
+
+    tb->IsPresent = false;
 
     uint32_t wait_to = timestamp + 5000;
 
-    TB387_Port = Ports[TB387_PORT].handle;
+    USART_Config(TB387_PORT, 9600, 8, USART_PAR_NONE);
+
+    tb->ConfigModeIsActive = true;
 
     TB387_CMD_LOW();
-
-    USART_Config(TB387_PORT, 9600, 8,  USART_PAR_NONE);
 
     /* bandom prisijungti prie TB378 ir nuskaityti jo parametrus */
     sprintf(ptrPrimaryTxBuffer, "%s", "AT");
@@ -59,23 +34,22 @@ uint8_t TB387_Init(void) {
         return 1;
     }
 
-    /* nustatymai pagal nutilejima */
-    //TB387_SetDefaults();
+    tb->IsPresent = true;
 
     sprintf(ptrPrimaryTxBuffer, "%s", "AT+ID?");
     USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
     while(RespondWaitingFlag);
-    TB387.id = hex2int( ptrPrimaryRxBuffer+9 );
+    tb->id = hex2int( ptrPrimaryRxBuffer+9 );
 
     sprintf(ptrPrimaryTxBuffer, "%s", "AT+BAUD?");
     USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
     while(RespondWaitingFlag);
-    TB387.baudrate = atoi( ptrPrimaryRxBuffer+9 );
+    tb->baudrate = atoi( ptrPrimaryRxBuffer+9 );
 
     /* jai bodreitas nustatytas didesnis, nei 57600, mazinam iki 57600 */
-    if(TB387.baudrate > 6) {
-        TB387.baudrate = 6;
-        sprintf(ptrPrimaryTxBuffer, "%s%u", "AT+BAUD=", TB387.baudrate);
+    if(tb->baudrate > 6) {
+        tb->baudrate = 6;
+        sprintf(ptrPrimaryTxBuffer, "%s%u", "AT+BAUD=", tb->baudrate);
         USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
         while(RespondWaitingFlag);
     }
@@ -83,25 +57,62 @@ uint8_t TB387_Init(void) {
     sprintf(ptrPrimaryTxBuffer, "%s", "AT+FREQ?");
     USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
     while(RespondWaitingFlag);
-    TB387.channel = hex2int( ptrPrimaryRxBuffer+9 );
+    tb->channel = hex2int( ptrPrimaryRxBuffer+9 );
 
     sprintf(ptrPrimaryTxBuffer, "%s", "AT+RETRY?");
     USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
     while(RespondWaitingFlag);
-    TB387.retries = hex2int( ptrPrimaryRxBuffer+9 );
+    tb->retries = hex2int( ptrPrimaryRxBuffer+9 );
 
     TB387_CMD_HIGH();
 
-    USART_Config(TB387_PORT, baudrates[TB387.baudrate], 8,  USART_PAR_NONE);
+    tb->ConfigModeIsActive = false;
+
+    Ports[TB387_PORT].Conf.MbAddr = tb->id;
+    Ports[TB387_PORT].Conf.Baudrate = baudrates[tb->baudrate];
+
+    USART_Config(TB387_PORT, Ports[TB387_PORT].Conf.Baudrate, Ports[TB387_PORT].Conf.DataBits, Ports[TB387_PORT].Conf.Parity);
 
     return 0;
 }
 
 
 /*  */
-void TB387_SetDefaults(void){
+uint8_t TB387_Config(struct _tb387 *tb){
+
+    if(tb->IsPresent == false) return 1;
+
+    tb->ConfigModeIsActive = true;
+
+    TB387_CMD_LOW();
+
+    sprintf(ptrPrimaryTxBuffer, "%s%u", "AT+ID=", tb->id);
+    USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
+
+    sprintf(ptrPrimaryTxBuffer, "%s%u", "AT+BAUD=", tb->baudrate);
+    USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
+
+    sprintf(ptrPrimaryTxBuffer, "%s%u", "AT+FREQ=", tb->channel);
+    USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
+
+    sprintf(ptrPrimaryTxBuffer, "%s%u", "AT+RETRY=", tb->retries);
+    USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
+
+    TB387_CMD_HIGH();
+
+    tb->ConfigModeIsActive = false;
+
+    return 0;
+}
+
+
+
+/* grazinam defoltinius nustatymus TB387 ir sukonfiguruojam UART'a */
+void TB387_SetDefaults(struct _tb387 *tb){
 
     USART_Config(TB387_PORT, 9600, 8,  USART_PAR_NONE);
+
+    tb->ConfigModeIsActive = true;
 
     TB387_CMD_LOW();
 
@@ -110,6 +121,10 @@ void TB387_SetDefaults(void){
     while(RespondWaitingFlag);
 
     TB387_CMD_HIGH();
+
+    tb->ConfigModeIsActive = false;
+
+    TB387_Init(tb);
 }
 
 
