@@ -2,6 +2,7 @@
 #define	_EEPROM_24XX_H
 
 #include <stdint.h>
+#include <stdlib.h>
 
 #define     EE24LC08
 

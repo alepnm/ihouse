@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1555307892 source:c:\working\git\ihouse\software\controller\f1\core\src\main.c
+1555481111 source:c:\working\git\ihouse\software\controller\f1\core\src\main.c
 	"main.h"
 	"bsp.h"
 
@@ -151,7 +151,7 @@
 
 1555307892 c:\working\git\ihouse\software\controller\f1\core\inc\stm32_assert.h
 
-1555398441 source:c:\working\git\ihouse\software\controller\f1\core\src\stm32f1xx_it.c
+1555481111 source:c:\working\git\ihouse\software\controller\f1\core\src\stm32f1xx_it.c
 	"main.h"
 	"stm32f1xx_it.h"
 	"usart.h"
@@ -949,13 +949,14 @@
 	"iic_eeprom.h"
 	"iic.h"
 
-1555307892 c:\working\git\ihouse\software\controller\f1\core\libs\iic_eeprom\iic_eeprom.h
+1555486432 c:\working\git\ihouse\software\controller\f1\core\libs\iic_eeprom\iic_eeprom.h
 	<stdint.h>
+	<stdlib.h>
 
 1555307892 c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\iic.h
 	"defs.h"
 
-1555307892 c:\working\git\ihouse\software\controller\f1\core\inc\defs.h
+1555485039 c:\working\git\ihouse\software\controller\f1\core\inc\defs.h
 	<stdint.h>
 	<stdbool.h>
 	<string.h>
@@ -972,7 +973,7 @@
 1555307892 c:\working\git\ihouse\software\controller\f1\core\mcu_board\dc_motor.h
 	"defs.h"
 
-1555307892 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\dc_motor.c
+1555483806 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\dc_motor.c
 	"dc_motor.h"
 	"mcp23017.h"
 	"io.h"
@@ -1005,7 +1006,7 @@
 	"defs.h"
 	"rtc.h"
 
-1555307892 c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\bluepill.h
+1555486228 c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\bluepill.h
 	"defs.h"
 	"io.h"
 	"rtc.h"
@@ -1036,37 +1037,39 @@
 	"defs.h"
 	"rtc.h"
 
-1555399875 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\usart.c
+1555482495 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\usart.c
 	"defs.h"
 	"usart.h"
 	"io.h"
+	"tb387.h"
 	"mbport.h"
 
-1555400272 c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\usart.h
+1555512542 c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\usart.h
 	"defs.h"
 
-1555307892 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\bsp.c
+1555486059 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\bsp.c
 	"main.h"
 	"bsp.h"
 
-1555394874 c:\working\git\ihouse\software\controller\f1\core\mcu_board\bsp.h
-	"bluepill.h"
+1555486344 c:\working\git\ihouse\software\controller\f1\core\mcu_board\bsp.h
+	"bsp_func.h"
 	"iic_eeprom.h"
 	"usart.h"
+	"rtc.h"
 	"mcp23017.h"
 	"dc_motor.h"
 	"tb387.h"
 	"mb.h"
 	"user_mb_app.h"
 
-1555393911 c:\working\git\ihouse\software\controller\f1\core\libs\tb387\tb387.h
+1555486103 c:\working\git\ihouse\software\controller\f1\core\libs\tb387\tb387.h
 	"defs.h"
 	"usart.h"
 
-1555399905 source:c:\working\git\ihouse\software\controller\f1\core\libs\tb387\tb387.c
-	<string.h>
+1555512274 source:c:\working\git\ihouse\software\controller\f1\core\libs\tb387\tb387.c
 	<stdio.h>
 	"tb387.h"
+	"bsp_func.h"
 
 1554992426 source:d:\alex\desktop\ihouse-master\software\controller\f1\core\libs\iic_eeprom\iic_eeprom.c
 	<stdlib.h>
@@ -2827,4 +2830,10 @@
 
 1555307892 source:c:\working\git\ihouse\software\controller\f1\core\libs\freemodbus\user_mb_app.c
 	"user_mb_app.h"
+
+1555486103 c:\working\git\ihouse\software\controller\f1\core\mcu_board\bsp_func.h
+
+1555486103 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\bsp_func.c
+	"defs.h"
+	"bsp_func.h"
 

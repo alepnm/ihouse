@@ -8,7 +8,7 @@
 #define DCMOTOR_WATERVALVE_ENABLE()     LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_14)
 #define DCMOTOR_WATERVALVE_DISABLE()    LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_14)
 
-#define MOTOR_ON_DUTY       20000
+#define MOTOR_ON_DUTY       20000   // variklio sukimosi laikas
 
 
 struct mot_cmd {
@@ -41,9 +41,7 @@ void DCMOT_Init(void) {
     MCP23017_ClearPin(&MOTA);   //
     MCP23017_ClearPin(&MOTB);
 
-
     DCMOT_ValveClose(DCMOTOR_GAS);
-
 }
 
 

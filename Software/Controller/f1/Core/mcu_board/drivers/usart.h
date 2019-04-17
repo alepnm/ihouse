@@ -8,10 +8,10 @@
 
 #define NEXTION_PORT    SECONDARY_PORT
 #define TB387_PORT      PRIMARY_PORT
-#define MODBUS_PORT     PRIMARY_PORT
+//#define MODBUS_PORT     PRIMARY_PORT
 
 
-enum { BR2400 = 0, BR4800, BR9600, BR19200, BR38400, BR57600 };
+enum { BR2400 = 0, BR4800, BR9600, BR14400, BR19200, BR38400, BR57600 };
 enum { USART_STATE_IDLE = 0, USART_STATE_BUSY, USART_STATE_ANSWER_WAITING, USART_STATE_DATA_TRANSMITTED, USART_STATE_DATA_RECEIVED };
 
 
@@ -19,8 +19,13 @@ enum { USART_STATE_IDLE = 0, USART_STATE_BUSY, USART_STATE_ANSWER_WAITING, USART
 #define USART_PAR_ODD   1   //MB_PAR_ODD
 #define USART_PAR_EVEN  2   //MB_PAR_EVEN
 
-#define RX_BUFFER_SIZE  64
-#define TX_BUFFER_SIZE  32
+
+#define RX_BUFFER_SIZE     64
+#define TX_BUFFER_SIZE     32
+#define PRIMARY_PORT_RX_BUFFER_SIZE     64
+#define PRIMARY_PORT_TX_BUFFER_SIZE     32
+#define SECONDARY_PORT_RX_BUFFER_SIZE   16
+#define SECONDARY_PORT_TX_BUFFER_SIZE   16
 
 
 typedef struct _port{
@@ -34,7 +39,6 @@ typedef struct _port{
         uint8_t     StopBits;
         uint8_t     DataBits;
     }Conf;
-
 }Port_TypeDef;
 
 typedef struct{
@@ -64,17 +68,17 @@ extern char* ptrSecondaryTxBuffer;
 extern uint8_t RespondWaitingFlag;
 
 
-void    USART_Config(uint8_t ucPORT, uint32_t ulBaudRate, uint32_t ulDataBits,  uint8_t ulParity);
+void    USART_Config( uint8_t ucPORT, uint32_t ulBaudRate, uint32_t ulDataBits,  uint8_t ulParity );
 void    USART_Send( uint8_t ucPORT, void* buf, size_t size_of_data );
-void    USART_Send_DMA(size_t len);
-void    USART_SendByte(uint8_t ucPORT, char data);
+void    USART_Send_DMA( size_t len );
+void    USART_SendByte( uint8_t ucPORT, char data );
 void    USART_SendString( uint8_t ucPORT, const char* str );
-void    USART_IRQ_Handler(uint8_t port);
+void    USART_IRQ_Handler( uint8_t port );
 
-void    USART_ClearRxBuffer(uint8_t ucPORT);
-uint8_t CheckBaudrate( uint32_t baudrate);
+void    USART_ClearRxBuffer( uint8_t ucPORT );
+uint8_t CheckBaudrate( uint32_t baudrate );
 
-void USART_TimerHandler(void);
+void    USART_TimerHandler(void);
 
 #endif /* USART_H_INCLUDED */
 

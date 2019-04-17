@@ -2,17 +2,23 @@
 //#include <string.h>
 #include <stdio.h>
 #include "tb387.h"
+#include "bsp_func.h"
 
 
 #define TB387_CMD_LOW()     LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_15)
 #define TB387_CMD_HIGH()    LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_15)
 
+
 /* extern variables */
 extern uint32_t timestamp;
 
+/* locals */
+TB387_TypeDef TB387;
+
+
 
 /* nuskaitom konfiga is TB387 ir inicializuojam UART'a */
-uint8_t TB387_Init(struct _tb387 *tb) {
+uint8_t TB387_Init(TB387_TypeDef *tb) {
 
     tb->IsPresent = false;
 
@@ -78,7 +84,7 @@ uint8_t TB387_Init(struct _tb387 *tb) {
 
 
 /*  */
-uint8_t TB387_Config(struct _tb387 *tb){
+uint8_t TB387_Config(TB387_TypeDef *tb){
 
     if(tb->IsPresent == false) return 1;
 
@@ -108,7 +114,7 @@ uint8_t TB387_Config(struct _tb387 *tb){
 
 
 /* grazinam defoltinius nustatymus TB387 ir sukonfiguruojam UART'a */
-void TB387_SetDefaults(struct _tb387 *tb){
+void TB387_SetDefaults(TB387_TypeDef *tb){
 
     USART_Config(TB387_PORT, 9600, 8,  USART_PAR_NONE);
 
@@ -124,37 +130,11 @@ void TB387_SetDefaults(struct _tb387 *tb){
 
     tb->ConfigModeIsActive = false;
 
-    TB387_Init(tb);
-}
-
-
-
-
-/**
- * hex2int
- * take a hex string and convert it to a 32bit number (max 8 hex digits)
- */
-uint32_t hex2int(char *hex) {
-
-    uint32_t val = 0;
-
-    while ( *hex ) {
-
-        if( *hex == 0x0d || *hex == 0x0a ) break;
-
-        // get current character then increment
-        uint8_t byte = *hex++;
-
-        // transform hex character to the 4bit equivalent number, using the ascii table indexes
-        if (byte >= '0' && byte <= '9') byte = byte - '0';
-        else if (byte >= 'a' && byte <='f') byte = byte - 'a' + 10;
-        else if (byte >= 'A' && byte <='F') byte = byte - 'A' + 10;
-
-        // shift 4 to make space for new digit, and add the 4 bits of the new digit
-        val = (val << 4) | (byte & 0xF);
-    }
-
-    return val;
+    tb->IsPresent = true;
+    tb->id = 0x1234;
+    tb->baudrate = 2;
+    tb->channel = 0x27;
+    tb->retries = 100;
 }
 
 
