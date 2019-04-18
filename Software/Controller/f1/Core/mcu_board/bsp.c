@@ -18,6 +18,7 @@ void BSP_SystemInit(void) {
     FlashSize = BSP_GetFlashSize();
     BSP_GetID(UnitID);
 
+    /* GPIO portu inicializacija */
     LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
 
     GPIO_InitStruct.Pin = LL_GPIO_PIN_13;
@@ -28,14 +29,18 @@ void BSP_SystemInit(void) {
 
     LED_OFF();
 
+    /* RTC taimerio inicializacija */
     RTC_Init();
-
     now = LL_RTC_TIME_Get(RTC);
 
+    /* USART portu konfiguravimas */
+    Ports[PRIMARY_PORT].Conf.MbAddr = 10;
+    Ports[SECONDARY_PORT].Conf.MbAddr = 11;
+    USART_Config(NEXTION_PORT, 19200, 8, UART_PAR_NONE);
+
+    /* TB387 modulio inicializacija */
     TB387_Init(&TB387);
 
-
-    USART_Config(NEXTION_PORT, 19200, 8,  USART_PAR_NONE);
 
 }
 

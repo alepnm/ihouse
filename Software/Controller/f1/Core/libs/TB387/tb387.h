@@ -4,19 +4,31 @@
 #include "defs.h"
 #include "usart.h"
 
+/*  */
 typedef struct {
-    uint8_t     IsPresent;
-    uint8_t     ConfigModeIsActive;
-    uint16_t    id;
-    uint8_t     baudrate;
-    uint8_t     channel;
-    uint8_t     retries;
+    uint8_t                     IsPresent;
+    uint8_t                     ConfigModeIsActive;
+    uint16_t                    id;
+    BaudrateValue_TypeDef       baudrate;
+    uint8_t                     channel;
+    uint8_t                     retries;
 }TB387_TypeDef;
 
+/*  */
+typedef struct{
+    uint16_t                    id;
+    BaudrateValue_TypeDef       baudrate;
+    uint8_t                     channel;
+}TB387_Target_TypeDef;
+
+
 extern TB387_TypeDef TB387;
+extern const TB387_Target_TypeDef target1;
 
 uint8_t TB387_Init(TB387_TypeDef *tb);
 uint8_t TB387_Config(TB387_TypeDef *tb);
 void    TB387_SetDefaults(TB387_TypeDef *tb);
+uint8_t TB387_SelectTarget(TB387_TypeDef *tb, const TB387_Target_TypeDef *tg);
+
 
 #endif /* TB387_H_INCLUDED */

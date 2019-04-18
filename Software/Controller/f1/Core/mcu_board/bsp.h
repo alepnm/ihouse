@@ -19,6 +19,8 @@
 #define LED_OFF()      LL_GPIO_SetOutputPin(GPIOC, LL_GPIO_PIN_13)
 #define LED_TOGGLE()   LL_GPIO_TogglePin(GPIOC, LL_GPIO_PIN_13)
 
+extern uint8_t UnitID[12];
+
 
 void        BSP_SystemInit(void);
 void        BSP_SystemHandler(void);

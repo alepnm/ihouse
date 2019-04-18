@@ -142,7 +142,7 @@ int main(void)
     //DCMOT_Init();
 
 #if defined(MODBUS_PORT)
-    eMBInit( MB_RTU, Ports[MODBUS_PORT].Conf.MbAddr, MODBUS_PORT, Ports[MODBUS_PORT].Conf.Baudrate, Ports[MODBUS_PORT].Conf.Parity );
+    eMBInit( MB_RTU, Ports[MODBUS_PORT].Conf.MbAddr, MODBUS_PORT, baudrates[Ports[MODBUS_PORT].Conf.Baudrate], Ports[MODBUS_PORT].Conf.Parity );
     eMBSetSlaveID( 123, TRUE, ucSlaveIdBuf, (MB_FUNC_OTHER_REP_SLAVEID_BUF - 4) );
     eMBEnable();
 #endif
@@ -161,7 +161,7 @@ int main(void)
 
 
             //USART_SendString(NEXTION_PORT, "0123456789");
-            USART_SendString(TB387_PORT, "0123456789");
+            USART_SendString(TB387_PORT, (char*)UnitID);
 
             LED_TOGGLE();
 

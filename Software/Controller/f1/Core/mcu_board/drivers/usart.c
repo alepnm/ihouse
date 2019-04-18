@@ -4,17 +4,21 @@
 #include "tb387.h"
 
 #if defined(MODBUS_PORT)
-    #include "mbport.h"
+#include "mbport.h"
 #endif
 
 
 Port_TypeDef Ports[2] = {
 
-    {   .handle = USART1,
-        .Conf = {.MbAddr = 1, .Baudrate = 19200, .Parity = USART_PAR_NONE, .StopBits = 1, .DataBits = 8 } },
+    {
+        .handle = USART1,
+        .Conf = {.MbAddr = 1, .Baudrate = BR19200, .Parity = UART_PAR_NONE, .StopBits = 1, .DataBits = 8 }
+    },
 
-    {   .handle = USART2,
-        .Conf = {.MbAddr = 1, .Baudrate = 19200, .Parity = USART_PAR_NONE, .StopBits = 1, .DataBits = 8 } }
+    {
+        .handle = USART2,
+        .Conf = {.MbAddr = 1, .Baudrate = BR19200, .Parity = UART_PAR_NONE, .StopBits = 1, .DataBits = 8 }
+    }
 };
 
 PortRegister_TypeDef port_register[2];
@@ -55,9 +59,9 @@ void USART_Config(uint8_t ucPORT, uint32_t ulBaudRate, uint32_t ulDataBits,  uin
     USART_InitStruct.BaudRate = ulBaudRate;
 
     switch(ulParity) {
-    case USART_PAR_ODD:
+    case UART_PAR_ODD:
         USART_InitStruct.Parity = LL_USART_PARITY_ODD;
-    case USART_PAR_EVEN:
+    case UART_PAR_EVEN:
         USART_InitStruct.Parity = LL_USART_PARITY_EVEN;
         USART_InitStruct.DataWidth = LL_USART_DATAWIDTH_9B;
         break;
@@ -90,7 +94,7 @@ void USART_Send( uint8_t ucPORT, void* data, size_t len ) {
 
 
 /*  */
-void USART_Send_DMA(size_t len){
+void USART_Send_DMA(size_t len) {
     LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_4, len);
     LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_4);
 }
@@ -151,7 +155,7 @@ void USART_IRQ_Handler(uint8_t port) {
 
 #if defined(MODBUS_PORT)
 
-    if(port == MODBUS_PORT && TB387.ConfigModeIsActive == false){
+    if(port == MODBUS_PORT && TB387.ConfigModeIsActive == false) {
 
         if( LL_USART_IsActiveFlag_RXNE(Ports[MODBUS_PORT].handle) && LL_USART_IsEnabledIT_RXNE(Ports[MODBUS_PORT].handle) ) {
             (void)pxMBFrameCBByteReceived();
@@ -184,7 +188,7 @@ void USART_IRQ_Handler(uint8_t port) {
 
 
 /*  */
-void USART_TimerHandler(void){
+void USART_TimerHandler(void) {
 
     if(port_register[PRIMARY_PORT].PortTimer > 0) port_register[PRIMARY_PORT].PortTimer--;
     else {

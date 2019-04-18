@@ -8,24 +8,17 @@
 
 #define NEXTION_PORT    SECONDARY_PORT
 #define TB387_PORT      PRIMARY_PORT
-//#define MODBUS_PORT     PRIMARY_PORT
+#define MODBUS_PORT     PRIMARY_PORT
 
 
-enum { BR2400 = 0, BR4800, BR9600, BR14400, BR19200, BR38400, BR57600 };
+typedef enum { BR2400 = 0, BR4800, BR9600, BR14400, BR19200, BR38400, BR57600 }BaudrateValue_TypeDef;
+typedef enum { UART_PAR_NONE = 0, UART_PAR_ODD, UART_PAR_EVEN }ParityValue_TypeDef;
+
 enum { USART_STATE_IDLE = 0, USART_STATE_BUSY, USART_STATE_ANSWER_WAITING, USART_STATE_DATA_TRANSMITTED, USART_STATE_DATA_RECEIVED };
-
-
-#define USART_PAR_NONE  0   //MB_PAR_NONE
-#define USART_PAR_ODD   1   //MB_PAR_ODD
-#define USART_PAR_EVEN  2   //MB_PAR_EVEN
 
 
 #define RX_BUFFER_SIZE     64
 #define TX_BUFFER_SIZE     32
-#define PRIMARY_PORT_RX_BUFFER_SIZE     64
-#define PRIMARY_PORT_TX_BUFFER_SIZE     32
-#define SECONDARY_PORT_RX_BUFFER_SIZE   16
-#define SECONDARY_PORT_TX_BUFFER_SIZE   16
 
 
 typedef struct _port{
@@ -33,11 +26,11 @@ typedef struct _port{
     USART_TypeDef   *handle;
 
     struct{
-        uint8_t     MbAddr;
-        uint16_t    Baudrate;
-        uint8_t     Parity;
-        uint8_t     StopBits;
-        uint8_t     DataBits;
+        uint8_t                     MbAddr;
+        BaudrateValue_TypeDef       Baudrate;
+        ParityValue_TypeDef         Parity;
+        uint8_t                     StopBits;
+        uint8_t                     DataBits;
     }Conf;
 }Port_TypeDef;
 

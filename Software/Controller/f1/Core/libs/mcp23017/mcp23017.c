@@ -1,4 +1,5 @@
 #include "mcp23017.h"
+#include "bsp_func.h"
 
 
 #define MCP23017_IIC_ADDRESS    0x40
@@ -69,12 +70,14 @@ static uint8_t MCP23017_Registers[MCP23017_REGS_QUANT];
 
 /* private functions */
 static inline uint8_t MCP23017_ReadRegister(uint8_t reg);
+static inline void MCP23017_WriteRegister(uint16_t reg, uint8_t data);
 
-
-
+/*  */
 uint8_t MCP23017_Init(void){
 
     MCP_RST_PIN_HIGH();
+
+    Delay_ms(10);
 
     /* reikia prachekinti device'a */
     MCP23017_Flag = IIC_Check(I2Cx, MCP23017_IIC_ADDRESS);
@@ -146,10 +149,11 @@ uint8_t MCP23017_ReadPortB(void){
 
 /*  */
 static inline uint8_t MCP23017_ReadRegister(uint8_t reg){
+    return IIC_ReadByte(I2Cx, MCP23017_IIC_ADDRESS, reg);
+}
 
-    uint8_t data = 0;
 
-    IIC_ReadByte(I2Cx, MCP23017_IIC_ADDRESS, reg);
-
-    return data;
+/*  */
+static inline void MCP23017_WriteRegister(uint16_t reg, uint8_t data){
+    IIC_WriteByte(I2Cx, MCP23017_IIC_ADDRESS, reg, data);
 }

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1555481111 source:c:\working\git\ihouse\software\controller\f1\core\src\main.c
+1555601656 source:c:\working\git\ihouse\software\controller\f1\core\src\main.c
 	"main.h"
 	"bsp.h"
 
@@ -964,8 +964,9 @@
 	"stm32_assert.h"
 	"main.h"
 
-1555307892 source:c:\working\git\ihouse\software\controller\f1\core\libs\mcp23017\mcp23017.c
+1555570181 source:c:\working\git\ihouse\software\controller\f1\core\libs\mcp23017\mcp23017.c
 	"mcp23017.h"
+	"bsp_func.h"
 
 1555307892 c:\working\git\ihouse\software\controller\f1\core\libs\mcp23017\mcp23017.h
 	"iic.h"
@@ -1037,21 +1038,21 @@
 	"defs.h"
 	"rtc.h"
 
-1555482495 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\usart.c
+1555579277 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\usart.c
 	"defs.h"
 	"usart.h"
 	"io.h"
 	"tb387.h"
 	"mbport.h"
 
-1555512542 c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\usart.h
+1555594951 c:\working\git\ihouse\software\controller\f1\core\mcu_board\drivers\usart.h
 	"defs.h"
 
-1555486059 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\bsp.c
+1555601618 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\bsp.c
 	"main.h"
 	"bsp.h"
 
-1555486344 c:\working\git\ihouse\software\controller\f1\core\mcu_board\bsp.h
+1555601618 c:\working\git\ihouse\software\controller\f1\core\mcu_board\bsp.h
 	"bsp_func.h"
 	"iic_eeprom.h"
 	"usart.h"
@@ -1062,11 +1063,11 @@
 	"mb.h"
 	"user_mb_app.h"
 
-1555486103 c:\working\git\ihouse\software\controller\f1\core\libs\tb387\tb387.h
+1555590490 c:\working\git\ihouse\software\controller\f1\core\libs\tb387\tb387.h
 	"defs.h"
 	"usart.h"
 
-1555512274 source:c:\working\git\ihouse\software\controller\f1\core\libs\tb387\tb387.c
+1555601369 source:c:\working\git\ihouse\software\controller\f1\core\libs\tb387\tb387.c
 	<stdio.h>
 	"tb387.h"
 	"bsp_func.h"
@@ -2831,9 +2832,9 @@
 1555307892 source:c:\working\git\ihouse\software\controller\f1\core\libs\freemodbus\user_mb_app.c
 	"user_mb_app.h"
 
-1555486103 c:\working\git\ihouse\software\controller\f1\core\mcu_board\bsp_func.h
+1555584739 c:\working\git\ihouse\software\controller\f1\core\mcu_board\bsp_func.h
 
-1555486103 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\bsp_func.c
+1555584727 source:c:\working\git\ihouse\software\controller\f1\core\mcu_board\bsp_func.c
 	"defs.h"
 	"bsp_func.h"
 

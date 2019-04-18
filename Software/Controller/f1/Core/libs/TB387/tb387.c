@@ -15,6 +15,15 @@ extern uint32_t timestamp;
 /* locals */
 TB387_TypeDef TB387;
 
+static const TB387_Target_TypeDef targets[3] = {
+    { 0x1234,   BR9600,     0x27 },
+    { 0x10,     BR19200,    0x27 },
+    { 0x15,     BR57600,    0x27 }
+};
+
+const TB387_Target_TypeDef *TargetOne = &targets[0];
+const TB387_Target_TypeDef *TargetTwo = &targets[1];
+const TB387_Target_TypeDef *TargetThree = &targets[2];
 
 
 /* nuskaitom konfiga is TB387 ir inicializuojam UART'a */
@@ -24,7 +33,7 @@ uint8_t TB387_Init(TB387_TypeDef *tb) {
 
     uint32_t wait_to = timestamp + 5000;
 
-    USART_Config(TB387_PORT, 9600, 8, USART_PAR_NONE);
+    USART_Config(TB387_PORT, 9600, 8, UART_PAR_NONE);
 
     tb->ConfigModeIsActive = true;
 
@@ -40,6 +49,7 @@ uint8_t TB387_Init(TB387_TypeDef *tb) {
         return 1;
     }
 
+    /*  */
     tb->IsPresent = true;
 
     sprintf(ptrPrimaryTxBuffer, "%s", "AT+ID?");
@@ -74,10 +84,7 @@ uint8_t TB387_Init(TB387_TypeDef *tb) {
 
     tb->ConfigModeIsActive = false;
 
-    Ports[TB387_PORT].Conf.MbAddr = tb->id;
-    Ports[TB387_PORT].Conf.Baudrate = baudrates[tb->baudrate];
-
-    USART_Config(TB387_PORT, Ports[TB387_PORT].Conf.Baudrate, Ports[TB387_PORT].Conf.DataBits, Ports[TB387_PORT].Conf.Parity);
+    TB387_SelectTarget(&TB387, TargetOne);
 
     return 0;
 }
@@ -112,11 +119,10 @@ uint8_t TB387_Config(TB387_TypeDef *tb){
 }
 
 
-
 /* grazinam defoltinius nustatymus TB387 ir sukonfiguruojam UART'a */
 void TB387_SetDefaults(TB387_TypeDef *tb){
 
-    USART_Config(TB387_PORT, 9600, 8,  USART_PAR_NONE);
+    USART_Config(TB387_PORT, 9600, 8,  UART_PAR_NONE);
 
     tb->ConfigModeIsActive = true;
 
@@ -136,5 +142,39 @@ void TB387_SetDefaults(TB387_TypeDef *tb){
     tb->channel = 0x27;
     tb->retries = 100;
 }
+
+
+/* pasirenkam TB387 targeta */
+uint8_t TB387_SelectTarget(TB387_TypeDef *tb, const TB387_Target_TypeDef *tg){
+
+    if(tb->IsPresent == false) return 1;
+
+    tb->ConfigModeIsActive = true;
+
+    TB387_CMD_LOW();
+
+    tb->id = tg->id;
+    sprintf(ptrPrimaryTxBuffer, "%s%u", "AT+ID=", tg->id);
+    USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
+
+    tb->baudrate = tg->baudrate;
+    sprintf(ptrPrimaryTxBuffer, "%s%u", "AT+BAUD=", tg->baudrate);
+    USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
+
+    tb->channel = tg->channel;
+    sprintf(ptrPrimaryTxBuffer, "%s%u", "AT+FREQ=", tg->channel);
+    USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
+
+    TB387_CMD_HIGH();
+
+    tb->ConfigModeIsActive = false;
+
+    Ports[TB387_PORT].Conf.Baudrate = TB387.baudrate;
+
+    USART_Config(TB387_PORT, baudrates[Ports[TB387_PORT].Conf.Baudrate], Ports[TB387_PORT].Conf.DataBits, Ports[TB387_PORT].Conf.Parity);
+
+    return 0;
+}
+
 
 
