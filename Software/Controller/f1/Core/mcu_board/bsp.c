@@ -33,13 +33,15 @@ void BSP_SystemInit(void) {
     RTC_Init();
     now = LL_RTC_TIME_Get(RTC);
 
+    /* TB387 modulio inicializacija */
+    TB387_Init(&TB387);
+
     /* USART portu konfiguravimas */
     Ports[PRIMARY_PORT].Conf.MbAddr = 10;
     Ports[SECONDARY_PORT].Conf.MbAddr = 11;
-    USART_Config(NEXTION_PORT, 19200, 8, UART_PAR_NONE);
 
-    /* TB387 modulio inicializacija */
-    TB387_Init(&TB387);
+    USART_Config(TB387_PORT, baudrates[Ports[TB387_PORT].Conf.Baudrate], Ports[TB387_PORT].Conf.DataBits, Ports[TB387_PORT].Conf.Parity);
+    USART_Config(NEXTION_PORT, 19200, 8, UART_PAR_NONE);
 
 
 }

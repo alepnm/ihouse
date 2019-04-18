@@ -35,6 +35,8 @@ uint8_t TB387_Init(TB387_TypeDef *tb) {
 
     USART_Config(TB387_PORT, 9600, 8, UART_PAR_NONE);
 
+    //TB387_SetDefaults(&TB387);
+
     tb->ConfigModeIsActive = true;
 
     TB387_CMD_LOW();
@@ -84,7 +86,7 @@ uint8_t TB387_Init(TB387_TypeDef *tb) {
 
     tb->ConfigModeIsActive = false;
 
-    TB387_SelectTarget(&TB387, TargetOne);
+    Ports[TB387_PORT].Conf.Baudrate = tb->baudrate;
 
     return 0;
 }
@@ -135,12 +137,6 @@ void TB387_SetDefaults(TB387_TypeDef *tb){
     TB387_CMD_HIGH();
 
     tb->ConfigModeIsActive = false;
-
-    tb->IsPresent = true;
-    tb->id = 0x1234;
-    tb->baudrate = 2;
-    tb->channel = 0x27;
-    tb->retries = 100;
 }
 
 
@@ -169,9 +165,7 @@ uint8_t TB387_SelectTarget(TB387_TypeDef *tb, const TB387_Target_TypeDef *tg){
 
     tb->ConfigModeIsActive = false;
 
-    Ports[TB387_PORT].Conf.Baudrate = TB387.baudrate;
-
-    USART_Config(TB387_PORT, baudrates[Ports[TB387_PORT].Conf.Baudrate], Ports[TB387_PORT].Conf.DataBits, Ports[TB387_PORT].Conf.Parity);
+    Ports[TB387_PORT].Conf.Baudrate = tb->baudrate;
 
     return 0;
 }
