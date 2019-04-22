@@ -4,6 +4,17 @@
 #include "tb387.h"
 #include "bsp_func.h"
 
+/*
+Duomenu formatas konfiguruojant TB387:
+
+Parametrai HEX formatu be 0x prekyje.
+
+ID: ne maziau 4-iu zenklu su lydinciais nuliais priekyje
+BAUD: vienas zenklas
+FREQ: ne maziau 2-iu zenklu su lydinciais nuliais
+RETRY: ne maziau 2-iu zenklu su lydinciais nuliais
+*/
+
 
 #define TB387_CMD_LOW()     LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_15)
 #define TB387_CMD_HIGH()    LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_15)
@@ -16,9 +27,9 @@ extern uint32_t timestamp;
 TB387_TypeDef TB387;
 
 static const TB387_Target_TypeDef targets[3] = {
-    { 0x1234,   BR9600,     0x27 },
-    { 0x10,     BR19200,    0x27 },
-    { 0x15,     BR57600,    0x27 }
+    { 1234,   BR9600,     27 },
+    { 10,     BR19200,    15 },
+    { 15,     BR57600,    27 }
 };
 
 const TB387_Target_TypeDef *TargetOne = &targets[0];
@@ -35,11 +46,11 @@ uint8_t TB387_Init(TB387_TypeDef *tb) {
 
     USART_Config(TB387_PORT, 9600, 8, UART_PAR_NONE);
 
-    //TB387_SetDefaults(&TB387);
-
     tb->ConfigModeIsActive = true;
 
     TB387_CMD_LOW();
+
+    Delay_ms(10);
 
     /* bandom prisijungti prie TB378 ir nuskaityti jo parametrus */
     sprintf(ptrPrimaryTxBuffer, "%s", "AT");
@@ -101,17 +112,23 @@ uint8_t TB387_Config(TB387_TypeDef *tb){
 
     TB387_CMD_LOW();
 
-    sprintf(ptrPrimaryTxBuffer, "%s%u", "AT+ID=", tb->id);
+    Delay_ms(10);
+
+    sprintf(ptrPrimaryTxBuffer, "%s%04u", "AT+ID=", tb->id);
     USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
+    while(RespondWaitingFlag);
 
     sprintf(ptrPrimaryTxBuffer, "%s%u", "AT+BAUD=", tb->baudrate);
     USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
+    while(RespondWaitingFlag);
 
-    sprintf(ptrPrimaryTxBuffer, "%s%u", "AT+FREQ=", tb->channel);
+    sprintf(ptrPrimaryTxBuffer, "%s%02u", "AT+FREQ=", tb->channel);
     USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
+    while(RespondWaitingFlag);
 
-    sprintf(ptrPrimaryTxBuffer, "%s%u", "AT+RETRY=", tb->retries);
+    sprintf(ptrPrimaryTxBuffer, "%s%03u", "AT+RETRY=", tb->retries);
     USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
+    while(RespondWaitingFlag);
 
     TB387_CMD_HIGH();
 
@@ -129,6 +146,8 @@ void TB387_SetDefaults(TB387_TypeDef *tb){
     tb->ConfigModeIsActive = true;
 
     TB387_CMD_LOW();
+
+    Delay_ms(10);
 
     sprintf(ptrPrimaryTxBuffer, "%s", "AT+RESET");
     USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
@@ -149,17 +168,22 @@ uint8_t TB387_SelectTarget(TB387_TypeDef *tb, const TB387_Target_TypeDef *tg){
 
     TB387_CMD_LOW();
 
+    Delay_ms(10);
+
     tb->id = tg->id;
-    sprintf(ptrPrimaryTxBuffer, "%s%u", "AT+ID=", tg->id);
+    sprintf(ptrPrimaryTxBuffer, "%s%04u", "AT+ID=", tg->id);        // 4-ju zenklu su nuliais prikyje!!!
     USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
+    while(RespondWaitingFlag);
 
     tb->baudrate = tg->baudrate;
     sprintf(ptrPrimaryTxBuffer, "%s%u", "AT+BAUD=", tg->baudrate);
     USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
+    while(RespondWaitingFlag);
 
     tb->channel = tg->channel;
-    sprintf(ptrPrimaryTxBuffer, "%s%u", "AT+FREQ=", tg->channel);
+    sprintf(ptrPrimaryTxBuffer, "%s%02u", "AT+FREQ=", tg->channel); // 2-ju zenklu su nuliais priekyje!!!
     USART_SendString(TB387_PORT, ptrPrimaryTxBuffer);
+    while(RespondWaitingFlag);
 
     TB387_CMD_HIGH();
 

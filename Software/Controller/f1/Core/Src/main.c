@@ -43,7 +43,14 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
 #include "bsp.h"
+
+#if defined(MODBUS_PORT)
+    #include "mb.h"
+    #include "user_mb_app.h"
+#endif
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -79,6 +86,7 @@ static void MX_TIM3_Init(void);
 static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
 
+static void MessageHandler(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -136,6 +144,10 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
     BSP_SystemInit();
+
+    /* TB387 modulio inicializacija */
+    TB387_Init(&TB387);
+    TB387_SelectTarget(&TB387, TargetOne);
 
     //MCP23017_Init();
 
@@ -217,6 +229,11 @@ int main(void)
 
         }
 
+
+
+
+
+
 #if defined(MODBUS_PORT)
     (void)eMBPoll();
 #endif
@@ -224,6 +241,17 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+    if(NewMessageReceivedFlag){
+
+        MessageHandler();
+
+        NewMessageReceivedFlag = false;
+    }
+
+
+
+
     }
   /* USER CODE END 3 */
 }
@@ -701,6 +729,23 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+static void MessageHandler(void){
+
+    if( !strncmp(ptrPrimaryRxBuffer, "AT+INF", 6 )) {
+
+        sprintf(ptrPrimaryTxBuffer, "%s", "iHouse v 1.0\r\nalepnm'19");
+        USART_SendString(PRIMARY_PORT, ptrPrimaryTxBuffer);
+        while(RespondWaitingFlag);
+
+        USART_ClearRxBuffer(PRIMARY_PORT);
+
+        return;
+    }
+
+}
+
+
 
 /* USER CODE END 4 */
 

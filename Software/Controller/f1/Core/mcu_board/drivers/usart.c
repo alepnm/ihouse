@@ -4,7 +4,7 @@
 #include "tb387.h"
 
 #if defined(MODBUS_PORT)
-#include "mbport.h"
+    #include "mbport.h"
 #endif
 
 
@@ -24,13 +24,14 @@ Port_TypeDef Ports[2] = {
 PortRegister_TypeDef port_register[2];
 
 uint8_t TxState = USART_STATE_IDLE;
+uint8_t NewMessageReceivedFlag = false;
 uint8_t RespondWaitingFlag = false;
 
 
-char* ptrPrimaryRxBuffer = port_register[PRIMARY_PORT].RxBuffer;
-char* ptrPrimaryTxBuffer = port_register[PRIMARY_PORT].TxBuffer;
-char* ptrSecondaryRxBuffer = port_register[SECONDARY_PORT].RxBuffer;
-char* ptrSecondaryTxBuffer = port_register[SECONDARY_PORT].TxBuffer;
+char *ptrPrimaryRxBuffer = port_register[PRIMARY_PORT].RxBuffer;
+char *ptrPrimaryTxBuffer = port_register[PRIMARY_PORT].TxBuffer;
+char *ptrSecondaryRxBuffer = port_register[SECONDARY_PORT].RxBuffer;
+char *ptrSecondaryTxBuffer = port_register[SECONDARY_PORT].TxBuffer;
 
 const uint32_t baudrates[7] = { 2400u, 4800u, 9600u, 14400u, 19200u, 38400u, 57600u };
 
@@ -197,6 +198,8 @@ void USART_TimerHandler(void) {
             port_register[PRIMARY_PORT].RxBufferIndex = 0;
 
             RespondWaitingFlag = false;
+
+            NewMessageReceivedFlag = true;
         }
     }
 

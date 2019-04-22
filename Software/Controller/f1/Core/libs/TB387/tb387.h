@@ -23,7 +23,9 @@ typedef struct{
 
 
 extern TB387_TypeDef TB387;
-extern const TB387_Target_TypeDef target1;
+extern const TB387_Target_TypeDef *TargetOne;
+extern const TB387_Target_TypeDef *TargetTwo;
+extern const TB387_Target_TypeDef *TargetThree;
 
 uint8_t TB387_Init(TB387_TypeDef *tb);
 uint8_t TB387_Config(TB387_TypeDef *tb);

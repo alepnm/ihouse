@@ -264,7 +264,7 @@
 	"main.h"
 	"board.h"
 
-1555446317 d:\projects\ihouse\software\controller\f1\core\inc\main.h
+1555963654 d:\projects\ihouse\software\controller\f1\core\inc\main.h
 	"stm32f1xx_ll_adc.h"
 	"stm32f1xx_ll_i2c.h"
 	"stm32f1xx_ll_rcc.h"
@@ -281,6 +281,7 @@
 	"stm32f1xx.h"
 	"stm32f1xx_ll_gpio.h"
 	"stm32_assert.h"
+	"bsp.h"
 
 1553634091 d:\projects\ihouse\software\controller\f1\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_ll_adc.h
 	"stm32f1xx.h"
@@ -419,9 +420,12 @@
 	"mcp23017.h"
 	"dc_motor.h"
 
-1555613586 source:d:\projects\ihouse\software\controller\f1\core\src\main.c
+1555961882 source:d:\projects\ihouse\software\controller\f1\core\src\main.c
 	"main.h"
+	<stdio.h>
 	"bsp.h"
+	"mb.h"
+	"user_mb_app.h"
 
 1555446316 source:d:\projects\ihouse\software\controller\f1\core\src\stm32f1xx_it.c
 	"main.h"
@@ -910,7 +914,7 @@
 1554992426 d:\projects\ihouse\software\controller\f1\core\mcu_board\drivers\iic.h
 	"defs.h"
 
-1555524986 d:\projects\ihouse\software\controller\f1\core\inc\defs.h
+1555963345 d:\projects\ihouse\software\controller\f1\core\inc\defs.h
 	<stdint.h>
 	<stdbool.h>
 	<string.h>
@@ -2620,7 +2624,7 @@
 	"usart.h"
 	"user_mb_app.h"
 
-1555614403 d:\projects\ihouse\software\controller\f1\core\mcu_board\drivers\usart.h
+1555963060 d:\projects\ihouse\software\controller\f1\core\mcu_board\drivers\usart.h
 	"defs.h"
 
 1555059088 source:d:\projects\ihouse\software\controller\f1\core\libs\freemodbus\port\porttimer.c
@@ -2631,29 +2635,28 @@
 1555059150 source:d:\projects\ihouse\software\controller\f1\core\libs\freemodbus\user_mb_app.c
 	"user_mb_app.h"
 
-1555619915 source:d:\projects\ihouse\software\controller\f1\core\libs\tb387\tb387.c
+1555712599 source:d:\projects\ihouse\software\controller\f1\core\libs\tb387\tb387.c
 	<stdio.h>
 	"tb387.h"
 	"bsp_func.h"
 
-1555613586 d:\projects\ihouse\software\controller\f1\core\libs\tb387\tb387.h
+1555697743 d:\projects\ihouse\software\controller\f1\core\libs\tb387\tb387.h
 	"defs.h"
 	"usart.h"
 
-1555615262 source:d:\projects\ihouse\software\controller\f1\core\mcu_board\bsp.c
+1555961882 source:d:\projects\ihouse\software\controller\f1\core\mcu_board\bsp.c
 	"main.h"
 	"bsp.h"
 
-1555613586 d:\projects\ihouse\software\controller\f1\core\mcu_board\bsp.h
+1555963476 d:\projects\ihouse\software\controller\f1\core\mcu_board\bsp.h
 	"bsp_func.h"
+	"io.h"
 	"iic_eeprom.h"
 	"usart.h"
 	"rtc.h"
 	"mcp23017.h"
 	"dc_motor.h"
 	"tb387.h"
-	"mb.h"
-	"user_mb_app.h"
 
 1554992426 d:\projects\ihouse\software\controller\f1\core\mcu_board\drivers\bluepill.h
 	"defs.h"
@@ -2661,7 +2664,7 @@
 	"rtc.h"
 	"iic.h"
 
-1555613586 source:d:\projects\ihouse\software\controller\f1\core\mcu_board\drivers\usart.c
+1555963594 source:d:\projects\ihouse\software\controller\f1\core\mcu_board\drivers\usart.c
 	"defs.h"
 	"usart.h"
 	"io.h"

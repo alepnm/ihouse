@@ -33,9 +33,6 @@ void BSP_SystemInit(void) {
     RTC_Init();
     now = LL_RTC_TIME_Get(RTC);
 
-    /* TB387 modulio inicializacija */
-    TB387_Init(&TB387);
-
     /* USART portu konfiguravimas */
     Ports[PRIMARY_PORT].Conf.MbAddr = 10;
     Ports[SECONDARY_PORT].Conf.MbAddr = 11;
