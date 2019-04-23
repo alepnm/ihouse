@@ -2,6 +2,9 @@
 #include "main.h"
 #include "bsp.h"
 
+
+SysData_TypeDef SysData;
+
 /* externs */
 extern volatile uint32_t timestamp;
 
@@ -33,11 +36,30 @@ void BSP_SystemInit(void) {
     RTC_Init();
     now = LL_RTC_TIME_Get(RTC);
 
-    /* USART portu konfiguravimas */
-    Ports[PRIMARY_PORT].Conf.MbAddr = 10;
-    Ports[SECONDARY_PORT].Conf.MbAddr = 11;
 
-    USART_Config(TB387_PORT, baudrates[Ports[TB387_PORT].Conf.Baudrate], Ports[TB387_PORT].Conf.DataBits, Ports[TB387_PORT].Conf.Parity);
+    /* USART portu konfiguravimas */
+    SysData.Ports[PRIMARY_PORT].handle = USART1;
+    SysData.Ports[PRIMARY_PORT].Conf.MbAddr = 10;
+    SysData.Ports[PRIMARY_PORT].Conf.Baudrate = BR19200;
+    SysData.Ports[PRIMARY_PORT].Conf.Parity = UART_PAR_NONE;
+    SysData.Ports[PRIMARY_PORT].Conf.StopBits = 1;
+    SysData.Ports[PRIMARY_PORT].Conf.DataBits = 8;
+    SysData.Ports[PRIMARY_PORT].Conf.Parity = UART_PAR_NONE;
+    SysData.Ports[PRIMARY_PORT].ptrRxBuffer = port_register[PRIMARY_PORT].RxBuffer;
+    SysData.Ports[PRIMARY_PORT].ptrTxBuffer = port_register[PRIMARY_PORT].TxBuffer;
+
+    SysData.Ports[SECONDARY_PORT].handle = USART2;
+    SysData.Ports[SECONDARY_PORT].Conf.MbAddr = 10;
+    SysData.Ports[SECONDARY_PORT].Conf.Baudrate = BR19200;
+    SysData.Ports[SECONDARY_PORT].Conf.Parity = UART_PAR_NONE;
+    SysData.Ports[SECONDARY_PORT].Conf.StopBits = 1;
+    SysData.Ports[SECONDARY_PORT].Conf.DataBits = 8;
+    SysData.Ports[SECONDARY_PORT].Conf.Parity = UART_PAR_NONE;
+    SysData.Ports[SECONDARY_PORT].ptrRxBuffer = port_register[PRIMARY_PORT].RxBuffer;
+    SysData.Ports[SECONDARY_PORT].ptrTxBuffer = port_register[PRIMARY_PORT].TxBuffer;
+
+
+    USART_Config(TB387_PORT, baudrates[SysData.Ports[TB387_PORT].Conf.Baudrate], SysData.Ports[TB387_PORT].Conf.DataBits, SysData.Ports[TB387_PORT].Conf.Parity);
     USART_Config(NEXTION_PORT, 19200, 8, UART_PAR_NONE);
 
 

@@ -11,7 +11,24 @@
 #include "tb387.h"
 
 
+typedef struct{
+
+    Port_TypeDef    Ports[2];
+
+    uint8_t         McpPortA;   // PortA veidrodis
+    uint8_t         McpPortB;   // PortB veidrodis
+
+    TB387_Target_TypeDef*    TB387_Target;
+
+
+}SysData_TypeDef;
+
+extern SysData_TypeDef SysData;
+
+
 extern uint8_t UnitID[12];
+
+
 
 
 void        BSP_SystemInit(void);

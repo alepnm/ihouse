@@ -41,6 +41,9 @@ typedef struct _port{
         uint8_t                     StopBits;
         uint8_t                     DataBits;
     }Conf;
+
+    char*                       ptrRxBuffer;
+    char*                       ptrTxBuffer;
 }Port_TypeDef;
 
 typedef struct{
@@ -55,7 +58,6 @@ typedef struct{
 }PortRegister_TypeDef;
 
 
-extern Port_TypeDef Ports[2];
 extern PortRegister_TypeDef port_register[2];
 extern const uint32_t baudrates[7];
 

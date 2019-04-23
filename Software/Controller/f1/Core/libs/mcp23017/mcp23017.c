@@ -137,6 +137,23 @@ void MCP23017_ClearAllPins(uint8_t port){
     IIC_WriteByte(I2Cx, MCP23017_IIC_ADDRESS, port, MCP23017_Registers[port]);
 }
 
+
+/*  */
+uint8_t MCP23017_ReadPin(const MCP_Output_TypeDef* pin){
+
+    return ( (!MCP23017_ReadRegister(pin->port) && 1<<pin->pin ) ? 0 : 1);
+}
+
+
+/*  */
+void MCP23017_WritePin(const MCP_Output_TypeDef* pin){
+
+
+}
+
+
+
+
 /*  */
 uint8_t MCP23017_ReadPortA(void){
     return MCP23017_ReadRegister(MCP_GPIOA);

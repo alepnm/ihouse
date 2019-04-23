@@ -45,6 +45,7 @@ typedef uint8_t         byte;
 
 typedef enum { RES_OK = 0, RES_ERROR, RES_BUSY, RES_TIMEOUT, RES_BAD_PARAMS } eRESULT_TypeDef;
 
+
 /*  SYSTEM DEFAULTS */
 
 /* EEPROM bazinis adresas */

@@ -87,6 +87,7 @@ static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
 
 static void MessageHandler(void);
+static void SendOk(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -154,7 +155,7 @@ int main(void)
     //DCMOT_Init();
 
 #if defined(MODBUS_PORT)
-    eMBInit( MB_RTU, Ports[MODBUS_PORT].Conf.MbAddr, MODBUS_PORT, baudrates[Ports[MODBUS_PORT].Conf.Baudrate], Ports[MODBUS_PORT].Conf.Parity );
+    eMBInit( MB_RTU, SysData.Ports[MODBUS_PORT].Conf.MbAddr, MODBUS_PORT, baudrates[SysData.Ports[MODBUS_PORT].Conf.Baudrate], SysData.Ports[MODBUS_PORT].Conf.Parity );
     eMBSetSlaveID( 123, TRUE, ucSlaveIdBuf, (MB_FUNC_OTHER_REP_SLAVEID_BUF - 4) );
     eMBEnable();
 #endif
@@ -730,15 +731,46 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+
+/* NEXTION displejaus protokolo handleris */
 static void MessageHandler(void){
 
-    if( !strncmp(ptrPrimaryRxBuffer, "AT+INF", 6 )) {
+    char *TxBuffer = SysData.Ports[NEXTION_PORT].ptrTxBuffer;
+    char *RxBuffer = SysData.Ports[NEXTION_PORT].ptrRxBuffer;
 
-        sprintf(ptrPrimaryTxBuffer, "%s", "iHouse v 1.0\r\nalepnm'19");
-        USART_SendString(PRIMARY_PORT, ptrPrimaryTxBuffer);
+    if( !strncmp(RxBuffer, "AT+INF", 6 )) {
+
+        sprintf(TxBuffer, "%s", "iHouse v 1.0\r\nalepnm'19");
+        USART_SendString(NEXTION_PORT, TxBuffer);
         while(RespondWaitingFlag);
 
-        USART_ClearRxBuffer(PRIMARY_PORT);
+        USART_ClearRxBuffer(NEXTION_PORT);
+
+        return;
+    }
+
+
+
+
+    if( !strncmp(RxBuffer, "AT+R1=", 6 )) {
+
+        uint8_t val = atoi(RxBuffer+6);
+
+
+
+        SendOk();
+        USART_ClearRxBuffer(NEXTION_PORT);
+
+        return;
+    }
+
+    if( !strncmp(RxBuffer, "AT+R1?", 6 )) {
+
+        //sprintf(ptrPrimaryTxBuffer, "%s%u", "R1=", READ_BIT(MCP23017_Registers[output->port], output->pin) );
+        USART_SendString(NEXTION_PORT, TxBuffer);
+        while(RespondWaitingFlag);
+
+        USART_ClearRxBuffer(NEXTION_PORT);
 
         return;
     }
@@ -746,6 +778,12 @@ static void MessageHandler(void){
 }
 
 
+/*  */
+static void SendOk(void) {
+
+    USART_SendString(PRIMARY_PORT, "OK\r\n");
+    while(RespondWaitingFlag);
+}
 
 /* USER CODE END 4 */
 

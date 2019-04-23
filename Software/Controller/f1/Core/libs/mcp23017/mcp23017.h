@@ -38,6 +38,8 @@ void MCP23017_TogglePin(const MCP_Output_TypeDef* output);
 void MCP23017_SetAllPins(uint8_t port);
 void MCP23017_ClearAllPins(uint8_t port);
 
+uint8_t MCP23017_ReadPin(const MCP_Output_TypeDef* pin);
+
 uint8_t MCP23017_ReadPortA(void);
 uint8_t MCP23017_ReadPortB(void);
 
