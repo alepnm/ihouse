@@ -43,7 +43,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
 #include "bsp.h"
 
 #if defined(MODBUS_PORT)
@@ -86,8 +85,6 @@ static void MX_TIM3_Init(void);
 static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
 
-static void MessageHandler(void);
-static void SendOk(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -105,6 +102,7 @@ int main(void)
     static uint32_t delay = 0;
     static uint8_t dir = DCMOTOR_DIR_CLOSE;
   /* USER CODE END 1 */
+
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -144,21 +142,31 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 
-    BSP_SystemInit();
+    BSP_SystemInit(&SysData);
+
+
+    DS1307_Init();
+
+
+
 
     /* TB387 modulio inicializacija */
-    TB387_Init(&TB387);
-    TB387_SelectTarget(&TB387, TargetOne);
+    //TB387_Init(&TB387);
+    //TB387_SelectTarget(&TB387, TargetOne);
+
+    //NEXTION_Init();
 
     //MCP23017_Init();
 
     //DCMOT_Init();
 
 #if defined(MODBUS_PORT)
-    eMBInit( MB_RTU, SysData.Ports[MODBUS_PORT].Conf.MbAddr, MODBUS_PORT, baudrates[SysData.Ports[MODBUS_PORT].Conf.Baudrate], SysData.Ports[MODBUS_PORT].Conf.Parity );
+    eMBInit( MB_RTU, SysData.Ports[MODBUS_PORT].Config.MbAddr, MODBUS_PORT, baudrates[SysData.Ports[MODBUS_PORT].Config.Baudrate], SysData.Ports[MODBUS_PORT].Config.Parity );
     eMBSetSlaveID( 123, TRUE, ucSlaveIdBuf, (MB_FUNC_OTHER_REP_SLAVEID_BUF - 4) );
     eMBEnable();
 #endif
+
+
 
   /* USER CODE END 2 */
 
@@ -173,8 +181,11 @@ int main(void)
             BSP_SystemHandler();
 
 
+            DS1307_Process();
+
+
             //USART_SendString(NEXTION_PORT, "0123456789");
-            USART_SendString(TB387_PORT, (char*)UnitID);
+            //USART_SendString(TB387_PORT, (char*)SysData.UnitID);
 
             LED_TOGGLE();
 
@@ -245,9 +256,10 @@ int main(void)
 
     if(NewMessageReceivedFlag){
 
-        MessageHandler();
+        NEXTION_CmdDecode(SysData.Ports[NEXTION_PORT].Registers.RxBuffer);
 
         NewMessageReceivedFlag = false;
+        USART_ClearRxBuffer(PRIMARY_PORT);
     }
 
 
@@ -407,7 +419,7 @@ static void MX_I2C1_Init(void)
   I2C_InitStruct.ClockSpeed = 100000;
   I2C_InitStruct.DutyCycle = LL_I2C_DUTYCYCLE_2;
   I2C_InitStruct.OwnAddress1 = 0;
-  I2C_InitStruct.TypeAcknowledge = LL_I2C_ACK;
+  I2C_InitStruct.TypeAcknowledge = LL_I2C_NACK;
   I2C_InitStruct.OwnAddrSize = LL_I2C_OWNADDRESS1_7BIT;
   LL_I2C_Init(I2C1, &I2C_InitStruct);
   LL_I2C_SetOwnAddress2(I2C1, 0);
@@ -730,60 +742,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
-
-/* NEXTION displejaus protokolo handleris */
-static void MessageHandler(void){
-
-    char *TxBuffer = SysData.Ports[NEXTION_PORT].ptrTxBuffer;
-    char *RxBuffer = SysData.Ports[NEXTION_PORT].ptrRxBuffer;
-
-    if( !strncmp(RxBuffer, "AT+INF", 6 )) {
-
-        sprintf(TxBuffer, "%s", "iHouse v 1.0\r\nalepnm'19");
-        USART_SendString(NEXTION_PORT, TxBuffer);
-        while(RespondWaitingFlag);
-
-        USART_ClearRxBuffer(NEXTION_PORT);
-
-        return;
-    }
-
-
-
-
-    if( !strncmp(RxBuffer, "AT+R1=", 6 )) {
-
-        uint8_t val = atoi(RxBuffer+6);
-
-
-
-        SendOk();
-        USART_ClearRxBuffer(NEXTION_PORT);
-
-        return;
-    }
-
-    if( !strncmp(RxBuffer, "AT+R1?", 6 )) {
-
-        //sprintf(ptrPrimaryTxBuffer, "%s%u", "R1=", READ_BIT(MCP23017_Registers[output->port], output->pin) );
-        USART_SendString(NEXTION_PORT, TxBuffer);
-        while(RespondWaitingFlag);
-
-        USART_ClearRxBuffer(NEXTION_PORT);
-
-        return;
-    }
-
-}
-
-
-/*  */
-static void SendOk(void) {
-
-    USART_SendString(PRIMARY_PORT, "OK\r\n");
-    while(RespondWaitingFlag);
-}
 
 /* USER CODE END 4 */
 

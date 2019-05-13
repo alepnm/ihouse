@@ -2,6 +2,8 @@
 #define BSP_FUNC_H_INCLUDED
 
 
+#include "defs.h"
+
 #define SystickDelay_ms(x) LL_mDelay(x);
 
 

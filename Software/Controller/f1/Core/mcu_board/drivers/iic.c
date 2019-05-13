@@ -39,10 +39,11 @@ uint8_t IIC_Read( I2C_TypeDef *I2Cx, uint8_t iic_addr, uint16_t reg, uint8_t *da
     LL_I2C_GenerateStartCondition(I2Cx);
     while(!LL_I2C_IsActiveFlag_SB(I2Cx));
 
-    LL_I2C_TransmitData8(I2Cx, (iic_addr|I2C_READ) );
+    LL_I2C_TransmitData8(I2Cx, (iic_addr | I2C_READ) );
     while(!LL_I2C_IsActiveFlag_ADDR(I2Cx));
 
     LL_I2C_ClearFlag_ADDR(I2Cx);
+    //while(!LL_I2C_IsActiveFlag_TXE(I2Cx));
 
     while (len--) {
         if (!len) {
@@ -66,24 +67,17 @@ uint8_t IIC_Write( I2C_TypeDef *I2Cx, uint8_t iic_addr, uint16_t reg, uint8_t *d
 
     IIC_MsgHeader(I2Cx, iic_addr, reg);
 
-    LL_I2C_GenerateStartCondition(I2Cx);
-    while(!LL_I2C_IsActiveFlag_SB(I2Cx));
-
-    LL_I2C_TransmitData8(I2Cx, (iic_addr | I2C_WRITE) );
-    while(!LL_I2C_IsActiveFlag_ADDR(I2Cx));
-
-    LL_I2C_ClearFlag_ADDR(I2Cx);
-
     while (len--) {
+
+        LL_I2C_AcknowledgeNextData(I2Cx, LL_I2C_ACK);
+
         if (!len) {
-            LL_I2C_AcknowledgeNextData(I2Cx, LL_I2C_NACK);
-            while (!LL_I2C_IsActiveFlag_TXE(I2Cx));
             LL_I2C_TransmitData8(I2Cx, *data);
+            while (!LL_I2C_IsActiveFlag_TXE(I2Cx));
             LL_I2C_GenerateStopCondition(I2Cx);
         } else {
-            LL_I2C_AcknowledgeNextData(I2Cx, LL_I2C_ACK);
-            while (!LL_I2C_IsActiveFlag_TXE(I2Cx));
             LL_I2C_TransmitData8(I2Cx, *data++);
+            while (!LL_I2C_IsActiveFlag_TXE(I2Cx));
         }
 
         LL_mDelay(IIC_DELAY_MS);
@@ -101,15 +95,19 @@ static uint8_t IIC_MsgHeader(I2C_TypeDef *I2Cx, uint8_t iic_addr, uint16_t reg) 
     LL_I2C_GenerateStartCondition(I2Cx);
     while(!LL_I2C_IsActiveFlag_SB(I2Cx));
 
-    LL_I2C_TransmitData8(I2Cx, (iic_addr|I2C_WRITE) );
+    LL_I2C_TransmitData8(I2Cx, iic_addr );
     while(!LL_I2C_IsActiveFlag_ADDR(I2Cx));
 
     LL_I2C_ClearFlag_ADDR(I2Cx);
-
-    LL_I2C_TransmitData8(I2Cx, reg);
     while(!LL_I2C_IsActiveFlag_TXE(I2Cx));
 
-    while(!LL_I2C_IsActiveFlag_BTF(I2Cx));
+    //LL_I2C_TransmitData8(I2Cx, reg>>8);         //MSB
+    //while(!LL_I2C_IsActiveFlag_TXE(I2Cx));
+
+    LL_I2C_TransmitData8(I2Cx, (uint8_t)reg);   //LSB
+    while(!LL_I2C_IsActiveFlag_TXE(I2Cx));
+
+    //while(!LL_I2C_IsActiveFlag_BTF(I2Cx));
 
     return 0;
 }

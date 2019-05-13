@@ -1,15 +1,14 @@
 #ifndef TB387_H_INCLUDED
 #define TB387_H_INCLUDED
 
-#include "defs.h"
-#include "usart.h"
+#include <stdint.h>
 
 /*  */
 typedef struct {
     uint8_t                     IsPresent;
     uint8_t                     ConfigModeIsActive;
     uint16_t                    id;
-    BaudrateValue_TypeDef       baudrate;
+    uint8_t                     baudrate;
     uint8_t                     channel;
     uint8_t                     retries;
 }TB387_TypeDef;
@@ -17,7 +16,7 @@ typedef struct {
 /*  */
 typedef struct{
     uint16_t                    id;
-    BaudrateValue_TypeDef       baudrate;
+    uint8_t                     baudrate;
     uint8_t                     channel;
 }TB387_Target_TypeDef;
 

@@ -45,10 +45,6 @@
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include "unicon.h"
-#include "nextion.h"
-#include "pcf8574.h"
-#include "pcf8523.h"
-#include "mcp23017.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -178,10 +174,6 @@ int main(void)
 
     USART_ClearRxBuffer(SECONDARY_PORT);
 
-    PCF8523_Init();
-    MCP23017_Init();
-    NextionInit();
-
 
     //BEEP();
     //LL_mDelay(10);
@@ -217,7 +209,6 @@ int main(void)
 
             delay_sec = timestamp + 1000;
 
-            PCF8523_GetDateTime();
 
         }
 
@@ -226,7 +217,6 @@ int main(void)
 
             delay_minute = timestamp + 60000;
 
-            PCF8523_BatteryStatus = PCF8523_GetBateryStatus();
         }
 
 

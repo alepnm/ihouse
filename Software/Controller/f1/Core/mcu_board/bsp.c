@@ -1,5 +1,4 @@
 
-#include "main.h"
 #include "bsp.h"
 
 
@@ -8,18 +7,13 @@ SysData_TypeDef SysData;
 /* externs */
 extern volatile uint32_t timestamp;
 
-/* locals */
-uint16_t FlashSize = 0;
-uint8_t UnitID[12];
-
-
 uint32_t now = 0;
 
 
-void BSP_SystemInit(void) {
+void BSP_SystemInit(SysData_TypeDef *self) {
 
-    FlashSize = BSP_GetFlashSize();
-    BSP_GetID(UnitID);
+    self->FlashSize = BSP_GetFlashSize();
+    BSP_GetID(self->UnitID);
 
     /* GPIO portu inicializacija */
     LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -38,29 +32,26 @@ void BSP_SystemInit(void) {
 
 
     /* USART portu konfiguravimas */
-    SysData.Ports[PRIMARY_PORT].handle = USART1;
-    SysData.Ports[PRIMARY_PORT].Conf.MbAddr = 10;
-    SysData.Ports[PRIMARY_PORT].Conf.Baudrate = BR19200;
-    SysData.Ports[PRIMARY_PORT].Conf.Parity = UART_PAR_NONE;
-    SysData.Ports[PRIMARY_PORT].Conf.StopBits = 1;
-    SysData.Ports[PRIMARY_PORT].Conf.DataBits = 8;
-    SysData.Ports[PRIMARY_PORT].Conf.Parity = UART_PAR_NONE;
-    SysData.Ports[PRIMARY_PORT].ptrRxBuffer = port_register[PRIMARY_PORT].RxBuffer;
-    SysData.Ports[PRIMARY_PORT].ptrTxBuffer = port_register[PRIMARY_PORT].TxBuffer;
+    self->Ports[PRIMARY_PORT].handle = USART1;
+    self->Ports[PRIMARY_PORT].Config.MbAddr = 10;
+    self->Ports[PRIMARY_PORT].Config.Baudrate = BR19200;
+    self->Ports[PRIMARY_PORT].Config.Parity = UART_PAR_NONE;
+    self->Ports[PRIMARY_PORT].Config.StopBits = 1;
+    self->Ports[PRIMARY_PORT].Config.DataBits = 8;
+    self->Ports[PRIMARY_PORT].Config.Parity = UART_PAR_NONE;
+    self->Ports[PRIMARY_PORT].Registers.ReceiveTimeoutFlag = false;
 
-    SysData.Ports[SECONDARY_PORT].handle = USART2;
-    SysData.Ports[SECONDARY_PORT].Conf.MbAddr = 10;
-    SysData.Ports[SECONDARY_PORT].Conf.Baudrate = BR19200;
-    SysData.Ports[SECONDARY_PORT].Conf.Parity = UART_PAR_NONE;
-    SysData.Ports[SECONDARY_PORT].Conf.StopBits = 1;
-    SysData.Ports[SECONDARY_PORT].Conf.DataBits = 8;
-    SysData.Ports[SECONDARY_PORT].Conf.Parity = UART_PAR_NONE;
-    SysData.Ports[SECONDARY_PORT].ptrRxBuffer = port_register[PRIMARY_PORT].RxBuffer;
-    SysData.Ports[SECONDARY_PORT].ptrTxBuffer = port_register[PRIMARY_PORT].TxBuffer;
+    self->Ports[SECONDARY_PORT].handle = USART2;
+    self->Ports[SECONDARY_PORT].Config.MbAddr = 10;
+    self->Ports[SECONDARY_PORT].Config.Baudrate = BR19200;
+    self->Ports[SECONDARY_PORT].Config.Parity = UART_PAR_NONE;
+    self->Ports[SECONDARY_PORT].Config.StopBits = 1;
+    self->Ports[SECONDARY_PORT].Config.DataBits = 8;
+    self->Ports[SECONDARY_PORT].Config.Parity = UART_PAR_NONE;
+    self->Ports[SECONDARY_PORT].Registers.ReceiveTimeoutFlag = false;
 
-
-    USART_Config(TB387_PORT, baudrates[SysData.Ports[TB387_PORT].Conf.Baudrate], SysData.Ports[TB387_PORT].Conf.DataBits, SysData.Ports[TB387_PORT].Conf.Parity);
-    USART_Config(NEXTION_PORT, 19200, 8, UART_PAR_NONE);
+    USART_Config(TB387_PORT, baudrates[self->Ports[TB387_PORT].Config.Baudrate], self->Ports[TB387_PORT].Config.DataBits, self->Ports[TB387_PORT].Config.Parity);
+    USART_Config(NEXTION_PORT, 9600, 8, UART_PAR_NONE);
 
 
 }

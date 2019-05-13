@@ -205,7 +205,9 @@ void SysTick_Handler(void)
 
     timestamp++;
 
-    USART_TimerHandler();
+    USART_TimerHandler(TB387_PORT);
+    USART_TimerHandler(NEXTION_PORT);
+
   /* USER CODE END SysTick_IRQn 0 */
   
   /* USER CODE BEGIN SysTick_IRQn 1 */

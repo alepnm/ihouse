@@ -2620,4 +2620,6 @@ Text HLabel 8500 5150 2    50   Input ~ 0
 LPULSE1
 Text HLabel 8500 5250 2    50   Input ~ 0
 LPULSE2
+Text Notes 10300 9200 0    50   ~ 0
+PWM1 - WC duru pasvietimas\nPWM2 - vonios duru pasvietimas
 $EndSCHEMATC

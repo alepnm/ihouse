@@ -1,53 +1,34 @@
 #ifndef USART_H_INCLUDED
 #define USART_H_INCLUDED
 
-#include "defs.h"
+#include "stdio.h"
+#include "stm32f1xx_ll_usart.h"
 
 #define PRIMARY_PORT    0
 #define SECONDARY_PORT  1
 
 #define NEXTION_PORT    SECONDARY_PORT
 #define TB387_PORT      PRIMARY_PORT
-#define MODBUS_PORT     PRIMARY_PORT
+//#define MODBUS_PORT     PRIMARY_PORT
 
 
-typedef enum { BR2400 = 0, BR4800, BR9600, BR14400, BR19200, BR38400, BR57600 }BaudrateValue_TypeDef;
+enum { BR2400 = 0, BR4800, BR9600, BR14400, BR19200, BR38400, BR57600 }eBaudrate;
+enum { UART_PAR_NONE = 0, UART_PAR_ODD, UART_PAR_EVEN }eParity;
 
-typedef enum {  UART_PAR_NONE = 0,
-                UART_PAR_ODD,
-                UART_PAR_EVEN
-}ParityValue_TypeDef;
-
-typedef enum {  USART_STATE_IDLE = 0,
-                USART_STATE_BUSY,
-                USART_STATE_ANSWER_WAITING,
-                USART_STATE_DATA_TRANSMITTED,
-                USART_STATE_DATA_RECEIVED
-}PortState_TypeDef;
+enum {  USART_STATE_IDLE = 0,
+        USART_STATE_BUSY,
+        USART_STATE_ANSWER_WAITING,
+        USART_STATE_DATA_TRANSMITTED,
+        USART_STATE_DATA_RECEIVED
+}ePortState;
 
 
 #define RX_BUFFER_SIZE     64
 #define TX_BUFFER_SIZE     32
 
 
-typedef struct _port{
-
-    USART_TypeDef   *handle;
-
-    struct{
-        uint8_t                     MbAddr;
-        BaudrateValue_TypeDef       Baudrate;
-        ParityValue_TypeDef         Parity;
-        uint8_t                     StopBits;
-        uint8_t                     DataBits;
-    }Conf;
-
-    char*                       ptrRxBuffer;
-    char*                       ptrTxBuffer;
-}Port_TypeDef;
-
-typedef struct{
-    PortState_TypeDef   PortState;                  // porto busena
+typedef struct _port_register{
+    uint8_t             ePortState;                  // porto busena
     uint8_t             PortError;
     volatile uint8_t    PortTimer;                  //
     uint8_t             ReceivedData;               // priimtas baitas
@@ -55,19 +36,29 @@ typedef struct{
     char                TxBuffer[TX_BUFFER_SIZE];   // porto TX buferis
     uint8_t             RxBufferIndex;              // porto RX buferio indeksas
     uint8_t             TxBufferIndex;              // porto TX buferio indeksas
+    uint8_t             ReceiveTimeoutFlag;
 }PortRegister_TypeDef;
 
 
-extern PortRegister_TypeDef port_register[2];
+typedef struct _port{
+
+    USART_TypeDef           *handle;
+
+    struct{
+        uint8_t             MbAddr;
+        uint8_t             Baudrate;
+        uint8_t             Parity;
+        uint8_t             StopBits;
+        uint8_t             DataBits;
+    }Config;
+
+    PortRegister_TypeDef    Registers;
+
+}Port_TypeDef;
+
+
 extern const uint32_t baudrates[7];
-
-extern char *ptrPrimaryRxBuffer;
-extern char *ptrPrimaryTxBuffer;
-extern char *ptrSecondaryRxBuffer;
-extern char *ptrSecondaryTxBuffer;
-
 extern uint8_t NewMessageReceivedFlag;
-extern uint8_t RespondWaitingFlag;
 
 
 void    USART_Config( uint8_t ucPORT, uint32_t ulBaudRate, uint32_t ulDataBits,  uint8_t ulParity );
@@ -76,11 +67,10 @@ void    USART_Send( uint8_t ucPORT, void* buf, size_t size_of_data );
 void    USART_Send_DMA( size_t len );
 void    USART_SendByte( uint8_t ucPORT, char data );
 void    USART_SendString( uint8_t ucPORT, const char* str );
-
-void    USART_IRQ_Handler( uint8_t port );
-void    USART_TimerHandler(void);
-
+void    USART_IRQ_Handler( uint8_t ucPORT );
+void    USART_TimerHandler( uint8_t ucPORT );
 void    USART_ClearRxBuffer( uint8_t ucPORT );
+void    USART_ClearTxBuffer(uint8_t ucPORT);
 uint8_t CheckBaudrate( uint32_t baudrate );
 
 #endif /* USART_H_INCLUDED */

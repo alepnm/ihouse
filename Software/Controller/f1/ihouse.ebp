@@ -9,8 +9,8 @@
 		<Option compiler="armgcc_eb" />
 		<Build>
 			<Target title="Debug">
-				<Option output="output\bin\Debug\ihome.elf" />
-				<Option object_output="output\obj\Debug\" />
+				<Option output="Output\bin\Debug\ihome.elf" />
+				<Option object_output="Output\obj\Debug\" />
 				<Option type="0" />
 				<Option create_hex="1" />
 				<Option compiler="armgcc_eb" />
@@ -37,8 +37,8 @@
 				</Linker>
 			</Target>
 			<Target title="Release">
-				<Option output="output\bin\Release\ihome.elf" />
-				<Option object_output="output\obj\Release\" />
+				<Option output="Output\bin\Release\ihome.elf" />
+				<Option object_output="Output\obj\Release\" />
 				<Option type="0" />
 				<Option create_hex="1" />
 				<Option compiler="armgcc_eb" />
@@ -83,6 +83,10 @@
 		<Unit filename="Core\Inc\main.h" />
 		<Unit filename="Core\Inc\stm32_assert.h" />
 		<Unit filename="Core\Inc\stm32f1xx_it.h" />
+		<Unit filename="Core\libs\ds1307\ds1307.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\ds1307\ds1307.h" />
 		<Unit filename="Core\libs\freemodbus\modbus\ascii\mbascii.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -155,6 +159,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Core\libs\mcp23017\mcp23017.h" />
+		<Unit filename="Core\libs\nextion_hmi\nextion.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\nextion_hmi\nextion.h" />
 		<Unit filename="Core\libs\TB387\tb387.c">
 			<Option compilerVar="CC" />
 		</Unit>

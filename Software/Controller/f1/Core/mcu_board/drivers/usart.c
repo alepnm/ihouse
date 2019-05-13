@@ -8,12 +8,9 @@
 #endif
 
 
-PortRegister_TypeDef port_register[2];
 
 uint8_t TxState = USART_STATE_IDLE;
 uint8_t NewMessageReceivedFlag = false;
-uint8_t RespondWaitingFlag = false;
-
 
 const uint32_t baudrates[7] = { 2400u, 4800u, 9600u, 14400u, 19200u, 38400u, 57600u };
 
@@ -72,7 +69,9 @@ void USART_Send( uint8_t ucPORT, void* data, size_t len ) {
         LL_USART_TransmitData8(SysData.Ports[ucPORT].handle, *((uint8_t*)data++));
     }
 
-    RespondWaitingFlag = true;
+    SysData.Ports[ucPORT].Registers.ePortState = USART_STATE_ANSWER_WAITING;
+    SysData.Ports[ucPORT].Registers.ReceiveTimeoutFlag = true;
+    SysData.Ports[ucPORT].Registers.PortTimer = 100;
 }
 
 
@@ -86,7 +85,10 @@ void USART_Send_DMA(size_t len) {
 /*  */
 void USART_SendByte(uint8_t ucPORT, char data) {
     LL_USART_TransmitData8(SysData.Ports[ucPORT].handle, data);
-    RespondWaitingFlag = true;
+
+    SysData.Ports[ucPORT].Registers.ePortState = USART_STATE_ANSWER_WAITING;
+    SysData.Ports[ucPORT].Registers.ReceiveTimeoutFlag = true;
+    SysData.Ports[ucPORT].Registers.PortTimer = 100;
 }
 
 /*  */
@@ -100,7 +102,9 @@ void USART_SendString( uint8_t ucPORT, const char* str ) {
         i++;
     }
 
-    RespondWaitingFlag = true;
+    SysData.Ports[ucPORT].Registers.ePortState = USART_STATE_ANSWER_WAITING;
+    SysData.Ports[ucPORT].Registers.ReceiveTimeoutFlag = true;
+    SysData.Ports[ucPORT].Registers.PortTimer = 100;
 }
 
 
@@ -110,11 +114,24 @@ void USART_ClearRxBuffer(uint8_t ucPORT) {
     uint8_t i = 0;
 
     while(i < RX_BUFFER_SIZE) {
-        port_register[ucPORT].RxBuffer[i++] = 0;
+        SysData.Ports[ucPORT].Registers.RxBuffer[i++] = 0;
     }
 
-    port_register[ucPORT].RxBufferIndex = 0;
-    port_register[ucPORT].ReceivedData = 0;
+    SysData.Ports[ucPORT].Registers.RxBufferIndex = 0;
+    SysData.Ports[ucPORT].Registers.ReceivedData = 0;
+}
+
+
+/*  */
+void USART_ClearTxBuffer(uint8_t ucPORT) {
+
+    uint8_t i = 0;
+
+    while(i < TX_BUFFER_SIZE) {
+        SysData.Ports[ucPORT].Registers.TxBuffer[i++] = 0;
+    }
+
+    SysData.Ports[ucPORT].Registers.TxBufferIndex = 0;
 }
 
 
@@ -134,11 +151,11 @@ uint8_t CheckBaudrate( uint32_t baudrate) {
 
 
 /*  */
-void USART_IRQ_Handler(uint8_t port) {
+void USART_IRQ_Handler(uint8_t ucPORT) {
 
 #if defined(MODBUS_PORT)
 
-    if(port == MODBUS_PORT && TB387.ConfigModeIsActive == false) {
+    if(ucPORT == MODBUS_PORT && TB387.ConfigModeIsActive == false) {
 
         if( LL_USART_IsActiveFlag_RXNE(SysData.Ports[MODBUS_PORT].handle) && LL_USART_IsEnabledIT_RXNE(SysData.Ports[MODBUS_PORT].handle) ) {
             (void)pxMBFrameCBByteReceived();
@@ -153,41 +170,35 @@ void USART_IRQ_Handler(uint8_t port) {
 
 #endif
 
-    if( LL_USART_IsActiveFlag_RXNE(SysData.Ports[port].handle) && LL_USART_IsEnabledIT_RXNE(SysData.Ports[port].handle) ) {
+    if( LL_USART_IsActiveFlag_RXNE(SysData.Ports[ucPORT].handle) && LL_USART_IsEnabledIT_RXNE(SysData.Ports[ucPORT].handle) ) {
 
-        port_register[port].ReceivedData = LL_USART_ReceiveData8(SysData.Ports[port].handle);
+        SysData.Ports[ucPORT].Registers.ReceivedData = LL_USART_ReceiveData8(SysData.Ports[ucPORT].handle);
 
-        *(port_register[port].RxBuffer + port_register[port].RxBufferIndex) = port_register[port].ReceivedData;
+        *(SysData.Ports[ucPORT].Registers.RxBuffer + SysData.Ports[ucPORT].Registers.RxBufferIndex) = SysData.Ports[ucPORT].Registers.ReceivedData;
 
-        port_register[port].RxBufferIndex++;
+        SysData.Ports[ucPORT].Registers.RxBufferIndex++;
 
-        port_register[port].PortState = USART_STATE_ANSWER_WAITING;
+        SysData.Ports[ucPORT].Registers.ePortState = USART_STATE_ANSWER_WAITING;
 
-        port_register[port].PortTimer = 10;
+        SysData.Ports[ucPORT].Registers.PortTimer = 10;
     }
-
-
 }
 
 
 /*  */
-void USART_TimerHandler(void) {
+void USART_TimerHandler(uint8_t ucPORT) {
 
-    if(port_register[PRIMARY_PORT].PortTimer > 0) port_register[PRIMARY_PORT].PortTimer--;
+    if(SysData.Ports[ucPORT].Registers.PortTimer) SysData.Ports[ucPORT].Registers.PortTimer--;
     else {
-        if(port_register[PRIMARY_PORT].PortState == USART_STATE_ANSWER_WAITING) {
-            port_register[PRIMARY_PORT].PortState = USART_STATE_IDLE;
-            port_register[PRIMARY_PORT].RxBufferIndex = 0;
 
-            RespondWaitingFlag = false;
+        if(SysData.Ports[ucPORT].Registers.ePortState == USART_STATE_ANSWER_WAITING) {
+            SysData.Ports[ucPORT].Registers.ePortState = USART_STATE_IDLE;
+            SysData.Ports[ucPORT].Registers.RxBufferIndex = 0;
+
+            SysData.Ports[ucPORT].Registers.ReceiveTimeoutFlag = false;
 
             NewMessageReceivedFlag = true;
         }
     }
-
-
-
-
-
 }
 

@@ -193,7 +193,7 @@ uint32_t LL_I2C_Init(I2C_TypeDef *I2Cx, LL_I2C_InitTypeDef *I2C_InitStruct)
    * after the address receive match code or next received byte with parameter :
    * - TypeAcknowledge: I2C_CR2_NACK bit
    */
-  LL_I2C_AcknowledgeNextData(I2Cx, I2C_InitStruct->TypeAcknowledge);
+  //LL_I2C_AcknowledgeNextData(I2Cx, I2C_InitStruct->TypeAcknowledge);
 
   return SUCCESS;
 }

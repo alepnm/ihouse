@@ -1,7 +1,6 @@
 
 #include <stdio.h>
 #include "unicon.h"
-#include "nextion.h"
 
 
 SysData_TypeDef SysData;
@@ -268,7 +267,6 @@ static void UNI_SaveDataToEEPROM(void) {
 
     EEP24XX_WriteByByte(EEADR_SYSDATA, &SysData, sizeof(SysData));              // rasom baitais
     EEP24XX_WriteByByte(EEADR_PORT_SETS, &port_config, sizeof(port_config));
-    EEP24XX_WriteByByte(EEADR_NEXTION, &Nextion, sizeof(Nextion));
 
 }
 

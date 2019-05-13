@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <EmBitz_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="Core\Inc\defs.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\Inc\defs.h" open="0" top="0" tabpos="34" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1098" topLine="23" />
+			<Cursor1 position="155" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\Inc\main.h" open="0" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\Inc\main.h" open="0" top="0" tabpos="33" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3597" topLine="35" />
+			<Cursor1 position="3009" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Core\Inc\stm32f1xx_it.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2139" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Core\libs\ds1307\ds1307.c" open="1" top="1" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2894" topLine="85" />
+		</Cursor>
+	</File>
+	<File name="Core\libs\ds1307\ds1307.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="132" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Core\libs\freemodbus\modbus\include\mb.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -28,12 +38,12 @@
 	</File>
 	<File name="Core\libs\freemodbus\modbus\mb.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="9821" topLine="316" />
+			<Cursor1 position="1827" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Core\libs\freemodbus\modbus\rtu\mbrtu.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="193" />
+			<Cursor1 position="1830" topLine="23" />
 		</Cursor>
 	</File>
 	<File name="Core\libs\freemodbus\port\portevent.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -43,7 +53,7 @@
 	</File>
 	<File name="Core\libs\freemodbus\port\portserial.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2413" topLine="49" />
+			<Cursor1 position="2554" topLine="34" />
 		</Cursor>
 	</File>
 	<File name="Core\libs\freemodbus\port\porttimer.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -66,34 +76,44 @@
 			<Cursor1 position="478" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\libs\mcp23017\mcp23017.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\libs\mcp23017\mcp23017.c" open="0" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2830" topLine="75" />
+			<Cursor1 position="3767" topLine="49" />
 		</Cursor>
 	</File>
-	<File name="Core\libs\mcp23017\mcp23017.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\libs\mcp23017\mcp23017.h" open="0" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="795" topLine="0" />
+			<Cursor1 position="160" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\libs\TB387\tb387.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="Core\libs\nextion_hmi\nextion.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="-2" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1232" topLine="10" />
+			<Cursor1 position="377" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\libs\TB387\tb387.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\libs\nextion_hmi\nextion.h" open="0" top="0" tabpos="26" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="276" topLine="0" />
+			<Cursor1 position="340" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\bsp.c" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="-2" zoom_2="0">
+	<File name="Core\libs\TB387\tb387.c" open="0" top="0" tabpos="29" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1739" topLine="21" />
+			<Cursor1 position="2972" topLine="38" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\bsp.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\libs\TB387\tb387.h" open="0" top="0" tabpos="35" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="450" topLine="0" />
+			<Cursor1 position="528" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Core\mcu_board\bsp.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="-2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="605" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Core\mcu_board\bsp.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="287" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Core\mcu_board\bsp_func.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -101,9 +121,9 @@
 			<Cursor1 position="1232" topLine="18" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\bsp_func.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\mcu_board\bsp_func.h" open="0" top="0" tabpos="31" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="315" topLine="0" />
+			<Cursor1 position="62" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Core\mcu_board\dc_motor.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -131,9 +151,9 @@
 			<Cursor1 position="62" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\drivers\iic.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\mcu_board\drivers\iic.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2427" topLine="20" />
+			<Cursor1 position="1851" topLine="52" />
 		</Cursor>
 	</File>
 	<File name="Core\mcu_board\drivers\iic.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -161,24 +181,24 @@
 			<Cursor1 position="91" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\drivers\usart.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="Core\mcu_board\drivers\usart.c" open="0" top="0" tabpos="28" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2668" topLine="75" />
+			<Cursor1 position="3701" topLine="117" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\drivers\usart.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="Core\mcu_board\drivers\usart.h" open="0" top="0" tabpos="30" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1935" topLine="27" />
+			<Cursor1 position="2360" topLine="15" />
 		</Cursor>
 	</File>
-	<File name="Core\Src\main.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="Core\Src\main.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5128" topLine="133" />
+			<Cursor1 position="7454" topLine="218" />
 		</Cursor>
 	</File>
-	<File name="Core\Src\stm32f1xx_it.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="Core\Src\stm32f1xx_it.c" open="0" top="0" tabpos="25" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4166" topLine="135" />
+			<Cursor1 position="7571" topLine="194" />
 		</Cursor>
 	</File>
 	<File name="Core\Src\system_stm32f1xx.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -196,9 +216,9 @@
 			<Cursor1 position="32331" topLine="696" />
 		</Cursor>
 	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_i2c.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_i2c.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="51033" topLine="1280" />
+			<Cursor1 position="58926" topLine="1537" />
 		</Cursor>
 	</File>
 	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_rcc.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -216,9 +236,9 @@
 			<Cursor1 position="80830" topLine="1869" />
 		</Cursor>
 	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_i2c.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_i2c.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2058" topLine="129" />
+			<Cursor1 position="7886" topLine="169" />
 		</Cursor>
 	</File>
 	<File name="Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_usart.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -231,9 +251,9 @@
 			<Cursor1 position="8409" topLine="127" />
 		</Cursor>
 	</File>
-	<File name="startup\startup_stm32f10x_md.S" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="startup\startup_stm32f10x_md.S" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="7154" topLine="124" />
+			<Cursor1 position="6369" topLine="148" />
 		</Cursor>
 	</File>
 </EmBitz_layout_file>
