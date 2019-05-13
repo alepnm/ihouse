@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-#define     EE24LC08
+#define     EE24LC32
 
 #ifdef EE24LC08
     /* 24LC08 EEPROM */
@@ -26,6 +26,17 @@
     #define     DATA_OFFSET_MASK        0x0F
     #define     PAGE_SIZE               16
     #define     PAGES_IN_BLOCK          16
+#endif
+
+#ifdef EE24LC32
+    /* 24LC16 EEPROM */
+    #define     EEP_IIC_ADDRESS         0xA0
+    #define     EEP_MEMORY_SIZE         4096
+    #define     PAGE_CALC_SHIFT_VAL     4
+    #define     BLOCK_CALC_SHIFT_VAL    8
+    #define     DATA_OFFSET_MASK        0x0F
+    #define     PAGE_SIZE               8
+    #define     PAGES_IN_BLOCK          512
 #endif
 
 

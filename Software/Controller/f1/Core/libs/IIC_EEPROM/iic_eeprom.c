@@ -150,10 +150,10 @@ static uint8_t EEP24XX_Process( uint16_t mem_addr, void *data, uint16_t len, uin
         // irasom duomenu dali
         switch(proc){
             case IIC_READ:
-                IIC_Read(I2Cx, eeaddr, mem_addr, data, (uint16_t)wr_size);
+                IIC_Read(I2Cx, eeaddr, mem_addr, data, wr_size);
             break;
             case IIC_WRITE:
-                IIC_Write(I2Cx, eeaddr, mem_addr, data, (uint16_t)wr_size);
+                IIC_Write(I2Cx, eeaddr, mem_addr, data, wr_size);
                 //Delay_ms(5);
             break;
         }

@@ -70,7 +70,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+uint8_t eebuf[4096] = {0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -144,8 +144,9 @@ int main(void)
 
     BSP_SystemInit(&SysData);
 
-
     DS1307_Init();
+
+    EEP24XX_Read(0, eebuf, 4096);
 
 
 
