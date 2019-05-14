@@ -87,6 +87,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Core\libs\ds1307\ds1307.h" />
+		<Unit filename="Core\libs\ds18b20\ds18b20.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\libs\ds18b20\ds18b20.h" />
 		<Unit filename="Core\libs\freemodbus\modbus\ascii\mbascii.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -192,6 +196,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Core\mcu_board\drivers\io.h" />
+		<Unit filename="Core\mcu_board\drivers\one_wire.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Core\mcu_board\drivers\one_wire.h" />
 		<Unit filename="Core\mcu_board\drivers\rtc.c">
 			<Option compilerVar="CC" />
 		</Unit>

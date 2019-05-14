@@ -14,6 +14,7 @@
 #include "nextion.h"
 
 #include "ds1307.h"
+#include "ds18b20.h"
 
 
 typedef struct{
@@ -35,5 +36,16 @@ void        BSP_SystemInit(SysData_TypeDef *self);
 void        BSP_SystemHandler(void);
 void        BSP_GetID(uint8_t* bufid);
 uint16_t    BSP_GetFlashSize(void);
+
+
+
+#pragma GCC push_options
+#pragma GCC optimize ("O0")
+__STATIC_INLINE void Delay_us(__IO uint32_t us){
+
+    us *= ( (SystemCoreClock) / 8000000 );   // prie SystemCoreClock=48000000, daliklis t.b. 8000000
+    while(us--);
+}
+#pragma GCC pop_options
 
 #endif /* BOARD_H_INCLUDED */

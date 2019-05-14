@@ -114,6 +114,8 @@ void Error_Handler(void);
 #define PWM1_GPIO_Port GPIOB
 #define PWM2_Pin LL_GPIO_PIN_1
 #define PWM2_GPIO_Port GPIOB
+#define DS18B20_IO_Pin LL_GPIO_PIN_2
+#define DS18B20_IO_GPIO_Port GPIOB
 #define LPULSE1_Pin LL_GPIO_PIN_10
 #define LPULSE1_GPIO_Port GPIOB
 #define LPULSE2_Pin LL_GPIO_PIN_11
