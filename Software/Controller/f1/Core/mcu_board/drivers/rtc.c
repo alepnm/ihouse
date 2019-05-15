@@ -2,34 +2,66 @@
 #include "rtc.h"
 
 LL_RTC_TimeTypeDef RTC_Time;
+uint8_t Date = 0, Month = 0, Year = 0;
 
 
 /*  */
 void RTC_Init(void) {
 
 
-    LL_RTC_BKP_SetRegister(BKP, LL_RTC_BKP_DR10, 0x55);
-
-    uint32_t qqq = LL_RTC_BKP_GetRegister(BKP, LL_RTC_BKP_DR10);
 
 
-
-
-
-    if(LL_RTC_BKP_GetRegister(BKP, LL_RTC_BKP_DR1) != 0x3232) {
-
-        RTC_Time.Hours = 0;
-        RTC_Time.Minutes = 0;
-        RTC_Time.Seconds = 0;
-        LL_RTC_TIME_Init(RTC, LL_RTC_FORMAT_BCD, &RTC_Time);
-
-        LL_RTC_BKP_SetRegister(BKP, LL_RTC_BKP_DR1, 0x3232);
+//    uint32_t qqq = LL_RTC_BKP_GetRegister(BKP, LL_RTC_BKP_DR10);
+//
+//    qqq++;
+//
+//    LL_RTC_BKP_SetRegister(BKP, LL_RTC_BKP_DR10, qqq);
 
 
 
 
-        qqq = LL_RTC_BKP_GetRegister(BKP, LL_RTC_BKP_DR1);
-    }
+    uint32_t backupregister = (uint32_t)BKP_BASE;
+    backupregister += (LL_RTC_BKP_DR10 * 4U);
+
+    uint32_t pvalue = (*(__IO uint32_t *)(backupregister)) & BKP_DR1_D;
+
+
+
+
+
+    uint32_t tmp = (uint32_t)BKP_BASE;
+
+    tmp += (LL_RTC_BKP_DR10 * 4U);
+
+    *(__IO uint32_t *) tmp = (0x55 & BKP_DR1_D);
+
+
+
+
+    backupregister = (uint32_t)BKP_BASE;
+    backupregister += (LL_RTC_BKP_DR10 * 4U);
+
+    pvalue = (*(__IO uint32_t *)(backupregister)) & BKP_DR1_D;
+
+
+
+
+//    qqq = LL_RTC_BKP_GetRegister(BKP, LL_RTC_BKP_DR1);
+//
+//    if(LL_RTC_BKP_GetRegister(BKP, LL_RTC_BKP_DR1) != 0x3232) {
+//
+//        RTC_Time.Hours = 0;
+//        RTC_Time.Minutes = 0;
+//        RTC_Time.Seconds = 0;
+//        LL_RTC_TIME_Init(RTC, LL_RTC_FORMAT_BCD, &RTC_Time);
+//
+//        LL_RTC_BKP_SetRegister(BKP, LL_RTC_BKP_DR1, 0x3232);
+//
+//
+//
+//
+//        qqq = LL_RTC_BKP_GetRegister(BKP, LL_RTC_BKP_DR1);
+//    }
 
 }
 
