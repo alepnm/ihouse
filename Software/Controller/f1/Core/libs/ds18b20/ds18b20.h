@@ -12,8 +12,8 @@
 #define RESOLUTION_12BIT    0x7F
 
 
-void    DS18B20_PortInit(void);
 uint8_t DS18B20_Init(uint8_t mode);
+uint8_t DS18B20_Process(void);
 void    DS18B20_MeasureTemperCmd(uint8_t dev, uint8_t mode);
 void    DS18B20_ReadStratchpad(uint8_t dev, uint8_t mode);
 uint8_t DS18B20_GetSign(uint8_t dev);

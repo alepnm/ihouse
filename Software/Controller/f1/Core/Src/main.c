@@ -91,7 +91,6 @@ static void MX_TIM1_Init(void);
 /* USER CODE BEGIN 0 */
 uint32_t timestamp = 0;
 uint8_t ds_status = 0;
-float temperature = 0;
 /* USER CODE END 0 */
 
 /**
@@ -148,10 +147,9 @@ int main(void)
 
     DS1307_Init();
 
-    EEP24XX_Read(0, eebuf, 1000);
+    //EEP24XX_Read(0, eebuf, 1000);
 
 
-    DS18B20_PortInit();
     ds_status = DS18B20_Init(DS_MODE_SKIP_ROM);
 
     DS18B20_MeasureTemperCmd(DS_MODE_SKIP_ROM, 0);
@@ -189,15 +187,10 @@ int main(void)
 
             BSP_SystemHandler();
 
-
             DS1307_Process();
 
+            DS18B20_Process();
 
-            DS18B20_ReadStratchpad(DS_MODE_SKIP_ROM, 0);
-            temperature = DS18B20_Convert(0);
-
-            Delay_ms(10);
-            DS18B20_MeasureTemperCmd(DS_MODE_SKIP_ROM, 0);
 
 
             //LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_12);
