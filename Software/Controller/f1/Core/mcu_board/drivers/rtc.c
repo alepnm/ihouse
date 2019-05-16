@@ -10,42 +10,6 @@ void RTC_Init(void) {
 
 
 
-
-//    uint32_t qqq = LL_RTC_BKP_GetRegister(BKP, LL_RTC_BKP_DR10);
-//
-//    qqq++;
-//
-//    LL_RTC_BKP_SetRegister(BKP, LL_RTC_BKP_DR10, qqq);
-
-
-
-
-    uint32_t backupregister = (uint32_t)BKP_BASE;
-    backupregister += (LL_RTC_BKP_DR10 * 4U);
-
-    uint32_t pvalue = (*(__IO uint32_t *)(backupregister)) & BKP_DR1_D;
-
-
-
-
-
-    uint32_t tmp = (uint32_t)BKP_BASE;
-
-    tmp += (LL_RTC_BKP_DR10 * 4U);
-
-    *(__IO uint32_t *) tmp = (0x55 & BKP_DR1_D);
-
-
-
-
-    backupregister = (uint32_t)BKP_BASE;
-    backupregister += (LL_RTC_BKP_DR10 * 4U);
-
-    pvalue = (*(__IO uint32_t *)(backupregister)) & BKP_DR1_D;
-
-
-
-
 //    qqq = LL_RTC_BKP_GetRegister(BKP, LL_RTC_BKP_DR1);
 //
 //    if(LL_RTC_BKP_GetRegister(BKP, LL_RTC_BKP_DR1) != 0x3232) {

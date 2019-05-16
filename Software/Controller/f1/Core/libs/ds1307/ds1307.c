@@ -90,7 +90,6 @@ void DS1307_Init(void){
 
     //DS1307_RESET_INITBYTE_REGISTER();
 
-
     if( DS1307_GET_INITBYTE_REGISTER() != 0x55 ){
 
         DS1307_SetDateTime(&DateTime);
@@ -131,9 +130,6 @@ void DS1307_Process(void){
 }
 
 
-
-
-
 /* Gaunam is buferio laiko ir datos reiksmes */
 void DS1307_GetDateTime(DateTime_TypeDef* dest){
 
@@ -150,6 +146,7 @@ void DS1307_GetDateTime(DateTime_TypeDef* dest){
     pMonthString = MonthsArray[dest->Month-1];
 }
 
+
 /*  */
 void DS1307_SetDateTime(DateTime_TypeDef* dest){
 
@@ -161,6 +158,7 @@ void DS1307_SetDateTime(DateTime_TypeDef* dest){
     DS1307_Registers[DS1307_MONTH_REG] = __LL_RTC_CONVERT_BIN2BCD(dest->Month);
     DS1307_Registers[DS1307_YEAR_REG] = __LL_RTC_CONVERT_BIN2BCD(dest->Year);
 }
+
 
 /* visu Backup registru isvalymas */
 void DS1307_ClearBackupRegisters(void){
@@ -179,6 +177,7 @@ static void DS1307_Halt(void){
     SET_BIT(DS1307_Registers[DS1307_SECONDS_REG], DS1307_CLOCK_HALT_BIT);
     DS1307_WR_REGISTER(DS1307_SECONDS_REG, DS1307_Registers[DS1307_SECONDS_REG]);
 }
+
 
 /*  */
 static void DS1307_Resume(void){

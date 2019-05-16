@@ -76,8 +76,6 @@ void DCMOT_Handler(void) {
     if(ValveOnTimeout < timestamp && ActiveMotor != DCMOTOR_NOACTIVE) {
 
         DCMOT_ValveStop(ActiveMotor);
-
-        LED_ON();
     }
 
 

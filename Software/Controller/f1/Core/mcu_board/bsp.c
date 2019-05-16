@@ -18,13 +18,11 @@ void BSP_SystemInit(SysData_TypeDef *self) {
     /* GPIO portu inicializacija */
     LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
 
-    GPIO_InitStruct.Pin = LL_GPIO_PIN_13;
-    GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
-    GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-    LL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
-    LED_OFF();
+//    GPIO_InitStruct.Pin = LL_GPIO_PIN_13;
+//    GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
+//    GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
+//    GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
+//    LL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
     /* RTC taimerio inicializacija */
     RTC_Init();
@@ -53,6 +51,12 @@ void BSP_SystemInit(SysData_TypeDef *self) {
     USART_Config(TB387_PORT, baudrates[self->Ports[TB387_PORT].Config.Baudrate], self->Ports[TB387_PORT].Config.DataBits, self->Ports[TB387_PORT].Config.Parity);
     USART_Config(NEXTION_PORT, 9600, 8, UART_PAR_NONE);
 
+
+
+
+    SysData.Temperature = &Temperature;
+    SysData.TemperatureString = TemperatureString;
+    SysData.DateTimeString = DateTimeString;
 
 }
 

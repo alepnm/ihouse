@@ -59,7 +59,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define RTC_AUTO_1_SECOND                      0xFFFFFFFFU
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -71,6 +71,8 @@
 
 /* USER CODE BEGIN PV */
 uint8_t eebuf[1000] = {0};
+
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -130,6 +132,8 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
     SysTick_Config(SystemCoreClock/1000);
+
+
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -142,6 +146,7 @@ int main(void)
   MX_TIM3_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
+
 
     BSP_SystemInit(&SysData);
 
@@ -173,8 +178,6 @@ int main(void)
     eMBEnable();
 #endif
 
-
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -193,17 +196,11 @@ int main(void)
 
 
 
-            //LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_12);
-            //Delay_us(100);
-            //LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_12);
-
-
-
-
             //USART_SendString(NEXTION_PORT, "0123456789");
             //USART_SendString(TB387_PORT, (char*)SysData.UnitID);
 
-            LED_TOGGLE();
+            //LED_TOGGLE();
+
 
             /* button A - duju sklende*/
             if( LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_9) ) {
@@ -463,9 +460,15 @@ static void MX_RTC_Init(void)
 
   /* USER CODE BEGIN RTC_Init 0 */
 
+    LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_BKP);
+    LL_PWR_EnableBkUpAccess();
+
+    if( LL_RTC_BKP_GetRegister(BKP, LL_RTC_BKP_DR1) != 0x1234){
+
   /* USER CODE END RTC_Init 0 */
 
   LL_RTC_InitTypeDef RTC_InitStruct = {0};
+  LL_RTC_TimeTypeDef RTC_TimeStruct = {0};
 
     LL_PWR_EnableBkUpAccess();
     /* Enable BKP CLK enable for backup registers */
@@ -473,15 +476,31 @@ static void MX_RTC_Init(void)
   /* Peripheral clock enable */
   LL_RCC_EnableRTC();
 
+  /* RTC interrupt Init */
+  NVIC_SetPriority(RTC_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
+  NVIC_EnableIRQ(RTC_IRQn);
+
   /* USER CODE BEGIN RTC_Init 1 */
+
 
   /* USER CODE END RTC_Init 1 */
   /** Initialize RTC and set the Time and Date
   */
-  RTC_InitStruct.AsynchPrescaler = 32768;
+  RTC_InitStruct.AsynchPrescaler = RTC_AUTO_1_SECOND;
   LL_RTC_Init(RTC, &RTC_InitStruct);
-  LL_RTC_SetAsynchPrescaler(RTC, 32768);
+  LL_RTC_SetAsynchPrescaler(RTC, RTC_AUTO_1_SECOND);
+  /** Initialize RTC and set the Time and Date
+  */
+  RTC_TimeStruct.Hours = 0;
+  RTC_TimeStruct.Minutes = 0;
+  RTC_TimeStruct.Seconds = 0;
+  LL_RTC_TIME_Init(RTC, LL_RTC_FORMAT_BCD, &RTC_TimeStruct);
   /* USER CODE BEGIN RTC_Init 2 */
+
+      LL_RTC_BKP_SetRegister(BKP, LL_RTC_BKP_DR1, 0x1234);
+      LL_PWR_DisableBkUpAccess();
+
+    }
 
   /* USER CODE END RTC_Init 2 */
 
@@ -730,20 +749,20 @@ static void MX_GPIO_Init(void)
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOB);
 
   /**/
-  LL_GPIO_ResetOutputPin(LED_GPIO_Port, LED_Pin);
+  LL_GPIO_ResetOutputPin(GPIOC, LL_GPIO_PIN_13);
 
   /**/
-  LL_GPIO_ResetOutputPin(GPIOB, M1ENA_Pin|M23ENA_Pin);
+  LL_GPIO_ResetOutputPin(M23ENA_GPIO_Port, M23ENA_Pin);
 
   /**/
-  LL_GPIO_SetOutputPin(GPIOB, MCPRST_Pin|TBCMD_Pin);
+  LL_GPIO_SetOutputPin(GPIOB, MCPRST_Pin|M1ENA_Pin|TBCMD_Pin);
 
   /**/
-  GPIO_InitStruct.Pin = LED_Pin;
+  GPIO_InitStruct.Pin = LL_GPIO_PIN_13;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
   GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
   GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-  LL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
+  LL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /**/
   GPIO_InitStruct.Pin = DS18B20_IO_Pin|LPULSE1_Pin|LPULSE2_Pin|LPULSE_Pin

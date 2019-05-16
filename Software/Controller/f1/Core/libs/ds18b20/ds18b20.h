@@ -12,6 +12,10 @@
 #define RESOLUTION_12BIT    0x7F
 
 
+extern float Temperature;
+extern char TemperatureString[5];
+
+
 uint8_t DS18B20_Init(uint8_t mode);
 uint8_t DS18B20_Process(void);
 void    DS18B20_MeasureTemperCmd(uint8_t dev, uint8_t mode);

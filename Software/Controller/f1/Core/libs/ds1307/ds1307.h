@@ -7,7 +7,8 @@
 #define     DS1307_BASE_ADDRESS    0xD0
 
 
-
+extern DateTime_TypeDef    DateTime;
+extern char                DateTimeString[20];
 
 
 void    DS1307_Init(void);

@@ -27,6 +27,10 @@ typedef struct{
     uint8_t                 McpPortA;   // PortA veidrodis
     uint8_t                 McpPortB;   // PortB veidrodis
 
+    float                   *Temperature;
+    char                    *TemperatureString;
+    char                    *DateTimeString;
+
 }SysData_TypeDef;
 
 extern SysData_TypeDef SysData;
@@ -43,7 +47,7 @@ uint16_t    BSP_GetFlashSize(void);
 #pragma GCC optimize ("O0")
 __STATIC_INLINE void Delay_us(__IO uint32_t us){
 
-    us *= ( (SystemCoreClock) / 8000000 );   // prie SystemCoreClock=48000000, daliklis t.b. 8000000
+    us *= ( SystemCoreClock/8000000 );   // prie SystemCoreClock=48000000, daliklis t.b. 8000000
     while(us--);
 }
 #pragma GCC pop_options

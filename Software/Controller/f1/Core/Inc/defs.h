@@ -1,14 +1,8 @@
 #ifndef DEFS_H_INCLUDED
 #define DEFS_H_INCLUDED
 
-#include <stdint.h>
-#include <stdbool.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
-
+#include "common.h"
 #include "stm32_assert.h"
-
 #include "main.h"
 
 
