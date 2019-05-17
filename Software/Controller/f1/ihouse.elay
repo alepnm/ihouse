@@ -8,7 +8,7 @@
 	</File>
 	<File name="Core\Inc\main.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4789" topLine="80" />
+			<Cursor1 position="4789" topLine="74" />
 		</Cursor>
 	</File>
 	<File name="Core\Inc\stm32f1xx_it.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -18,7 +18,7 @@
 	</File>
 	<File name="Core\libs\ds1307\ds1307.c" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6093" topLine="71" />
+			<Cursor1 position="3417" topLine="117" />
 		</Cursor>
 	</File>
 	<File name="Core\libs\ds1307\ds1307.h" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -116,12 +116,12 @@
 			<Cursor1 position="528" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\bsp.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="-2" zoom_2="0">
+	<File name="Core\mcu_board\bsp.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="-2" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="655" topLine="3" />
+			<Cursor1 position="488" topLine="6" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\bsp.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\mcu_board\bsp.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="456" topLine="0" />
 		</Cursor>
@@ -176,7 +176,7 @@
 			<Cursor1 position="42" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\drivers\io.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\mcu_board\drivers\io.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="253" topLine="0" />
 		</Cursor>
@@ -191,9 +191,9 @@
 			<Cursor1 position="433" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\drivers\rtc.c" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\mcu_board\drivers\rtc.c" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="281" topLine="3" />
+			<Cursor1 position="378" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Core\mcu_board\drivers\rtc.h" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -203,7 +203,7 @@
 	</File>
 	<File name="Core\mcu_board\drivers\usart.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5588" topLine="156" />
+			<Cursor1 position="4901" topLine="153" />
 		</Cursor>
 	</File>
 	<File name="Core\mcu_board\drivers\usart.h" open="0" top="0" tabpos="30" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
@@ -211,14 +211,14 @@
 			<Cursor1 position="2360" topLine="15" />
 		</Cursor>
 	</File>
-	<File name="Core\Src\main.c" open="1" top="1" tabpos="11" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="Core\Src\main.c" open="1" top="1" tabpos="10" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="13116" topLine="452" />
+			<Cursor1 position="13167" topLine="436" />
 		</Cursor>
 	</File>
-	<File name="Core\Src\stm32f1xx_it.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="Core\Src\stm32f1xx_it.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4936" topLine="101" />
+			<Cursor1 position="6659" topLine="199" />
 		</Cursor>
 	</File>
 	<File name="Core\Src\system_stm32f1xx.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -233,7 +233,7 @@
 	</File>
 	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_bus.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5060" topLine="99" />
+			<Cursor1 position="19283" topLine="423" />
 		</Cursor>
 	</File>
 	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_gpio.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -251,9 +251,9 @@
 			<Cursor1 position="45580" topLine="893" />
 		</Cursor>
 	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_rtc.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_rtc.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="17074" topLine="456" />
+			<Cursor1 position="7233" topLine="512" />
 		</Cursor>
 	</File>
 	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usart.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -266,9 +266,9 @@
 			<Cursor1 position="7941" topLine="169" />
 		</Cursor>
 	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_rtc.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_rtc.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="7983" topLine="189" />
+			<Cursor1 position="7777" topLine="189" />
 		</Cursor>
 	</File>
 	<File name="Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_usart.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -281,7 +281,7 @@
 			<Cursor1 position="8409" topLine="127" />
 		</Cursor>
 	</File>
-	<File name="startup\startup_stm32f10x_md.S" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="startup\startup_stm32f10x_md.S" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="6517" topLine="130" />
 		</Cursor>

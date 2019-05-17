@@ -82,7 +82,7 @@ extern uint32_t timestamp;
 /* USER CODE END EV */
 
 /******************************************************************************/
-/*           Cortex-M3 Processor Interruption and Exception Handlers          */ 
+/*           Cortex-M3 Processor Interruption and Exception Handlers          */
 /******************************************************************************/
 /**
   * @brief This function handles Non maskable interrupt.
@@ -209,7 +209,7 @@ void SysTick_Handler(void)
     USART_TimerHandler(NEXTION_PORT);
 
   /* USER CODE END SysTick_IRQn 0 */
-  
+
   /* USER CODE BEGIN SysTick_IRQn 1 */
 
   /* USER CODE END SysTick_IRQn 1 */
@@ -231,6 +231,13 @@ void RTC_IRQHandler(void)
 
   /* USER CODE END RTC_IRQn 0 */
   /* USER CODE BEGIN RTC_IRQn 1 */
+
+    if( LL_RTC_IsEnabledIT_SEC(RTC) && LL_RTC_IsActiveFlag_SEC(RTC) ){
+
+        LL_RTC_ClearFlag_SEC(RTC);
+
+        LED_TOGGLE();
+    }
 
   /* USER CODE END RTC_IRQn 1 */
 }

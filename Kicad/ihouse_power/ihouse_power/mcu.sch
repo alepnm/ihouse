@@ -38,16 +38,14 @@ Wire Wire Line
 $Comp
 L Device:Battery_Cell BT1
 U 1 1 5CD63D8E
-P 6150 4600
-F 0 "BT1" V 6000 4450 50  0000 L CNN
-F 1 "3V3" V 6100 4450 50  0000 L CNN
-F 2 "1220 Battery Holder:Battery_holder_1220" V 6150 4660 50  0001 C CNN
-F 3 "~" V 6150 4660 50  0001 C CNN
-	1    6150 4600
+P 6050 4600
+F 0 "BT1" V 5900 4450 50  0000 L CNN
+F 1 "3V3" V 6000 4450 50  0000 L CNN
+F 2 "1220 Battery Holder:Battery_holder_1220" V 6050 4660 50  0001 C CNN
+F 3 "~" V 6050 4660 50  0001 C CNN
+	1    6050 4600
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	7100 4600 6350 4600
 $Comp
 L Memory_EEPROM:24LC32 U9
 U 1 1 5CD649C8
@@ -291,8 +289,6 @@ F 3 "~" H 2350 1650 50  0001 C CNN
 	1    2350 1650
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	7100 4350 6650 4350
 $Comp
 L Device:CP C11
 U 1 1 5D160E36
@@ -1267,8 +1263,6 @@ TBTX
 Text HLabel 8500 5650 2    50   Output ~ 0
 ~TBCMD
 Wire Wire Line
-	7100 4450 6650 4450
-Wire Wire Line
 	7100 4850 6650 4850
 Wire Wire Line
 	7100 4950 6650 4950
@@ -1382,7 +1376,7 @@ Text Label 11350 4700 0    50   ~ 0
 COM
 Text Label 11350 4600 0    50   ~ 0
 3VDC
-Text Label 6650 4450 0    50   ~ 0
+Text Label 6800 4450 0    50   ~ 0
 3VDC
 Text Label 8350 5350 2    50   ~ 0
 B12
@@ -1904,7 +1898,7 @@ QCH_D2
 Text HLabel 6650 5950 0    50   Output ~ 0
 QCH_D3
 Wire Wire Line
-	5650 4600 6050 4600
+	5650 4600 5950 4600
 Text Label 3100 7700 2    50   ~ 0
 OPTIC_AI
 Text Label 6650 4950 0    50   ~ 0
@@ -1932,8 +1926,6 @@ Wire Wire Line
 Connection ~ 4250 2350
 Wire Wire Line
 	4250 2350 4350 2350
-Text HLabel 6650 4350 0    50   Output ~ 0
-3VDC
 $Comp
 L Connector:RJ33_Shielded J13
 U 1 1 5CB40FB2
@@ -2622,4 +2614,49 @@ Text HLabel 8500 5250 2    50   Input ~ 0
 LPULSE2
 Text Notes 10300 9200 0    50   ~ 0
 PWM1 - WC duru pasvietimas\nPWM2 - vonios duru pasvietimas
+Text HLabel 5850 4350 0    50   Output ~ 0
+3VDC
+Wire Wire Line
+	7100 4600 6300 4600
+Wire Wire Line
+	6400 4450 6300 4450
+Wire Wire Line
+	6300 4450 6300 4600
+Connection ~ 6300 4600
+Wire Wire Line
+	6300 4600 6250 4600
+Wire Wire Line
+	5850 4350 7100 4350
+Wire Wire Line
+	7100 4450 6700 4450
+$Comp
+L Device:D D?
+U 1 1 5CEB3D8E
+P 6550 4450
+F 0 "D?" H 6500 4600 50  0000 L CNN
+F 1 "D" H 6350 4600 50  0000 L CNN
+F 2 "Diode_SMD:D_MiniMELF" H 6550 4450 50  0001 C CNN
+F 3 "~" H 6550 4450 50  0001 C CNN
+	1    6550 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D3B6207
+P 6300 4850
+F 0 "C?" H 6000 4900 50  0000 L CNN
+F 1 "C" H 6000 4800 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6338 4700 50  0001 C CNN
+F 3 "~" H 6300 4850 50  0001 C CNN
+	1    6300 4850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6300 4700 6300 4600
+Wire Wire Line
+	6300 5000 6300 5100
+Wire Wire Line
+	6300 5100 5650 5100
+Text Label 5650 5100 0    50   ~ 0
+COM
 $EndSCHEMATC
