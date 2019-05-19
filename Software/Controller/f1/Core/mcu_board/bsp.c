@@ -16,7 +16,7 @@ void BSP_SystemInit(SysData_TypeDef *self) {
     BSP_GetID(self->UnitID);
 
     /* GPIO portu inicializacija */
-    LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
+//    LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
 
 //    GPIO_InitStruct.Pin = LL_GPIO_PIN_13;
 //    GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
