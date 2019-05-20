@@ -195,7 +195,14 @@ int main(void)
 
             time_cnt = LL_RTC_TIME_Get(RTC);
 
-            RTC_GetTime();
+            if(CalendarUpdateRequired){
+
+                CalendarUpdateRequired= 0;
+
+                CalendarUpdate(&RTC_DateTime);
+
+                SaveToBackupRegs();
+            }
 
 
             //USART_SendString(NEXTION_PORT, "0123456789");

@@ -82,7 +82,7 @@ extern uint32_t timestamp;
 /* USER CODE END EV */
 
 /******************************************************************************/
-/*           Cortex-M3 Processor Interruption and Exception Handlers          */ 
+/*           Cortex-M3 Processor Interruption and Exception Handlers          */
 /******************************************************************************/
 /**
   * @brief This function handles Non maskable interrupt.
@@ -209,7 +209,7 @@ void SysTick_Handler(void)
     USART_TimerHandler(NEXTION_PORT);
 
   /* USER CODE END SysTick_IRQn 0 */
-  
+
   /* USER CODE BEGIN SysTick_IRQn 1 */
 
   /* USER CODE END SysTick_IRQn 1 */
@@ -240,6 +240,7 @@ void TIM1_UP_IRQHandler(void)
 
   /* USER CODE END TIM1_UP_IRQn 1 */
 }
+
 
 /**
   * @brief This function handles USART1 global interrupt.
