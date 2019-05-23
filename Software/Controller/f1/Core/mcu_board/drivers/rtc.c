@@ -12,11 +12,9 @@ LL_RTC_BKP_DR3: HI - Month, LO - Year
 
 
 DateTime_TypeDef RTC_DateTime = {0};
+char DateTimeString[20] = {0};
 uint8_t LeapYear = 0, DaySaving = 0, DaySavingFlag = 0, CalendarUpdateRequired = 0;
 const char months[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-
-uint32_t date_cnt = 0;
-
 
 
 /*  */

@@ -7,6 +7,7 @@
 
 
 extern DateTime_TypeDef RTC_DateTime;
+extern char DateTimeString[];
 extern uint8_t CalendarUpdateRequired;
 
 

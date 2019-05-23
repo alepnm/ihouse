@@ -16,19 +16,9 @@
 			<Cursor1 position="2139" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\libs\ds1307\ds1307.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3112" topLine="36" />
-		</Cursor>
-	</File>
-	<File name="Core\libs\ds1307\ds1307.h" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="260" topLine="0" />
-		</Cursor>
-	</File>
 	<File name="Core\libs\ds18b20\ds18b20.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1330" topLine="27" />
+			<Cursor1 position="1368" topLine="42" />
 		</Cursor>
 	</File>
 	<File name="Core\libs\ds18b20\ds18b20.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -116,14 +106,14 @@
 			<Cursor1 position="528" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\bsp.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-2" zoom_2="0">
+	<File name="Core\mcu_board\bsp.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="732" topLine="6" />
+			<Cursor1 position="1616" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\bsp.h" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\mcu_board\bsp.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="456" topLine="0" />
+			<Cursor1 position="287" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Core\mcu_board\bsp_func.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -191,14 +181,14 @@
 			<Cursor1 position="433" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\drivers\rtc.c" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\mcu_board\drivers\rtc.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="215" topLine="0" />
+			<Cursor1 position="3144" topLine="69" />
 		</Cursor>
 	</File>
-	<File name="Core\mcu_board\drivers\rtc.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Core\mcu_board\drivers\rtc.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="144" topLine="0" />
+			<Cursor1 position="187" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Core\mcu_board\drivers\usart.c" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
@@ -208,12 +198,12 @@
 	</File>
 	<File name="Core\mcu_board\drivers\usart.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2360" topLine="65" />
+			<Cursor1 position="492" topLine="12" />
 		</Cursor>
 	</File>
-	<File name="Core\Src\main.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="Core\Src\main.c" open="1" top="1" tabpos="6" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6225" topLine="177" />
+			<Cursor1 position="5854" topLine="180" />
 		</Cursor>
 	</File>
 	<File name="Core\Src\stm32f1xx_it.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
@@ -286,7 +276,7 @@
 			<Cursor1 position="8409" topLine="127" />
 		</Cursor>
 	</File>
-	<File name="startup\startup_stm32f10x_md.S" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="startup\startup_stm32f10x_md.S" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="6369" topLine="103" />
 		</Cursor>

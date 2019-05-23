@@ -102,7 +102,6 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
     static uint32_t delay = 0;
-    static uint8_t dir = DCMOTOR_DIR_CLOSE;
 
   /* USER CODE END 1 */
 
@@ -147,16 +146,10 @@ int main(void)
 
     BSP_SystemInit(&SysData);
 
-    DS1307_Init();
-
-    //EEP24XX_Read(0, eebuf, 1000);
-
-
     ds_status = DS18B20_Init(DS_MODE_SKIP_ROM);
 
     DS18B20_MeasureTemperCmd(DS_MODE_SKIP_ROM, 0);
     Delay_ms(100);
-
 
 
     /* TB387 modulio inicializacija */
@@ -187,85 +180,11 @@ int main(void)
 
             BSP_SystemHandler();
 
-            DS1307_Process();
-
             DS18B20_Process();
 
 
 
-            time_cnt = LL_RTC_TIME_Get(RTC);
-
-            if(CalendarUpdateRequired){
-
-                CalendarUpdateRequired= 0;
-
-                CalendarUpdate(&RTC_DateTime);
-
-                SaveToBackupRegs();
-            }
-
-
-            //USART_SendString(NEXTION_PORT, "0123456789");
-            //USART_SendString(TB387_PORT, (char*)SysData.UnitID);
-
-            //LED_TOGGLE();
-
-
-            /* button A - duju sklende*/
-            if( LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_9) ) {
-
-                //LED_OFF();
-
-                dir = !dir;
-
-                //while( LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_9) );
-
-                if(dir) {
-                    // DCMOT_ValveOpen(DCMOTOR_GAS);
-                    //DCMOT_ValveOpen(DCMOTOR_HOTWATER);
-                } else {
-                    //DCMOT_ValveClose(DCMOTOR_GAS);
-                    //DCMOT_ValveClose(DCMOTOR_HOTWATER);
-                }
-
-            }
-
-
-
-
-
-            /* button B - virtuves darbines zonos apsvietimas pilnas/dalinis */
-            if( LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_8) ) {
-
-                //MCP23017_TogglePin(&REL10);
-
-                //while( LL_GPIO_IsInputPinSet(GPIOB, LL_GPIO_PIN_8) );
-            }
-
-
-            /* button C -  */
-            if( LL_GPIO_IsInputPinSet(GPIOA, LL_GPIO_PIN_12) ) {
-
-                //MCP23017_TogglePin(&REL11);
-
-                //while( LL_GPIO_IsInputPinSet(GPIOA, LL_GPIO_PIN_12) );
-            }
-
-
-            /* button D -  */
-            if( LL_GPIO_IsInputPinSet(GPIOA, LL_GPIO_PIN_11) ) {
-
-                //MCP23017_TogglePin(&REL12);
-
-                //while( LL_GPIO_IsInputPinSet(GPIOA, LL_GPIO_PIN_11) );
-            }
-            //DCMOT_Handler();
-
         }
-
-
-
-
 
 
 #if defined(MODBUS_PORT)
