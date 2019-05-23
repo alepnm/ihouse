@@ -198,7 +198,7 @@
 	</File>
 	<File name="Core\mcu_board\drivers\rtc.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="144" topLine="0" />
+			<Cursor1 position="841" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Core\mcu_board\drivers\usart.c" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
@@ -211,7 +211,7 @@
 			<Cursor1 position="2360" topLine="65" />
 		</Cursor>
 	</File>
-	<File name="Core\Src\main.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="Core\Src\main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="6225" topLine="177" />
 		</Cursor>
@@ -224,71 +224,6 @@
 	<File name="Core\Src\system_stm32f1xx.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="10153" topLine="225" />
-		</Cursor>
-	</File>
-	<File name="Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="8486" topLine="159" />
-		</Cursor>
-	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_bus.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="19283" topLine="423" />
-		</Cursor>
-	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_gpio.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="37479" topLine="847" />
-		</Cursor>
-	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_i2c.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="46346" topLine="1157" />
-		</Cursor>
-	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_pwr.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7012" topLine="152" />
-		</Cursor>
-	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_rcc.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="45580" topLine="893" />
-		</Cursor>
-	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_rtc.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="11233" topLine="363" />
-		</Cursor>
-	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usart.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="80830" topLine="1869" />
-		</Cursor>
-	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_i2c.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7941" topLine="169" />
-		</Cursor>
-	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_rtc.c" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="11531" topLine="51" />
-		</Cursor>
-	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_usart.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1128" topLine="213" />
-		</Cursor>
-	</File>
-	<File name="Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_utils.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="8409" topLine="127" />
-		</Cursor>
-	</File>
-	<File name="startup\startup_stm32f10x_md.S" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6369" topLine="103" />
 		</Cursor>
 	</File>
 </EmBitz_layout_file>
