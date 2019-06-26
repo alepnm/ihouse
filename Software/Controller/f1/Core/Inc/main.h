@@ -95,14 +95,16 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define LED_Pin LL_GPIO_PIN_13
+#define LED_GPIO_Port GPIOC
 #define OPTIC_Pin LL_GPIO_PIN_0
 #define OPTIC_GPIO_Port GPIOA
-#define HUM1_Pin LL_GPIO_PIN_1
-#define HUM1_GPIO_Port GPIOA
-#define HUM2_Pin LL_GPIO_PIN_4
-#define HUM2_GPIO_Port GPIOA
-#define HUM3_Pin LL_GPIO_PIN_5
-#define HUM3_GPIO_Port GPIOA
+#define LEAK1_Pin LL_GPIO_PIN_1
+#define LEAK1_GPIO_Port GPIOA
+#define LEAK2_Pin LL_GPIO_PIN_4
+#define LEAK2_GPIO_Port GPIOA
+#define LEAK3_Pin LL_GPIO_PIN_5
+#define LEAK3_GPIO_Port GPIOA
 #define TEMP_Pin LL_GPIO_PIN_6
 #define TEMP_GPIO_Port GPIOA
 #define VLINE_Pin LL_GPIO_PIN_7
@@ -125,6 +127,8 @@ void Error_Handler(void);
 #define M23ENA_GPIO_Port GPIOB
 #define TBCMD_Pin LL_GPIO_PIN_15
 #define TBCMD_GPIO_Port GPIOB
+#define DHTIO_Pin LL_GPIO_PIN_8
+#define DHTIO_GPIO_Port GPIOA
 #define TBRX_Pin LL_GPIO_PIN_9
 #define TBRX_GPIO_Port GPIOA
 #define TBTX_Pin LL_GPIO_PIN_10
