@@ -276,15 +276,11 @@ static void MX_ADC1_Init(void)
   
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOA);
   /**ADC1 GPIO Configuration  
-  PA0-WKUP   ------> ADC1_IN0
   PA1   ------> ADC1_IN1
   PA4   ------> ADC1_IN4
-  PA5   ------> ADC1_IN5
-  PA6   ------> ADC1_IN6
-  PA7   ------> ADC1_IN7 
+  PA5   ------> ADC1_IN5 
   */
-  GPIO_InitStruct.Pin = OPTIC_Pin|LEAK1_Pin|LEAK2_Pin|LEAK3_Pin 
-                          |TEMP_Pin|VLINE_Pin;
+  GPIO_InitStruct.Pin = LEAK1_Pin|LEAK2_Pin|LEAK3_Pin;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_ANALOG;
   LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
@@ -306,8 +302,8 @@ static void MX_ADC1_Init(void)
   LL_ADC_REG_Init(ADC1, &ADC_REG_InitStruct);
   /** Configure Regular Channel 
   */
-  LL_ADC_REG_SetSequencerRanks(ADC1, LL_ADC_REG_RANK_1, LL_ADC_CHANNEL_0);
-  LL_ADC_SetChannelSamplingTime(ADC1, LL_ADC_CHANNEL_0, LL_ADC_SAMPLINGTIME_1CYCLE_5);
+  LL_ADC_REG_SetSequencerRanks(ADC1, LL_ADC_REG_RANK_1, LL_ADC_CHANNEL_1);
+  LL_ADC_SetChannelSamplingTime(ADC1, LL_ADC_CHANNEL_1, LL_ADC_SAMPLINGTIME_1CYCLE_5);
   /* USER CODE BEGIN ADC1_Init 2 */
 
   /* USER CODE END ADC1_Init 2 */
@@ -471,7 +467,7 @@ static void MX_TIM3_Init(void)
   PB4   ------> TIM3_CH1
   PB5   ------> TIM3_CH2 
   */
-  GPIO_InitStruct.Pin = PWM1_Pin|PWM2_Pin|PWM3_Pin|PWM4_Pin;
+  GPIO_InitStruct.Pin = PWM3_Pin|PWM4_Pin|PWM1_Pin|PWM2_Pin;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
   GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
   GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
@@ -615,9 +611,6 @@ static void MX_GPIO_Init(void)
   LL_GPIO_ResetOutputPin(M23ENA_GPIO_Port, M23ENA_Pin);
 
   /**/
-  LL_GPIO_ResetOutputPin(DHTIO_GPIO_Port, DHTIO_Pin);
-
-  /**/
   LL_GPIO_SetOutputPin(GPIOB, MCPRST_Pin|M1ENA_Pin|TBCMD_Pin);
 
   /**/
@@ -628,9 +621,16 @@ static void MX_GPIO_Init(void)
   LL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
 
   /**/
-  GPIO_InitStruct.Pin = DS18B20_IO_Pin|LPULSE1_Pin|LPULSE2_Pin|LPULSE_Pin 
+  GPIO_InitStruct.Pin = VLINE_Pin|OPTIC_Pin|OPTIC_WC_Pin;
+  GPIO_InitStruct.Mode = LL_GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = LL_GPIO_PULL_UP;
+  LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /**/
+  GPIO_InitStruct.Pin = DHTIO_Pin|QCH_D2_Pin|QCH_D3_Pin|LPULSE_Pin 
                           |QCH_D0_Pin|QCH_D1_Pin;
-  GPIO_InitStruct.Mode = LL_GPIO_MODE_FLOATING;
+  GPIO_InitStruct.Mode = LL_GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = LL_GPIO_PULL_UP;
   LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /**/
@@ -639,18 +639,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
   GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
   LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /**/
-  GPIO_InitStruct.Pin = DHTIO_Pin;
-  GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
-  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-  LL_GPIO_Init(DHTIO_GPIO_Port, &GPIO_InitStruct);
-
-  /**/
-  GPIO_InitStruct.Pin = QCH_D3_Pin|QCH_D2_Pin;
-  GPIO_InitStruct.Mode = LL_GPIO_MODE_FLOATING;
-  LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 }
 
