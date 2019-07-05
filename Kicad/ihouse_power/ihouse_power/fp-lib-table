@@ -4,4 +4,5 @@
   (lib (name uart_expander)(type KiCad)(uri D:/VentLib/alex_libs/TB387_UART_expander/uart_expander.pretty)(options "")(descr ""))
   (lib (name rj45_vertical_shelded)(type KiCad)(uri "D:/VentLib/alex_libs/Components/RJ45 Vertical Shelded/rj45_vertical_shelded.pretty")(options "")(descr ""))
   (lib (name ev1527)(type KiCad)(uri D:/VentLib/alex_libs/EV1527/ev1527.pretty)(options "")(descr ""))
+  (lib (name i2c_rtc_module)(type KiCad)(uri C:/Work/Git/VentLib/alex_libs/I2C_RTC_module/i2c_rtc_modulis.pretty)(options "")(descr ""))
 )

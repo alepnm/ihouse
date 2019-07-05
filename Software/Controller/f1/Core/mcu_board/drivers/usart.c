@@ -39,9 +39,9 @@ void USART_Config(uint8_t ucPORT, uint32_t ulBaudRate, uint32_t ulDataBits,  uin
     USART_InitStruct.BaudRate = ulBaudRate;
 
     switch(ulParity) {
-    case UART_PAR_ODD:
+    case PARITY_ODD:
         USART_InitStruct.Parity = LL_USART_PARITY_ODD;
-    case UART_PAR_EVEN:
+    case PARITY_EVEN:
         USART_InitStruct.Parity = LL_USART_PARITY_EVEN;
         USART_InitStruct.DataWidth = LL_USART_DATAWIDTH_9B;
         break;

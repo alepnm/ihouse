@@ -144,7 +144,7 @@ COM1
 Text HLabel 4800 3650 0    50   Input ~ 0
 ~MCPRST
 Text HLabel 4800 2850 0    50   Input ~ 0
-SCK
+SCL
 Text HLabel 4800 2750 0    50   BiDi ~ 0
 SDA
 Wire Wire Line

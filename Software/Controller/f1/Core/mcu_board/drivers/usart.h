@@ -12,8 +12,6 @@
 //#define MODBUS_PORT     PRIMARY_PORT
 
 
-enum { BR2400 = 0, BR4800, BR9600, BR14400, BR19200, BR38400, BR57600 }eBaudrate;
-enum { UART_PAR_NONE = 0, UART_PAR_ODD, UART_PAR_EVEN }eParity;
 
 enum {  USART_STATE_IDLE = 0,
         USART_STATE_BUSY,
@@ -27,17 +25,9 @@ enum {  USART_STATE_IDLE = 0,
 #define TX_BUFFER_SIZE     32
 
 
-typedef struct _port_register{
-    uint8_t             ePortState;                  // porto busena
-    uint8_t             PortError;
-    volatile uint8_t    PortTimer;                  //
-    uint8_t             ReceivedData;               // priimtas baitas
-    char                RxBuffer[RX_BUFFER_SIZE];   // porto RX buferis
-    char                TxBuffer[TX_BUFFER_SIZE];   // porto TX buferis
-    uint8_t             RxBufferIndex;              // porto RX buferio indeksas
-    uint8_t             TxBufferIndex;              // porto TX buferio indeksas
-    uint8_t             ReceiveTimeoutFlag;
-}PortRegister_TypeDef;
+typedef enum { PARITY_NONE = 0, PARITY_ODD, PARITY_EVEN } parity_t;
+typedef enum { BR2400 = 0, BR4800, BR9600, BR14400, BR19200, BR38400, BR57600 }baudrate_t;
+typedef enum { STOPBITS_1 = 0, STOPBITS_1_5, STOPBITS_2 } stopbits_t;
 
 
 typedef struct _port{
@@ -46,13 +36,23 @@ typedef struct _port{
 
     struct{
         uint8_t             MbAddr;
-        uint8_t             Baudrate;
-        uint8_t             Parity;
-        uint8_t             StopBits;
+        baudrate_t          Baudrate;
+        parity_t            Parity;
+        stopbits_t          StopBits;
         uint8_t             DataBits;
     }Config;
 
-    PortRegister_TypeDef    Registers;
+    struct{
+        uint8_t             ePortState;                 // porto busena
+        uint8_t             PortError;
+        volatile uint8_t    PortTimer;                  // porto taimeris
+        uint8_t             ReceivedData;               // priimtas baitas
+        uint8_t             RxBufferIndex;              // porto RX buferio indeksas
+        char                RxBuffer[RX_BUFFER_SIZE];   // porto RX buferis
+        uint8_t             TxBufferIndex;              // porto TX buferio indeksas
+        char                TxBuffer[TX_BUFFER_SIZE];   // porto TX buferis
+        uint8_t             ReceiveTimeoutFlag;
+    }Registers;
 
 }Port_TypeDef;
 

@@ -47,7 +47,7 @@ uint8_t TB387_Init(TB387_TypeDef *tb) {
 
     uint32_t wait_to = timestamp + 5000;
 
-    USART_Config(TB387_PORT, 9600, 8, UART_PAR_NONE);
+    USART_Config(TB387_PORT, 9600, 8, (uint8_t)PARITY_NONE);
 
     tb->ConfigModeIsActive = true;
 
@@ -148,7 +148,7 @@ void TB387_SetDefaults(TB387_TypeDef *tb){
 
     char *TxBuffer = SysData.Ports[TB387_PORT].Registers.TxBuffer;
 
-    USART_Config(TB387_PORT, 9600, 8,  UART_PAR_NONE);
+    USART_Config(TB387_PORT, 9600, 8,  (uint8_t)PARITY_NONE);
 
     tb->ConfigModeIsActive = true;
 

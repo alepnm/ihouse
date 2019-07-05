@@ -95,8 +95,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_Pin LL_GPIO_PIN_13
-#define LED_GPIO_Port GPIOC
+#define DHTIO_Pin LL_GPIO_PIN_13
+#define DHTIO_GPIO_Port GPIOC
 #define VLINE_Pin LL_GPIO_PIN_0
 #define VLINE_GPIO_Port GPIOA
 #define LEAK1_Pin LL_GPIO_PIN_1
@@ -113,8 +113,8 @@ void Error_Handler(void);
 #define PWM3_GPIO_Port GPIOB
 #define PWM4_Pin LL_GPIO_PIN_1
 #define PWM4_GPIO_Port GPIOB
-#define DHTIO_Pin LL_GPIO_PIN_2
-#define DHTIO_GPIO_Port GPIOB
+#define USER_SW_Pin LL_GPIO_PIN_2
+#define USER_SW_GPIO_Port GPIOB
 #define QCH_D2_Pin LL_GPIO_PIN_10
 #define QCH_D2_GPIO_Port GPIOB
 #define QCH_D3_Pin LL_GPIO_PIN_11
@@ -127,10 +127,14 @@ void Error_Handler(void);
 #define M23ENA_GPIO_Port GPIOB
 #define TBCMD_Pin LL_GPIO_PIN_15
 #define TBCMD_GPIO_Port GPIOB
+#define RCEN_Pin LL_GPIO_PIN_8
+#define RCEN_GPIO_Port GPIOA
 #define TBRX_Pin LL_GPIO_PIN_9
 #define TBRX_GPIO_Port GPIOA
 #define TBTX_Pin LL_GPIO_PIN_10
 #define TBTX_GPIO_Port GPIOA
+#define BUZZ_Pin LL_GPIO_PIN_11
+#define BUZZ_GPIO_Port GPIOA
 #define LPULSE_Pin LL_GPIO_PIN_3
 #define LPULSE_GPIO_Port GPIOB
 #define PWM1_Pin LL_GPIO_PIN_4

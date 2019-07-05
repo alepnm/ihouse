@@ -20,23 +20,21 @@ void BSP_SystemInit(SysData_TypeDef *self) {
     self->Ports[PRIMARY_PORT].handle = USART1;
     self->Ports[PRIMARY_PORT].Config.MbAddr = 10;
     self->Ports[PRIMARY_PORT].Config.Baudrate = BR19200;
-    self->Ports[PRIMARY_PORT].Config.Parity = UART_PAR_NONE;
-    self->Ports[PRIMARY_PORT].Config.StopBits = 1;
+    self->Ports[PRIMARY_PORT].Config.Parity = PARITY_NONE;
+    self->Ports[PRIMARY_PORT].Config.StopBits = STOPBITS_1;
     self->Ports[PRIMARY_PORT].Config.DataBits = 8;
-    self->Ports[PRIMARY_PORT].Config.Parity = UART_PAR_NONE;
     self->Ports[PRIMARY_PORT].Registers.ReceiveTimeoutFlag = false;
 
     self->Ports[SECONDARY_PORT].handle = USART2;
     self->Ports[SECONDARY_PORT].Config.MbAddr = 10;
     self->Ports[SECONDARY_PORT].Config.Baudrate = BR19200;
-    self->Ports[SECONDARY_PORT].Config.Parity = UART_PAR_NONE;
-    self->Ports[SECONDARY_PORT].Config.StopBits = 1;
+    self->Ports[SECONDARY_PORT].Config.Parity = PARITY_NONE;
+    self->Ports[SECONDARY_PORT].Config.StopBits = STOPBITS_1;
     self->Ports[SECONDARY_PORT].Config.DataBits = 8;
-    self->Ports[SECONDARY_PORT].Config.Parity = UART_PAR_NONE;
     self->Ports[SECONDARY_PORT].Registers.ReceiveTimeoutFlag = false;
 
-    USART_Config(TB387_PORT, baudrates[self->Ports[TB387_PORT].Config.Baudrate], self->Ports[TB387_PORT].Config.DataBits, self->Ports[TB387_PORT].Config.Parity);
-    USART_Config(NEXTION_PORT, 9600, 8, UART_PAR_NONE);
+    USART_Config(TB387_PORT, baudrates[self->Ports[TB387_PORT].Config.Baudrate], self->Ports[TB387_PORT].Config.DataBits, (uint8_t)self->Ports[TB387_PORT].Config.Parity);
+    USART_Config(NEXTION_PORT, 9600, 8, (uint8_t)PARITY_NONE);
 
     SysData.Temperature = &Temperature;
     SysData.TemperatureString = TemperatureString;
